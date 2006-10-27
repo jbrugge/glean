@@ -1,0 +1,87 @@
+<project name="reports" default="reports" basedir=".">
+    <description>Run reporting or feedback tools over a set of source code</description>
+
+    <property file="${project.root}/report.properties"/>
+    <property file="report.properties.local"/>
+    <property file="report.properties"/>
+
+    <!-- Override this property to selectively run reports -->
+    <property name="report.pattern" value="*"/>
+
+    <!-- Override this property to point to the base of the target project -->
+    <property name="project.root"       location="${basedir}"/>
+
+    <!-- Override this property to point to the base of the report output structure -->
+    <property name="gen.report.root"    location="${project.root}/reports"/>
+
+    <!-- Property that can be used to refer to the name of the code project -->
+    <basename property="src.project.name"   file="${project.root}"/>
+
+    <property name="report.log.dir"     location="${basedir}/logs"/>
+
+    <!-- Report deployment properties -->
+    <property name="report.war.dir"     location="${basedir}/target"/>
+    <property name="report.war.file"    value="${src.project.name}-reports.war"/>
+
+    <!-- Override this property to point to the location for WAR deployment --> 
+    <property name="report.deploy.dir"  location="${tomcat.home}/webapps"/>
+
+    <property name="project.report.summary" location="${gen.report.root}/report-summary.xml"/>
+    
+    <tstamp>
+        <format pattern="MM-dd-yyyy-hhmm" property="report.timestamp"/>
+    </tstamp>
+
+    <target name="reports" description="Generate feedback reports">
+        <echo message="Creating log directory at ${report.log.dir}"/>
+        <mkdir dir="${report.log.dir}"/>
+        <record name="${report.log.dir}/report-${src.project.name}-${report.timestamp}.log"/>
+
+        <echo message="&lt;project-report name=${src.project.name} time=${report.timestamp}&gt;" 
+            file="${project.report.summary}" append="no"/>
+            
+        <subant
+            inheritall="no"
+            failonerror="no">
+            <!-- Other common properties specific to reports are available in reports-common.xml -->
+            <property name="report.script.dir"  location="${basedir}"/>
+            <property name="project.root"       location="${project.root}"/>
+            <property name="gen.report.root"    location="${gen.report.root}"/>
+            <property name="src.project.name"   value="${src.project.name}"/>
+            <property name="report.timestamp"   value="${report.timestamp}"/>
+
+            <!-- Run every report that matches our pattern-->
+            <dirset dir="report" includes="${report.pattern}"/>
+        </subant>
+
+        <echo message="&lt;/project-report&gt;" 
+            file="${project.report.summary}" append="yes"/>
+            
+    </target>
+
+    <target name="clean-reports" description="Clean out generated report files">
+        <delete dir="${gen.report.root}"/>
+    </target>
+
+    <target name="package-reports" depends="reports"
+        description="Bundle all of the report files into a deployable WAR">
+        <mkdir dir="${report.war.dir}"/>
+        <war destfile="${report.war.dir}/${report.war.file}"
+            webxml="webapp/WEB-INF/web.xml">
+            <fileset dir="${gen.report.root}"/>
+            <fileset dir="webapp">
+                <include name="**/*.css"/>
+            </fileset>
+        </war>
+    </target>
+
+    <target name="deploy-reports" depends="package-reports"
+        description="Deploy a report WAR to an app server">
+        <copy file="${report.war.dir}/${report.war.file}"
+             todir="${report.deploy.dir}"/>
+    </target>
+
+    <target name="all" depends="clean-reports, deploy-reports"
+        description="Runs and deploys a clean set of reports" />
+
+</project>

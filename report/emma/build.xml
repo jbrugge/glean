@@ -1,0 +1,86 @@
+<project name="emma" default="coverage" basedir=".">
+    <description>Run unit test coverage report</description>
+
+    <import file="${report.script.dir}/reports-common.xml"/>
+
+    <taskdef resource="emma_ant.properties" classpathref="tool.classpath" />
+
+    <property name="test.bin.dir"       location="${bin.dir}"/>
+    <property name="test.script"        location="${project.root}/test.xml"/>
+
+    <!-- We need to have a build script that can execute our unit tests -->
+    <import file="${test.script}"/>
+
+    <!-- Individual projects can define their own filters, or just use the default one. -->
+    <property name="project.report.filter"   value="${project.root}/report-src/emma-filters.txt"/>
+    <property name="default.filter"          value="filters.txt"/>
+
+    <!-- output directory used for EMMA work files and coverage reports: -->
+    <property name="coverage.dir" value="${gen.report.dir}/coverage" />
+
+    <!-- EMMA instr class output directory: -->
+    <property name="out.instr.dir" value="${gen.report.dir}/outinstr" />
+
+    <!-- Path to files that will be instrumented -->
+    <path id="run.classpath">
+        <pathelement location="${bin.dir}"/>
+    </path>
+
+    <!-- Path for unit tests -->
+    <path id="emma.test.classpath">
+        <pathelement location="${out.instr.dir}"/>
+        <path refid="report.classpath"/>
+    </path>
+
+    <target name="emma" description="turns on EMMA instrumentation/reporting" >
+        <property name="emma.enabled" value="true" />
+        <delete dir="${out.instr.dir}"/>
+        <mkdir dir="${out.instr.dir}" />
+
+        <!-- If a set of filters is defined for the current project, use it.
+             Otherwise, use the default filters.-->
+        <available file="${project.report.filter}"
+                property="report.filter"
+                value="${project.report.filter}"/>
+        <property name="report.filter" value="${default.filter}"/>
+    </target>
+
+    <target name="coverage" depends="init, emma">
+        <!-- Instrument the code -->
+        <emma enabled="${emma.enabled}" >
+            <instr instrpathref="run.classpath"
+                   destdir="${out.instr.dir}"
+                   metadatafile="${coverage.dir}/metadata.emma"
+                   merge="false"
+            >
+                <filter file="${report.filter}"/>
+            </instr>
+        </emma>
+
+        <!-- Run the tests -->
+        <test
+            test-class-dir="${test.bin.dir}">
+            <extra-classpath>
+                <path refid="emma.test.classpath"/>
+            </extra-classpath>
+            <jvmargs>
+                <jvmarg value="-Demma.coverage.out.file=${coverage.dir}/coverage.emma" />
+                <jvmarg value="-Demma.coverage.out.merge=false" />
+            </jvmargs>
+        </test>
+
+        <!-- Generate the report -->
+        <emma enabled="${emma.enabled}" >
+            <report sourcepath="${src.dir}"
+                    sort="+name">
+                <fileset dir="${coverage.dir}" >
+                    <include name="*.emma" />
+                </fileset>
+
+                <txt outfile="${coverage.dir}/coverage.txt" />
+                <html outfile="${coverage.dir}/coverage.html" />
+           </report>
+        </emma>
+    </target>
+</project>
+

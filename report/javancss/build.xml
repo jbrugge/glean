@@ -1,0 +1,25 @@
+<project name="javancss" default="report" basedir=".">
+    <description>Calculate Non-Commenting Source Statements (NCSS)</description>
+
+    <import file="${report.script.dir}/reports-common.xml"/>
+
+    <taskdef name="javancss" classname="javancss.JavancssAntTask"
+        classpathref="tool.classpath"/>
+
+    <target name="report" depends="init, javancss, transform"/>
+
+    <target name="javancss">
+        <javancss
+              srcdir="${src.dir}"
+              includes="**/*.java"
+              generateReport="yes"
+              outputfile="${gen.report.dir}/${report.name}.${report.format}"
+              format="${report.format}"
+              packageMetrics="yes"
+              classMetrics="yes"
+              functionMetrics="yes"
+              />
+    </target>
+
+</project>
+

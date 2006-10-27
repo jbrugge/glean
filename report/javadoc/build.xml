@@ -1,0 +1,35 @@
+<project name="javadoc" default="javadoc-report" basedir=".">
+    <description>Create JavaDoc API documentation</description>
+
+    <property file="${project.root}/build.properties"/>
+
+    <import file="${report.script.dir}/reports-common.xml"/>
+
+    <property name="report.title"       value="${src.project.name} API"/>
+    <property name="report.header"      value="${src.project.name}"/>
+    <property name="report.overview"    value="${src.dir}/overview.html"/>
+    <property name="jdk5.javadoc.link"  value="http://java.sun.com/j2se/1.5.0/docs/api/"/>
+
+    <target name="javadoc-report" depends="init, javadoc"/>
+
+    <target name="javadoc">
+        <javadoc
+            classpathref="tool.classpath"
+            destdir="${gen.report.dir}"
+            use="true"
+            windowtitle="${report.title}"
+            overview="${report.overview}"
+            includenosourcepackages="yes"
+            breakiterator="yes"
+            useexternalfile="yes"
+        >
+            <arg value="-quiet"/>
+            <packageset dir="${src.dir}"/>
+            <doctitle>${report.title}</doctitle>
+            <header><![CDATA[<b>]]>${report.header}<![CDATA[</b>]]></header>
+            <link href="${jdk5.javadoc.link}"/>
+        </javadoc>
+    </target>
+
+</project>
+

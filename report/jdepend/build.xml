@@ -1,0 +1,59 @@
+<project name="jdepend" default="report" basedir=".">
+    <description>Report on package-level dependency metrics</description>
+
+    <import file="${report.script.dir}/reports-common.xml"/>
+
+    <target name="report" depends="init, jdepend, transform, graph"/>
+
+    <path id="classes.dir.path">
+        <dirset dir="${bin.dir}">
+            <exclude name="**/test"/>
+        </dirset>
+    </path>
+
+    <target name="check-bin">
+        <available property="class.files.available" 
+                   file="${bin.dir}" type="dir"/>
+    </target>
+    
+    <target name="jdepend" depends="check-bin" if="class.files.available">
+        <jdepend
+              fork="true"
+              outputfile="${gen.report.dir}/${report.name}.${report.format}"
+              format="${report.format}"
+              classpathref="tool.classpath"
+              >
+            <classespath>
+                <path refid="classes.dir.path"/>
+            </classespath>
+        </jdepend>
+    </target>
+
+    <target name="check-graphviz-present">
+        <available property="graphviz.present"
+                   file="dot"/>
+    </target>
+    
+    <target name="graph" depends="check-graphviz-present" if="graphviz.present"
+        description="Create a diagram using GraphViz">
+        <style basedir="${gen.report.dir}"
+           destdir="${gen.report.dir}"
+           includes="${report.name}.xml"
+           extension=".dot"
+           style="jdepend2dot.xsl"/>
+
+        <apply executable="dot"
+                dest="${gen.report.dir}"
+                parallel="false"
+                output="${gen.report.dir}/dot-output.log"   >
+            <arg value="-Tpng"/>
+            <arg value="-o"/>
+            <targetfile/>
+            <srcfile/>
+            <fileset dir="${gen.report.dir}" includes="*.dot"/>
+            <mapper type="glob" from="*.dot" to="*.png"/>
+        </apply>
+    </target>
+
+</project>
+

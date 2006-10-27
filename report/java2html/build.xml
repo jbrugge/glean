@@ -1,0 +1,25 @@
+<project name="java2html" default="java2html">
+    <description>Convert Java source to cross-referenced HTML</description>
+
+    <import file="${report.script.dir}/reports-common.xml"/>
+
+    <taskdef name="java2html"
+        classname="de.java2html.anttasks.Java2HtmlTask"
+        classpathref="tool.classpath"
+    />
+
+    <target name="java2html" depends="init">
+        <java2html
+          srcdir="${src.dir}"
+          destdir="${gen.report.dir}"
+          includes="**/*.java"
+          style="eclipse"
+          showLineNumbers="yes"
+          showFileName="yes"
+          tabs="4"
+          addLineAnchors="yes"
+          />
+    </target>
+
+</project>
+

@@ -1,0 +1,107 @@
+<project name="reports-common" >
+    <description>Common attributes and targets for source code reports</description>
+
+    <!-- Get the basedir where our report is running, without relying on 'basedir' -->
+    <dirname property="tool.home"       file="${ant.file}"/>
+
+    <!-- Properties can be overridden at the code project or individual report level -->
+    <property file="${tool.home}/report.properties.local"/>
+    <property file="${project.root}/report.properties.local"/>
+    
+    <property file="${report.script.dir}/report.properties"/>
+    <property file="${project.root}/report.properties"/>
+    <property file="${tool.home}/report.properties"/>
+
+    <!-- Default locations for source, binary, and tools -->
+    <property name="src.dir"            location="${project.root}/src"/>
+    <property name="bin.dir"            location="${project.root}/bin"/>
+    <property name="lib.dir"            location="${project.root}/lib"/>
+
+    <!-- Default properties for an individual report -->
+    <property name="gen.report.dir"     location="${gen.report.root}/${ant.project.name}"/>
+    <property name="report.css"         value="${report.script.dir}/reports.css"/>
+    <property name="report.name"        value="${src.project.name}-${ant.project.name}-report"/>
+    <property name="styled.report.name" value="index"/>
+    <property name="report.format"      value="xml"/>
+    <property name="report.stylesheet"  value="${ant.project.name}.xsl"/>
+
+    <!-- Classpath for source code dependencies -->
+    <path id="build.classpath">
+        <fileset dir="${lib.dir}">
+            <include name="**/*.jar"/>
+        </fileset>
+        <pathelement location="${bin.dir}"/>
+    </path>
+
+    <!-- Classpath for tool dependencies -->
+    <path id="tool.classpath">
+        <fileset dir="${tool.home}">
+            <include name="**/*.jar"/>
+        </fileset>
+        <pathelement location="${tool.home}"/>
+        <path refid="build.classpath"/>
+    </path>
+
+    <!-- Classpath for report tasks -->
+    <path id="report.classpath">
+        <path refid="tool.classpath"/>
+    </path>
+
+    <!-- A filter to insert project-specific and build-specific values into files -->
+    <filterset id="report.filter">
+        <filter token="PROJECT"     value="${src.project.name}"/>
+        <filter token="BUILDTIME"   value="${report.timestamp}"/>
+    </filterset>    
+
+    <target name="disabled" description="An empty task to allow the report to be disabled"/>
+    
+    <tstamp>
+        <format pattern="MM-dd-yyyy-hhmm" property="report.timestamp"/>
+    </tstamp>
+
+    <!-- Shared tasks -->
+    <target name="init"
+        description="Basic report setup">
+        <mkdir dir="${gen.report.dir}"/>
+        <copy file="${report.css}" todir="${gen.report.dir}"/>
+    </target>
+
+    <target name="transform" depends="check-stylesheet" if="stylesheet.present">
+        <report-style/>
+    </target>
+
+    <target name="check-stylesheet"
+        description="Check whether this report uses a stylesheet to generate HTML">
+
+        <!-- Check for it as either a loose file or as a resource on the classpath -->
+        <echo message="Looking for resource ${report.stylesheet}"/>
+        <available
+            property="stylesheet.present"
+            file="${report.stylesheet}"
+            classpathref="tool.classpath"/>
+
+        <available
+            property="stylesheet.present"
+            resource="${report.stylesheet}"
+            classpathref="tool.classpath"/>
+    </target>
+
+    <!-- Common macrodefs -->
+    <macrodef name="report-style">
+        <attribute name="input.file" default="${gen.report.dir}/${report.name}.xml"/>
+        <attribute name="output.file" default="${gen.report.dir}/${styled.report.name}.html"/>
+        <attribute name="stylesheet" default="${report.stylesheet}"/>
+        <element name="extra.params" optional="true" implicit="true"/>
+        <sequential>
+            <style basedir="." destdir="."
+                in="@{input.file}" 
+                out="@{output.file}"
+                style="@{stylesheet}">
+              <param name="project" expression="${src.project.name}" />
+              <param name="today" expression="${report.timestamp}" />
+              <extra.params/>
+            </style>
+        </sequential>
+    </macrodef>
+    
+</project>

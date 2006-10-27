@@ -1,0 +1,33 @@
+<project name="cpd" default="report" basedir=".">
+    <description>Detects copy/paste segments in source</description>
+
+    <!-- Until we have an XSL stylesheet, we will just put out text -->
+    <property name="report.format"      value="text"/>
+
+    <import file="${report.script.dir}/reports-common.xml"/>
+
+    <property name="link.prefix"        value="../java2html"/>
+
+    <taskdef name="cpd" classname="net.sourceforge.pmd.cpd.CPDTask"
+        classpathref="tool.classpath"/>
+
+    <target name="report" depends="init, cpd, transform"/>
+
+    <target name="cpd">
+        <cpd minimumTokenCount="100"
+            outputFile="${gen.report.dir}/${report.name}.${report.format}"
+            format="${report.format}">
+                <fileset dir="${src.dir}">
+                    <include name="**/*.java"/>
+                </fileset>
+        </cpd>
+    </target>
+
+    <target name="transform" depends="check-stylesheet" if="stylesheet.present">
+        <report-style>
+            <extra-params>
+                <param name="context-root" expression="${link.prefix}" />
+            </extra-params>
+        </report-style>
+    </target>
+</project>
