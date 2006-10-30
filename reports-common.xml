@@ -13,20 +13,6 @@
     
     <property file="${report.script.dir}/report.properties"/>
 
-    <!-- Default locations for source, binary, and tools -->
-    <property name="src.dir"            location="${project.root}/src"/>
-    <property name="bin.dir"            location="${project.root}/bin"/>
-    <property name="lib.dir"            location="${project.root}/lib"/>
-
-    <!-- Default properties for an individual report -->
-    <property name="gen.report.dir"     location="${gen.report.root}/${ant.project.name}"/>
-    <property name="report.css"         value="${report.script.dir}/reports.css"/>
-    <property name="report.name"        value="${src.project.name}-${ant.project.name}-report"/>
-    <property name="styled.report.name" value="index"/>
-    <property name="report.format"      value="xml"/>
-    <property name="report.stylesheet"  value="${ant.project.name}.xsl"/>
-    <property name="report.description" value="NO DESCRIPTION AVAILABLE"/>
-
     <!-- Classpath for source code dependencies -->
     <path id="build.classpath">
         <fileset dir="${lib.dir}">
@@ -61,6 +47,7 @@
         <mkdir dir="${gen.report.dir}"/>
         <copy file="${report.css}" todir="${gen.report.dir}"/>
 
+	<!-- Generate an element in the summary report for this tool -->
         <echo message="&lt;report name=&quot;${ant.project.name}&quot; description=&quot;${report.description}&quot; &gt;" 
             file="${project.report.summary}" append="yes"/> 
     </target>
@@ -73,7 +60,6 @@
         description="Check whether this report uses a stylesheet to generate HTML">
 
         <!-- Check for it as either a loose file or as a resource on the classpath -->
-        <echo message="Looking for resource ${report.stylesheet}"/>
         <available
             property="stylesheet.present"
             file="${report.stylesheet}"
