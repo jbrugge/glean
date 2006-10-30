@@ -1,5 +1,7 @@
 <project name="cpd" default="report" basedir=".">
-    <description>Detects copy/paste segments in source</description>
+    <property name="report.description" value="Detects copy/paste segments in source"/>
+    
+    <description>${report.description}</description>
 
     <!-- Until we have an XSL stylesheet, we will just put out text -->
     <property name="report.format"      value="text"/>

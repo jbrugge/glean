@@ -5,12 +5,13 @@
     <dirname property="tool.home"       file="${ant.file}"/>
 
     <!-- Properties can be overridden at the code project or individual report level -->
-    <property file="${tool.home}/report.properties.local"/>
     <property file="${project.root}/report.properties.local"/>
+    <property file="${project.root}/report.properties"/>
+
+    <property file="${tool.home}/report.properties.local"/>    
+    <property file="${tool.home}/report.properties"/>
     
     <property file="${report.script.dir}/report.properties"/>
-    <property file="${project.root}/report.properties"/>
-    <property file="${tool.home}/report.properties"/>
 
     <!-- Default locations for source, binary, and tools -->
     <property name="src.dir"            location="${project.root}/src"/>
@@ -24,6 +25,7 @@
     <property name="styled.report.name" value="index"/>
     <property name="report.format"      value="xml"/>
     <property name="report.stylesheet"  value="${ant.project.name}.xsl"/>
+    <property name="report.description" value="NO DESCRIPTION AVAILABLE"/>
 
     <!-- Classpath for source code dependencies -->
     <path id="build.classpath">
@@ -47,12 +49,6 @@
         <path refid="tool.classpath"/>
     </path>
 
-    <!-- A filter to insert project-specific and build-specific values into files -->
-    <filterset id="report.filter">
-        <filter token="PROJECT"     value="${src.project.name}"/>
-        <filter token="BUILDTIME"   value="${report.timestamp}"/>
-    </filterset>    
-
     <target name="disabled" description="An empty task to allow the report to be disabled"/>
     
     <tstamp>
@@ -64,6 +60,9 @@
         description="Basic report setup">
         <mkdir dir="${gen.report.dir}"/>
         <copy file="${report.css}" todir="${gen.report.dir}"/>
+
+        <echo message="&lt;report name=&quot;${ant.project.name}&quot; description=&quot;${report.description}&quot; &gt;" 
+            file="${project.report.summary}" append="yes"/> 
     </target>
 
     <target name="transform" depends="check-stylesheet" if="stylesheet.present">
