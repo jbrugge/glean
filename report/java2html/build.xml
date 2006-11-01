@@ -1,5 +1,7 @@
 <project name="java2html" default="java2html">
-    <description>Convert Java source to cross-referenced HTML</description>
+    <property name="report.description" value="Convert Java source to cross-referenced HTML"/>
+    
+    <description>${report.description}</description>
 
     <import file="${report.script.dir}/reports-common.xml"/>
 

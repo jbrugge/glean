@@ -1,5 +1,7 @@
 <project name="jdepend" default="report" basedir=".">
-    <description>Report on package-level dependency metrics</description>
+    <property name="report.description" value="Report on package-level dependency metrics"/>
+    
+    <description>${report.description}</description>
 
     <import file="${report.script.dir}/reports-common.xml"/>
 

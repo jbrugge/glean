@@ -1,5 +1,7 @@
 <project name="emma" default="coverage" basedir=".">
-    <description>Run unit test coverage report</description>
+    <property name="report.description" value="Unit test coverage report"/>
+    
+    <description>${report.description}</description>
 
     <import file="${report.script.dir}/reports-common.xml"/>
 

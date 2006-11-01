@@ -1,5 +1,7 @@
 <project name="pmd" default="report" basedir=".">
-    <description>Static analysis of source files using design and style rules</description>
+    <property name="report.description" value="Static analysis of source files using design and style rules"/>
+    
+    <description>${report.description}</description>
 
     <import file="${report.script.dir}/reports-common.xml"/>
 

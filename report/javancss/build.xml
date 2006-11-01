@@ -1,5 +1,7 @@
 <project name="javancss" default="report" basedir=".">
-    <description>Calculate Non-Commenting Source Statements (NCSS)</description>
+    <property name="report.description" value="Calculate Non-Commenting Source Statements (NCSS)"/>
+    
+    <description>${report.description}</description>
 
     <import file="${report.script.dir}/reports-common.xml"/>
 

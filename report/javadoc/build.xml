@@ -1,5 +1,7 @@
 <project name="javadoc" default="javadoc-report" basedir=".">
-    <description>Create JavaDoc API documentation</description>
+    <property name="report.description" value="Create JavaDoc API documentation"/>
+    
+    <description>${report.description}</description>
 
     <property file="${project.root}/build.properties"/>
 

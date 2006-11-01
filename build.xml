@@ -47,7 +47,15 @@
         <delete dir="${gen.report.root}"/>
     </target>
 
-    <target name="package-reports" depends="reports"
+    <target name="reports-summary" description="Create summary page of reports run">
+        <style basedir="." destdir="."
+            in="${project.report.summary}" 
+            out="${project.report.page}"
+            style="${project.report.stylesheet}">
+        </style>    
+    </target>
+    
+    <target name="package-reports" depends="reports, reports-summary"
         description="Bundle all of the report files into a deployable WAR">
         <mkdir dir="${report.war.dir}"/>
         <war destfile="${report.war.dir}/${report.war.file}"

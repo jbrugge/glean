@@ -1,5 +1,7 @@
 <project name="umlgraph" default="umlgraph">
-    <description>Generates UML class diagrams from source code</description>
+    <property name="report.description" value="UML class diagrams from source code"/>
+    
+    <description>${report.description}</description>
 
     <property file="${project.root}/build.properties"/>
 

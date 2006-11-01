@@ -8,7 +8,10 @@
          This will show up on the summary page of reports, as well as provide
          documentation of the script.
     -->
-    <description>DESCRIBE WHAT FEEDBACK THE TOOL PROVIDES (e.g. "Reports on the number of lines of code")</description>
+    <property name="report.description" 
+             value="DESCRIBE WHAT FEEDBACK THE TOOL PROVIDES (e.g. Reports on the number of lines of code)"/>
+    
+    <description>${report.description}</description>
 
     <!-- Keep this here. All of the setup of common properties is done in this include -->
     <import file="${report.script.dir}/reports-common.xml"/>
