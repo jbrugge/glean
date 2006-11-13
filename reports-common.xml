@@ -76,7 +76,7 @@
         <attribute name="input.file" default="${gen.report.dir}/${report.name}.xml"/>
         <attribute name="output.file" default="${gen.report.dir}/${styled.report.name}.html"/>
         <attribute name="stylesheet" default="${report.stylesheet}"/>
-        <element name="extra.params" optional="true" implicit="true"/>
+        <element name="extra.params" optional="true"/>
         <sequential>
             <style basedir="." destdir="."
                 in="@{input.file}" 
