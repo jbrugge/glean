@@ -1,0 +1,29 @@
+<project name="doccheck" default="report" basedir=".">
+    <property name="description" value="Checks completion of JavaDoc comments"/>
+    <description>${description}</description>
+
+    <import file="${report.script.dir}/reports-common.xml"/>
+
+    <property name="report.title"       value="${src.project.name}"/>
+
+    <target name="report" depends="init, doccheck, transform"/>
+
+    <target name="doccheck">
+        <javadoc
+            classpathref="tool.classpath"
+            destdir="${gen.report.dir}"
+            verbose="false"
+                >
+            <doclet name="com.sun.tools.doclets.doccheck.DocCheck"
+                    path="${tool.home}/doccheck.jar"
+                    >
+                <param name="-docletID"/>
+                <param name="-title" value="${report.title}"/>
+            </doclet>
+            <packageset dir="${src.dir}" defaultexcludes="yes">
+            </packageset>
+        </javadoc>
+    </target>
+
+</project>
+
