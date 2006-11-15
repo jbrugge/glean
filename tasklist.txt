@@ -1,0 +1,94 @@
+CodeFeedback Tasks
+==================
+
++ build.xml : common driver script
+    - basic properties
+    - subant loop
+    
++ reports-common.xml : common properties and elements for reports
+    - path refs
+    - tasks
+    
++ basic webapp elements
+    - web.xml
+    - report-style.css (use only one copy, at root of webapp)
+
++ template report script
+    - build.xml
+    - description property
+    - report.properties
+
++ reports (basic)
+    - cpd
+    - doccheck
+    - java2html
+    - javadoc
+    - javancss
+    - jdepend
+    - pmd
+
+- reports (extra)
+    - checkstyle
+    - umlgraph
+    - emma
+    - cobertura
+    - schemaspy
+    - svnstats
+    - statcvs
+    - junitreport
+    - sequence
+    - jaranalyzer
+    - beandoc
+    - hbm2doc
+    
+- report categories
+    - documentation
+    - metrics
+    - analysis
+    
+- docs
+    - installation
+    - running from command line
+        - from within target project?
+        - from within CodeFeedback project?
+    - running from CC
+    - modifying
+        - overriding properties
+        - specifying specific reports
+        - disabling reports
+    - creating new reports
+    - FAQ
+    - version history?
+    - example projects
+        - apache-ant
+        - cruisecontrol
+        - spring-framework
+
+- hosting environment
+    - mailing lists
+    - source repository
+    - issue tracker
+    - options:
+        http://code.google.com/hosting/
+        http://sourceforge.net/
+        http://www.ibiblio.org/fosphost/exhost.htm
+        http://jbrugge.com
+        
+- licensing
+    http://www.opensource.org/licenses/index.php
+    http://www.nedbatchelder.com/blog/200510.html#e20051016T092523
+    http://zooko.com/license_quick_ref.html
+    
+- extras
+    - CC config
+    - add "<fail unless...>" to scripts for informative failures
+    - add timer to reports
+    - handle reports with multiple output (UMLGraph, JDepend)
+
+- stylesheets
+    - home page
+    - CPD
+    - 
+    
+- defects
+    - Javadoc fails if you pass in a package of '' (see CruiseControl source).

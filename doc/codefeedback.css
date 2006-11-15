@@ -1,6 +1,8 @@
 body {
-  margin:0px; background-color:#f7f7f7; 
-  font-family:Arial,Helvetica,sans-serif; font-size:11pt;
+  margin:0px; 
+  #background-color:#f7f7f7; 
+  font-family:Arial,Verdana,Helvetica,sans-serif; 
+  font-size:11pt;
 }
 textarea, pre, code { font-size:0.9em; }
 pre, code { font-family:'Lucida Console','Andale Mono','Courier New',Courier; }
@@ -17,31 +19,44 @@ h3 { font-size:1.22em; }
 h4 { font-size:1.07em; }
 h5 { font-size:1.0em; }
 h6 { font-size:1.0em; }
+div#header {
+	height:100px;
+	overflow:hidden;
+	/*background-image:			url(/images/rubygems-125x125.png);*/
+}
+div#navigation {
+ float:left;
+ left:5px;
+ width:150px;
+}
+div#main {
+ #border-left:1px solid #ccc;
+ background-color:#fff;
+ margin-left:150px;
+}
 
-div#rightcolumn-context {
- margin-left:168px;
+div.faq {
 }
-div#background-drape {
- border-left:1px solid #ccc;
- background-color:#fff;
- margin-left:-1px;
+
+div.faq div.question {
+	font-style: italic;
+	font-weight: bold;
 }
-div#rightcolumn-frame {
- float:left;
- margin-left:-1px;
+
+div.faq div.question p {
+	margin-bottom: 0px;
 }
-div#rightcolumn-liner {
- border-left:1px solid #ccc;
- padding:0 10px 10px 10px;
- background-color:#fff;
+
+div.faq div.answer {
 }
-div#leftcolumn-frame {
- float:left;
- width:168px;
+
+div.faq div.answer p {
+	margin-top: 0px;
 }
-div#leftcolumn-liner {
- border-right:1px solid #ccc;
- background-color:#f7f7f7;
- padding:6px;
+
+div#footer {
+	font-size: 85%;
+	font-style: italic;
+	text-align: center;
 }
 
