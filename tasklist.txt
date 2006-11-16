@@ -40,6 +40,10 @@ CodeFeedback Tasks
     - jaranalyzer
     - beandoc
     - hbm2doc
+    - http://www.lumrix.de/xsbrowser.php
+    - http://xframe.sourceforge.net/xsddoc/index.html
+    - cvsdiff
+    - cvschangelog
     
 - report categories
     - documentation
@@ -63,6 +67,11 @@ CodeFeedback Tasks
         - apache-ant
         - cruisecontrol
         - spring-framework
+    - building docs from templates
+        - http://www.thexmlsite.com/
+        - http://www.sagehill.net/docbookxsl/GenerateWebpages.html
+        - http://jakarta.apache.org/velocity/docs/anakia.html
+        - http://freemarker.sourceforge.net/
 
 - hosting environment
     - mailing lists
