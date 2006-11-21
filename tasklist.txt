@@ -20,7 +20,6 @@ CodeFeedback Tasks
 
 + reports (basic)
     - cpd
-    - doccheck
     - java2html
     - javadoc
     - javancss
@@ -28,18 +27,20 @@ CodeFeedback Tasks
     - pmd
 
 - reports (extra)
-    - checkstyle
-    - umlgraph
-    - emma
-    - cobertura
-    - schemaspy
-    - svnstats
-    - statcvs
-    - junitreport
-    - sequence
-    - jaranalyzer
     - beandoc
+    - checkstyle
+    - cobertura
+    - doccheck
+    - emma
     - hbm2doc
+    - findbugs
+    - jaranalyzer
+    - junitreport
+    - schemaspy
+    - sequence
+    - statcvs
+    - svnstats
+    - umlgraph
     - http://www.lumrix.de/xsbrowser.php
     - http://xframe.sourceforge.net/xsddoc/index.html
     - cvsdiff
@@ -52,6 +53,7 @@ CodeFeedback Tasks
     
 - docs
     - installation
+    - screenshots
     - running from command line
         - from within target project?
         - from within CodeFeedback project?
@@ -67,6 +69,8 @@ CodeFeedback Tasks
         - apache-ant
         - cruisecontrol
         - spring-framework
+        - Java Petstore
+        - Struts Sampleapp
     - building docs from templates
         - http://www.thexmlsite.com/
         - http://www.sagehill.net/docbookxsl/GenerateWebpages.html
@@ -92,12 +96,20 @@ CodeFeedback Tasks
     - CC config
     - add "<fail unless...>" to scripts for informative failures
     - add timer to reports
-    - handle reports with multiple output (UMLGraph, JDepend)
+    - wrapper for consolidating output from multiple projects
+    - handle reports with multiple modes of output (Emma, UMLGraph, JDepend)
 
 - stylesheets
     - home page
     - CPD
-    - 
+    - FindBugs
+    
+- project name?
+    - CodeFeedback
+    - CodeReports
+    - FeedbackCentral (no, shorthand would be "FeCe")
+    - FeedbackCollector (no, shorthand would be "FeColl")
+    - DMA (Doc, Metrics, Analysis)
     
 - defects
     - Javadoc fails if you pass in a package of '' (see CruiseControl source).
