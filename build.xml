@@ -21,6 +21,9 @@
         <record name="${report.log.dir}/report-${src.project.name}-${report.timestamp}.log"/>
 
         <mkdir dir="${gen.report.root}"/>        
+        <copy file="${report.css}" todir="${gen.report.root}"/>
+
+        <!-- Create opening element of a report summary -->
         <echo message="&lt;project-report name=&quot;${src.project.name}&quot; time=&quot;${report.timestamp}&quot;&gt;" 
             file="${project.report.summary}" append="no"/>
             

@@ -45,7 +45,6 @@
     <target name="init"
         description="Basic report setup">
         <mkdir dir="${gen.report.dir}"/>
-        <copy file="${report.css}" todir="${gen.report.dir}"/>
 
 	    <!-- Generate an element in the summary report for this tool -->
         <echo message="&lt;report name=&quot;${ant.project.name}&quot; description=&quot;${report.description}&quot; /&gt;" 
