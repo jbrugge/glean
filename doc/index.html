@@ -20,24 +20,31 @@ cool logo here
 
 <div id="main">
 <h1>Introduction</h1>
-<hr/>
-CodeFeedback is a tool for generating feedback on a team's source code.
-It is a small framework or Ant scripts that let you plug in different tools
+CodeFeedback is a framework for generating feedback on a team's source code.
+It is a small framework of Ant scripts that let you plug in different tools
 that analyze, document or measure different aspects of your code.
 
-Being a framework, the goal of CodeFeedback is to package some common tools and
-tasks and let you apply them to any set of source code that you have. The HTML
-results are packaged up for deploying to a common area for project reference.
-Make it part of a daily build cycle and have up-to-date documentation and metrics
-that is 
+Being a framework, the goal of CodeFeedback is to be a means of packaging some common tools and
+tasks, and then let you apply them to any set of source code that you have.
+There are any number of feedback tools that have Ant tasks, but applying them
+individually to your project build script doesn't help when you move on to the
+next project, other than being a place to copy and paste from. And as you find
+more areas where another feedback tool would help, it adds an organizing challenge to the
+build script maintainer that they shouldn't have to worry about.
 
-The basic setup includes scripts for a number of different open-source tools
-that provide basic code analysis, documentation and metrics. There are other
-scripts you can add for such areas as test code coverage or ??,
-and instructions for how to quickly add others.
+The results
+are HTML that you can deploy to a project website or some other common team area.
+As part of a daily build cycle, it is a way to keep a number of feedback sources up
+to date and in one place.
+
+The basic setup includes scripts for a set of open-source tools
+that provide basic code analysis, documentation and metrics. When you want to
+expand on that, there are other scripts you can add for such areas as test code 
+coverage, UML generation or database documentation.
+And if you have a tool you use that isn't here, the instructions on adding it to
+CodeFeedback show you how to fit it in.
 
 <h1>Using CodeFeedback</h1>
-<hr/>
 Supppose you have a project with a file layout like this:
 <pre>
     myproject
@@ -57,7 +64,6 @@ This will run all of the tools in the basic setup. The results will be simple HT
 files that you can distribute in any number of ways.
 
 <h1>Publishing The Results</h1>
-<hr/>
 The results will, by default, be generated as subdirectories under myproject/reports,
 one subdirectory per tool. The script will also package all of them up as a WAR
 that can be deployed to a simple servlet engine. Or the files can simply be copied
@@ -73,32 +79,28 @@ Run reports, package and deploy (see section on Property Settings)
     ant -Dproject.root=/path/to/myproject all
 
 PREREQUISITES
-<hr/>
 Ant 1.6.5
 JDK 1.4
 
 <h1>Configuring</h1>
-<hr/>
 The basic use of CodeFeedback assumes a simple project structure like above, but
 many other structures can be handled by adjusting properties that are used. The
 key properties are in the file report.properties. Overriding their values follows
 the rules of Ant property overrides. That is to say that you can choose different
 levels of overrides.
-
-    properties specified on the command-line with "-Dproperty=value"
-    myproject/report.properties.local - settings that are specific to a particular
-                                        user of CodeFeedback for myproject
-    myproject/report.properties - settings that are specific to myprojecct
-    codefeedback/report/(tool dir)/report.properties.local - settings specific to
-                                        this tool for this installation
-    codefeedback/report/(tool.dir)/report.properties - settings specific to this tool
-    codefeedback/report.properties - default properties settings
-    
+<ul>
+    <li>properties specified on the command-line with "-Dproperty=value"</li>
+    <li>myproject/report.properties.local - settings that are specific to a particular
+                                        user of CodeFeedback for myproject</li>
+    <li>myproject/report.properties - settings that are specific to myprojecct</li>
+    <li>codefeedback/report/(tool dir)/report.properties.local - settings specific to
+                                        this tool for this installation</li>
+    <li>codefeedback/report/(tool.dir)/report.properties - settings specific to this tool</li>
+    <li>codefeedback/report.properties - default properties settings</li>s
+</ul>    
 <h2>Different project directory layout</h2>
-<hr/>
 
 <h2>Selecting reports to run</h2>
-<hr/>
 The "report.pattern" property determines which tools are run. It's value is a
 standard Ant glob pattern. The default pattern is to run all tools.
 
@@ -113,7 +115,6 @@ To run a selected set of tools, list them out, separated by commas.
 </pre>
 
 <h2>Disabling a single report</h2>
-<hr/>
 If there are certain reports that you don't or can't run, you can remove them
 in a couple of different ways.
 
@@ -130,11 +131,12 @@ in a couple of different ways.
 </ul>
 
 <h2>Customizing the look</h2>
-<hr/>
 The reports use a stylesheet called "reports.css". Change this in any way that
 you want. It is based on a number of styles from the standard stylesheets that
 come with Ant.
 </div>
-
+<div id="footer">
+copyright stuff
+</div>
 </body>
 </html>
