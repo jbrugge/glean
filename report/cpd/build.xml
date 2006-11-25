@@ -4,7 +4,7 @@
     <description>${report.description}</description>
 
     <!-- Until we have an XSL stylesheet, we will just put out text -->
-    <property name="report.format"      value="text"/>
+    <property name="report.format"      value="xml"/>
 
     <import file="${report.script.dir}/reports-common.xml"/>
 
@@ -27,9 +27,9 @@
 
     <target name="transform" depends="check-stylesheet" if="stylesheet.present">
         <report-style>
-            <extra-params>
+            <extra.params>
                 <param name="context-root" expression="${link.prefix}" />
-            </extra-params>
+            </extra.params>
         </report-style>
     </target>
 </project>
