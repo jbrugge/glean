@@ -19,32 +19,33 @@ CodeFeedback Tasks
     - report.properties
 
 + reports (basic)
-    - cpd
-    - java2html
-    - javadoc
-    - javancss
-    - jdepend
-    - pmd
+    - cpd               : analysis
+    - java2html         : docs
+    - javadoc           : docs
+    - javancss          : metrics
+    - jdepend           : analysis, metrics
+    - pmd               : analysis
 
 - reports (extra)
-    - beandoc
-    - checkstyle
-    - cobertura
-    - doccheck
-    - emma
-    - hbm2doc
-    - findbugs
-    - jaranalyzer
-    - junitreport
-    - schemaspy
-    - sequence
-    - statcvs
-    - svnstats
-    - umlgraph
+    - beandoc           : doc
+    - checkstyle        : analysis
+    - cobertura         : analysis
+    - cvsdiff           : docs
+    - cvschangelog      : docs
+    - doccheck          : analysis
+    - emma              : analysis
+    - hbm2doc           : docs
+    - findbugs          : analysis
+    - jaranalyzer       : analysis
+    - junitreport       : docs
+    - schemaspy         : docs
+    - sequence          : docs
+    - statcvs           : docs
+    - svnstats          : docs
+    - umlgraph          : docs
     - http://www.lumrix.de/xsbrowser.php
     - http://xframe.sourceforge.net/xsddoc/index.html
-    - cvsdiff
-    - cvschangelog
+    - (function points?)
     
 - report categories
     - documentation
