@@ -21,7 +21,6 @@
             use="true"
             windowtitle="${report.title}"
             overview="${report.overview}"
-            includenosourcepackages="yes"
             breakiterator="yes"
             useexternalfile="yes"
         >
