@@ -1,6 +1,8 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-  <xsl:output method="html"/>
+<xsl:output method="html"/>
+<xsl:param name="project" select="files"/>
+
   <xsl:template match="/">
     <html>
     <head>
@@ -18,6 +20,7 @@
       </body>
     </html>
   </xsl:template>
+
   <xsl:template match="packages">
     <h2>Packages</h2>
     <table class="details" border="0" width="100%">
