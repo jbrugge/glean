@@ -1,8 +1,13 @@
 <project name="reports" default="reports" basedir=".">
     <description>Run reporting or feedback tools over a set of source code</description>
 
-    <property file="codefeedback.properties.local"/>
-    <property file="codefeedback.properties"/>
+    <property name="project.properties"           value="report.properties"/>
+    <property name="project.properties.local"     value="report.properties.local"/>
+    
+    <property file="${project.properties.local}"/>
+    <property file="${project.properties}"/>
+    <property file="report.properties.local"/>
+    <property file="report.properties"/>
 
     <!-- Property that can be used to refer to the name of the code project -->
     <basename property="src.project.name"   file="${project.root}"/>
