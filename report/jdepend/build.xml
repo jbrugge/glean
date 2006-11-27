@@ -18,7 +18,11 @@
                    file="${bin.dir}" type="dir"/>
     </target>
     
-    <target name="jdepend" depends="check-bin" if="class.files.available">
+    <target name="bin-notice" depends="check-bin" unless="class.files.available">
+        <echo message="** Skipping jdepend analysis because no class files found in ${bin.dir}"/>
+    </target>
+    
+    <target name="jdepend" depends="bin-notice" if="class.files.available">
         <jdepend
               fork="true"
               outputfile="${gen.report.dir}/${report.name}.${report.format}"
