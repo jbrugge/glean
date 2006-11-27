@@ -11,6 +11,7 @@
     <property file="${tool.home}/report.properties.local"/>    
     <property file="${tool.home}/report.properties"/>
     
+    <property file="${report.script.dir}/report.properties.local"/>
     <property file="${report.script.dir}/report.properties"/>
 
     <!-- Classpath for source code dependencies -->
