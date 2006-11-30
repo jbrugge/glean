@@ -4,18 +4,20 @@
 <xsl:param name="project" select="files"/>
 <xsl:param name="today" select="today"/>
 <xsl:param name="context-root" select="context-root"/>
+<xsl:param name="source-root" select="source-root"/>
 
   <xsl:template match="/pmd-cpd">
     <html>
     <head>
     <META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css"/>
-    <title>CPD Results for <xsl:value-of select="$project"/></title>
+    <title>CPD Analysis of <xsl:value-of select="$project"/> source code</title>
     <link rel="stylesheet" type="text/css" href="../reports.css"/>
     </head>
     <body>
     <h1>Copy/Paste Detector (CPD) Analysis of <xsl:value-of select="$project"/> source code</h1>
     <p align="right">Run with <a href="http://pmd.sourceforge.net">CPD</a> on <xsl:value-of select="$today"/></p>
     <hr size="2" />
+    <!-- Add in a summary section here -->
     <xsl:apply-templates/>
 
     </body>
@@ -36,14 +38,17 @@
   </xsl:template>
 
   <xsl:template match="file">
+    <xsl:variable name="path" select="@path"/>
+    <xsl:variable name="line" select="@line"/>
+    <xsl:variable name="linkpath" select="substring-after(@path, $source-root)"/>
     <tr>
-    <td class="file">Starting at <a href="{$context-root}/{$path}.html#{$line}">line <xsl:value-of select="@line"/></a> of <xsl:value-of select="@path"/></td>
+    <td class="file">Starting at <a href="{$context-root}/{$linkpath}.html#{$line}">line <xsl:value-of select="@line"/></a> of <xsl:value-of select="$linkpath"/></td>
     </tr>
   </xsl:template>
 
   <xsl:template match="codefragment">
     <tr>
-    <td><xsl:value-of select="."/></td>
+    <td><pre><xsl:value-of select="."/></pre></td>
     </tr>
   </xsl:template>
 

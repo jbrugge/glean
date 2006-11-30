@@ -13,7 +13,7 @@
     <taskdef name="cpd" classname="net.sourceforge.pmd.cpd.CPDTask"
         classpathref="tool.classpath"/>
 
-    <target name="report" depends="init, cpd, transform"/>
+    <target name="run-report" depends="cpd"/>
 
     <target name="cpd">
         <cpd minimumTokenCount="100"
@@ -29,6 +29,7 @@
         <report-style>
             <extra.params>
                 <param name="context-root" expression="${link.prefix}" />
+                <param name="source-root" expression="${src.dir}/"/>
             </extra.params>
         </report-style>
     </target>
