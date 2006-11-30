@@ -11,6 +11,8 @@
     <property file="${tool.home}/report.properties.local"/>    
     <property file="${tool.home}/report.properties"/>
     
+    <property file="${report.script.dir}/${project.properties.local}"/>
+    <property file="${report.script.dir}/${project.properties}"/>
     <property file="${report.script.dir}/report.properties.local"/>
     <property file="${report.script.dir}/report.properties"/>
 
@@ -36,22 +38,38 @@
         <path refid="tool.classpath"/>
     </path>
 
-    <target name="disabled" description="An empty task to allow the report to be disabled"/>
-    
     <tstamp>
         <format pattern="MM-dd-yyyy-hhmm" property="report.timestamp"/>
     </tstamp>
 
+    <!-- Template target for reports -->
+    <target name="report" depends="init, run-report, post-process, transform"
+        description="Template target that defines the steps for creating a report"/>
+    
     <!-- Shared tasks -->
+    <target name="disabled" description="An empty task to allow the report to be disabled"/>
+    
     <target name="init"
         description="Basic report setup">
         <mkdir dir="${gen.report.dir}"/>
 
-	    <!-- Generate an element in the summary report for this tool -->
-        <echo message="&lt;report name=&quot;${ant.project.name}&quot; description=&quot;${report.description}&quot; /&gt;" 
-            file="${project.report.summary}" append="yes"/> 
+        <tstamp>
+            <format pattern="MM-dd-yyyy-hhmm" property="report.start.timestamp"/>
+        </tstamp>
+        <echo message="Starting ${ant.project.name} at ${report.start.timestamp}"/>
     </target>
 
+    <target name="post-process" description="Follow-up processing after a report is finished">
+	    <!-- Generate an element in the summary report for this tool -->
+        <echo message="&lt;report name=&quot;${ant.project.name}&quot; description=&quot;${report.description}&quot; time=&quot;${report.timestamp}&quot; /&gt;" 
+            file="${project.report.summary}" append="yes"/> 
+
+        <tstamp>
+            <format pattern="MM-dd-yyyy-hhmm" property="report.stop.timestamp"/>
+        </tstamp>
+        <echo message="Finishing ${ant.project.name} at ${report.stop.timestamp}"/>
+    </target>
+    
     <target name="transform" depends="check-stylesheet" if="stylesheet.present">
         <report-style/>
     </target>

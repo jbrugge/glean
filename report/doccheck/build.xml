@@ -6,7 +6,7 @@
 
     <property name="report.title"       value="${src.project.name}"/>
 
-    <target name="report" depends="init, doccheck, transform"/>
+    <target name="run-report" depends="doccheck"/>
 
     <target name="doccheck">
         <javadoc

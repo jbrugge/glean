@@ -42,6 +42,8 @@
             <property name="project.report.summary" value="${project.report.summary}"/>
             <property name="src.project.name"   value="${src.project.name}"/>
             <property name="report.timestamp"   value="${report.timestamp}"/>
+            <property name="project.properties" value="${project.properties}"/>
+            <property name="project.properties.local" value="${project.properties.local}"/>
 
             <!-- Run every report that matches our pattern-->
             <dirset dir="report" includes="${report.pattern}"/>
