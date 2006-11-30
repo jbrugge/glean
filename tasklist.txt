@@ -34,13 +34,15 @@ CodeFeedback Tasks
     - cvschangelog      : docs
     - doccheck          : analysis
     - emma              : analysis
-    - hbm2doc           : docs
     - findbugs          : analysis
+    - hbm2doc           : docs
+    - ivy:report        : docs
     - jaranalyzer       : analysis
     - junitreport       : docs
     - schemaspy         : docs
     - sequence          : docs
     - statcvs           : docs
+    - statsvn           : docs
     - svnstats          : docs
     - umlgraph          : docs
     - http://www.lumrix.de/xsbrowser.php
@@ -72,6 +74,7 @@ CodeFeedback Tasks
         - spring-framework
         - Java Petstore
         - Struts Sampleapp
+        - Geronimo DayTrader
     - building docs from templates
         - http://www.thexmlsite.com/
         - http://www.sagehill.net/docbookxsl/GenerateWebpages.html
