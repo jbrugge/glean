@@ -26,7 +26,7 @@
          name as you gave the project (top of this file) with a '.xsl' extension
          and the 'transform' task will run it.
     -->
-    <target name="report" depends="init, mytooltask, transform"/>
+    <target name="run-report" depends="mytooltask"/>
 
     <!-- CHECKME: Write a target for the tool here. -->
     <target name="mytooltask">
