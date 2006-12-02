@@ -1,0 +1,37 @@
+<project name="statsvn" default="report" basedir=".">
+    <property name="report.description" 
+             value="Generates statistical data from a Subversion repository"/>
+    
+    <description>${report.description}</description>
+
+    <import file="${report.script.dir}/reports-common.xml"/>
+
+    <property name="svn.log.file"           value="${gen.report.dir}/svnlog.log"/>
+    <property name="svn.include.pattern"    value="**/*.java"/>
+    <property name="svn.css.file"           value="http://statcvs.sf.net/stats/statcvs.css"/>
+    
+    <taskdef name="statsvn" classname="net.sf.statsvn.ant.StatSvnTask"
+        classpathref="tool.classpath"/>
+        
+    <target name="run-report" depends="statsvn"/>
+
+    <target name="generate-svn-log">
+        <exec executable="svn" 
+            dir="${src.dir}"
+            output="${svn.log.file}">
+            <arg line="log -v --xml"/>
+        </exec>
+    </target>
+    
+    <target name="statsvn" depends="generate-svn-log">
+        <statsvn
+            projectDirectory="${src.dir}"
+            cvsLogFile="${svn.log.file}"
+            outputDirectory="${gen.report.dir}"
+            title="${src.project.name}"
+            includeFiles="${svn.include.pattern}"
+            cssFile="${svn.css.file}"/>
+    </target>
+
+</project>
+
