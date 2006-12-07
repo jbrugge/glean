@@ -41,9 +41,12 @@ CodeFeedback Tasks
     - junitreport       : docs
     - schemaspy         : docs
     - sequence          : docs
+    - sitegraph         : docs (Struts 2.0)
     - statcvs           : docs
     - statsvn           : docs
+    - svndiff           : docs
     - svnstats          : docs
+    - taglibrarydoc     : docs
     - umlgraph          : docs
     - http://www.lumrix.de/xsbrowser.php
     - http://xframe.sourceforge.net/xsddoc/index.html
@@ -65,6 +68,7 @@ CodeFeedback Tasks
         - overriding properties
         - specifying specific reports
         - disabling reports
+        - see StatSVN Ant task doc for example of explaining Ant-style glob properties
     - creating new reports
     - FAQ
     - version history?
@@ -102,7 +106,8 @@ CodeFeedback Tasks
     - add timer to reports
     - wrapper for consolidating output from multiple projects
     - handle reports with multiple modes of output (Emma, UMLGraph, JDepend)
-
+    - see AntAnt by Bill Dehora for other ideas
+    
 - stylesheets
     - home page
     - CPD
@@ -114,6 +119,9 @@ CodeFeedback Tasks
     - FeedbackCentral (no, shorthand would be "FeCe")
     - FeedbackCollector (no, shorthand would be "FeColl")
     - DMA (Doc, Metrics, Analysis)
+    - Sherpa : following along behind, doing the unglamorous but important work
+      of heavy hauling
+    - Grunt
     
 - defects
     - Javadoc fails if you pass in a package of '' (see CruiseControl source).
