@@ -39,15 +39,18 @@ CodeFeedback Tasks
     - ivy:report        : docs
     - jaranalyzer       : analysis
     - junitreport       : docs
+    - linguinemaps      : docs (hbm, ant, dtd)
     - schemaspy         : docs
     - sequence          : docs
     - sitegraph         : docs (Struts 2.0)
+    - sorcerer (Java 6) : docs
     - statcvs           : docs
     - statsvn           : docs
     - svndiff           : docs
     - svnstats          : docs
     - taglibrarydoc     : docs
     - umlgraph          : docs
+    - xref (Maven)      : docs
     - http://www.lumrix.de/xsbrowser.php
     - http://xframe.sourceforge.net/xsddoc/index.html
     - (function points?)
@@ -79,6 +82,10 @@ CodeFeedback Tasks
         - Java Petstore
         - Struts Sampleapp
         - Geronimo DayTrader
+    - road map/future features
+        - summary metrics
+        - aggregation of reports for groups of related source projects
+        - output that can be aggregated into other project sites
     - building docs from templates
         - http://www.thexmlsite.com/
         - http://www.sagehill.net/docbookxsl/GenerateWebpages.html
@@ -122,6 +129,15 @@ CodeFeedback Tasks
     - Sherpa : following along behind, doing the unglamorous but important work
       of heavy hauling
     - Grunt
+    - Sassytalk
+    - backtalk
+    - CodePrism
+    - ToolCat
+    - ProjectSpy
+    - Feedback Genie
+    - Feedback Garden
+    - acumen/apercu/astute/enrich/enlighten/understanding
+    - Feedback in a Box
     
 - defects
     - Javadoc fails if you pass in a package of '' (see CruiseControl source).
