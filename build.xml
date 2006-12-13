@@ -1,13 +1,13 @@
-<project name="reports" default="reports" basedir=".">
+<project name="project-feedback" default="feedback" basedir=".">
     <description>Run reporting or feedback tools over a set of source code</description>
 
-    <property name="project.properties"           value="report.properties"/>
-    <property name="project.properties.local"     value="report.properties.local"/>
+    <property name="project.properties"           value="feedback.properties"/>
+    <property name="project.properties.local"     value="feedback.properties.local"/>
     
     <property file="${project.properties.local}"/>
     <property file="${project.properties}"/>
-    <property file="report.properties.local"/>
-    <property file="report.properties"/>
+    <property file="feedback.properties.local"/>
+    <property file="feedback.properties"/>
 
     <!-- Property that can be used to refer to the name of the code project -->
     <basename property="src.project.name"   file="${project.root}"/>
@@ -17,36 +17,36 @@
     <property name="report.war.file"    value="${src.project.name}-reports.war"/>
     
     <tstamp>
-        <format pattern="MM-dd-yyyy-hhmm" property="report.timestamp"/>
+        <format pattern="MM-dd-yyyy-hhmm" property="feedback.timestamp"/>
     </tstamp>
 
-    <target name="reports" description="Generate feedback reports">
-        <echo message="Creating log directory at ${report.log.dir}"/>
-        <mkdir dir="${report.log.dir}"/>
-        <record name="${report.log.dir}/report-${src.project.name}-${report.timestamp}.log"/>
+    <target name="feedback" description="Generate feedback reports">
+        <echo message="Creating log directory at ${tool.log.dir}"/>
+        <mkdir dir="${tool.log.dir}"/>
+        <record name="${tool.log.dir}/${src.project.name}-feedback-${feedback.timestamp}.log"/>
 
         <mkdir dir="${gen.report.root}"/>        
         <copy file="${report.css}" todir="${gen.report.root}"/>
 
         <!-- Create opening element of a report summary -->
-        <echo message="&lt;project-report name=&quot;${src.project.name}&quot; time=&quot;${report.timestamp}&quot;&gt;" 
+        <echo message="&lt;project-report name=&quot;${src.project.name}&quot; time=&quot;${feedback.timestamp}&quot;&gt;" 
             file="${project.report.summary}" append="no"/>
             
         <subant
             inheritall="no"
             failonerror="no">
             <!-- Other common properties specific to reports are available in report.properties -->
-            <property name="report.script.dir"  location="${basedir}"/>
-            <property name="project.root"       location="${project.root}"/>
-            <property name="gen.report.root"    location="${gen.report.root}"/>
+            <property name="feedback.script.dir"  location="${basedir}"/>
+            <property name="project.root"         location="${project.root}"/>
+            <property name="gen.report.root"      location="${gen.report.root}"/>
             <property name="project.report.summary" value="${project.report.summary}"/>
-            <property name="src.project.name"   value="${src.project.name}"/>
-            <property name="report.timestamp"   value="${report.timestamp}"/>
-            <property name="project.properties" value="${project.properties}"/>
+            <property name="src.project.name"     value="${src.project.name}"/>
+            <property name="feedback.timestamp"   value="${feedback.timestamp}"/>
+            <property name="project.properties"   value="${project.properties}"/>
             <property name="project.properties.local" value="${project.properties.local}"/>
 
             <!-- Run every report that matches our pattern-->
-            <dirset dir="report" includes="${report.pattern}"/>
+            <dirset dir="tool" includes="${tool.pattern}"/>
         </subant>
 
         <echo message="&lt;/project-report&gt;" 
@@ -58,7 +58,7 @@
         <delete dir="${gen.report.root}"/>
     </target>
 
-    <target name="reports-summary" description="Create summary page of reports run">
+    <target name="feedback-summary" description="Create summary page of reports run">
         <style basedir="." destdir="."
             in="${project.report.summary}" 
             out="${project.report.page}"
@@ -66,7 +66,7 @@
         </style>    
     </target>
     
-    <target name="package-reports" depends="reports, reports-summary"
+    <target name="package-reports" depends="feedback, feedback-summary"
         description="Bundle all of the report files into a deployable WAR">
         <mkdir dir="${report.war.dir}"/>
         <war destfile="${report.war.dir}/${report.war.file}"

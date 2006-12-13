@@ -1,12 +1,12 @@
 <project name="cpd" default="report" basedir=".">
-    <property name="report.description" value="Detects copy/paste segments in source"/>
+    <property name="tool.description" value="Detects copy/paste segments in source"/>
     
-    <description>${report.description}</description>
+    <description>${tool.description}</description>
 
     <!-- Until we have an XSL stylesheet, we will just put out text -->
     <property name="report.format"      value="xml"/>
 
-    <import file="${report.script.dir}/reports-common.xml"/>
+    <import file="${feedback.script.dir}/tools-common.xml"/>
 
     <property name="link.prefix"        value="../java2html"/>
 

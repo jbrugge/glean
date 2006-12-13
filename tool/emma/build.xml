@@ -31,7 +31,7 @@
     <!-- Path for unit tests -->
     <path id="emma.test.classpath">
         <pathelement location="${out.instr.dir}"/>
-        <path refid="report.classpath"/>
+        <path refid="tool.classpath"/>
     </path>
 
     <target name="emma" description="turns on EMMA instrumentation/reporting" >

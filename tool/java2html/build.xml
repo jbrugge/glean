@@ -1,14 +1,16 @@
-<project name="java2html" default="java2html">
-    <property name="report.description" value="Convert Java source to cross-referenced HTML"/>
+<project name="java2html" default="report">
+    <property name="tool.description" value="Convert Java source to cross-referenced HTML"/>
     
-    <description>${report.description}</description>
+    <description>${tool.description}</description>
 
-    <import file="${report.script.dir}/reports-common.xml"/>
+    <import file="${feedback.script.dir}/tools-common.xml"/>
 
     <taskdef name="java2html"
         classname="de.java2html.anttasks.Java2HtmlTask"
         classpathref="tool.classpath"
     />
+    
+    <target name="run-report" depends="java2html"/>
 
     <target name="java2html" depends="init">
         <java2html

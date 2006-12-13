@@ -1,14 +1,14 @@
 <project name="javancss" default="report" basedir=".">
-    <property name="report.description" value="Calculate Non-Commenting Source Statements (NCSS)"/>
+    <property name="tool.description" value="Calculate Non-Commenting Source Statements (NCSS)"/>
     
-    <description>${report.description}</description>
+    <description>${tool.description}</description>
 
-    <import file="${report.script.dir}/reports-common.xml"/>
+    <import file="${feedback.script.dir}/tools-common.xml"/>
 
     <taskdef name="javancss" classname="javancss.JavancssAntTask"
         classpathref="tool.classpath"/>
 
-    <target name="report" depends="init, javancss, transform"/>
+    <target name="run-report" depends="javancss"/>
 
     <target name="javancss">
         <javancss
