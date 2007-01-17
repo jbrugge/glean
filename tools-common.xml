@@ -34,7 +34,7 @@
     </path>
 
     <tstamp>
-        <format pattern="MM-dd-yyyy-hhmm" property="tool.timestamp"/>
+        <format pattern="${tool.timestamp.format}" property="tool.timestamp"/>
     </tstamp>
 
     <!-- Template target for reports -->
@@ -49,9 +49,9 @@
         <mkdir dir="${gen.report.dir}"/>
 
         <tstamp>
-            <format pattern="MM-dd-yyyy-hhmm" property="tool.start.timestamp"/>
+            <format pattern="${tool.timestamp.format}" property="tool.start.timestamp"/>
         </tstamp>
-        <echo message="Starting ${ant.project.name} at ${tool.start.timestamp}"/>
+        <echo message="++++++++ Starting ${ant.project.name} at ${tool.start.timestamp} ++++++++"/>
     </target>
 
     <target name="post-process" description="Follow-up processing after a tool is finished">
@@ -60,9 +60,9 @@
             file="${project.report.summary}" append="yes"/> 
 
         <tstamp>
-            <format pattern="MM-dd-yyyy-hhmm" property="tool.stop.timestamp"/>
+            <format pattern="${tool.timestamp.format}" property="tool.stop.timestamp"/>
         </tstamp>
-        <echo message="Finishing ${ant.project.name} at ${tool.stop.timestamp}"/>
+        <echo message="-------- Finishing ${ant.project.name} at ${tool.stop.timestamp} --------"/>
     </target>
     
     <target name="transform" depends="check-stylesheet" if="stylesheet.present">

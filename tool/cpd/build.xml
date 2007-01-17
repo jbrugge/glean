@@ -1,5 +1,5 @@
 <project name="cpd" default="report" basedir=".">
-    <property name="tool.description" value="Detects copy/paste segments in source"/>
+    <property name="tool.description" value="Report of copy/paste segments found in source"/>
     
     <description>${tool.description}</description>
 

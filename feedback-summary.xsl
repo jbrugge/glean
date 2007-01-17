@@ -8,11 +8,11 @@
     <html>
     <head>
     <META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css"/>
-    <title>Feedback gleaned from <xsl:value-of select="$project"/></title>
+    <title>Feedback gleaned from <xsl:value-of select="@name"/></title>
     <link rel="stylesheet" type="text/css" href="reports.css"/>
     </head>
     <body>
-    <h1>Feedback gleaneed from <xsl:value-of select="@name"/> source code</h1>
+    <h1>Feedback gleaned from <xsl:value-of select="@name"/> source code</h1>
     <p align="right">Run with <a href="http://ant.apache.org">Ant</a> on <xsl:value-of select="@time"/></p>
     <hr size="2" />
     <table class="details" align="center">

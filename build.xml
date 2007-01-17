@@ -1,4 +1,4 @@
-<project name="glean" default="feedback" basedir=".">
+<project name="glean" default="glean" basedir=".">
     <description>Run reporting or feedback tools over a set of source code</description>
 
     <property name="project.properties"           value="feedback.properties"/>
@@ -17,7 +17,7 @@
     <property name="report.war.file"    value="${src.project.name}-reports.war"/>
     
     <tstamp>
-        <format pattern="MM-dd-yyyy-hhmm" property="feedback.timestamp"/>
+        <format pattern="${tool.timestamp.format}" property="feedback.timestamp"/>
     </tstamp>
     
     <target name="init" description="Set up the environment">
@@ -31,6 +31,9 @@
         <copy file="${report.css}" todir="${gen.report.root}"/>
     </target>
 
+    <target name="glean" depends="init, feedback, feedback-summary"
+        description="Generate feedback reports and a summary page."/>
+        
     <target name="feedback" depends="init" 
         description="Generate feedback reports">
 

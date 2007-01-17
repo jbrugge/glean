@@ -1,5 +1,5 @@
 <project name="java2html" default="report">
-    <property name="tool.description" value="Convert Java source to cross-referenced HTML"/>
+    <property name="tool.description" value="Java source cross-reference in HTML"/>
     
     <description>${tool.description}</description>
 

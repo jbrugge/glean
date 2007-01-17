@@ -1,5 +1,5 @@
 <project name="javancss" default="report" basedir=".">
-    <property name="tool.description" value="Calculate Non-Commenting Source Statements (NCSS)"/>
+    <property name="tool.description" value="Source code size and complexity metrics"/>
     
     <description>${tool.description}</description>
 

@@ -1,5 +1,5 @@
 <project name="javadoc" default="report" basedir=".">
-    <property name="tool.description" value="Create JavaDoc API documentation"/>
+    <property name="tool.description" value="Java API documentation"/>
     
     <description>${tool.description}</description>
 

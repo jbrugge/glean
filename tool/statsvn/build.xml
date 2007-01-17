@@ -1,6 +1,6 @@
 <project name="statsvn" default="report" basedir=".">
     <property name="report.description" 
-             value="Generates statistical data from a Subversion repository"/>
+             value="Statistical data from Subversion repository activity"/>
     
     <description>${report.description}</description>
 
