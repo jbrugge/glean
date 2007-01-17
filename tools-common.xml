@@ -1,4 +1,4 @@
-<project name="reports-common" >
+<project name="tools-common" >
     <description>Common attributes and targets for source code reports</description>
 
     <!-- Get the basedir where our report is running, without relying on 'basedir' -->
@@ -80,7 +80,7 @@
 
         <available
             property="stylesheet.present"
-            resource="${tool.stylesheet}"
+            resource="${report.stylesheet}"
             classpathref="tool.classpath"/>
     </target>
 
@@ -96,7 +96,7 @@
                 out="@{output.file}"
                 style="@{stylesheet}">
               <param name="project" expression="${src.project.name}" />
-              <param name="today" expression="${feedback.timestamp}" />
+              <param name="today" expression="${tool.timestamp}" />
               <extra.params/>
             </style>
         </sequential>

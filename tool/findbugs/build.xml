@@ -1,17 +1,17 @@
 <project name="findbugs" default="report" basedir=".">
-    <property name="report.description" 
+    <property name="tool.description" 
              value="Static code analysis for common programming errors"/>
     
-    <description>${report.description}</description>
+    <description>${tool.description}</description>
 
-    <import file="${report.script.dir}/reports-common.xml"/>
+    <import file="${feedback.script.dir}/tools-common.xml"/>
 
     <property name="findbugs.report.level"  value="medium"/>
     
     <taskdef name="findbugs" classname="edu.umd.cs.findbugs.anttask.FindBugsTask"
         classpathref="tool.classpath"/>
         
-    <target name="report" depends="init, findbugs, transform"/>
+    <target name="run-report" depends="findbugs"/>
 
     <target name="findbugs">
         <findbugs home="${tool.home}"

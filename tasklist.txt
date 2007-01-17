@@ -82,10 +82,13 @@ CodeFeedback Tasks
         - Java Petstore
         - Struts Sampleapp
         - Geronimo DayTrader
+        - types: component JAR, webapp, EJB app, Swing app
     - road map/future features
         - summary metrics
         - aggregation of reports for groups of related source projects
         - output that can be aggregated into other project sites
+        - separating "doc" output from "metrics" and "analysis" output
+            - what needs action and what is description?
     - building docs from templates
         - http://www.thexmlsite.com/
         - http://www.sagehill.net/docbookxsl/GenerateWebpages.html
@@ -138,6 +141,11 @@ CodeFeedback Tasks
     - Feedback Garden
     - acumen/apercu/astute/enrich/enlighten/understanding
     - Feedback in a Box
+->  - Glean
+    - Code Shaman
+    - Zahorin
+    - Goto
+    - Insight Collector
     
 - defects
     - Javadoc fails if you pass in a package of '' (see CruiseControl source).

@@ -4,7 +4,7 @@
     
     <description>${report.description}</description>
 
-    <import file="${report.script.dir}/reports-common.xml"/>
+    <import file="${feedback.script.dir}/tools-common.xml"/>
 
     <property name="svn.log.file"           value="${gen.report.dir}/svnlog.log"/>
     <property name="svn.include.pattern"    value="**/*.java"/>

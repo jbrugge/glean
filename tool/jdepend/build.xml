@@ -1,11 +1,11 @@
 <project name="jdepend" default="report" basedir=".">
-    <property name="report.description" value="Report on package-level dependency metrics"/>
+    <property name="tool.description" value="Report on package-level dependency metrics"/>
     
-    <description>${report.description}</description>
+    <description>${tool.description}</description>
 
-    <import file="${report.script.dir}/reports-common.xml"/>
+    <import file="${feedback.script.dir}/tools-common.xml"/>
 
-    <target name="report" depends="init, jdepend, transform, graph"/>
+    <target name="run-report" depends="jdepend, graph"/>
 
     <path id="classes.dir.path">
         <dirset dir="${bin.dir}">

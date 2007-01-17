@@ -1,8 +1,8 @@
 <project name="doccheck" default="report" basedir=".">
-    <property name="report.description" value="Checks completion of JavaDoc comments"/>
-    <description>${report.description}</description>
+    <property name="tool.description" value="Checks completion of JavaDoc comments"/>
+    <description>${tool.description}</description>
 
-    <import file="${report.script.dir}/reports-common.xml"/>
+    <import file="${feedback.script.dir}/tools-common.xml"/>
 
     <property name="report.title"       value="${src.project.name}"/>
 

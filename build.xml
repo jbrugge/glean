@@ -1,4 +1,4 @@
-<project name="project-feedback" default="feedback" basedir=".">
+<project name="glean" default="feedback" basedir=".">
     <description>Run reporting or feedback tools over a set of source code</description>
 
     <property name="project.properties"           value="feedback.properties"/>
@@ -19,14 +19,20 @@
     <tstamp>
         <format pattern="MM-dd-yyyy-hhmm" property="feedback.timestamp"/>
     </tstamp>
-
-    <target name="feedback" description="Generate feedback reports">
+    
+    <target name="init" description="Set up the environment">
         <echo message="Creating log directory at ${tool.log.dir}"/>
         <mkdir dir="${tool.log.dir}"/>
+
         <record name="${tool.log.dir}/${src.project.name}-feedback-${feedback.timestamp}.log"/>
+        <echo message="Starting to gather feedback at ${feedback.timestamp}"/>
 
         <mkdir dir="${gen.report.root}"/>        
         <copy file="${report.css}" todir="${gen.report.root}"/>
+    </target>
+
+    <target name="feedback" depends="init" 
+        description="Generate feedback reports">
 
         <!-- Create opening element of a report summary -->
         <echo message="&lt;project-report name=&quot;${src.project.name}&quot; time=&quot;${feedback.timestamp}&quot;&gt;" 
@@ -35,11 +41,10 @@
         <subant
             inheritall="no"
             failonerror="no">
-            <!-- Other common properties specific to reports are available in report.properties -->
+            <!-- Other common properties specific to reports are available in feedback.properties -->
             <property name="feedback.script.dir"  location="${basedir}"/>
             <property name="project.root"         location="${project.root}"/>
             <property name="gen.report.root"      location="${gen.report.root}"/>
-            <property name="project.report.summary" value="${project.report.summary}"/>
             <property name="src.project.name"     value="${src.project.name}"/>
             <property name="feedback.timestamp"   value="${feedback.timestamp}"/>
             <property name="project.properties"   value="${project.properties}"/>
@@ -49,6 +54,7 @@
             <dirset dir="tool" includes="${tool.pattern}"/>
         </subant>
 
+        <!-- Create closing element of a report summary -->
         <echo message="&lt;/project-report&gt;" 
             file="${project.report.summary}" append="yes"/>
             

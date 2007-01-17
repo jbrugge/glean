@@ -1,9 +1,9 @@
-<project name="emma" default="coverage" basedir=".">
+<project name="emma" default="report" basedir=".">
     <property name="report.description" value="Unit test coverage report"/>
     
     <description>${report.description}</description>
 
-    <import file="${report.script.dir}/reports-common.xml"/>
+    <import file="${feedback.script.dir}/tools-common.xml"/>
 
     <taskdef resource="emma_ant.properties" classpathref="tool.classpath" />
 
@@ -11,7 +11,7 @@
     <property name="test.script"        location="${project.root}/test.xml"/>
 
     <!-- We need to have a build script that can execute our unit tests -->
-    <import file="${test.script}"/>
+    <import file="${test.script}" optional="true"/>
 
     <!-- Individual projects can define their own filters, or just use the default one. -->
     <property name="project.report.filter"   value="${project.root}/report-src/emma-filters.txt"/>
@@ -33,7 +33,14 @@
         <pathelement location="${out.instr.dir}"/>
         <path refid="tool.classpath"/>
     </path>
+    
+    <target name="run-report" depends="coverage"/>
 
+    <target name="check-tests" description="Check if tests and a test script exist.">
+        <!-- TODO: implement conditional to check test.bin.dir and test.script dir -->
+        <property name="tests.available" value="false"/>
+    </target>
+    
     <target name="emma" description="turns on EMMA instrumentation/reporting" >
         <property name="emma.enabled" value="true" />
         <delete dir="${out.instr.dir}"/>
@@ -47,7 +54,7 @@
         <property name="report.filter" value="${default.filter}"/>
     </target>
 
-    <target name="coverage" depends="init, emma">
+    <target name="coverage" depends="emma, check-tests" if="tests.available">
         <!-- Instrument the code -->
         <emma enabled="${emma.enabled}" >
             <instr instrpathref="run.classpath"
