@@ -9,6 +9,7 @@
 
     <property name="report.title"       value="${src.project.name} API"/>
     <property name="report.header"      value="${src.project.name}"/>
+    <property name="report.footer"      value="Generated on ${tool.timestamp}"/>
     <property name="report.overview"    value="${src.dir}/overview.html"/>
     <!-- Can we make this dependent on the compiler setting chosen? -->
     <property name="jdk4.javadoc.link"  value="http://java.sun.com/j2se/1.4.0/docs/api/"/>
@@ -31,6 +32,7 @@
             <packageset dir="${src.dir}"/>
             <doctitle>${report.title}</doctitle>
             <header><![CDATA[<b>]]>${report.header}<![CDATA[</b>]]></header>
+            <bottom><![CDATA[<em>]]>${report.footer}<![CDATA[</em>]]></bottom>
             <link href="${jdk5.javadoc.link}"/>
         </javadoc>
     </target>
