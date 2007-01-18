@@ -23,8 +23,9 @@
             use="true"
             windowtitle="${report.title}"
             overview="${report.overview}"
-            breakiterator="yes"
-            useexternalfile="yes"
+            breakiterator="true"
+            useexternalfile="true"
+            verbose="false"
         >
             <arg value="-quiet"/>
             <packageset dir="${src.dir}"/>
