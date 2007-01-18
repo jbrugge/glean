@@ -12,22 +12,34 @@
     <property name="report.footer"      value=""/>
     <property name="report.overview"    value="${src.dir}/overview.html"/>
     <property name="jdk5.javadoc.link"  value="http://java.sun.com/j2se/1.5.0/docs/api/"/>
-
+    <property name="report.view.src"    value="${project.root}/report-src/views"/>
+    
+    <property name="graphviz.home"      value="${tool.home}"/>
+    
     <target name="run-report" depends="umlgraph-doc, umlgraph-views"/>
 
     <!-- TODO: How do we really check for the DOT executable? -->
     <target name="check-dot">
-        <available file="dot" 
+        <available file="${graphviz.home}/dot" 
                     property="dot.exists"/>
+        <echo message="Checking ${graphviz.home} for 'dot': ${dot.exists}"/>        
+    </target>
+    
+    <target name="dot-notice" depends="check-dot" unless="dot.exists">
+        <echo message="** Skipping ${ant.project.name} doc creation because could not find Graphviz binaries."/>
     </target>
     
     <target name="check-views">
-        <available file="${project.root}/report-src/views" 
+        <available file="${report.view.src}" 
                     type="dir"
                     property="umlgraph.views.exist"/>
     </target>
     
-    <target name="umlgraph-doc" depends="check-dot" 
+    <target name="views-notice" depends="check-views" unless="umlgraph.views.exists">
+        <echo message="** Skipping ${project.name} view creation because no view descriptions found in ${report.view.src}"/>
+    </target>
+    
+    <target name="umlgraph-doc" depends="dot-notice" 
         description="Create integrated Javadoc and class diagrams"
         if="dot.exists">
         <umldoc doclet="gr.spinellis.umlgraph.doclet.UmlGraphDoc"

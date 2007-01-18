@@ -2,7 +2,7 @@
     <description>Run reporting or feedback tools over a set of source code</description>
 
     <property name="project.properties"           value="feedback.properties"/>
-    <property name="project.properties.local"     value="feedback.properties.local"/>
+    <property name="project.properties.local"     value="${project.properties}.local"/>
     
     <property file="${project.properties.local}"/>
     <property file="${project.properties}"/>
