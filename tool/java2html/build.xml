@@ -6,7 +6,7 @@
     <import file="${feedback.script.dir}/tools-common.xml"/>
 
     <taskdef name="java2html"
-        classname="de.java2html.anttasks.Java2HtmlTask"
+        classname="com.java2html.Java2HTMLTask"
         classpathref="tool.classpath"
     />
     
@@ -14,15 +14,14 @@
 
     <target name="java2html" depends="init">
         <java2html
-          srcdir="${src.dir}"
-          destdir="${gen.report.dir}"
-          includes="**/*.java"
-          style="eclipse"
-          showLineNumbers="yes"
-          showFileName="yes"
-          tabs="4"
-          addLineAnchors="yes"
-          />
+          destination="${gen.report.dir}"
+          marginsize="4"
+          tabsize="4"
+          >
+            <fileset dir="${src.dir}">
+                <include name="**/*.java"/>
+            </fileset>
+        </java2html>
     </target>
 
 </project>
