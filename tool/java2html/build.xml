@@ -5,6 +5,8 @@
 
     <import file="${feedback.script.dir}/tools-common.xml"/>
 
+    <property name="link.prefix" value="../javadoc"/>
+    
     <taskdef name="java2html"
         classname="com.java2html.Java2HTMLTask"
         classpathref="tool.classpath"
@@ -21,6 +23,7 @@
             <fileset dir="${src.dir}">
                 <include name="**/*.java"/>
             </fileset>
+            <javadoc localref="${link.prefix}"/>
         </java2html>
     </target>
 
