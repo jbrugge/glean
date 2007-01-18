@@ -1,5 +1,5 @@
 <project name="statsvn" default="report" basedir=".">
-    <property name="report.description" 
+    <property name="tool.description" 
              value="Statistical data from Subversion repository activity"/>
     
     <description>${report.description}</description>
@@ -25,12 +25,12 @@
     
     <target name="statsvn" depends="generate-svn-log">
         <statsvn
-            projectDirectory="${src.dir}"
-            cvsLogFile="${svn.log.file}"
-            outputDirectory="${gen.report.dir}"
+            path="${src.dir}"
+            log="${svn.log.file}"
+            outputDir="${gen.report.dir}"
             title="${src.project.name}"
-            includeFiles="${svn.include.pattern}"
-            cssFile="${svn.css.file}"/>
+            include="${svn.include.pattern}"
+            />
     </target>
 
 </project>

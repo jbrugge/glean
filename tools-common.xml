@@ -5,14 +5,15 @@
     <dirname property="tool.home"       file="${ant.file}"/>
 
     <!-- Properties can be overridden at the code project or individual report level -->
+    <property file="${feedback.script.dir}/${project.properties.local}"/>
+    <property file="${feedback.script.dir}/${project.properties}"/>
+
     <property file="${project.root}/feedback.properties.local"/>
     <property file="${project.root}/feedback.properties"/>
 
     <property file="${tool.home}/tool.properties.local"/>    
     <property file="${tool.home}/tool.properties"/>
     
-    <property file="${feedback.script.dir}/${project.properties.local}"/>
-    <property file="${feedback.script.dir}/${project.properties}"/>
     <property file="${feedback.script.dir}/feedback.properties.local"/>
     <property file="${feedback.script.dir}/feedback.properties"/>
 
