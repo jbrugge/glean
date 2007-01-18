@@ -38,7 +38,7 @@
     </tstamp>
 
     <!-- Template target for reports -->
-    <target name="report" depends="init, run-report, post-process, transform"
+    <target name="report" depends="init, run-report, transform, post-process"
         description="Template target that defines the steps for creating a report"/>
     
     <!-- Shared tasks -->
