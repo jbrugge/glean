@@ -1,0 +1,88 @@
+<!-- start the processing -->
+#document()
+<!-- end the processing -->
+
+## This is where the macros live
+
+#macro ( makeNav )
+    ##set ($menus = $project.getChild("body").getChildren("menu"))
+    #set ($menus = $xpath.applyTo("body/menu", $project))
+
+<div id="navigation">
+    #foreach ( $menu in $menus )
+        <strong>$menu.getAttributeValue("name")</strong>
+        <ul>
+        #foreach ( $item in $menu.getChildren() )
+            #set ($name = $item.getAttributeValue("name"))
+            <li>#projectanchor($name $item.getAttributeValue("href"))</li>
+        #end
+        </ul>
+    #end
+</div>
+#end
+
+#macro ( image $value )
+    #if ($value.getAttributeValue("width"))
+        #set ($width=$value.getAttributeValue("width"))
+    #end
+    #if ($value.getAttributeValue("height"))
+        #set ($height=$value.getAttributeValue("height"))
+    #end
+    #if ($value.getAttributeValue("align"))
+        #set ($align=$value.getAttributeValue("align"))
+    #end
+<img src="$relativePath$value.getAttributeValue("src")" width="$!width" height="$!height" align="$!align">
+#end
+
+#macro ( projectanchor $name $value )
+    <a href="$relativePath$value">$name</a>
+#end
+    
+#macro ( metaauthor $author $email )
+    <meta name="author" value="$author">
+    <meta name="email" value="$email">
+#end
+
+#macro (document)
+    <!-- ====================================================================== -->
+    <!-- Main Page Section -->
+    <!-- ====================================================================== -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+    <link rel='stylesheet' href='codefeedback.css' type='text/css' />
+
+    #metaauthor ( $au.getText() $em.getValue() )
+
+    <title>$root.getChild("properties").getChild("title").getText()</title>
+</head>
+<body>
+<div id="header">
+cool logo here
+</div>
+
+#makeNav()
+
+<div id="main">
+        ##set ($allSections = $root.getChild("body").getChildren("section"))
+        #set ($allSections = $xpath.applyTo("body/section", $root))
+
+        #foreach ( $section in $allSections )
+            <h1>$section.name</h1>
+            #foreach ( $item in $section.getChildren() )                
+                #if ($item.getName().equals("img"))
+                    #image ($item)
+                #else
+                    $xmlout.outputString($item)
+                #end
+            #end
+        #end
+</div>
+
+<div id="footer">
+copyright stuff
+</div>
+
+</body>
+</html>
+#end

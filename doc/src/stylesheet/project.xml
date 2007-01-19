@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="CodeFeedback site"
+        href="http://jbrugge.com/codefeedback/">
+
+    <title>CodeFeedback</title>
+
+    <body>
+        <menu name="Pages">
+            <item name="About"          href="/index.html"/>
+            <item name="Download"       href="/download.html"/>
+            <item name="Documentation"  href="/documentation.html"/>
+            <item name="FAQ"            href="/faq.html"/>
+            <item name="Contact"        href="/contact.html"/>
+        </menu>
+    
+    </body>
+</project>
