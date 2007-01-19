@@ -9,23 +9,11 @@
 
     <target name="run-report" depends="umlgraph-doc"/>
 
-    <!-- TODO: How do we really check for the DOT executable? -->
-    <target name="check-dot">
-        <available file="dot"
-                    filepath="${graphviz.home}"
-                    property="dot.exists"/>
-        <echo message="Checking ${graphviz.home} for 'dot': ${dot.exists}"/>        
-    </target>
-    
-    <target name="dot-notice" depends="check-dot" unless="dot.exists">
-        <echo message="** Skipping ${ant.project.name} doc creation because could not find Graphviz binaries."/>
-    </target>
-    
-    <target name="umlgraph-doc" depends="dot-notice" 
+    <target name="umlgraph-doc" 
         description="Create integrated Javadoc and class diagrams"
-        if="dot.exists">
+        >
         <umldoc doclet="gr.spinellis.umlgraph.doclet.UmlGraphDoc"
-                outputdir="${gen.report.dir}/javadoc">
+                outputdir="${gen.report.dir}">
             <!-- Pass in arguments that are only valid for the standard doclet -->
             <std-doclet-opts>
                 <arg line="-windowtitle ${report.title}"/>

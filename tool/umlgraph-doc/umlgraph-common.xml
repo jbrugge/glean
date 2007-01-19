@@ -1,12 +1,11 @@
-<project name="umlgraph-common"
-    description="Tasks, macrodefs and properties common to UMLGraph reports">
+<project name="umlgraph-common">
+    <description>Tasks, macrodefs and properties common to UMLGraph reports</description>
     
     <property name="report.title"       value="${src.project.name} API"/>
     <property name="report.header"      value="${src.project.name}"/>
     <property name="report.footer"      value="Generated on ${tool.timestamp}"/>
     <property name="report.overview"    value="${src.dir}/overview.html"/>
     <property name="jdk5.javadoc.link"  value="http://java.sun.com/j2se/1.5.0/docs/api/"/>
-    <property name="report.view.src"    value="${project.root}/report-src/views"/>
     
     <property name="graphviz.home"      value="${tool.home}"/>
     
