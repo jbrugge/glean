@@ -1,0 +1,50 @@
+<project name="umlgraph-common"
+    description="Tasks, macrodefs and properties common to UMLGraph reports">
+    
+    <property name="report.title"       value="${src.project.name} API"/>
+    <property name="report.header"      value="${src.project.name}"/>
+    <property name="report.footer"      value="Generated on ${tool.timestamp}"/>
+    <property name="report.overview"    value="${src.dir}/overview.html"/>
+    <property name="jdk5.javadoc.link"  value="http://java.sun.com/j2se/1.5.0/docs/api/"/>
+    <property name="report.view.src"    value="${project.root}/report-src/views"/>
+    
+    <property name="graphviz.home"      value="${tool.home}"/>
+    
+    <macrodef name="umldoc">
+        <attribute name="doclet"     default="gr.spinellis.umlgraph.doclet.UmlGraph"/>
+        <attribute name="outputdir"  default="${gen.report.dir}"/>
+        <element name="std-doclet-opts" optional="true"/>
+        <element name="views"        optional="true"/>
+        <sequential>
+            <javadoc
+                classpathref="tool.classpath"
+                verbose="false"
+                >
+            <doclet name="@{doclet}"
+                    path="${tool.home}/UmlGraph.jar"
+                    >
+                <param name="-d" value="@{outputdir}"/>
+                <param name="-output" value="${report.name}.dot"/>
+                <param name="-private"/>
+                <param name="-all"/>
+                <param name="-inferrel"/>
+                <!-- Inferring dependencies can add a lot of information to a graph
+                <param name="-inferdep"/>
+                -->
+                <param name="-qualify"/>
+                <param name="-postfixpackage"/>
+                <param name="-useimports"/>
+                <param name="-collpackages" value="java.util.*"/>
+                <param name="-hide" value="java.lang.String"/>
+                <param name="-link" value="http://java.sun.com/j2se/1.5/docs/api"/>
+                <param name="-views"/>
+            </doclet>
+            <packageset dir="${src.dir}"/>
+            <!-- Standard doclet options here -->
+            <std-doclet-opts/>
+            <!-- Optional view descriptions here -->
+            <views/>
+        </javadoc>
+        </sequential>
+    </macrodef>
+</project>

@@ -1,22 +1,13 @@
-<project name="umlgraph" default="report">
-    <property name="tool.description" value="UML class diagrams from source code"/>
+<project name="umlgraph-doc" default="report">
+    <property name="tool.description" value="Javadoc with embedded UML class diagrams"/>
     
     <description>${tool.description}</description>
 
-    <property file="${project.root}/build.properties"/>
-
     <import file="${feedback.script.dir}/tools-common.xml"/>
 
-    <property name="report.title"       value="${src.project.name} API"/>
-    <property name="report.header"      value="${src.project.name}"/>
-    <property name="report.footer"      value=""/>
-    <property name="report.overview"    value="${src.dir}/overview.html"/>
-    <property name="jdk5.javadoc.link"  value="http://java.sun.com/j2se/1.5.0/docs/api/"/>
-    <property name="report.view.src"    value="${project.root}/report-src/views"/>
-    
-    <property name="graphviz.home"      value="${tool.home}"/>
-    
-    <target name="run-report" depends="umlgraph-doc, umlgraph-views"/>
+    <import file="umlgraph-common.xml"/>
+
+    <target name="run-report" depends="umlgraph-doc"/>
 
     <!-- TODO: How do we really check for the DOT executable? -->
     <target name="check-dot">
@@ -28,16 +19,6 @@
     
     <target name="dot-notice" depends="check-dot" unless="dot.exists">
         <echo message="** Skipping ${ant.project.name} doc creation because could not find Graphviz binaries."/>
-    </target>
-    
-    <target name="check-views">
-        <available file="${report.view.src}" 
-                    type="dir"
-                    property="umlgraph.views.exist"/>
-    </target>
-    
-    <target name="views-notice" depends="check-views" unless="umlgraph.views.exists">
-        <echo message="** Skipping ${project.name} view creation because no view descriptions found in ${report.view.src}"/>
     </target>
     
     <target name="umlgraph-doc" depends="dot-notice" 
@@ -59,68 +40,5 @@
         </umldoc>
     </target>
 
-    <target name="umlgraph-views" depends="check-views" 
-        description="Create class views based on view descriptions."
-        if="umlgraph.views.exist">
-
-        <umldoc doclet="gr.spinellis.umlgraph.doclet.UmlGraph"
-                outputdir="${gen.report.dir}/views">
-            <views>
-                <fileset dir="${project.root}">
-                    <include name="report-src/views/*.java"/>
-                </fileset>
-            </views>
-        </umldoc>
-
-        <apply executable="dot"
-                dest="${gen.report.dir}/views"
-                parallel="false"
-                output="${gen.report.dir}/views/dot-output.log"   >
-            <arg value="-Tpng"/>
-            <arg value="-o"/>
-            <targetfile/>
-            <srcfile/>
-            <fileset dir="${gen.report.dir}/views" includes="*.dot"/>
-            <mapper type="glob" from="*.dot" to="*.png"/>
-        </apply>
-    </target>
-
-    <macrodef name="umldoc">
-        <attribute name="doclet"     default="gr.spinellis.umlgraph.doclet.UmlGraph"/>
-        <attribute name="outputdir"  default="${gen.report.dir}"/>
-        <element name="std-doclet-opts" optional="true"/>
-        <element name="views"        optional="true"/>
-        <sequential>
-            <javadoc
-                classpathref="tool.classpath"
-                verbose="false"
-                >
-            <doclet name="@{doclet}"
-                    path="${tool.home}/UmlGraph.jar"
-                    >
-                <param name="-d" value="@{outputdir}"/>
-                <param name="-output" value="${report.name}.dot"/>
-                <param name="-private"/>
-                <param name="-all"/>
-                <param name="-inferrel"/>
-                <!-- Inferring dependencies can add a lot of information to a graph
-                <param name="-inferdep"/>
-                -->
-                <param name="-qualify"/>
-                <param name="-postfixpackage"/>
-                <param name="-useimports"/>
-                <param name="-collpackages" value="java.util.*"/>
-                <param name="-hide" value="java.lang.String"/>
-                <param name="-link" value="http://java.sun.com/j2se/1.5/docs/api"/>
-                <param name="-views"/>
-            </doclet>
-            <packageset dir="${src.dir}"/>
-            <!-- Standard doclet options here -->
-            <std-doclet-opts/>
-            <!-- Optional view descriptions here -->
-            <views/>
-        </javadoc>
-        </sequential>
-    </macrodef>
 </project>
 
