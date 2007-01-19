@@ -20,7 +20,8 @@
 
     <!-- TODO: How do we really check for the DOT executable? -->
     <target name="check-dot">
-        <available file="${graphviz.home}/dot" 
+        <available file="dot"
+                    filepath="${graphviz.home}"
                     property="dot.exists"/>
         <echo message="Checking ${graphviz.home} for 'dot': ${dot.exists}"/>        
     </target>
