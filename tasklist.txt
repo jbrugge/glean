@@ -78,10 +78,11 @@ CodeFeedback Tasks
     - example projects
         - apache-ant
         - cruisecontrol
-        - spring-framework
-        - Java Petstore
-        - Struts Sampleapp
-        - Geronimo DayTrader
+        - spring-framework (could show use of XSD documentation)
+        - Java Petstore (multiple modules)
+        - Struts Sampleapp (simple, well known)
+        - Geronimo DayTrader ("real" application)
+        - JDOM, XOM, commons-lang, etc (components)
         - types: component JAR, webapp, EJB app, Swing app
     - road map/future features
         - summary metrics

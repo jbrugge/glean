@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<project name="CodeFeedback site"
-        href="http://jbrugge.com/codefeedback/">
+<project name="Glean site"
+        href="http://jbrugge.com/glean/">
 
     <title>CodeFeedback</title>
 
@@ -9,6 +9,7 @@
             <item name="About"          href="/index.html"/>
             <item name="Download"       href="/download.html"/>
             <item name="Documentation"  href="/documentation.html"/>
+            <item name="Screenshots"    href="/screenshots.html"/>
             <item name="FAQ"            href="/faq.html"/>
             <item name="Contact"        href="/contact.html"/>
         </menu>
