@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="build-site" default="docs" basedir=".">
+
+    <property name="velocity.home"  value="${user.home}/tools/velocity-1.5-beta2"/>
+    <property name="project.name"   value="site"/>
+    <property name="docs.src"       value="src"/>
+    <property name="docs.dest"      value="docs"/>
+    <property name="templates.name" value="stylesheet"/>
+    <property name="templates.dir"  value="${docs.src}/${templates.name}"/>
+
+    <path id="tool.classpath">
+        <fileset dir="${velocity.home}">
+            <include name="**/*.jar"/>
+        </fileset>
+    </path>
+
+    <taskdef name="anakia"
+            classname="org.apache.velocity.anakia.AnakiaTask">
+       <classpath refid = "tool.classpath"/>
+    </taskdef>
+    
+    <target name="check-anakia">
+        <available classname="org.apache.velocity.anakia.AnakiaTask"
+                    property="anakia.task.present">
+           <classpath refid = "tool.classpath"/>
+        </available>
+    </target>
+
+    <target name="anakia-notice" depends="check-anakia" unless="anakia.task.present">
+        <echo message="AnakiaTask can not be found in velocity.jar at ${velocity.home}"/>
+    </target>
+
+    <target name="docs" depends="anakia-notice" if="anakia.task.present">
+        <anakia basedir="${docs.src}" 
+            destdir="${docs.dest}/"
+            extension=".html" 
+            projectFile="${templates.name}/project.xml"
+            style="./site.vsl"
+            excludes="${templates.dir}/**"
+            includes="**/*.xml"
+            lastModifiedCheck="true"
+            templatePath="${templates.dir}"
+        >
+        </anakia>
+
+        <!-- In case we have images someday
+        <copy todir="${docs.dest}/images" filtering="no">
+            <fileset dir="${docs.src}/images">
+                <include name="**/*.gif"/>
+                <include name="**/*.jpeg"/>
+                <include name="**/*.jpg"/>
+            </fileset>
+        </copy>
+        -->
+        <copy todir="${docs.dest}" filtering="no">
+            <fileset dir="${docs.src}">
+                <include name="**/*.css"/>
+            </fileset>
+        </copy>
+    </target>
+</project>
