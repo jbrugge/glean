@@ -5,14 +5,19 @@
     <title>Glean : Gathering feedback from your code</title>
 
     <body>
-        <menu name="Pages">
+        <menu name="Overview">
             <item name="About"          href="/index.html"/>
             <item name="Download"       href="/download.html"/>
-            <item name="Documentation"  href="/documentation.html"/>
+            <item name="Using Glean"    href="/using.html"/>
             <item name="Screenshots"    href="/screenshots.html"/>
+            <item name="Sample Projects" href="/samples.html"/>
             <item name="FAQ"            href="/faq.html"/>
             <item name="Contact"        href="/contact.html"/>
         </menu>
     
+        <menu name="Tools">
+            <item name="Scripts Included"   href="/reports.html"/>
+            <item name="Add New Feedback"   href="/adding.html"/>
+        </menu>
     </body>
 </project>

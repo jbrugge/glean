@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="build-site" default="docs" basedir=".">
+    <description>Script that generates documentation for Glean</description>
 
     <property name="velocity.home"  value="${user.home}/tools/velocity-1.5-beta2"/>
     <property name="project.name"   value="site"/>
@@ -43,19 +44,17 @@
         >
         </anakia>
 
+        <copy todir="${docs.dest}" filtering="no">
+            <fileset dir="${docs.src}">
+                <include name="**/*.css"/>
+            </fileset>
         <!-- In case we have images someday
-        <copy todir="${docs.dest}/images" filtering="no">
             <fileset dir="${docs.src}/images">
                 <include name="**/*.gif"/>
                 <include name="**/*.jpeg"/>
                 <include name="**/*.jpg"/>
             </fileset>
-        </copy>
         -->
-        <copy todir="${docs.dest}" filtering="no">
-            <fileset dir="${docs.src}">
-                <include name="**/*.css"/>
-            </fileset>
         </copy>
     </target>
 </project>
