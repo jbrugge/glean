@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+
+  <properties>
+    <author email="john@jbrugge.com">John Brugge</author>
+    <title>Glean : Documentation</title>
+  </properties>
+
+<body>
+<section name="Glean Reports">
+<h2>Basic Reports</h2>
+<table class="bodyTable">
+<th>Name</th><th>Description</th>
+<tr class="a"><td>java2html</td><td>Source code cross-reference in HTML</td></tr>
+<tr class="a"><td>javadoc</td><td>Class API documentation</td></tr>
+<tr class="a"><td>javancss</td><td>Source code metrics (LOC, McCabe Complexity)</td></tr>
+<tr class="a"><td>jdepend</td><td>Package dependency analysis and design metrics</td></tr>
+<tr class="a"><td>pmd</td><td>Static code analysis of style and design</td></tr>
+</table>
+
+<h2>Additional Reports</h2>
+<table class="bodyTable">
+<th>Name</th><th>Description</th>
+<tr class="a"><td>beandoc</td><td>Spring bean browser</td></tr>
+<tr class="a"><td>checkstyle</td><td>Static code analysis and style checker</td></tr>
+<tr class="a"><td>cpd</td><td>Detect copy/paste regsions in code</td></tr>
+<tr class="a"><td>cobertura</td><td>Code coverage</td></tr>
+<tr class="a"><td>doccheck</td><td>Check Javadoc conventions</td></tr>
+<tr class="a"><td>emma</td><td>Code coverage</td></tr>
+<tr class="a"><td>findbugs</td><td>Static code analysis</td></tr>
+<tr class="a"><td>jaranalyzer</td><td>Component dependency analysis</td></tr>
+<tr class="a"><td>junitreport</td><td>Testcase results browser</td></tr>
+<tr class="a"><td>schemaspy</td><td>Database Schema browser</td></tr>
+<tr class="a"><td>statcvs</td><td>Source repository activity report</td></tr>
+<tr class="a"><td>svnstats</td><td>Source repository activity report</td></tr>
+<tr class="a"><td>umlgraph</td><td>Reverse-engineered UML class diagrams</td></tr>
+</table>
+
+</section>
+</body>
+</document>
