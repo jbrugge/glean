@@ -58,8 +58,15 @@ project. Invoking it is then straightforward, from either command line, or anoth
 Ant script, or a build system like CruiseControl.
 <pre>
     cd /path/to/glean
-    ant -Dfeedback.properties=my.project.settings.properties
+    ant -Dfeedback.properties=sample/config/sample.feedback.properties
 </pre>
+This will run all of the tools in the basic setup. The results
+will be simple HTML
+files, along with a summary page. From a browser, open the file
+<code>/path/to/glean/sample/SampleProject/glean/index.html</code>. The summary
+should look something like this.
+</p>
+<p>
 See the <a href="./using.html">documentation</a> page for more complete
 instructions. Several types of project setups are shown on the 
 <a href="./samples.html">samples</a> page.

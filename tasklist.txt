@@ -35,6 +35,7 @@ CodeFeedback Tasks
     - doccheck          : analysis
     - emma              : analysis
     - findbugs          : analysis
+    - hackystat         : analysis
     - hbm2doc           : docs
     - ivy:report        : docs
     - jaranalyzer       : analysis
@@ -51,6 +52,7 @@ CodeFeedback Tasks
     - taglibrarydoc     : docs
     - umlgraph          : docs
     - xref (Maven)      : docs
+    - xradar            : analysis
     - http://www.lumrix.de/xsbrowser.php
     - http://xframe.sourceforge.net/xsddoc/index.html
     - (function points?)

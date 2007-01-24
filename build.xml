@@ -1,11 +1,11 @@
 <project name="glean" default="glean" basedir=".">
     <description>Run reporting or feedback tools over a set of source code</description>
 
-    <property name="project.properties"           value="feedback.properties"/>
-    <property name="project.properties.local"     value="${project.properties}.local"/>
+    <property name="feedback.properties"           value="feedback.properties"/>
+    <property name="feedback.properties.local"     value="${feedback.properties}.local"/>
     
-    <property file="${project.properties.local}"/>
-    <property file="${project.properties}"/>
+    <property file="${feedback.properties.local}"/>
+    <property file="${feedback.properties}"/>
     <property file="feedback.properties.local"/>
     <property file="feedback.properties"/>
 
@@ -50,8 +50,8 @@
             <property name="gen.report.root"      location="${gen.report.root}"/>
             <property name="src.project.name"     value="${src.project.name}"/>
             <property name="feedback.timestamp"   value="${feedback.timestamp}"/>
-            <property name="project.properties"   value="${project.properties}"/>
-            <property name="project.properties.local" value="${project.properties.local}"/>
+            <property name="feedback.properties"   value="${feedback.properties}"/>
+            <property name="feedback.properties.local" value="${feedback.properties.local}"/>
 
             <!-- Run every report that matches our pattern-->
             <dirset dir="tool" includes="${tool.pattern}"/>
