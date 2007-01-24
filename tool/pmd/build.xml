@@ -6,7 +6,7 @@
     <import file="${feedback.script.dir}/tools-common.xml"/>
 
     <property name="link.prefix"        value="../java2html"/>
-    <property name="rulesets"           value="${tool.home}/ruleset.xml"/>
+    <property name="rulesets"           value="${basedir}/ruleset.xml"/>
 
     <taskdef name="pmd" classname="net.sourceforge.pmd.ant.PMDTask"
         classpathref="tool.classpath"/>

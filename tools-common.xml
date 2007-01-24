@@ -1,9 +1,6 @@
 <project name="tools-common" >
     <description>Common attributes and targets for source code reports</description>
 
-    <!-- Get the basedir where our report is running, without relying on 'basedir' -->
-    <dirname property="tool.home"       file="${ant.file}"/>
-
     <!-- Properties can be overridden at the code project or individual report level -->
     <property file="${feedback.script.dir}/${feedback.properties.local}"/>
     <property file="${feedback.script.dir}/${feedback.properties}"/>
@@ -17,6 +14,18 @@
     <property file="${feedback.script.dir}/feedback.properties.local"/>
     <property file="${feedback.script.dir}/feedback.properties"/>
 
+    <!-- Double-dereference a property to create a new property -->
+    <macrodef name="propprop">
+        <attribute name="source"/>
+        <attribute name="dest"/>
+        <sequential>
+            <property name="@{dest}" value="${@{source}}"/>
+        </sequential>
+    </macrodef>
+
+    <!-- Create a property referring to the current tool's home -->
+    <propprop source="${ant.project.name}.home" dest="tool.home"/>
+    
     <!-- Classpath for source code dependencies -->
     <path id="build.classpath">
         <fileset dir="${lib.dir}">
