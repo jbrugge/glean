@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+
+  <properties>
+    <author email="john@jbrugge.com">John Brugge</author>
+    <title>Glean : Downloading</title>
+  </properties>
+
+<body>
+<section name="Downloading">
+<table class="bodyTable">
+    <th>File</th>
+    <th>Description</th>
+  <tr>
+    <td><a href="http://jbrugge.com/glean/glean-1.0b.zip">glean-1.0b.zip</a></td>
+    <td>Glean scripts without tools</td>
+  </tr>
+  <tr>
+    <td><a href="http://jbrugge.com/glean/glean-1.0b-with-toos.zip">glean-1.0b-with-tools.zip</a></td>
+    <td>Glean scripts and the tools for a set of basic feedback</td>
+  </tr>
+</table>
+
+</section>
+</body>
+</document>
