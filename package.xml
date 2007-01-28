@@ -6,13 +6,13 @@
     <property name="dist.dir"  value="dist"/>
     <property name="doc.dir"   value="doc"/>
     <property name="log.dir"   value="logs"/>
-    <property name="dist.docs" value="${doc.dir}/target"/>
+    <property name="dist.docs" value="target"/>
     <property name="glean.dir" value="${basedir}"/>
 
     <target name="doc" 
 	    description="Build the tool documentation">
-        <ant dir="${doc.dir}">
-            <property name="docs.dest" value="target"/>
+        <ant dir="${doc.dir}" target="">
+            <property name="docs.dest" value="${dist.docs}"/>
         </ant>
     </target>
     
@@ -22,7 +22,7 @@
         <mkdir dir="${dist.dir}"/>
         
         <zip destfile="${dist.dir}/${dist.name}.zip">
-            <zipfileset dir="${dist.docs}" prefix="docs">
+            <zipfileset dir="${doc.dir}/${dist.docs}" prefix="docs">
                 <include name="**/*.html"/>
                 <include name="**/*.css"/>
             </zipfileset>
@@ -48,4 +48,15 @@
     	description="Publish the documentation pages to the server">
         
     </target>
+    
+    <target name="clean"
+        depends="clean-docs"
+        description="Delete generated files">
+        <delete dir="${dist.dir}"/>
+    </target>
+    
+    <target name="clean-docs">
+        <ant dir="${doc.dir}" target="clean"/>
+    </target>
+    
 </project>

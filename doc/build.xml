@@ -32,6 +32,8 @@
     </target>
 
     <target name="docs" depends="anakia-notice" if="anakia.task.present">
+        <mkdir dir="${docs.dest}"/>
+        
         <anakia basedir="${docs.src}" 
             destdir="${docs.dest}/"
             extension=".html" 
@@ -57,4 +59,10 @@
         -->
         </copy>
     </target>
+    
+    <target name="clean"
+        description="Delete generated files">
+        <delete dir="${docs.dest}"/>
+    </target>
+    
 </project>
