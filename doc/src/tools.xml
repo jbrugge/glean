@@ -3,12 +3,20 @@
 
   <properties>
     <author email="john@jbrugge.com">John Brugge</author>
-    <title>Glean : Documentation</title>
+    <title>Glean : Tools</title>
   </properties>
 
 <body>
-<section name="Glean Reports">
+<section name="Feedback Tools">
 <h2>Basic Reports</h2>
+<p>
+The basic setup of Glean is meant to give you feedback that is easy to generate,
+immediately useful to almost any project, and with the least reliance on other tools.
+Start with this set to get a feel for Glean and for how you can incorporate the
+feedback into your project team. If you find you want to add other feedback sources,
+you can either use one of the scripts from Glean for any of the tools listed below,
+or you can <a href="./extending">add support for another tool.</a>
+</p>
 <table class="bodyTable">
 <th>Name</th><th>Description</th><th>Dependencies</th>
 <tr class="a"><td><a href="http://www.java2html.com">java2html</a></td><td>Source code cross-reference in HTML</td><td>None</td></tr>
@@ -21,7 +29,7 @@
 <h2>Additional Reports</h2>
 <p>
 Glean comes with scripts for a number of tools. Add these to your builds by including
-them in the <pre>tool.pattern</pre> property for your project. More is not necessarily
+them in the <code>tool.pattern</code> property for your project. More is not necessarily
 better, so start small and add feedback sources when you find that you can get
 some benefit from their data.
 </p>

@@ -20,31 +20,31 @@ is update the configuration to point to the base directory where you unpacked
 the project.
 </p>
 <table class="bodyTable">
-  <th>Type</th>
   <th>Project</th>
+  <th>Type</th>
   <tr>
-    <td>Component</td>
     <td>Jakarta commons-lang</td>
-  </tr>
-  <tr>
     <td>Component</td>
+  </tr>
+  <tr>
     <td>JDOM</td>
+    <td>Component</td>
   </tr>
   <tr>
-    <td>Web Application</td>
     <td>Struts Sample Application</td>
-  </tr>
-  <tr>
     <td>Web Application</td>
+  </tr>
+  <tr>
     <td>??</td>
+    <td>Web Application</td>
   </tr>
   <tr>
-    <td>J2EE Application</td>
     <td>Java PetStore</td>
+    <td>J2EE Application</td>
   </tr>
   <tr>
-    <td>J2EE Application</td>
     <td>Geronimo DayTrader</td>
+    <td>J2EE Application</td>
   </tr>
 </table>
 </section>

@@ -1,39 +1,70 @@
 <project name="package-glean" default="package" basedir=".">
     <description>Create a distribution of Glean</description>
     
-    <property name="version"   value="1.0b"/>
-    <property name="dist.name" value="glean-${version}"/>
-    <property name="dist.dir"  value="dist"/>
-    <property name="doc.dir"   value="doc"/>
-    <property name="log.dir"   value="logs"/>
-    <property name="dist.docs" value="target"/>
-    <property name="glean.dir" value="${basedir}"/>
+    <property name="version"       value="1.0b"/>
+    <property name="min.dist.name" value="glean-${version}"/>
+    <property name="basic.dist.name" value="${min.dist.name}-with-tools"/>
+    <property name="dist.dir"      value="dist"/>
+    <property name="doc.dir"       value="doc"/>
+    <property name="log.dir"       value="logs"/>
+    <property name="dist.docs"     value="target"/>
+    <property name="glean.dir"     value="${basedir}"/>
+    <property name="tool.dir"      value="${user.home}/tools/"/>
 
+    <patternset id="dist.script.excludes">
+        <exclude name="${ant.file.name}"/>
+        <exclude name="${dist.dir}/"/>
+        <exclude name="${doc.dir}/"/>
+        <exclude name="${log.dir}/"/>
+        <exclude name="**/*.log"/>
+        <exclude name="**/*.properties.local"/>                
+    </patternset>
+    
+    <zipfileset id="doc.files" dir="${doc.dir}/${dist.docs}" prefix="docs">
+        <include name="**/*.html"/>
+        <include name="**/*.css"/>
+    </zipfileset>
+    
+    <zipfileset id="tool.files" dir="${tool.dir}" prefix="tools">
+        <include name="java2html"/>
+        <include name="javancss"/>
+        <include name="jdepend"/>
+        <include name="pmd"/>
+    </zipfileset>
+    
     <target name="doc" 
 	    description="Build the tool documentation">
-        <ant dir="${doc.dir}" target="">
+        <ant dir="${doc.dir}" target="docs">
             <property name="docs.dest" value="${dist.docs}"/>
         </ant>
     </target>
     
-    <target name="package"
+    <target name="package" depends="package-min, package-basic"/>
+    
+    <target name="package-min"
         depends="doc"
-    	description="Package up a distribution">
+    	description="Package up a minimum distribution of the scripts">
         <mkdir dir="${dist.dir}"/>
         
-        <zip destfile="${dist.dir}/${dist.name}.zip">
-            <zipfileset dir="${doc.dir}/${dist.docs}" prefix="docs">
-                <include name="**/*.html"/>
-                <include name="**/*.css"/>
-            </zipfileset>
+        <zip destfile="${dist.dir}/${min.dist.name}.zip">
+            <zipfileset refid="doc.files"/>
             <fileset dir="${glean.dir}">
-                <exclude name="${ant.file.name}"/>
-                <exclude name="${dist.dir}/"/>
-                <exclude name="${doc.dir}/"/>
-                <exclude name="${log.dir}/"/>
-                <exclude name="**/*.log"/>
-                <exclude name="**/*.properties.local"/>                
+                <patternset refid="dist.script.excludes"/>
             </fileset>
+        </zip>
+    </target>
+    
+    <target name="package-basic"
+        depends="doc"
+    	description="Package up a distribution of the scripts and basic tools">
+        <mkdir dir="${dist.dir}"/>
+        
+        <zip destfile="${dist.dir}/${basic.dist.name}.zip">
+            <zipfileset refid="doc.files"/>
+            <fileset dir="${glean.dir}">
+                <patternset refid="dist.script.excludes"/>
+            </fileset>
+            <zipfileset refid="tool.files"/>
         </zip>
     </target>
     
