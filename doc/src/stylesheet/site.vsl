@@ -61,7 +61,7 @@
 </head>
 <body>
 <div id="header">
-cool logo here
+<span id="highlight">Glean</span>
 </div>
 
 #makeNav()
@@ -83,7 +83,7 @@ cool logo here
 </div>
 
 <div id="footer">
-copyright stuff
+Copyright &#169; 2007, John A. Brugge
 </div>
 
 </body>

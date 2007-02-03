@@ -25,6 +25,11 @@ table.bodyTable tr td{
     background : #eeeee0;
 }
  
+span#highlight {
+  color : #006633; 
+  font-size : 36pt;
+}
+
 div#header {
 	height : 100px;
 	overflow : hidden;

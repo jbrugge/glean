@@ -10,30 +10,34 @@
 <section name="Glean Reports">
 <h2>Basic Reports</h2>
 <table class="bodyTable">
-<th>Name</th><th>Description</th>
-<tr class="a"><td>java2html</td><td>Source code cross-reference in HTML</td></tr>
-<tr class="a"><td>javadoc</td><td>Class API documentation</td></tr>
-<tr class="a"><td>javancss</td><td>Source code metrics (LOC, McCabe Complexity)</td></tr>
-<tr class="a"><td>jdepend</td><td>Package dependency analysis and design metrics</td></tr>
-<tr class="a"><td>pmd</td><td>Static code analysis of style and design</td></tr>
+<th>Name</th><th>Description</th><th>Dependencies</th>
+<tr class="a"><td><a href="http://www.java2html.com">java2html</a></td><td>Source code cross-reference in HTML</td><td>None</td></tr>
+<tr class="a"><td><a href="http://java.sun.com/j2se/javadoc/">javadoc</a></td><td>Class API documentation</td><td>None</td></tr>
+<tr class="a"><td><a href="http://www.kclee.de/clemens/java/javancss/">javancss</a></td><td>Source code metrics (LOC, McCabe Complexity)</td><td></td></tr>
+<tr class="a"><td><a href="http://clarkware.com/software/JDepend.html">jdepend</a></td><td>Package dependency analysis and design metrics</td><td></td></tr>
+<tr class="a"><td><a href="http://pmd.sourceforge.net">pmd</a></td><td>Static code analysis of style and design</td><td>None</td></tr>
 </table>
 
 <h2>Additional Reports</h2>
+Glean comes with scripts for a number of tools. Add these to your builds by including
+them in the <pre>tool.pattern</pre> property for your project. More is not necessarily
+better, so start small and add feedback sources when you find that you can get
+some benefit from their data.
 <table class="bodyTable">
 <th>Name</th><th>Description</th>
-<tr class="a"><td>beandoc</td><td>Spring bean browser</td></tr>
-<tr class="a"><td>checkstyle</td><td>Static code analysis and style checker</td></tr>
-<tr class="a"><td>cpd</td><td>Detect copy/paste regsions in code</td></tr>
-<tr class="a"><td>cobertura</td><td>Code coverage</td></tr>
-<tr class="a"><td>doccheck</td><td>Check Javadoc conventions</td></tr>
-<tr class="a"><td>emma</td><td>Code coverage</td></tr>
-<tr class="a"><td>findbugs</td><td>Static code analysis</td></tr>
-<tr class="a"><td>jaranalyzer</td><td>Component dependency analysis</td></tr>
-<tr class="a"><td>junitreport</td><td>Testcase results browser</td></tr>
-<tr class="a"><td>schemaspy</td><td>Database Schema browser</td></tr>
-<tr class="a"><td>statcvs</td><td>Source repository activity report</td></tr>
-<tr class="a"><td>svnstats</td><td>Source repository activity report</td></tr>
-<tr class="a"><td>umlgraph</td><td>Reverse-engineered UML class diagrams</td></tr>
+<tr class="a"><td><a href="http://opensource.atlassian.com/confluence/spring/display/BDOC/Home">beandoc</a></td><td>Spring bean browser</td><td>None</td></tr>
+<tr class="a"><td><a href="http://checkstyle.sourceforge.net/">checkstyle</a></td><td>Static code analysis and style checker</td><td></td></tr>
+<tr class="a"><td><a href="http://pmd.sourceforge.net/cpd.html">cpd</a></td><td>Detect copy/paste regsions in code</td><td></td></tr>
+<tr class="a"><td><a href="http://cobertura.sourceforge.net/">cobertura</a></td><td>Code coverage</td><td>JUnit</td></tr>
+<tr class="a"><td><a href="http://www.doccheck.com/">doccheck</a></td><td>Check Javadoc conventions</td><td></td></tr>
+<tr class="a"><td><a href="http://emma.sourceforge.net/">emma</a></td><td>Code coverage</td><td>JUnit</td></tr>
+<tr class="a"><td><a href="http://findbugs.sourceforge.net/">findbugs</a></td><td>Static code analysis</td><td></td></tr>
+<tr class="a"><td><a href="http://www.kirkk.com/main/Main/JarAnalyzer">jaranalyzer</a></td><td>Component dependency analysis</td><td>Graphviz</td></tr>
+<tr class="a"><td><a href="http://ant.apache.org/manual/OptionalTasks/junitreport.html">junitreport</a></td><td>Testcase results browser</td><td></td></tr>
+<tr class="a"><td><a href="http://schemaspy.sourceforge.net/">schemaspy</a></td><td>Database Schema browser</td><td>Graphviz, JDBC driver</td></tr>
+<tr class="a"><td><a href="http://statcvs.sourceforge.net/">statcvs</a></td><td>Source repository activity report</td><td></td></tr>
+<tr class="a"><td><a href="http://statsvn.org/">statsvn</a></td><td>Source repository activity report</td><td>Subversion command-line</td></tr>
+<tr class="a"><td><a href="http://www.spinellis.gr/sw/umlgraph/">umlgraph</a></td><td>Reverse-engineered UML class diagrams</td><td>Graphviz</td></tr>
 </table>
 
 </section>

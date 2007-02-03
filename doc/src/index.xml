@@ -13,8 +13,7 @@
 Glean is a framework of Ant scripts for generating feedback on a team's source code.
 Glean's goal is to make it possible to add feedback to your build cycle
 with as little pain as possible.
-The results of the scripts
-are HTML that you can deploy to a project website or some other common team area.
+The scripts create HTML that you can deploy to a project website or some other common team area.
 Add it at the end of a daily build cycle and it is a quick way to keep a number 
 of feedback sources up to date and in one place.
 </p><p>
@@ -22,7 +21,7 @@ There are any number of feedback tools that have Ant tasks, but applying them
 individually to your project build script usually involves copying some boilerplate
 Ant target from the tool's documentation and tweaking it a little for your project.
 Of course, even that doesn't help when you move on to the
-next project, other than now having a new place to copy and paste from. And as you find
+next project, other than now having a new place to copy and paste. And as you find
 more areas where another feedback tool would help, it adds an organizing challenge to the
 build script maintainer to figure out where to put the script for this new tool.
 </p><p>
@@ -32,11 +31,11 @@ The goal is to give you flexibility in a couple of different directions: to let
 you plug in different tools that analyze, document or measure your code, and 
 to let you apply those tools to any source project you have. 
 </p><p>
-The core package includes scripts for a set of open-source tools
+The core package includes scripts for <a href="./tools.html">a set of open-source tools</a>
 that provide a wide range of code analysis, documentation and metrics. 
 When you want to expand on that, there are a number of other scripts you can 
 add for such areas as test code coverage, UML generation or database documentation.
-And if you have a tool you use that isn't here, the instructions on adding it to
+And if you have a tool you use that isn't here, the instructions for adding it to
 Glean show you how to drop that one in.
 </p>
 </section>
@@ -50,7 +49,7 @@ The pre-requisites for running the basic scripts are a basic Ant setup.
 <li>Ant 1.6.5</li>
 </ul>
 Many of the other tools may have their own dependencies. Those scripted by Glean
-are listed on the <a href="./tools.html">tools</a> page.
+are listed on the <a href="./reports.html">tools</a> page.
 </p><p>
 Running Glean involves telling it where your project is and what tools you want
 to run. The defaults will give you some of the staple feedback for a basic component
