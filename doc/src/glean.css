@@ -28,6 +28,7 @@ table.bodyTable tr td{
 span#highlight {
   color : #006633; 
   font-size : 36pt;
+  font-weight: bold;
 }
 
 div#header {
