@@ -27,6 +27,7 @@
             breakiterator="true"
             useexternalfile="true"
             verbose="false"
+            source="${source.level}"
         >
             <arg value="-quiet"/>
             <packageset dir="${src.dir}"/>

@@ -16,7 +16,7 @@
         </menu>
     
         <menu name="Tools">
-            <item name="Scripts Included"   href="/reports.html"/>
+            <item name="Scripts Included"   href="/tools.html"/>
             <item name="Add New Feedback"   href="/adding.html"/>
         </menu>
     </body>

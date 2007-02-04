@@ -7,6 +7,9 @@
 
     <target name="run-report" depends="jdepend, graph"/>
 
+    <!-- We usually aren't as interested in the dependencies of our test classes
+         so lets not clutter up the analysis with them.
+      -->
     <path id="classes.dir.path">
         <dirset dir="${bin.dir}">
             <exclude name="**/test"/>

@@ -8,12 +8,12 @@
     <html>
     <head>
     <META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css"/>
-    <title>Feedback gleaned from <xsl:value-of select="@name"/></title>
+    <title>Feedback from <xsl:value-of select="@name"/></title>
     <link rel="stylesheet" type="text/css" href="reports.css"/>
     </head>
     <body>
     <h1>Feedback from <xsl:value-of select="@name"/> source code</h1>
-    <p align="right">Run with <a href="http://jbrugge.com/glean>Glean</a> and <a href="http://ant.apache.org">Ant</a> on <xsl:value-of select="@time"/></p>
+    <p align="right">Run with <a href="http://jbrugge.com/glean">Glean</a> and <a href="http://ant.apache.org">Ant</a> on <xsl:value-of select="@time"/></p>
     <hr size="2" />
     <table class="details" align="center">
         <tr>

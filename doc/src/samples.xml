@@ -23,11 +23,11 @@ the project.
   <th>Project</th>
   <th>Type</th>
   <tr>
-    <td>Jakarta commons-lang</td>
+    <td><a href="http://jakarta.apache.org/commons/lang/">Jakarta commons-lang</a></td>
     <td>Component</td>
   </tr>
   <tr>
-    <td>JDOM</td>
+    <td><a href="http://www.jdom.org/">JDOM</a></td>
     <td>Component</td>
   </tr>
   <tr>
