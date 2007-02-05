@@ -39,11 +39,11 @@ the project.
     <td>Web Application</td>
   </tr>
   <tr>
-    <td>Java PetStore</td>
+    <td><a href="http://java.sun.com/developer/releases/petstore/">Java PetStore</a></td>
     <td>J2EE Application</td>
   </tr>
   <tr>
-    <td>Geronimo DayTrader</td>
+    <td><a href="http://cwiki.apache.org/GMOxDOC10/day-trader.html">Geronimo DayTrader</a></td>
     <td>J2EE Application</td>
   </tr>
 </table>
