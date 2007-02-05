@@ -1,19 +1,6 @@
 <project name="tools-common" >
     <description>Common attributes and targets for source code reports</description>
 
-    <!-- Properties can be overridden at the code project or individual report level -->
-    <property file="${feedback.script.dir}/${feedback.properties.local}"/>
-    <property file="${feedback.script.dir}/${feedback.properties}"/>
-
-    <property file="${project.root}/feedback.properties.local"/>
-    <property file="${project.root}/feedback.properties"/>
-
-    <property file="${tool.home}/tool.properties.local"/>    
-    <property file="${tool.home}/tool.properties"/>
-    
-    <property file="${feedback.script.dir}/feedback.properties.local"/>
-    <property file="${feedback.script.dir}/feedback.properties"/>
-
     <!-- Double-dereference a property to create a new property -->
     <macrodef name="propprop">
         <attribute name="source"/>
@@ -23,7 +10,24 @@
         </sequential>
     </macrodef>
 
-    <!-- Create a property referring to the current tool's home -->
+    <!-- Properties can be overridden at the code project or individual report level -->
+    <property file="${feedback.script.dir}/${feedback.properties.local}"/>
+    <property file="${feedback.script.dir}/${feedback.properties}"/>
+
+    <property file="${project.root}/feedback.properties.local"/>
+    <property file="${project.root}/feedback.properties"/>
+
+    <property file="${basedir}/tool.properties.local"/>    
+    <property file="${basedir}/tool.properties"/>
+    
+    <property file="${feedback.script.dir}/feedback.properties.local"/>
+    <property file="${feedback.script.dir}/feedback.properties"/>
+
+    <!-- Create a property referring to the install for the current tool 
+         Each tool's home should be loaded in feedback.properties, but we
+         want to transfer that to a generic property name that can be
+         used by our common script.
+     -->
     <propprop source="${ant.project.name}.home" dest="tool.home"/>
     
     <!-- Classpath for source code dependencies -->

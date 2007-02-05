@@ -20,7 +20,7 @@
                 verbose="false"
                 >
             <doclet name="@{doclet}"
-                    path="${tool.home}/UmlGraph.jar"
+                    pathref="tool.classpath"
                     >
                 <param name="-d" value="@{outputdir}"/>
                 <param name="-output" value="${report.name}.dot"/>
