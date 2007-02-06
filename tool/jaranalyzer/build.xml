@@ -1,0 +1,29 @@
+<project name="jaranalyzer" default="report" basedir=".">
+    <property name="tool.description" 
+             value="Component-level dependency analysis"/>
+    
+    <description>${report.description}</description>
+
+    <import file="${feedback.script.dir}/tools-common.xml"/>
+
+    <path id="jaranalyzer.classpath">
+        <path refid="tool.classpath"/>
+        <pathelement path="${tool.home}/lib"/>
+    </path>
+    
+    <taskdef name="jaranalyzer" classname="com.kirkk.analyzer.textui.JarAnalyzerTask"
+        classpathref="jaranalyzer.classpath"/>
+        
+    <target name="run-report" depends="jaranalyzer"/>
+
+    <target name="jaranalyzer">
+        <echoproperties prefix="report."/>
+        <jaranalyzer srcdir="${lib.dir}" 
+                destfile="${gen.report.dir}/${report.name}.xml" 
+                summaryclass="com.kirkk.analyzer.textui.XMLUISummary"
+                jarFilter="${jaranalyzer.jar.filter}"
+                />
+    </target>
+
+</project>
+

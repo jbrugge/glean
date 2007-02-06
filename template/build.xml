@@ -8,13 +8,13 @@
          This will show up on the summary page of reports, as well as provide
          documentation of the script.
     -->
-    <property name="report.description" 
+    <property name="tool.description" 
              value="DESCRIBE WHAT FEEDBACK THE TOOL PROVIDES (e.g. Reports on the number of lines of code)"/>
     
     <description>${report.description}</description>
 
     <!-- Keep this here. All of the setup of common properties is done in this include -->
-    <import file="${report.script.dir}/reports-common.xml"/>
+    <import file="${feedback.script.dir}/tools-common.xml"/>
 
     <!-- CHECKME: If your report relies ona custom Ant task, define that here
     <taskdef name="mytooltask" classname="some.ones.tool.MyToolAntTask"
