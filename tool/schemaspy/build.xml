@@ -1,0 +1,42 @@
+<project name="schemaspy" default="report" basedir=".">
+    <property name="tool.description" 
+             value="Database schema and entity browser"/>
+    
+    <description>${report.description}</description>
+
+    <import file="${feedback.script.dir}/tools-common.xml"/>
+    
+    <property name="schemaspy.jar"   value="${tool.home}/schemaSpy_3.1.1.jar"/>
+
+    <target name="run-report" depends="schemaspy"/>
+
+    <target name="check-db-driver">
+        <available file="${db.driver.path}"
+                property="db.driver.found"/>
+    </target>
+    
+    <target name="notify-db-driver" unless="db.driver.found">
+        <echo message="Skipping Schemaspy. Could not find driver: ${db.driver.path}"/>
+    </target>
+    
+    <target name="schemaspy" depends="check-db-driver, notify-db-driver" 
+        if="db.driver.found">
+        <java jar="${schemaspy.jar}" 
+            output="${gen.report.dir}/${report.name}-output.log"
+            fork="true">
+            <arg line="-t ${db.type}"/>
+            <arg line="-db ${db.name}"/>
+            <arg line="-s ${db.schema}"/>
+            <arg line="-port ${db.port}"/>
+            <!--
+            <arg line="-p${db.password}"/>
+            -->
+            <arg line="-u ${db.user}"/>
+            <arg line="-cp ${db.driver.path}"/>
+            <arg line="-host ${db.host}"/>
+            <arg line="-o ${gen.report.dir}"/>
+        </java>
+    </target>
+
+</project>
+
