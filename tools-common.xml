@@ -108,14 +108,14 @@
         <attribute name="stylesheet" default="${report.stylesheet}"/>
         <element name="extra.params" optional="true"/>
         <sequential>
-            <style basedir="." destdir="."
+            <xslt basedir="." destdir="."
                 in="@{input.file}" 
                 out="@{output.file}"
                 style="@{stylesheet}">
               <param name="project" expression="${src.project.name}" />
               <param name="today" expression="${tool.timestamp}" />
               <extra.params/>
-            </style>
+            </xslt>
         </sequential>
     </macrodef>
     
