@@ -9,8 +9,9 @@
     <property name="log.dir"       value="logs"/>
     <property name="dist.docs"     value="target"/>
     <property name="glean.dir"     value="${basedir}"/>
-    <property name="tool.dir"      value="${user.home}/tools/"/>
 
+    <property file="toolhome.properties"/>
+    
     <patternset id="dist.script.excludes">
         <exclude name="${ant.file.name}"/>
         <exclude name="${dist.dir}/"/>
@@ -25,11 +26,11 @@
         <include name="**/*.css"/>
     </zipfileset>
     
-    <zipfileset id="tool.files" dir="${tool.dir}" prefix="tools">
-        <include name="java2html"/>
-        <include name="javancss"/>
-        <include name="jdepend"/>
-        <include name="pmd"/>
+    <zipfileset id="tool.files" dir="${tools.base}" prefix="tools">
+        <include name="${java2html.home}/**"/>
+        <include name="${javancss.home}/**"/>
+        <include name="${jdepend.home}/**"/>
+        <include name="${pmd.home}/**"/>
     </zipfileset>
     
     <target name="doc" 
@@ -60,10 +61,11 @@
         <mkdir dir="${dist.dir}"/>
         
         <zip destfile="${dist.dir}/${basic.dist.name}.zip">
-            <zipfileset refid="doc.files"/>
+<!--             <zipfileset refid="doc.files"/>
             <fileset dir="${glean.dir}">
                 <patternset refid="dist.script.excludes"/>
             </fileset>
+ -->
             <zipfileset refid="tool.files"/>
         </zip>
     </target>

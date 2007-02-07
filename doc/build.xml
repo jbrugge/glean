@@ -40,7 +40,7 @@
             projectFile="${templates.name}/project.xml"
             style="./site.vsl"
             excludes="${templates.dir}/**"
-            includes="**/*.xml"
+            includes="*.xml"
             lastModifiedCheck="true"
             templatePath="${templates.dir}"
         >

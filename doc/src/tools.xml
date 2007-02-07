@@ -42,7 +42,7 @@ some benefit from their data.
 </p>
 <table class="bodyTable">
 <th>Name</th><th>Description</th><th>Dependencies</th>
-<tr class="a"><td><a href="http://opensource.atlassian.com/confluence/spring/display/BDOC/Home">beandoc</a></td><td>Spring bean browser</td><td>None</td></tr>
+<tr class="a"><td><a href="http://opensource.atlassian.com/confluence/spring/display/BDOC/Home">beandoc</a></td><td>Spring bean browser</td><td>Graphviz</td></tr>
 <tr class="a"><td><a href="http://checkstyle.sourceforge.net/">checkstyle</a></td><td>Static code analysis and style checker</td><td></td></tr>
 <tr class="a"><td><a href="http://pmd.sourceforge.net/cpd.html">cpd</a></td><td>Detect copy/paste regsions in code</td><td></td></tr>
 <tr class="a"><td><a href="http://www.doccheck.com/">doccheck</a></td><td>Check Javadoc conventions</td><td></td></tr>
