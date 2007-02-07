@@ -8,7 +8,6 @@
 
     <property name="svn.log.file"           value="${gen.report.dir}/svnlog.log"/>
     <property name="svn.include.pattern"    value="**/*.java"/>
-    <property name="svn.css.file"           value="http://statcvs.sf.net/stats/statcvs.css"/>
     
     <taskdef name="statsvn" classname="net.sf.statsvn.ant.StatSvnTask"
         classpathref="tool.classpath"/>
