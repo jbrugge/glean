@@ -1,0 +1,25 @@
+<project name="beandoc" default="report" basedir=".">
+    <property name="tool.description" 
+             value="Spring bean documentation"/>
+    
+    <description>${report.description}</description>
+
+    <import file="${feedback.script.dir}/tools-common.xml"/>
+
+    <taskdef name="beandoc" classname="org.springframework.beandoc.client.AntTask"
+        classpathref="tool.classpath"/>
+        
+    <target name="run-report" depends="beandoc"/>
+
+    <target name="beandoc">
+        <beandoc
+              outputDir="${gen.report.dir}}"
+              >
+            <fileset dir="${src.dir}">
+                <include name="**/*Context.xml"/>
+            </fileset>
+        </beandoc>
+    </target>
+
+</project>
+
