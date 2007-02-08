@@ -13,7 +13,7 @@
 
     <target name="beandoc">
         <beandoc
-              outputDir="${gen.report.dir}}"
+              outputDir="${gen.report.dir}"
               >
             <fileset dir="${src.dir}">
                 <include name="**/*Context.xml"/>
