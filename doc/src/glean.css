@@ -7,7 +7,8 @@ body {
 
 textarea, pre, code { font-size : 0.9em; }
 pre, code { font-family : 'Lucida Console','Andale Mono','Courier New',Courier; }
-pre { line-height : 1.2em; }
+pre { line-height : 1.2em;
+    padding-left : 20px; }
 
 h1, h2, h3, h6 { font-weight : normal; }
 h4, h5 { font-weight : bold; }
@@ -28,6 +29,10 @@ table.bodyTable tr td{
 span#highlight {
   color : #006633; 
   font-size : 36pt;
+  font-weight: bold;
+}
+
+span#emphasis {
   font-weight: bold;
 }
 

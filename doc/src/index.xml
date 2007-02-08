@@ -56,8 +56,8 @@ to run. The defaults will give you some of the staple feedback for a basic compo
 project. Invoking it is then straightforward, from either command line, or another
 Ant script, or a build system like CruiseControl.
 <pre>
-    cd /path/to/glean
-    ant -Dfeedback.properties=sample/config/sample.feedback.properties
+cd /path/to/glean
+ant -Dfeedback.properties=sample/config/sample.feedback.properties
 </pre>
 This will run all of the tools in the basic setup. The results
 will be simple HTML
