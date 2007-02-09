@@ -88,7 +88,7 @@ these reports.
 <pre>tool.pattern=beandoc,doccheck,javadoc,java2html</pre>
 </section>
 <section name="Changing the report look">
-<p>The reports use a stylesheet called <code>glean.css</code>. Change this
+<p>Many of the reports use a stylesheet called <code>reports.css</code>. Change this
 in any way that
 you want. It is based on a number of styles from the standard
 stylesheets that come with Ant.
