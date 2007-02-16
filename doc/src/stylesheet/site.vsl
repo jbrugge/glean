@@ -61,7 +61,7 @@
 </head>
 <body>
 <div id="header">
-<span id="highlight">Glean</span>
+<span id="highlight">Glean<hr size=3/></span>
 </div>
 
 #makeNav()
@@ -83,7 +83,7 @@
 </div>
 
 <div id="footer">
-Copyright &#169; 2007, John A. Brugge, Last modified: $date
+Copyright &#169; 2007, John A. Brugge. Last modified: $date
 </div>
 
 </body>

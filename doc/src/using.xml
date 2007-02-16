@@ -20,7 +20,7 @@ To tell Glean about your project, then, copy the <code>sample/sample.feedback.pr
 file to any place you like and edit it.
 </p>
 <p>
-After saving it, you run Glean by pointing it at that file
+You run Glean by pointing it at that file
 <pre>
 cd /path/to/glean
 ant -Dfeedback.properties=/path/to/myfeedback.properties
