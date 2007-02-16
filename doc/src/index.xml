@@ -72,5 +72,13 @@ instructions. Several types of project setups are shown on the
 </p>
 </section>
 
+<section name="">
+<p>
+Glean is distributed under an <a href="./license.html">MIT License</a>. 
+Use it well, share it freely.
+I plan to continue improving it, so your feedback is appreciated.
+If you have ideas or scripts to share, feel free to 
+<a href="mailto:john.brugge+glean@gmail.com">contact me</a>.
+</section>
 </body>
 </document>

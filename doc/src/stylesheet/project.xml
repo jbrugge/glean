@@ -9,14 +9,15 @@
             <item name="About"          href="/index.html"/>
             <item name="Download"       href="/download.html"/>
             <item name="Using Glean"    href="/using.html"/>
-            <item name="Screenshots"    href="/screenshots.html"/>
-            <item name="Sample Projects" href="/samples.html"/>
+            <item name="Samples"        href="/samples.html"/>
+            <!-- Add this in when there really are questions
             <item name="FAQ"            href="/faq.html"/>
+            -->
         </menu>
     
-        <menu name="Tools">
-            <item name="Scripts Included"   href="/tools.html"/>
-            <item name="Add New Feedback"   href="/adding.html"/>
+        <menu name="Tool Scripts">
+            <item name="Included"       href="/tools.html"/>
+            <item name="Extending"      href="/adding.html"/>
         </menu>
     </body>
 </project>
