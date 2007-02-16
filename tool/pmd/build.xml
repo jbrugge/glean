@@ -15,6 +15,7 @@
 
     <target name="pmd">
         <pmd shortFilenames="yes"
+              targetjdk="${source.level}"
               rulesetfiles="${rulesets}"
             >
             <formatter type="${report.format}"
