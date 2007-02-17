@@ -62,7 +62,7 @@
             
     </target>
 
-    <target name="clean-reports" description="Clean out generated report files">
+    <target name="clean" description="Clean out generated report files">
         <delete dir="${gen.report.root}"/>
     </target>
 
@@ -92,7 +92,7 @@
              todir="${report.deploy.dir}"/>
     </target>
 
-    <target name="all" depends="clean-reports, deploy-reports"
+    <target name="all" depends="clean, deploy-reports"
         description="Runs and deploys a clean set of reports" />
 
     <target name="download-tools"
