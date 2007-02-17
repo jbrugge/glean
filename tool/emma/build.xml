@@ -7,14 +7,12 @@
 
     <taskdef resource="emma_ant.properties" classpathref="tool.classpath" />
 
-    <property name="test.bin.dir"       location="${bin.dir}"/>
-    <property name="test.script"        location="${project.root}/test.xml"/>
-
     <!-- We need to have a build script that can execute our unit tests -->
+    <property name="test.script"        location="${feedback.script.dir}/test.xml"/>
     <import file="${test.script}" optional="true"/>
 
     <!-- Individual projects can define their own filters, or just use the default one. -->
-    <property name="project.report.filter"   value="${project.root}/report-src/emma-filters.txt"/>
+    <property name="project.report.filter"   value="${test.src.dir}/emma-filters.txt"/>
     <property name="default.filter"          value="filters.txt"/>
 
     <!-- output directory used for EMMA work files and coverage reports: -->
@@ -37,8 +35,12 @@
     <target name="run-report" depends="coverage"/>
 
     <target name="check-tests" description="Check if tests and a test script exist.">
-        <!-- TODO: implement conditional to check test.bin.dir and test.script dir -->
-        <property name="tests.available" value="false"/>
+        <available dir="${test.bin.dir}"
+            property="tests.available"/>
+    </target>
+    
+    <target name="notify-tests" unless="tests.available">
+        <echo message="Skipping Emma test coverage because no test directory found (test.bin.dir= ${test.bin.dir})"/>
     </target>
     
     <target name="emma" description="turns on EMMA instrumentation/reporting" >
@@ -54,7 +56,7 @@
         <property name="report.filter" value="${default.filter}"/>
     </target>
 
-    <target name="coverage" depends="emma, check-tests" if="tests.available">
+    <target name="coverage" depends="emma, check-tests, notify-tests" if="tests.available">
         <!-- Instrument the code -->
         <emma enabled="${emma.enabled}" >
             <instr instrpathref="run.classpath"
@@ -67,16 +69,16 @@
         </emma>
 
         <!-- Run the tests -->
-        <test
+        <glean-test
             test-class-dir="${test.bin.dir}">
             <extra-classpath>
                 <path refid="emma.test.classpath"/>
             </extra-classpath>
-            <jvmargs>
+            <jvm-args>
                 <jvmarg value="-Demma.coverage.out.file=${coverage.dir}/coverage.emma" />
-                <jvmarg value="-Demma.coverage.out.merge=false" />
-            </jvmargs>
-        </test>
+                <jvmarg value="-Demma.coverage.out.merge=true" />
+            </jvm-args>
+        </glean-test>
 
         <!-- Generate the report -->
         <emma enabled="${emma.enabled}" >

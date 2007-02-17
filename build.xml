@@ -68,11 +68,11 @@
     </target>
 
     <target name="feedback-summary" description="Create summary page of reports run">
-        <style basedir="." destdir="."
+        <xslt basedir="." destdir="."
             in="${project.report.summary}" 
             out="${project.report.page}"
             style="${project.report.stylesheet}">
-        </style>    
+        </xslt>    
     </target>
     
     <target name="package-reports" depends="feedback, feedback-summary"

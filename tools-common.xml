@@ -20,8 +20,8 @@
 
     <!-- Properties can be overridden at the code project or individual report level -->
     
-    <property file="${feedback.script.dir}/${feedback.properties.local}"/>
-    <property file="${feedback.script.dir}/${feedback.properties}"/>
+    <property file="${feedback.properties.local}"/>
+    <property file="${feedback.properties}"/>
 
     <property file="${project.root}/feedback.properties.local"/>
     <property file="${project.root}/feedback.properties"/>
@@ -82,7 +82,10 @@
         <echo message="-------- Finishing ${ant.project.name} at ${tool.stop.timestamp} --------"/>
     </target>
     
-    <target name="transform" depends="check-stylesheet" if="stylesheet.present">
+    <target name="transform" 
+        depends="check-stylesheet, notify-stylesheet" 
+        if="stylesheet.present"
+        description="Uses the defined stylesheet, if it exists, to transform the tool output.">
         <report-style/>
     </target>
 
@@ -101,6 +104,11 @@
             classpathref="tool.classpath"/>
     </target>
 
+    <target name="notify-stylesheet"
+        unless="stylesheet.present">
+        <echo message="Skipping style transformation. Stylesheet '${report.stylesheet}' not found." level="info"/>
+    </target>
+        
     <!-- Common macrodefs -->
     <macrodef name="report-style">
         <attribute name="input.file" default="${gen.report.dir}/${report.name}.xml"/>
