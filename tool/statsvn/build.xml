@@ -8,20 +8,13 @@
 
     <property name="svn.log.file"           value="${gen.report.dir}/svnlog.log"/>
     <property name="svn.include.pattern"    value="**/*.java"/>
+    <property name="svn.date.format"        value="yyyy-MM-dd"/>
     
     <taskdef name="statsvn" classname="net.sf.statsvn.ant.StatSvnTask"
         classpathref="tool.classpath"/>
         
     <target name="run-report" depends="statsvn"/>
 
-    <target name="generate-svn-log">
-        <exec executable="svn" 
-            dir="${src.dir}"
-            output="${svn.log.file}">
-            <arg line="log -v --xml"/>
-        </exec>
-    </target>
-    
     <target name="statsvn" depends="generate-svn-log">
         <statsvn
             path="${src.dir}"
@@ -32,5 +25,60 @@
             />
     </target>
 
+    <!-- To specify a limit on the svn history, define one of the following
+         properties. If none of these are defined, then the entire history
+         will be used:
+            statsvn.limit       = number of revisions
+            statsvn.prev.days   = number of days to look back
+            statsvn.prev.weeks  = number of weeks to look back
+            statsvn.prev.months = number of months to look back
+    -->
+    <target name="create-start-day" if="statsvn.prev.days">
+        <tstamp>
+            <format property="statsvn.start" pattern="${svn.date.format}" 
+                    offset="-${statsvn.prev.days}" unit="day"/>
+        </tstamp>
+    </target>
+    
+    <target name="create-start-week" if="statsvn.prev.weeks">
+        <tstamp>
+            <format property="statsvn.start" pattern="${svn.date.format}" 
+                    offset="-${statsvn.prev.weeks}" unit="week"/>
+        </tstamp>
+    </target>
+    
+    <target name="create-start-month" if="statsvn.prev.months">
+        <tstamp>
+            <format property="statsvn.start" pattern="${svn.date.format}" 
+                    offset="-${statsvn.prev.months}" unit="month"/>
+        </tstamp>
+    </target>
+    
+    <target name="generate-svn-log-range" 
+        depends="create-start-day,create-start-week,create-start-month"
+        if="statsvn.start">
+        <tstamp>
+            <format property="statsvn.end" pattern="${svn.date.format}"/>
+        </tstamp>
+        
+        <exec executable="svn" 
+            dir="${src.dir}"
+            output="${svn.log.file}">
+            <arg line="log -v --xml"/>
+            <arg line="-r {${statsvn.start}}:{${statsvn.end}}"/>
+        </exec>
+    </target>
+    
+    <target name="generate-svn-log-total"
+        unless="statsvn.start">
+        <exec executable="svn" 
+            dir="${src.dir}"
+            output="${svn.log.file}">
+            <arg line="log -v --xml"/>
+        </exec>
+    </target>
+    
+    <target name="generate-svn-log"
+        depends="generate-svn-log-range, generate-svn-log-total"/>
 </project>
 
