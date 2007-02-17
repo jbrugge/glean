@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+
+  <properties>
+    <author email="john@jbrugge.com">John Brugge</author>
+    <title>Glean : Frequently Asked Questions</title>
+  </properties>
+
+<body>
+<section name="Frequently Asked Questions">
+<div class="faq">
+<div class="question">
+<p>
+These are just Ant scripts, and I already have tasks for javadoc and PMD. Why
+should I use CodeFeedback?
+</p>
+</div>
+
+<div class="answer">
+<p>
+The goal of CodeFeedback is to let you mix and match the sets of feedback you
+get from your code, and to keep you from having to write what is essentially
+boilerplate Ant scripts for many of these tools. 
+</p>
+</div>
+</div>
+
+<div class="faq">
+<div class="question">
+<p>
+We already use a lot of these tools in Eclipse, and the feedback is much more
+immediate. Doesn't this make the feedback loop larger rather than smaller?</p>
+</div>
+
+<div class="answer">
+<p>
+</p>
+</div>
+</div>
+
+<div class="faq">
+<div class="question">
+<p>
+Do you have a report for tool X?
+</p>
+</div>
+
+<div class="answer">
+<p>
+</p>
+</div>
+</div>
+
+<div class="faq">
+<div class="question">
+<p>
+I made changes to code and checked it in, but the changes aren't reflected in
+any of the reports. Why not?
+</p>
+</div>
+
+<div class="answer">
+<p>
+</p>
+</div>
+</div>
+
+</section>
+</body>
+</document>
