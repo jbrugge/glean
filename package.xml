@@ -7,31 +7,37 @@
     <property name="dist.dir"      value="dist"/>
     <property name="doc.dir"       value="doc"/>
     <property name="log.dir"       value="logs"/>
+    <property name="scratch.dir"   value="glean"/>
     <property name="dist.docs"     value="target"/>
     <property name="glean.dir"     value="${basedir}"/>
 
     <property file="toolhome.properties"/>
     
+    <basename property="package.script"   file="${ant.file}"/>
+
     <patternset id="dist.script.excludes">
-        <exclude name="${ant.file.name}"/>
+        <exclude name="${ant.file}"/>
         <exclude name="${dist.dir}/"/>
         <exclude name="${doc.dir}/"/>
         <exclude name="${log.dir}/"/>
+        <exclude name="${scratch.dir}/"/>
+        <exclude name="${package.script}"/>
+        <exclude name="*.txt"/>
         <exclude name="**/*.log"/>
         <exclude name="**/*.properties.local"/>                
     </patternset>
     
-    <zipfileset id="doc.files" dir="${doc.dir}/${dist.docs}" prefix="docs">
+    <patternset id="doc.files">
         <include name="**/*.html"/>
         <include name="**/*.css"/>
-    </zipfileset>
-    
-    <zipfileset id="tool.files" dir="${tools.base}" prefix="tools">
+    </patternset>
+
+    <patternset id="basic.tool.files">
         <include name="${java2html.home}/**"/>
         <include name="${javancss.home}/**"/>
         <include name="${jdepend.home}/**"/>
         <include name="${pmd.home}/**"/>
-    </zipfileset>
+    </patternset>
     
     <target name="doc" 
 	    description="Build the tool documentation">
@@ -48,10 +54,12 @@
         <mkdir dir="${dist.dir}"/>
         
         <zip destfile="${dist.dir}/${min.dist.name}.zip">
-            <zipfileset refid="doc.files"/>
-            <fileset dir="${glean.dir}">
+            <zipfileset dir="${doc.dir}/${dist.docs}" prefix="${min.dist.name}/docs">
+                <patternset refid="doc.files"/>
+            </zipfileset>
+            <zipfileset dir="${glean.dir}" prefix="${min.dist.name}">
                 <patternset refid="dist.script.excludes"/>
-            </fileset>
+            </zipfileset>
         </zip>
     </target>
     
@@ -61,12 +69,15 @@
         <mkdir dir="${dist.dir}"/>
         
         <zip destfile="${dist.dir}/${basic.dist.name}.zip">
-<!--             <zipfileset refid="doc.files"/>
-            <fileset dir="${glean.dir}">
+            <zipfileset dir="${tools.base}" prefix="${basicc.dist.name}/tools">
+                <patternset refid="basic.tool.files"/>
+            </zipfileset>
+            <zipfileset dir="${doc.dir}/${dist.docs}" prefix="${basic.dist.name}/docs">
+                <patternset refid="doc.files"/>
+            </zipfileset>
+            <zipfileset dir="${glean.dir}" prefix="${basic.dist.name}">
                 <patternset refid="dist.script.excludes"/>
-            </fileset>
- -->
-            <zipfileset refid="tool.files"/>
+            </zipfileset>
         </zip>
     </target>
     
