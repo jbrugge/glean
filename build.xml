@@ -9,7 +9,7 @@
     <property file="feedback.properties.local"/>
     <property file="feedback.properties"/>
 
-    <!-- Property that can be used to refer to the name of the code project -->
+    <!-- Define a property to refer to the name of the code project -->
     <basename property="src.project.name"   file="${project.root}"/>
 
     <!-- Report deployment properties -->
@@ -47,10 +47,9 @@
             <!-- Other common properties specific to reports are available in feedback.properties -->
             <property name="feedback.script.dir"  location="${basedir}"/>
             <property name="project.root"         location="${project.root}"/>
-            <property name="gen.report.root"      location="${gen.report.root}"/>
             <property name="src.project.name"     value="${src.project.name}"/>
             <property name="feedback.timestamp"   value="${feedback.timestamp}"/>
-            <property name="feedback.properties"   value="${feedback.properties}"/>
+            <property name="feedback.properties"  value="${feedback.properties}"/>
             <property name="feedback.properties.local" value="${feedback.properties.local}"/>
 
             <!-- Run every report that matches our pattern-->
