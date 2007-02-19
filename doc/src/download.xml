@@ -12,12 +12,12 @@
     <th>File</th>
     <th>Description</th>
   <tr>
-    <td><a href="http://jbrugge.com/glean/glean-1.0b.zip">glean-1.0b.zip</a></td>
+    <td><a href="http://jbrugge.com/glean/glean-1.0b.zip">glean-1.0b.zip (~50k)</a></td>
     <td>Glean scripts alone</td>
   </tr>
   <tr>
-    <td><a href="http://jbrugge.com/glean/glean-1.0b-with-toos.zip">glean-1.0b-with-tools.zip</a></td>
-    <td>Glean scripts and the tools for a set of basic feedback</td>
+    <td><a href="http://jbrugge.com/glean/glean-1.0b-with-tools.zip">glean-1.0b-with-tools.zip (~55Mb)</a></td>
+    <td>Glean scripts and the tools for a set of basic feedback (PMD, JavaNCSS, JDepend, Java2HTML)</td>
   </tr>
 </table>
 
