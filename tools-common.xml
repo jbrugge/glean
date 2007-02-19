@@ -20,8 +20,8 @@
 
     <!-- Properties can be overridden at the code project or individual report level -->
     
-    <property file="${feedback.properties.local}"/>
-    <property file="${feedback.properties}"/>
+    <property file="${feedback.properties.file.local}"/>
+    <property file="${feedback.properties.file}"/>
 
     <property file="${project.root}/feedback.properties.local"/>
     <property file="${project.root}/feedback.properties"/>

@@ -32,11 +32,16 @@
         <include name="**/*.css"/>
     </patternset>
 
+    <basename property="java2html.dir" file="${java2html.home}"/>
+    <basename property="javancss.dir"  file="${javancss.home}"/>
+    <basename property="jdepend.dir"   file="${jdepend.home}"/>
+    <basename property="pmd.dir"       file="${pmd.home}"/>
+    
     <patternset id="basic.tool.files">
-        <include name="${java2html.home}/**"/>
-        <include name="${javancss.home}/**"/>
-        <include name="${jdepend.home}/**"/>
-        <include name="${pmd.home}/**"/>
+        <include name="${java2html.dir}/**"/>
+        <include name="${javancss.dir}/**"/>
+        <include name="${jdepend.dir}/**"/>
+        <include name="${pmd.dir}/**"/>
     </patternset>
     
     <target name="doc" 
@@ -69,7 +74,7 @@
         <mkdir dir="${dist.dir}"/>
         
         <zip destfile="${dist.dir}/${basic.dist.name}.zip">
-            <zipfileset dir="${tools.base}" prefix="${basicc.dist.name}/tools">
+            <zipfileset dir="${tools.base}" prefix="${basic.dist.name}/tools">
                 <patternset refid="basic.tool.files"/>
             </zipfileset>
             <zipfileset dir="${doc.dir}/${dist.docs}" prefix="${basic.dist.name}/docs">

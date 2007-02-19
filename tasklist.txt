@@ -92,6 +92,7 @@ CodeFeedback Tasks
         - output that can be aggregated into other project sites
         - separating "doc" output from "metrics" and "analysis" output
             - what needs action and what is description?
+        - using groovy for more control
     - building docs from templates
         - http://www.thexmlsite.com/
         - http://www.sagehill.net/docbookxsl/GenerateWebpages.html

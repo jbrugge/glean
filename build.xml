@@ -1,8 +1,8 @@
 <project name="glean" default="glean" basedir=".">
     <description>Run reporting or feedback tools over a set of source code</description>
 
-    <property name="feedback.properties"           value="feedback.properties"/>
-    <property name="feedback.properties.local"     value="${feedback.properties}.local"/>
+    <property name="feedback.properties"           location="feedback.properties"/>
+    <property name="feedback.properties.local"     location="${feedback.properties}.local"/>
     
     <property file="${feedback.properties.local}"/>
     <property file="${feedback.properties}"/>
@@ -11,7 +11,7 @@
 
     <!-- Define a property to refer to the name of the code project -->
     <basename property="src.project.name"   file="${project.root}"/>
-
+        
     <!-- Report deployment properties -->
     <property name="report.war.dir"     location="${basedir}/target"/>
     <property name="report.war.file"    value="${src.project.name}-reports.war"/>
@@ -24,7 +24,7 @@
         <echo message="Creating log directory at ${tool.log.dir}"/>
         <mkdir dir="${tool.log.dir}"/>
 
-        <record name="${tool.log.dir}/${src.project.name}-feedback-${feedback.timestamp}.log"/>
+        <record name="${tool.log.dir}/${src.project.name}-feedback-${DSTAMP}-${TSTAMP}.log"/>
         <echo message="Starting to gather feedback at ${feedback.timestamp}"/>
 
         <mkdir dir="${gen.report.root}"/>        
@@ -49,8 +49,8 @@
             <property name="project.root"         location="${project.root}"/>
             <property name="src.project.name"     value="${src.project.name}"/>
             <property name="feedback.timestamp"   value="${feedback.timestamp}"/>
-            <property name="feedback.properties"  value="${feedback.properties}"/>
-            <property name="feedback.properties.local" value="${feedback.properties.local}"/>
+            <property name="feedback.properties.file"       location="${feedback.properties}"/>
+            <property name="feedback.properties.file.local" location="${feedback.properties.local}"/>
 
             <!-- Run every report that matches our pattern-->
             <dirset dir="tool" includes="${tool.pattern}"/>
