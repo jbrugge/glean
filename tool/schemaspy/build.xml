@@ -40,7 +40,7 @@
             <length string="${db.password}" trim="true" length="0"/>
         </condition>
         
-        <condition property="db.password.arg" value="-p${db.password}">
+        <condition property="db.password.arg" value="-p ${db.password}">
             <length string="${db.password}" when="greater" length="0"/>
         </condition>
     </target>

@@ -1,1 +1,0 @@
-report.stylesheet=${ant.home}/etc/jdepend.xsl
