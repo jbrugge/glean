@@ -37,11 +37,11 @@
     
     <target name="set-db-password-arg">
         <condition property="db.password.arg" value="">
-            <length string="${db.password}" value="0"/>
+            <length string="${db.password}" trim="true" length="0"/>
         </condition>
         
         <condition property="db.password.arg" value="-p${db.password}">
-            <not><length string="${db.password}" value="0"/></not>
+            <length string="${db.password}" when="greater" length="0"/>
         </condition>
     </target>
     

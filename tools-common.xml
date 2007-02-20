@@ -15,6 +15,7 @@
          want to transfer that to a generic property name that can be
          used by our common script.
      -->
+    <property file="${feedback.script.dir}/toolhome.properties.local"/>
     <property file="${feedback.script.dir}/toolhome.properties"/>
     <propprop source="${ant.project.name}.home" dest="tool.home"/>
 
@@ -26,12 +27,14 @@
     <property file="${project.root}/feedback.properties.local"/>
     <property file="${project.root}/feedback.properties"/>
 
-    <property file="${basedir}/tool.properties.local"/>    
-    <property file="${basedir}/tool.properties"/>
+    <property file="${basedir}/tool.pre.properties.local"/>    
+    <property file="${basedir}/tool.pre.properties"/>
     
     <property file="${feedback.script.dir}/feedback.properties.local"/>
     <property file="${feedback.script.dir}/feedback.properties"/>
 
+    <property file="${basedir}/tool.post.properties.local"/>    
+    <property file="${basedir}/tool.post.properties"/>    
     
     <!-- Classpath for source code dependencies -->
     <path id="build.classpath">

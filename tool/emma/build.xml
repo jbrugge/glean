@@ -76,7 +76,7 @@
     </target>
 
     <target name="check-tests" description="Check if tests and a test script exist.">
-        <available dir="${test.bin.dir}"
+        <available file="${test.bin.dir}" type="dir"
             property="tests.available"/>
     </target>
     
