@@ -57,7 +57,7 @@
                 </fileset>
 
                 <txt outfile="${coverage.dir}/coverage.txt" />
-                <html outfile="${coverage.dir}/coverage.html" />
+                <html outfile="${coverage.dir}/index.html" />
            </report>
         </emma>
     </target>
