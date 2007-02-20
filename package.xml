@@ -11,6 +11,12 @@
     <property name="dist.docs"     value="target"/>
     <property name="glean.dir"     value="${basedir}"/>
 
+    <property name="scp.port"       value="232"/>
+    <property name="scp.user"       value="jbrugge"/>
+    <property name="release.host"   value="jbrugge.com"/>
+    <property name="release.dist.path"   value="httpdocs/glean"/>
+    <property name="release.doc.path"    value="httpdocs/glean"/>
+
     <property file="toolhome.properties"/>
     
     <basename property="package.script"   file="${ant.file}"/>
@@ -23,6 +29,7 @@
         <exclude name="${scratch.dir}/"/>
         <exclude name="${package.script}"/>
         <exclude name="*.txt"/>
+        <exclude name="*.sh"/>
         <exclude name="**/*.log"/>
         <exclude name="**/*.properties.local"/>                
     </patternset>
@@ -72,7 +79,7 @@
         depends="doc"
     	description="Package up a distribution of the scripts and basic tools">
         <mkdir dir="${dist.dir}"/>
-        
+        <!--
         <zip destfile="${dist.dir}/${basic.dist.name}.zip">
             <zipfileset dir="${tools.base}" prefix="${basic.dist.name}/tools">
                 <patternset refid="basic.tool.files"/>
@@ -84,18 +91,27 @@
                 <patternset refid="dist.script.excludes"/>
             </zipfileset>
         </zip>
+        -->
     </target>
     
     <target name="release"
         depends="package"
     	description="Copy a distribution out to the server">
-        
+        <echo message="Copying ${dist.dir}/${min.dist.name}.zip to ${release.host}:${release.dist.path}"/>
+        <exec executable="scp" dir="${basedir}">
+            <arg line="-P ${scp.port}"/>
+            <arg line="${dist.dir}/${min.dist.name}.zip ${scp.user}@${release.host}:${release.dist.path}"/>
+        </exec>
     </target>
     
     <target name="publish-docs" 
         depends="doc"
     	description="Publish the documentation pages to the server">
-        
+        <echo message="Copying ${doc.dir}/${dist.docs}/* to ${release.host}:${release.doc.path}"/>
+        <exec executable="scp" dir="${basedir}">
+            <arg line="-P ${scp.port}"/>
+            <arg line="${doc.dir}/${dist.docs}/* ${scp.user}@${release.host}:${release.doc.path}"/>
+        </exec>
     </target>
     
     <target name="clean"
