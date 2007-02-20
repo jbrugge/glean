@@ -57,11 +57,13 @@
 
     #metaauthor ( $au.getText() $em.getValue() )
 
-    <title>$root.getChild("properties").getChild("title").getText()</title>
+    #set ($pageTitle = $root.getChild("properties").getChild("title").getText())
+    
+    <title>$pageTitle</title>
 </head>
 <body>
 <div id="header">
-<span id="highlight">Glean<hr size=3/></span>
+<span id="highlight">$pageTitle<hr size=3/></span>
 </div>
 
 #makeNav()

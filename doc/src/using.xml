@@ -16,7 +16,7 @@ libraries, if any)</li>
 </ul>
 <p>Being Ant scripts, all of the config is done using properties, and the easiest
 way to override properties for a project is usually to put them in a properties file.
-To tell Glean about your project, then, copy the <code>sample/sample.feedback.properties</code>
+To tell Glean about your project, then, copy the <code>template/sample.feedback.properties</code>
 file to any place you like and edit it.
 </p>
 <p>
