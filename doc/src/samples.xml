@@ -30,7 +30,7 @@ the project.
   <th><a href="http://www.springframework.org/download">Spring PetClinic</a></th>
   <th><a href="http://cwiki.apache.org/GMOxDOC10/day-trader.html">Geronimo DayTrader</a></th>
   <tr>
-    <td>beandoc</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center">x</td>    <td align="center"> </td>    <td align="center"> </td>
+    <td>beandoc</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center">x</td>    <td align="center"> </td>
   </tr>
   <tr>
     <td>cpd</td>        <td align="center"> </td>    <td align="center"> </td>    <td align="center">x</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>
@@ -45,13 +45,13 @@ the project.
     <td>findbugs</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>
   </tr>
   <tr>
-    <td>jaranalyzer</td><td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center">x</td>    <td align="center"> </td>    <td align="center"> </td>
+    <td>jaranalyzer</td><td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center">x</td>    <td align="center"> </td>
   </tr>
   <tr>
     <td>java2html</td>  <td align="center">x</td>    <td align="center">x</td>    <td align="center">x</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>
   </tr>
   <tr>
-    <td>javadoc</td>    <td align="center">x</td>    <td align="center">x</td>    <td align="center">x</td>    <td align="center">x</td>    <td align="center"> </td>    <td align="center"> </td>
+    <td>javadoc</td>    <td align="center">x</td>    <td align="center">x</td>    <td align="center">x</td>    <td align="center"> </td>    <td align="center">x</td>    <td align="center"> </td>
   </tr>
   <tr>
     <td>javancss</td>   <td align="center">x</td>    <td align="center">x</td>    <td align="center">x</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>
