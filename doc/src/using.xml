@@ -16,7 +16,7 @@ libraries, if any)</li>
 </ul>
 <p>Being Ant scripts, all of the config is done using properties, and the easiest
 way to override properties for a project is usually to put them in a properties file.
-To tell Glean about your project, then, copy the <code>template/sample.feedback.properties</code>
+To tell Glean about your project, copy the <code>template/sample.feedback.properties</code>
 file to any place you like and edit it.
 </p>
 <p>
@@ -25,16 +25,16 @@ You run Glean by pointing it at that file
 cd /path/to/glean
 ant -Dfeedback.properties=/path/to/myfeedback.properties
 </pre>
-The output will be in your project's folder, under a <code>glean</code> folder
-(the default location), or wherever you may have defined it in your properties file.
+The output will be, by default, in your project's folder, under a <code>glean</code> folder.
+That location is one of the values you can override in your properties file.
 Browse to the <code>index.html</code> and you should see a summary page with links
 to each of the reports.
 </p>
 </section>
 <section name="Publishing The Results">
 <p>
-The results will, by default, be generated as subdirectories
-under <code>myproject/glean</code>, one subdirectory per tool. 
+The results will be generated as subdirectories under the root defined above,
+one subdirectory per tool. 
 The Glean script will also package all of them up as a WAR
 that can be deployed to a simple servlet engine. You could also simply
 copy the files to a documentation area of a simple web server to be
@@ -42,56 +42,62 @@ served up for your team.
 </p>
 </section>
 <section name="Configuration">
-<p>The basic use of Glean assumes a simple project structure like above, but
+<p>The basic setup of Glean assumes a simple project structure, but
 many other structures can be handled by adjusting properties that are used. The
-key properties are in the file <code>feedback.properties</code>. 
-Overriding their values follows the rules of Ant property overrides, so you can
-change the defaults without having to edit the main <code>feedback.properties</code>. 
+key properties are in the file <code>feedback.properties</code>.
+Rather than change the values there, though, you can follow the rules
+of Ant property overrides to change the values. 
 </p>
 <p>
 Glean will look for properties files at a number of different levels.
-Here is a list of places where you can make changes, in order of when they are
-read.
+This lets you decide how broadly you want the changes to apply for your setting.
+The list here is the order in which the properties are applied, so to override
+properties, define them at a place lower in the list.
 <ul>
   <li>properties specified on the command-line with
 <code>-Dproperty=value</code></li>
   <li>properties from file specified by
-<code>-Dfeedback.properties=my.project.properties</code> - settings specific to
-myproject. 
-<span class="emphasis">This is the preferred place to put your project settings</span>
+<code>-Dfeedback.properties=/path/to/my.project.properties</code>. These would be settings specific to
+<code>myproject</code>. 
+<span id="emphasis">This is the preferred place to put your project settings.</span>
   </li>
-  <li><code>myproject/feedback.properties.local</code> - general settings for
+  <li><code>myproject/feedback.properties.local</code>. These would be general settings for
 Glean unique to <code>myproject</code> and a particular local install</li>
-  <li><code>myproject/feedback.properties</code> - general settings for Glean
+  <li><code>myproject/feedback.properties</code>. These would be general settings for Glean
 unique to <code>myproject</code></li>
-  <li><code>${glean.home}/tool/(tool dir)/tool.properties.local</code> - settings
+  <li><code>${glean.home}/tool/(tool dir)/tool.properties.local</code>. These would be settings
 specific to this tool for this installation</li>
-  <li><code>${glean.home}/tool/(tool.dir)/tool.properties</code> - settings
-specific to this tool</li>
-  <li><code>${glean.home}/feedback.properties.local</code> - general settings for
-Glean unique to a particular local install</li>
-  <li><code>${glean.home}/feedback.properties</code> - general settings for Glean</li>
+  <li><code>${glean.home}/tool/(tool.dir)/tool.properties</code>. These are settings
+specific to this tool. Override them in your project properties file or in
+<code>tool.properties.local</code>.</li>
+  <li><code>${glean.home}/feedback.properties.local</code>. These would be general settings for
+Glean unique to a particular local install, and would apply to all projects.</li>
+  <li><code>${glean.home}/feedback.properties</code>. These are the general settings 
+for Glean that define the default behavior.</li>
 </ul>
 </p>
 </section>
 <section name="Selecting Tools To Use">
-<p>The <code>report.pattern</code> property determines which tools are run.
-It's value is a
-standard Ant glob pattern. You can either use "*" to mean all tools, or
-you can list them individually, separated by commas. The default
-pattern is to run a small subset of the tools available.
+<p>The <code>tool.pattern</code> property determines which tools are run.
+It's value is a <a href="http://ant.apache.org/manual/dirtasks.html#patterns">standard Ant glob pattern</a>. 
+You can either use "*" to mean all tools, or
+you can list them individually, separated by commas. 
+The default pattern is to run a small subset of the tools available.
 </p>
 <p>
 If you were mostly interested in documentation, for example, you might define
 these reports.
 </p>
 <pre>tool.pattern=beandoc,doccheck,javadoc,java2html</pre>
+<p>
+If you wanted to run all of the tools available, you would just specify a '*'.
+</p>
+<pre>tool.pattern=*</pre>
 </section>
 <section name="Changing the report look">
-<p>Many of the reports use a stylesheet called <code>reports.css</code>. Change this
-in any way that
-you want. It is based on a number of styles from the standard
-stylesheets that come with Ant.
+<p>Many of the reports use a stylesheet called <code>reports.css</code>. 
+Change this in any way that you want. It is based on a number of styles from the 
+standard stylesheets that come with Ant.
 </p>
 </section>
 </body>

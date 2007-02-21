@@ -63,7 +63,7 @@
 </head>
 <body>
 <div id="header">
-<span id="highlight">$pageTitle<hr size=3/></span>
+<span id="highlight"><a href="./index.html">Glean</a><hr size=3/></span>
 </div>
 
 #makeNav()

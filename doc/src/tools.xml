@@ -13,15 +13,21 @@ The basic setup of Glean is meant to give you feedback that is easy to generate,
 immediately useful to almost any project, and with the least reliance on other tools.
 Start with this set to get a feel for Glean and for how you can incorporate the
 feedback into your project team. If you find you want to add other feedback sources,
-you can either use one of the scripts from Glean for any of the tools listed below,
-or you can <a href="./extending">add support for another tool.</a>
+you can either use one of the scripts from Glean for any of the tools listed below
+(simply list it in the <code>tool.pattern</code> property in your project configuration file),
+or you can <a href="./adding.html">add support for another tool.</a>
+</p>
+<p>
+These tools come with all of their dependent JARs packaged together. You can download
+them using the links in the table, and then tell Glean about their install location
+in the <code>toolhome.properties.local</code> file. 
 </p>
 <table class="bodyTable">
-<th>Name</th><th>Description</th><th>Dependencies</th>
-<tr class="a"><td><a href="http://www.java2html.com">java2html</a></td><td>Source code cross-reference in HTML</td><td>None</td></tr>
-<tr class="a"><td><a href="http://java.sun.com/j2se/javadoc/">javadoc</a></td><td>Class API documentation</td><td>None</td></tr>
-<tr class="a"><td><a href="http://www.kclee.de/clemens/java/javancss/">javancss</a></td><td>Source code metrics (LOC, McCabe Complexity)</td><td>None</td></tr>
-<tr class="a"><td><a href="http://pmd.sourceforge.net">pmd</a></td><td>Static code analysis of style and design</td><td>None</td></tr>
+<th>Name</th><th>Description</th>
+<tr class="a"><td><a href="http://www.java2html.com">java2html</a></td><td>Source code cross-reference in HTML</td></tr>
+<tr class="a"><td><a href="http://java.sun.com/j2se/javadoc/">javadoc</a></td><td>Class API documentation</td></tr>
+<tr class="a"><td><a href="http://www.kclee.de/clemens/java/javancss/">javancss</a></td><td>Source code metrics (LOC, McCabe Complexity)</td></tr>
+<tr class="a"><td><a href="http://pmd.sourceforge.net">pmd</a></td><td>Static code analysis of style and design</td></tr>
 </table>
 </section>
 
@@ -35,24 +41,26 @@ run the tool using the same properties you specified for all of the other tools
 Any other tools or files you need for these is listed for each tool. For instance,
 in order to run UmlGraph, you need to have <a href="http://www.graphviz.org">GraphViz</a> 
 installed.
-</p><p>
+</p>
+<p>
 More is not necessarily
 better, so start small and add feedback sources when you find that you can get
 some benefit from their data.
 </p>
 <table class="bodyTable">
 <th>Name</th><th>Description</th><th>Dependencies</th>
-<tr class="a"><td><a href="http://opensource.atlassian.com/confluence/spring/display/BDOC/Home">beandoc</a></td><td>Spring bean browser</td><td>Graphviz</td></tr>
-<tr class="a"><td><a href="http://checkstyle.sourceforge.net/">checkstyle</a></td><td>Static code analysis and style checker</td><td></td></tr>
-<tr class="a"><td><a href="http://pmd.sourceforge.net/cpd.html">cpd</a></td><td>Detect copy/paste regsions in code</td><td></td></tr>
-<tr class="a"><td><a href="http://www.doccheck.com/">doccheck</a></td><td>Check Javadoc conventions</td><td></td></tr>
-<tr class="a"><td><a href="http://findbugs.sourceforge.net/">findbugs</a></td><td>Static code analysis</td><td></td></tr>
-<tr class="a"><td><a href="http://www.kirkk.com/main/Main/JarAnalyzer">jaranalyzer</a></td><td>Component dependency analysis</td><td>Graphviz</td></tr>
+<tr class="a"><td><a href="http://opensource.atlassian.com/confluence/spring/display/BDOC/Home">beandoc</a></td><td>Spring bean browser</td><td><a href="http://www.graphviz.org">GraphViz</a></td></tr>
+<tr class="a"><td><a href="http://checkstyle.sourceforge.net/">checkstyle</a></td><td>Static code analysis and style checker</td><td>None</td></tr>
+<tr class="a"><td><a href="http://pmd.sourceforge.net/cpd.html">cpd</a></td><td>Detect copy/paste regsions in code</td><td>None</td></tr>
+<tr class="a"><td><a href="http://www.doccheck.com/">doccheck</a></td><td>Check Javadoc conventions</td><td>None</td></tr>
+<tr class="a"><td><a href="http://emma.sourceforge.net/">emma</a></td><td>Code coverage</td><td>JUnit, test script</td></tr>
+<tr class="a"><td><a href="http://findbugs.sourceforge.net/">findbugs</a></td><td>Static code analysis</td><td>None</td></tr>
+<tr class="a"><td><a href="http://www.kirkk.com/main/Main/JarAnalyzer">jaranalyzer</a></td><td>Component dependency analysis</td><td><a href="http://www.graphviz.org">GraphViz</a></td></tr>
 <tr class="a"><td><a href="http://clarkware.com/software/JDepend.html">jdepend</a></td><td>Package dependency analysis and design metrics</td><td>Optional Ant task</td></tr>
-<tr class="a"><td><a href="http://ant.apache.org/manual/OptionalTasks/junitreport.html">junitreport</a></td><td>Testcase results browser</td><td>JUnit</td></tr>
-<tr class="a"><td><a href="http://schemaspy.sourceforge.net/">schemaspy</a></td><td>Database Schema browser</td><td>Graphviz, JDBC driver</td></tr>
+<tr class="a"><td><a href="http://ant.apache.org/manual/OptionalTasks/junitreport.html">junitreport</a></td><td>Testcase results browser</td><td><a href="http://junit.org">JUnit</a></td></tr>
+<tr class="a"><td><a href="http://schemaspy.sourceforge.net/">schemaspy</a></td><td>Database Schema browser</td><td><a href="http://www.graphviz.org">GraphViz</a>, JDBC driver</td></tr>
 <tr class="a"><td><a href="http://statsvn.org/">statsvn</a></td><td>Source repository activity report</td><td>Subversion command-line</td></tr>
-<tr class="a"><td><a href="http://www.spinellis.gr/sw/umlgraph/">umlgraph</a></td><td>Reverse-engineered UML class diagrams</td><td>Graphviz</td></tr>
+<tr class="a"><td><a href="http://www.spinellis.gr/sw/umlgraph/">umlgraph</a></td><td>Reverse-engineered UML class diagrams</td><td><a href="http://www.graphviz.org">GraphViz</a></td></tr>
 </table>
 
 </section>
@@ -61,12 +69,13 @@ some benefit from their data.
 <p>
 Some tools have trickier dependencies or rely less on convention, and are a bit
 more work to script in a general way. Others are tools I'd like to have scripts for
-but just haven't gotten around to it. The tools below are ones on my to-do list.
+but just haven't gotten around to it. These tools are ones on my to-do list.
+If there are others that you use and would like to see included, just
+<a href="mailto:john.brugge+glean@gmail.com">let me know</a>.
 </p>
 <table class="bodyTable">
 <th>Name</th><th>Description</th><th>Dependencies</th>
-<tr class="a"><td><a href="http://cobertura.sourceforge.net/">cobertura</a></td><td>Code coverage</td><td>JUnit, test script</td></tr>
-<tr class="a"><td><a href="http://emma.sourceforge.net/">emma</a></td><td>Code coverage</td><td>JUnit, test script</td></tr>
+<tr class="a"><td><a href="http://cobertura.sourceforge.net/">cobertura</a></td><td>Code coverage</td><td><a href="http://junit.org">JUnit</a>, test script</td></tr>
 <tr class="a"><td><a href="">hackystat</a></td><td></td><td></td></tr>
 <tr class="a"><td><a href="">hbm2doc</a></td><td>Hibernate mapping documentation</td><td></td></tr>
 <tr class="a"><td><a href="http://www.softwaresecretweapons.com/jspwiki/Wiki.jsp?page=LinguineMaps">linguinemaps</a></td><td>Visualization of config files (WSDL, Ant, Hibernate, DTD)</td><td>None</td></tr>

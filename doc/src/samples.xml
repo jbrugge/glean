@@ -14,7 +14,8 @@ Glean for a number of sample projects. If you are looking for what a project con
 might look like for different types of source projects, these could give you a start.
 </p>
 <p>
-Each of the sample configurations assumes a standard download of the project.
+To run any of them, you will need to download the source (links included in the
+table below).
 If you want to try running one of these, the only thing you should have to do
 is update the configuration to point to the base directory where you unpacked
 the project.
@@ -29,25 +30,46 @@ the project.
   <th><a href="http://www.springframework.org/download">Spring PetClinic</a></th>
   <th><a href="http://cwiki.apache.org/GMOxDOC10/day-trader.html">Geronimo DayTrader</a></th>
   <tr>
-    <td>beandoc</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>
+    <td>beandoc</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center">x</td>    <td align="center"> </td>    <td align="center"> </td>
   </tr>
   <tr>
-    <td>cpd</td>        <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>
+    <td>cpd</td>        <td align="center"> </td>    <td align="center"> </td>    <td align="center">x</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>
   </tr>
   <tr>
-    <td>java2html</td>  <td align="center">x</td>    <td align="center">x</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>
+    <td>doccheck</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>
   </tr>
   <tr>
-    <td>javadoc</td>    <td align="center">x</td>    <td align="center">x</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>
+    <td>emma</td>        <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>
   </tr>
   <tr>
-    <td>javancss</td>   <td align="center">x</td>    <td align="center">x</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>
+    <td>findbugs</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>
+  </tr>
+  <tr>
+    <td>jaranalyzer</td><td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center">x</td>    <td align="center"> </td>    <td align="center"> </td>
+  </tr>
+  <tr>
+    <td>java2html</td>  <td align="center">x</td>    <td align="center">x</td>    <td align="center">x</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>
+  </tr>
+  <tr>
+    <td>javadoc</td>    <td align="center">x</td>    <td align="center">x</td>    <td align="center">x</td>    <td align="center">x</td>    <td align="center"> </td>    <td align="center"> </td>
+  </tr>
+  <tr>
+    <td>javancss</td>   <td align="center">x</td>    <td align="center">x</td>    <td align="center">x</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>
   </tr>
   <tr>
     <td>jdepend</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>
   </tr>
   <tr>
-    <td>pmd</td>        <td align="center">x</td>    <td align="center">x</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>
+    <td>pmd</td>        <td align="center">x</td>    <td align="center">x</td>    <td align="center">x</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>
+  </tr>
+  <tr>
+    <td>schemaspy</td>  <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>
+  </tr>
+  <tr>
+    <td>statsvn</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>
+  </tr>
+  <tr>
+    <td>umlgraph-doc</td><td align="center"> </td>    <td align="center"> </td>    <td align="center">x</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>
   </tr>
 </table>
 
@@ -57,8 +79,8 @@ the project.
 <p>
 Glean will create a summary page of the reports that were run for a project.
 The look of the summary page is controlled by the <code>reports.css</code> stylesheet.
-This stylesheet uses a number of styles pulled from the XSL that comes in the
-<code>etc</code> folder of the standard Ant distributions.
+This stylesheet uses a number of styles pulled from the XSL that comes with 
+the standard Ant distributions.
 </p>
 <p>
 The output of the individual reports is usually defined by the tool.
