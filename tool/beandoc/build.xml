@@ -6,8 +6,6 @@
 
     <import file="${feedback.script.dir}/tools-common.xml"/>
     
-    <property name="spring.config.dir"    value="${src.dir}"/>
-
     <taskdef name="beandoc" classname="org.springframework.beandoc.client.AntTask"
         classpathref="tool.classpath"/>
         
@@ -18,7 +16,7 @@
               outputDir="${gen.report.dir}"
               >
             <fileset dir="${spring.config.dir}">
-                <include name="**/*Context.xml"/>
+                <include name="${spring.config.pattern}"/>
             </fileset>
         </beandoc>
     </target>
