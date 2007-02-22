@@ -53,14 +53,15 @@ Glean will look for properties files at a number of different levels.
 This lets you decide how broadly you want the changes to apply for your setting.
 The list here is the order in which the properties are applied, so to override
 properties, define them at a place lower in the list.
-<table>
+</p>
+<table class="bodyTable">
 <th>Property settings</th><th>When to use them</th>
 <tr>
-<td>properties specified on the command-line with <code>-Dproperty=value</code></td>
+<td>specified on the command-line with <code>-Dproperty=value</code></td>
 <td>To define an override for this one invocation.</td>
 </tr>
 <tr>
-<td>properties from file specified by
+<td>from file specified by
 <code>-Dfeedback.properties=/path/to/my.project.properties</code></td>
 <td>For settings specific to <code>myproject</code>.
 <span id="emphasis">This is the preferred place to put your project settings.</span></td>
@@ -87,12 +88,11 @@ properties, define them at a place lower in the list.
 <td>For settings general settings for
 Glean unique to a particular local install, and that you want to apply to all projects.</td>
 </tr>
+<tr>
 <td><code>${glean.home}/feedback.properties</code></td>
 <td>These are general settings for Glean that define the default behavior.</td>
 </tr>
 </table>
-<ul>
-</p>
 </section>
 <section name="Selecting Tools To Use">
 <p>The <code>tool.pattern</code> property determines which tools are run.

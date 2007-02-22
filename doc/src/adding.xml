@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+
+  <properties>
+    <author email="john@jbrugge.com">John Brugge</author>
+    <title>Glean : Adding new tools</title>
+  </properties>
+
+<body>
+
+<section name="Adding New Feedback Tools">
+<p>
+Any tool that you can invoke from Ant, either as a task or as an executable,
+is a potential feedback tool to add to Glean.
+The framework it sits within is simple, and getting a basic running script
+is usually a short order.
+</p>
+<p>
+To add a new tool to Glean:
+<ul>
+<li>Create a folder under <code>glean/tool</code> with the name of the tool.</li>
+<li>Copy the <code>glean/template/build.xml</code> file to this folder.</li>
+<li>Edit the <code>build.xml</code> according to the comments to add the pieces
+specific to the new tool.</li>
+<li>Test it out by including it in the <code>tool.pattern</code> property for one
+of your projects</li>
+</ul>
+</p>
+<p>
+That's all there is to it. By placing the build script and folder in the right
+place, Glean can find it and run it.
+</p>
+<p>
+If you think the tool would be valuable to others as well, please 
+<a href="mailto:john.brugge+glean@gmail.com">pass it along</a>
+and I will include it in the next release of Glean.
+</p>
+</section>
+</body>
+</document>
