@@ -23,53 +23,52 @@ the project.
 
 <table class="bodyTable">
   <th>Tool</th>
-  <th><a href="http://jakarta.apache.org/commons/lang/">Jakarta commons-lang</a></th>
-  <th><a href="http://www.jdom.org/">JDOM</a></th>
-  <th><a href="http://struts.apache.org/1.x/learning.html">Struts Sample Application</a></th>
-  <th><a href="http://java.sun.com/developer/releases/petstore/">Java PetStore</a></th>
-  <th><a href="http://www.springframework.org/download">Spring PetClinic</a></th>
-  <th><a href="http://cwiki.apache.org/GMOxDOC10/day-trader.html">Geronimo DayTrader</a></th>
+  <th align="center"><a href="http://jakarta.apache.org/commons/lang/">Jakarta commons-lang</a></th>
+  <th align="center"><a href="http://www.jdom.org/">JDOM</a></th>
+  <th align="center"><a href="http://struts.apache.org/1.x/learning.html">Struts Sample Application</a></th>
+  <th align="center"><a href="http://java.sun.com/developer/releases/petstore/">Java PetStore</a></th>
+  <th align="center"><a href="http://www.springframework.org/download">Spring PetClinic</a></th>
   <tr>
-    <td>beandoc</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center">x</td>    <td align="center"> </td>
+    <td>beandoc</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center">x</td>
   </tr>
   <tr>
-    <td>cpd</td>        <td align="center"> </td>    <td align="center"> </td>    <td align="center">x</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>
+    <td>cpd</td>        <td align="center"> </td>    <td align="center"> </td>    <td align="center">x</td>    <td align="center"> </td>    <td align="center"> </td>
   </tr>
   <tr>
-    <td>doccheck</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>
+    <td>doccheck</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>
   </tr>
   <tr>
-    <td>emma</td>        <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>
+    <td>emma</td>        <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>
   </tr>
   <tr>
-    <td>findbugs</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>
+    <td>findbugs</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>
   </tr>
   <tr>
-    <td>jaranalyzer</td><td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center">x</td>    <td align="center"> </td>
+    <td>jaranalyzer</td><td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center">x</td> 
   </tr>
   <tr>
-    <td>java2html</td>  <td align="center">x</td>    <td align="center">x</td>    <td align="center">x</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>
+    <td>java2html</td>  <td align="center">x</td>    <td align="center">x</td>    <td align="center">x</td>    <td align="center"> </td>    <td align="center"> </td> 
   </tr>
   <tr>
-    <td>javadoc</td>    <td align="center">x</td>    <td align="center">x</td>    <td align="center">x</td>    <td align="center"> </td>    <td align="center">x</td>    <td align="center"> </td>
+    <td>javadoc</td>    <td align="center">x</td>    <td align="center">x</td>    <td align="center">x</td>    <td align="center"> </td>    <td align="center">x</td> 
   </tr>
   <tr>
-    <td>javancss</td>   <td align="center">x</td>    <td align="center">x</td>    <td align="center">x</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>
+    <td>javancss</td>   <td align="center">x</td>    <td align="center">x</td>    <td align="center">x</td>    <td align="center"> </td>    <td align="center"> </td> 
   </tr>
   <tr>
-    <td>jdepend</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>
+    <td>jdepend</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td> 
   </tr>
   <tr>
-    <td>pmd</td>        <td align="center">x</td>    <td align="center">x</td>    <td align="center">x</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>
+    <td>pmd</td>        <td align="center">x</td>    <td align="center">x</td>    <td align="center">x</td>    <td align="center"> </td>    <td align="center"> </td> 
   </tr>
   <tr>
-    <td>schemaspy</td>  <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>
+    <td>schemaspy</td>  <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td> 
   </tr>
   <tr>
-    <td>statsvn</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>
+    <td>statsvn</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td> 
   </tr>
   <tr>
-    <td>umlgraph-doc</td><td align="center"> </td>    <td align="center"> </td>    <td align="center">x</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>
+    <td>umlgraph-doc</td><td align="center"> </td>    <td align="center"> </td>    <td align="center">x</td>    <td align="center"> </td>    <td align="center"> </td>
   </tr>
 </table>
 

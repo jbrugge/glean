@@ -53,28 +53,45 @@ Glean will look for properties files at a number of different levels.
 This lets you decide how broadly you want the changes to apply for your setting.
 The list here is the order in which the properties are applied, so to override
 properties, define them at a place lower in the list.
+<table>
+<th>Property settings</th><th>When to use them</th>
+<tr>
+<td>properties specified on the command-line with <code>-Dproperty=value</code></td>
+<td>To define an override for this one invocation.</td>
+</tr>
+<tr>
+<td>properties from file specified by
+<code>-Dfeedback.properties=/path/to/my.project.properties</code></td>
+<td>For settings specific to <code>myproject</code>.
+<span id="emphasis">This is the preferred place to put your project settings.</span></td>
+</tr>
+<tr>
+<td><code>myproject/feedback.properties.local</code></td>
+<td>For general settings for Glean unique to <code>myproject</code> <em>and</em> a particular local install</td>
+</tr>
+<tr>
+<td><code>myproject/feedback.properties</code></td>
+<td>For general settings for Glean unique to <code>myproject</code>.</td>
+</tr>
+<tr>
+<td><code>${glean.home}/tool/(tool dir)/tool.properties.local</code></td>
+<td>For settings specific to this tool for this installation.</td>
+</tr>
+<tr>
+<td><code>${glean.home}/tool/(tool dir)/tool.properties</code></td>
+<td>For settings specific to this tool. Override them in your project properties file or in
+<code>tool.properties.local</code>.</td>
+</tr>
+<tr>
+<td><code>${glean.home}/feedback.properties.local</code></td>
+<td>For settings general settings for
+Glean unique to a particular local install, and that you want to apply to all projects.</td>
+</tr>
+<td><code>${glean.home}/feedback.properties</code></td>
+<td>These are general settings for Glean that define the default behavior.</td>
+</tr>
+</table>
 <ul>
-  <li>properties specified on the command-line with
-<code>-Dproperty=value</code></li>
-  <li>properties from file specified by
-<code>-Dfeedback.properties=/path/to/my.project.properties</code>. These would be settings specific to
-<code>myproject</code>. 
-<span id="emphasis">This is the preferred place to put your project settings.</span>
-  </li>
-  <li><code>myproject/feedback.properties.local</code>. These would be general settings for
-Glean unique to <code>myproject</code> and a particular local install</li>
-  <li><code>myproject/feedback.properties</code>. These would be general settings for Glean
-unique to <code>myproject</code></li>
-  <li><code>${glean.home}/tool/(tool dir)/tool.properties.local</code>. These would be settings
-specific to this tool for this installation</li>
-  <li><code>${glean.home}/tool/(tool.dir)/tool.properties</code>. These are settings
-specific to this tool. Override them in your project properties file or in
-<code>tool.properties.local</code>.</li>
-  <li><code>${glean.home}/feedback.properties.local</code>. These would be general settings for
-Glean unique to a particular local install, and would apply to all projects.</li>
-  <li><code>${glean.home}/feedback.properties</code>. These are the general settings 
-for Glean that define the default behavior.</li>
-</ul>
 </p>
 </section>
 <section name="Selecting Tools To Use">
