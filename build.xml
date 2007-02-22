@@ -99,4 +99,23 @@
         description="Download the set of tools with scripts for Glean">
         <echo message="** Sorry, not implemented yet. Work in progress **"/>
     </target>
+    
+    <target name="list-tools"
+        description="List all of the tools that are available">
+        <subant
+            inheritall="no"
+            failonerror="no"
+            target="tool-description">
+            <!-- Other common properties specific to reports are available in feedback.properties -->
+            <property name="feedback.script.dir"  location="${basedir}"/>
+            <property name="project.root"         location="${project.root}"/>
+            <property name="src.project.name"     value="${src.project.name}"/>
+            <property name="feedback.timestamp"   value="${feedback.timestamp}"/>
+            <property name="feedback.properties.file"       location="${feedback.properties}"/>
+            <property name="feedback.properties.file.local" location="${feedback.properties.local}"/>
+
+            <!-- Run every report that matches our pattern-->
+            <dirset dir="tool" includes="*"/>
+        </subant>
+    </target>
 </project>
