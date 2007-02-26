@@ -98,6 +98,7 @@ CodeFeedback Tasks
         - http://www.sagehill.net/docbookxsl/GenerateWebpages.html
         - http://jakarta.apache.org/velocity/docs/anakia.html
         - http://freemarker.sourceforge.net/
+        - http://xsite.codehaus.org/
 
 - hosting environment
     - mailing lists

@@ -52,24 +52,24 @@ Many of the other tools may have their own dependencies. Those scripted by Glean
 are listed on the <a href="./reports.html">tools</a> page.
 </p>
 <p>
-To let Glean know where you have these tools installed locally, there is a 
-<code>toolhome.properties</code> file. To override the values defined here,
-create a <code>toolhome.properties.local</code> file with the specifics of your
-environment.
-</p>
-<p>
 Running Glean involves telling it where your project is and what tools you want
 to run. The defaults will give you some of the staple feedback for a basic component
 project. To run it from the command-line, simply point it at a project properties
 file.
-<pre>
-cd /path/to/glean
-ant -Dfeedback.properties=sample/config/sample.feedback.properties
-</pre>
-This will run all of the tools in the basic setup. The results
-will be simple HTML
+<ul>
+<li><code>cd /path/to/glean</code></li>
+<li>To let Glean know where you have feedback tools installed locally, there is a 
+<code>toolhome.properties</code> file. To override the values defined here,
+create a <code>toolhome.properties.local</code> file with the specifics of your
+environment.</li>
+<li><code>cp template/sample.feedback.properties /path/to/myproject/myproject.feedback.properties</code></li>
+<li>Edit this file to define where your source, bin and lib directories are, relative
+to the root of the project. If the defaults work, you don't need to change anything.</li>
+<li><code>ant -Dfeedback.properties=/path/to/myproject/myproject.feedback.properties</code></li>
+</ul>
+This will run all of the tools in the basic setup. The results will be simple HTML
 files, along with a summary page. From a browser, open the file
-<code>/path/to/glean/sample/SampleProject/glean/index.html</code>. The summary
+<code>/path/to/myproject/glean/index.html</code>. The summary
 should look something like this.
 </p>
 <p>
