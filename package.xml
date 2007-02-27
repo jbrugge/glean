@@ -109,10 +109,16 @@
     	description="Publish the documentation pages to the server">
         <echo message="Copying ${doc.dir}/${dist.docs}/* to ${release.host}:${release.doc.path}"/>
         <exec executable="scp" dir="${basedir}">
-            <arg line="-P ${scp.port}"/>
-            <arg line="${doc.dir}/${dist.docs}/* ${scp.user}@${release.host}:${release.doc.path}"/>
+            <arg line="-P ${scp.port} ${doc.dir}/${dist.docs}/* ${scp.user}@${release.host}:${release.doc.path}"/>
         </exec>
-    </target>
+<!--   Getting the scp task working natively would make this step much easier:
+            <scp todir="${scp.user}@${release.host}:${release.doc.path}"
+            port="${scp.port}">
+            <fileset dir="${doc.dir}/${dist.docs}">
+                <include name="*"/>
+            </fileset>
+        </scp>
+ -->    </target>
     
     <target name="clean"
         depends="clean-docs"
