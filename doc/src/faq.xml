@@ -11,16 +11,20 @@
 <div class="faq">
 <div class="question">
 <p>
-These are just Ant scripts, and I already have tasks for javadoc and PMD. Why
-should I use CodeFeedback?
+These are just Ant scripts, and I already have tasks for javadoc and PMD. What's
+the point of using Glean?
 </p>
 </div>
 
 <div class="answer">
 <p>
-The goal of CodeFeedback is to let you mix and match the sets of feedback you
-get from your code, and to keep you from having to write what is essentially
-boilerplate Ant scripts for many of these tools. 
+The goal of Glean is to help you in two ways: 
+<ul>
+    <li>to help you avoid writing what is essentially boilerplate Ant scripts for many of these tools, and to then copy that around from project to project,</li>
+    <li>to let you add or remove feedback tools easily</li>
+</ul>
+If you already have that flexibility in your build scripts, then you are ahead
+of the game, and may not want this.
 </p>
 </div>
 </div>
@@ -34,6 +38,12 @@ immediate. Doesn't this make the feedback loop larger rather than smaller?</p>
 
 <div class="answer">
 <p>
+Yes it does make the feedback loop potentially longer. The more immediate the
+feedback you can get the better. However, it's going to be hard to get consistent 
+feedback from your IDE for everyone on the team, nor do some people want to put
+more of a burden on their IDE than it already has. By all means, use IDE plugins
+to get feedback, but I think there is a lot of value to the project as a whole
+to have a more independent set of feedback that everyone can look at.
 </p>
 </div>
 </div>
@@ -41,12 +51,23 @@ immediate. Doesn't this make the feedback loop larger rather than smaller?</p>
 <div class="faq">
 <div class="question">
 <p>
-Do you have a report for tool X?
+Do you have a script for tool X? We use it all the time, and it's great.
 </p>
 </div>
 
 <div class="answer">
 <p>
+The tools that Glean can drive are listed on the <a href="./tools.html">tools page</a>.
+You can also look in the <code>tool</code> directory of the release. Each tool
+has its own directory in there.
+</p>
+<p>
+If your favorite tool isn't part of Glean, either 
+<a href="mailto:john.brugge+glean@gmail.com">drop me a note</a> or try creating
+a script on your own. There is a template <code>build.xml</code> in the <code>templates</code>
+directory, and some <a href="./adding.html">basic instructions</a> for how to
+write it. If it works for you, I would love to hear about it and add it in to
+Glean for others to use.
 </p>
 </div>
 </div>
@@ -54,13 +75,43 @@ Do you have a report for tool X?
 <div class="faq">
 <div class="question">
 <p>
-I made changes to code and checked it in, but the changes aren't reflected in
-any of the reports. Why not?
+We have multiple source projects that make up the codebase for our overall project.
+How would we use Glean to get some aggregate feedback from all of the code?
 </p>
 </div>
 
 <div class="answer">
 <p>
+With the current release of Glean you cannot specify multiple source folders,
+but that is a feature that I really want to add.
+For now, you have a couple of choices:
+<ul>
+    <li>create multiple project property files for Glean, and run each one separately</li>
+    <li>modify your build script to create a pseudo-project area, with all of the
+    source files copied in to one tree. You can then point Glean at that area.</li>
+    <li></li>
+</ul>
+The ideas behind Glean developed from working on a project like that, where there
+were many component parts to the application, and generating feedback for the
+entire codebase was an important part of the daily build.
+That feedback process, however, was very much tuned for that application.
+For Glean, I wanted to generalize the ideas, start simple and grow.
+</p>
+</div>
+</div>
+
+<div class="faq">
+<div class="question">
+<p>
+Doesn't Maven do this kind of thing for me?
+</p>
+</div>
+
+<div class="answer">
+<p>
+If you are using Maven, then you already have a flexible, extensible system for
+plugins. Glean is aimed at giving something of that flavor to folks who use
+vanilla Ant scripts.
 </p>
 </div>
 </div>
