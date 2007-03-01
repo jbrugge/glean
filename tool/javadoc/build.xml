@@ -1,5 +1,7 @@
 <project name="javadoc" default="report" basedir=".">
     <property name="tool.description" value="Java API documentation"/>
+    <property name="tool.url"         value="http://java.sun.com/j2se/javadoc/"/>
+    <property name="tool.min.jdk"     value="1.4"/>
     
     <description>${tool.description}</description>
 

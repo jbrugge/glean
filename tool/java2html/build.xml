@@ -1,5 +1,7 @@
 <project name="java2html" default="report">
     <property name="tool.description" value="Java source cross-reference in HTML"/>
+    <property name="tool.url"         value="http://www.java2html.com"/>
+    <property name="tool.min.jdk"     value="1.4"/>
     
     <description>${tool.description}</description>
 

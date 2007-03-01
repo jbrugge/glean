@@ -1,6 +1,8 @@
 <project name="findbugs" default="report" basedir=".">
     <property name="tool.description" 
              value="Static code analysis for common programming errors"/>
+    <property name="tool.url"         value="http://findbugs.sourceforge.net/"/>
+    <property name="tool.min.jdk"     value="1.4"/>
     
     <description>${tool.description}</description>
 

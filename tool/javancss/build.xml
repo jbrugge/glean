@@ -1,5 +1,7 @@
 <project name="javancss" default="report" basedir=".">
     <property name="tool.description" value="Source code size and complexity metrics"/>
+    <property name="tool.url"         value="http://www.kclee.de/clemens/java/javancss/"/>
+    <property name="tool.min.jdk"     value="1.4"/>
     
     <description>${tool.description}</description>
 

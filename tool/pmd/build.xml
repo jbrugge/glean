@@ -1,5 +1,7 @@
 <project name="pmd" default="report" basedir=".">
     <property name="tool.description" value="Static analysis of source files using design and style rules"/>
+    <property name="tool.url"         value="http://pmd.sourceforge.net/"/>
+    <property name="tool.min.jdk"     value="1.4"/>
     
     <description>${tool.description}</description>
 

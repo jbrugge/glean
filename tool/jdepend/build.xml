@@ -1,6 +1,9 @@
 <project name="jdepend" default="report" basedir=".">
     <property name="tool.description" value="Report on package-level dependency metrics"/>
     
+    <property name="tool.url"         value="http://clarkware.com/software/JDepend.html"/>
+    <property name="tool.min.jdk"     value="1.4"/>
+    
     <description>${tool.description}</description>
 
     <import file="${feedback.script.dir}/tools-common.xml"/>

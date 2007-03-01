@@ -1,6 +1,9 @@
 <project name="junitreport" default="report" basedir=".">
     <property name="tool.description" 
              value="Creates a browsable report of testcase results"/>
+    <property name="tool.url"         value="http://ant.apache.org/manual/OptionalTasks/junitreport.html"/>
+    <property name="tool.min.jdk"     value="1.4"/>
+    <property name="tool.dependencies" value="Optional Ant tasks (JUnit)"/>
     
     <description>${report.description}</description>
 

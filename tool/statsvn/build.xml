@@ -1,6 +1,9 @@
 <project name="statsvn" default="report" basedir=".">
     <property name="tool.description" 
              value="Statistical data from Subversion repository activity"/>
+    <property name="tool.url"         value="http://statsvn.org/"/>
+    <property name="tool.min.jdk"     value="1.4"/>
+    <property name="tool.dependencies" value="Subversion command-line client"/>
     
     <description>${report.description}</description>
 

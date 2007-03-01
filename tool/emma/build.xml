@@ -1,5 +1,8 @@
 <project name="emma" default="report" basedir=".">
     <property name="tool.description" value="Unit test coverage report"/>
+    <property name="tool.url"         value="http://emma.sourceforge.net/"/>
+    <property name="tool.min.jdk"     value="1.4"/>
+    <property name="tool.dependencies" value="Optional Ant tasks (JUnit)"/>
     
     <description>${tool.description}</description>
 

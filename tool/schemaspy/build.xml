@@ -1,6 +1,9 @@
 <project name="schemaspy" default="report" basedir=".">
     <property name="tool.description" 
              value="Database schema and entity browser"/>
+    <property name="tool.url"         value="http://schemaspy.sourceforge.net/"/>
+    <property name="tool.min.jdk"     value="1.4"/>
+    <property name="tool.dependencies" value="&lt;a href=&quot;http://graphviz.org&quot;&gt;Graphviz&lt;/a&gt;"/>
     
     <description>${tool.description}</description>
 

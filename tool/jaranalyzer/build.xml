@@ -1,6 +1,10 @@
 <project name="jaranalyzer" default="report" basedir=".">
     <property name="tool.description" 
              value="Component-level dependency analysis"/>
+
+    <property name="tool.url"         value="http://www.kirkk.com/main/Main/JarAnalyzer"/>
+    <property name="tool.min.jdk"     value="1.4"/>
+    <property name="tool.dependencies" value="&lt;a href=&quot;http://graphviz.org&quot;&gt;Graphviz&lt;/a&gt;"/>
     
     <description>${report.description}</description>
 

@@ -1,5 +1,8 @@
 <project name="umlgraph-doc" default="report">
     <property name="tool.description" value="Javadoc with embedded UML class diagrams"/>
+    <property name="tool.url"         value="http://www.spinellis.gr/sw/umlgraph/"/>
+    <property name="tool.min.jdk"     value="1.5"/>
+    <property name="tool.dependencies" value="&lt;a href=&quot;http://graphviz.org&quot;&gt;Graphviz&lt;/a&gt;"/>
     
     <description>${tool.description}</description>
 

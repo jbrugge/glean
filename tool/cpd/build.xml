@@ -1,6 +1,9 @@
 <project name="cpd" default="report" basedir=".">
     <property name="tool.description" value="Report of copy/paste segments found in source"/>
     
+    <property name="tool.url"       value="http://pmd.sourceforge.net/cpd.html"/>
+    <property name="tool.min.jdk"   value="1.4"/>
+
     <description>${tool.description}</description>
 
     <!-- Until we have an XSL stylesheet, we will just put out text -->

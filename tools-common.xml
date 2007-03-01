@@ -118,11 +118,12 @@
     
     <target name="gen-tool-doc-row"
         description="Generate HTML documentation for this tool">
+        <delete file="${tool.doc.fragmeent}" failonerror="false"/>
         <echo file="${tool.doc.fragment}" append="true">
-            &lt;tr&gt;
+            &lt;tr class=&quot;a&quot;&gt;
             &lt;td&gt;&lt;a href="${tool.url}"&gt;${ant.project.name}&lt;/a&gt;&lt;/td&gt;
             &lt;td&gt;${tool.description}&lt;/td&gt;
-            &lt;td&gt;${tool.min.jdk.version}&lt;/td&gt;
+            &lt;td&gt;${tool.min.jdk}&lt;/td&gt;
             &lt;td&gt;${tool.dependencies}&lt;/td&gt;
             &lt;/tr&gt;
         </echo>

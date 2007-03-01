@@ -1,5 +1,8 @@
 <project name="doccheck" default="report" basedir=".">
     <property name="tool.description" value="Checks completion of JavaDoc comments"/>
+    <property name="tool.url"         value="http://www.doccheck.com/"/>
+    <property name="tool.min.jdk"     value="1.4"/>
+
     <description>${tool.description}</description>
 
     <import file="${feedback.script.dir}/tools-common.xml"/>
