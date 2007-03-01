@@ -152,5 +152,12 @@ CodeFeedback Tasks
     - Goto
     - Insight Collector
     
+- comparison to other tools
+    - Doxygen
+    - Maven
+    - Hackystat
+    - XRadar
+    - QALabs
+    
 - defects
     - Javadoc fails if you pass in a package of '' (see CruiseControl source).

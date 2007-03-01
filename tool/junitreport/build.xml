@@ -1,0 +1,21 @@
+<project name="junitreport" default="report" basedir=".">
+    <property name="tool.description" 
+             value="Creates a browsable report of testcase results"/>
+    
+    <description>${report.description}</description>
+
+    <import file="${feedback.script.dir}/tools-common.xml"/>
+
+    <target name="run-report" depends="junitreport"/>
+
+    <target name="junitreport">
+        <junitreport todir="${gen.report.dir}">
+            <fileset dir="${test.report.dir}">
+                <include name="${test.results.pattern}"/>
+            </fileset>
+            <report format="frames" todir="${gen.report.dir}"/>
+        </junitreport>
+    </target>
+
+</project>
+
