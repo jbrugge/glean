@@ -76,8 +76,13 @@
 
     <target name="post-process" description="Follow-up processing after a tool is finished">
 	    <!-- Generate an element in the summary report for this tool -->
-        <echo message="&lt;report name=&quot;${ant.project.name}&quot; description=&quot;${tool.description}&quot; time=&quot;${tool.timestamp}&quot; /&gt;" 
-            file="${project.report.summary}" append="yes"/> 
+        <echo file="${project.report.summary}" append="yes">
+            &lt;report name=&quot;${ant.project.name}&quot; 
+                description=&quot;${tool.description}&quot; 
+                time=&quot;${tool.timestamp}&quot; 
+                indexpage=&quot;${index.page}&quot; 
+            /&gt;
+        </echo>
 
         <tstamp>
             <format pattern="${tool.timestamp.format}" property="tool.stop.timestamp"/>

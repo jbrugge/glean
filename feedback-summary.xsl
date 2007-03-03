@@ -1,8 +1,7 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:output method="html" 
      indent="yes"  />
-<xsl:param name="project" select="files"/>
-<xsl:param name="today" select="today"/>
+<xsl:param name="indexpage" select="index.html"/>
 
 <xsl:template match="/project-report">
     <html>
@@ -28,7 +27,7 @@
 
 <xsl:template match="//report">
     <tr>
-    <td><a><xsl:attribute name="href"><xsl:value-of select="@name"/>/index.html</xsl:attribute><xsl:value-of select="@name"/></a></td>
+    <td><a><xsl:attribute name="href"><xsl:value-of select="@name"/>/<xsl:value-of select="@indexpage"/></xsl:attribute><xsl:value-of select="@name"/></a></td>
     <td><xsl:value-of select="@description"/></td>
     </tr>
     <p/>

@@ -1,4 +1,4 @@
-<project name="java2html" default="report">
+<project name="java2html14" default="report">
     <property name="tool.description" value="Java source cross-reference in HTML"/>
     <property name="tool.url"         value="http://www.java2html.com"/>
     <property name="tool.min.jdk"     value="1.4"/>
@@ -7,14 +7,18 @@
 
     <import file="${feedback.script.dir}/tools-common.xml"/>
 
+    <!-- NOTE: This tool currently only supports syntax up to JDK 1.4.
+         If you have source that uses languages features of JDK 1.5,
+         use the tool under "java2html15" instead.
+      -->
     <taskdef name="java2html"
         classname="com.java2html.Java2HTMLTask"
         classpathref="tool.classpath"
     />
     
-    <target name="run-report" depends="java2html"/>
+    <target name="run-report" depends="java2html14"/>
 
-    <target name="java2html" depends="init">
+    <target name="java2html14" depends="init">
         <java2html
           destination="${gen.report.dir}"
           marginsize="4"
