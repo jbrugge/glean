@@ -1,6 +1,6 @@
 <project name="doccheck" default="report" basedir=".">
     <property name="tool.description" value="Checks completion of JavaDoc comments"/>
-    <property name="tool.url"         value="http://www.doccheck.com/"/>
+    <property name="tool.url"         value="http://java.sun.com/j2se/javadoc/doccheck/"/>
     <property name="tool.min.jdk"     value="1.4"/>
 
     <description>${tool.description}</description>
