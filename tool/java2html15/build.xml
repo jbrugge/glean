@@ -1,5 +1,5 @@
 <project name="java2html15" default="report" basedir=".">
-    <property name="tool.description" value="Java source cross-reference in HTML"/>
+    <property name="tool.description" value="Java source conversion to HTML"/>
     <property name="tool.url"         value="http://www.java2html.de"/>
     <property name="tool.min.jdk"     value="1.5"/>
     

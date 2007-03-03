@@ -105,15 +105,6 @@
         <glean-subant target="tool-description" pattern="*"/>
     </target>
     
-    <target name="gen-tool-table"
-        description="Create the HTML table fragment for the tool documentation">
-        <glean-subant target="gen-tool-doc-row" pattern="*">
-            <extra-properties>
-                <property name="lib.dir"  value=""/>
-            </extra-properties>
-        </glean-subant>
-    </target>
-    
     <!-- Common macrodefs -->
     <macrodef name="glean-subant">
         <attribute name="target"     default=""/>

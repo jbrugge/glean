@@ -49,6 +49,7 @@ some benefit from their data.
 </p>
 <table class="bodyTable">
 <th>Name</th><th>Description</th><th>JDK Level</th><th>Dependencies</th>
+
             <tr class="a">
             <td><a href="http://opensource.atlassian.com/confluence/spring/display/BDOC/Home">beandoc</a></td>
             <td>Spring bean documentation</td>
@@ -71,7 +72,7 @@ some benefit from their data.
             </tr>
         
             <tr class="a">
-            <td><a href="http://www.doccheck.com/">doccheck</a></td>
+            <td><a href="http://java.sun.com/j2se/javadoc/doccheck/">doccheck</a></td>
             <td>Checks completion of JavaDoc comments</td>
             <td>1.4</td>
             <td>None</td>
@@ -99,9 +100,16 @@ some benefit from their data.
             </tr>
         
             <tr class="a">
-            <td><a href="http://www.java2html.com">java2html</a></td>
+            <td><a href="http://www.java2html.com">java2html14</a></td>
             <td>Java source cross-reference in HTML</td>
             <td>1.4</td>
+            <td>None</td>
+            </tr>
+        
+            <tr class="a">
+            <td><a href="http://www.java2html.de">java2html15</a></td>
+            <td>Java source conversion to HTML</td>
+            <td>1.5</td>
             <td>None</td>
             </tr>
         
@@ -162,10 +170,10 @@ some benefit from their data.
             </tr>
         
             <tr class="a">
-            <td><a href="">umlgraph-views</a></td>
+            <td><a href="http://www.spinellis.gr/sw/umlgraph/">umlgraph-views</a></td>
             <td>UML class diagrams from source code</td>
-            <td>1.4</td>
-            <td>None</td>
+            <td>1.5</td>
+            <td><a href="http://graphviz.org">Graphviz</a></td>
             </tr>
 </table>
 </section>
