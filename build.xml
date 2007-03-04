@@ -74,7 +74,7 @@
         </xslt>    
     </target>
     
-    <target name="package-reports" depends="feedback, feedback-summary"
+    <target name="dist" depends="feedback, feedback-summary"
         description="Bundle all of the report files into a deployable WAR">
         <mkdir dir="${report.war.dir}"/>
         <war destfile="${report.war.dir}/${report.war.file}"
@@ -85,14 +85,19 @@
             </fileset>
         </war>
     </target>
+    
+    <target name="distclean"
+        description="Clean up the packaged reports">
+        <delete dir="${report.war.dir}"/>
+    </target>
 
-    <target name="deploy-reports" depends="package-reports"
+    <target name="deploy"
         description="Deploy a report WAR to an app server">
         <copy file="${report.war.dir}/${report.war.file}"
              todir="${report.deploy.dir}"/>
     </target>
 
-    <target name="all" depends="clean, deploy-reports"
+    <target name="all" depends="clean, dist, deploy"
         description="Runs and deploys a clean set of reports" />
 
     <target name="download-tools"
