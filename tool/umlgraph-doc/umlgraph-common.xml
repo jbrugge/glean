@@ -1,14 +1,6 @@
 <project name="umlgraph-common">
     <description>Tasks, macrodefs and properties common to UMLGraph reports</description>
     
-    <property name="report.title"       value="${src.project.name} API"/>
-    <property name="report.header"      value="${src.project.name}"/>
-    <property name="report.footer"      value="Generated on ${tool.timestamp}"/>
-    <property name="report.overview"    value="${src.dir}/overview.html"/>
-    <property name="jdk5.javadoc.link"  value="http://java.sun.com/j2se/1.5.0/docs/api/"/>
-    
-    <property name="graphviz.home"      value="${tool.home}"/>
-    
     <macrodef name="umldoc">
         <attribute name="doclet"     default="gr.spinellis.umlgraph.doclet.UmlGraph"/>
         <attribute name="outputdir"  default="${gen.report.dir}"/>
@@ -37,6 +29,14 @@
                 <param name="-hide" value="java.lang.String"/>
                 <param name="-link" value="http://java.sun.com/j2se/1.5/docs/api"/>
                 <param name="-views"/>
+                <!-- In order to change the default font that Graphviz
+                     uses, we have to define a number of font settings here. -->
+                <param name="-nodefontname" value="${graphviz.font.name}"/>
+                <param name="-nodefontclassname" value="${graphviz.font.name}"/>
+                <param name="-nodefontclassabstractname" value="${graphviz.font.name}"/>
+                <param name="-nodefonttagname" value="${graphviz.font.name}"/>
+                <param name="-nodefontpackagename" value="${graphviz.font.name}"/>
+                <param name="-edgefontname" value="${graphviz.font.name}"/>
             </doclet>
             <packageset dir="${src.dir}"/>
             <!-- Standard doclet options here -->

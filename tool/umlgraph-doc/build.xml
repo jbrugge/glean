@@ -10,6 +10,10 @@
 
     <import file="umlgraph-common.xml"/>
 
+    <!-- This has to be set here rather than in a property file so that it
+         can pick up the timestamp setting. -->
+    <property name="report.footer"    value="Generated on ${tool.timestamp}"/>
+
     <target name="run-report" depends="umlgraph-doc"/>
 
     <target name="umlgraph-doc" 
