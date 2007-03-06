@@ -1,0 +1,86 @@
+<project name="glean-util" default="package" basedir=".">
+    <description>Utility scripts for Glean</description>
+
+    <property name="xdoclet.home"           value="${user.home}/tools/xdoclet-1.2.3"/>
+    <property name="xdoclet.alltags.file"   value="all-tagfilter.txt"/>
+    <property name="xdoclet.tagfile.base"   location="${basedir}"/>
+    
+    <target name="gen-xdoclet-tagfile"
+        description="Create files of XDoclet tags for Javadoc filters">
+        <delete file="${xdoclet.alltags.file}"/>
+        
+        <gen-xdoc-taglist module="apache"/>
+        <gen-xdoc-taglist module="ejb"/>
+        <gen-xdoc-taglist module="hibernate"/>
+        <gen-xdoc-taglist module="jboss"/>
+        <gen-xdoc-taglist module="spring"/>
+    </target>
+    
+    <target name="gen-tool-table"
+        description="Create the HTML table fragment for the tool documentation">
+        <echo message="Generating HTML fragment in ${tool.html}"/>
+        <delete file="${tool.html}" failonerror="false" verbose="true"/>
+        <glean-subant target="gen-tool-doc-row" pattern="*">
+            <extra-properties>
+                <property name="lib.dir"            value=""/>
+                <property name="tool.doc.fragment"  value="${tool.html}"/>
+            </extra-properties>
+        </glean-subant>
+    </target>
+    
+    <!-- Common macrodefs -->
+    <macrodef name="glean-subant">
+        <attribute name="target"     default=""/>
+        <attribute name="pattern"    default="${tool.pattern}"/>
+        <element name="extra-properties" optional="true"/>
+        <sequential>
+            <subant
+                inheritall="no"
+                failonerror="no"
+                target="@{target}">
+                <!-- Other common properties specific to reports are available in feedback.properties -->
+                <property name="feedback.script.dir"  location="${basedir}"/>
+                <property name="project.root"         location="${project.root}"/>
+                <property name="src.project.name"     value="${src.project.name}"/>
+                <property name="feedback.timestamp"   value="${feedback.timestamp}"/>
+                <property name="feedback.properties.file"       location="${feedback.properties}"/>
+                <property name="feedback.properties.file.local" location="${feedback.properties.local}"/>
+                <extra-properties/>
+                
+                <!-- Run every report that matches our pattern-->
+                <dirset dir="tool" includes="@{pattern}"/>
+            </subant>
+        </sequential>
+    </macrodef>
+    
+    <macrodef name="glean-style">
+        <attribute name="input.file" default="${gen.report.dir}/${report.name}.xml"/>
+        <attribute name="output.file" default="${gen.report.dir}/${styled.report.name}.html"/>
+        <attribute name="stylesheet" default="${report.stylesheet}"/>
+        <element name="extra.params" optional="true"/>
+        <sequential>
+            <xslt basedir="." destdir="."
+                in="@{input.file}" 
+                out="@{output.file}"
+                style="@{stylesheet}">
+              <param name="project" expression="${src.project.name}" />
+              <param name="today" expression="${tool.timestamp}" />
+              <extra.params/>
+            </xslt>
+        </sequential>
+    </macrodef>
+
+    <macrodef name="gen-xdoc-taglist">
+        <attribute name="module"/>
+        <attribute name="extra.file" default="${xdoclet.alltags.file}"/>
+        <sequential>
+            <glean-style input.file="${xdoclet.home}/modules/@{module}/src/META-INF/xtags.xml" 
+                    output.file="${xdoclet.tagfile.base}/@{module}-tagfilter.txt" 
+                    stylesheet="xdoclet-tags.xsl"/>
+                    
+            <concat destfile="@{extra.file}" append="true">
+                <fileset file="@{module}-tagfilter.txt"/>
+            </concat>
+        </sequential>
+    </macrodef>
+</project>

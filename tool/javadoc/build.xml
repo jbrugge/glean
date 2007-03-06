@@ -9,6 +9,10 @@
 
     <import file="${feedback.script.dir}/tools-common.xml"/>
 
+    <!-- This has to be set here rather than in a property file so that it
+         can pick up the timestamp setting. -->
+    <property name="report.footer"    value="Generated on ${tool.timestamp}"/>
+
     <target name="run-report" depends="javadoc"/>
 
     <target name="javadoc">
@@ -25,6 +29,10 @@
         >
             <arg value="-quiet"/>
             <packageset dir="${src.dir}"/>
+            <tag dir="${basedir}">
+                <include name="${javadoc.taglist.files}"/>
+            </tag>
+
             <doctitle>${report.title}</doctitle>
             <header><![CDATA[<b>]]>${report.header}<![CDATA[</b>]]></header>
             <bottom><![CDATA[<em>]]>${report.footer}<![CDATA[</em>]]></bottom>

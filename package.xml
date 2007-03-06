@@ -17,7 +17,7 @@
     <property name="release.host"   value="jbrugge.com"/>
     <property name="release.dist.path"   value="httpdocs/glean"/>
     <property name="release.doc.path"    value="httpdocs/glean"/>
-
+    
     <property file="toolhome.properties"/>
     
     <basename property="package.script"   file="${ant.file}"/>
@@ -130,42 +130,5 @@
     <target name="clean-docs">
         <ant dir="${doc.dir}" target="clean"/>
     </target>
-    
-    <target name="gen-tool-table"
-        description="Create the HTML table fragment for the tool documentation">
-        <echo message="Generating HTML fragment in ${tool.html}"/>
-        <delete file="${tool.html}" failonerror="false" verbose="true"/>
-        <glean-subant target="gen-tool-doc-row" pattern="*">
-            <extra-properties>
-                <property name="lib.dir"            value=""/>
-                <property name="tool.doc.fragment"  value="${tool.html}"/>
-            </extra-properties>
-        </glean-subant>
-    </target>
-    
-    <!-- Common macrodefs -->
-    <macrodef name="glean-subant">
-        <attribute name="target"     default=""/>
-        <attribute name="pattern"    default="${tool.pattern}"/>
-        <element name="extra-properties" optional="true"/>
-        <sequential>
-            <subant
-                inheritall="no"
-                failonerror="no"
-                target="@{target}">
-                <!-- Other common properties specific to reports are available in feedback.properties -->
-                <property name="feedback.script.dir"  location="${basedir}"/>
-                <property name="project.root"         location="${project.root}"/>
-                <property name="src.project.name"     value="${src.project.name}"/>
-                <property name="feedback.timestamp"   value="${feedback.timestamp}"/>
-                <property name="feedback.properties.file"       location="${feedback.properties}"/>
-                <property name="feedback.properties.file.local" location="${feedback.properties.local}"/>
-                <extra-properties/>
-                
-                <!-- Run every report that matches our pattern-->
-                <dirset dir="tool" includes="@{pattern}"/>
-            </subant>
-        </sequential>
-    </macrodef>
     
 </project>
