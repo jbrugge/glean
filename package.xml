@@ -29,6 +29,7 @@
         <exclude name="${log.dir}/"/>
         <exclude name="${scratch.dir}/"/>
         <exclude name="${package.script}"/>
+        <exclude name="util.xml"/>
         <exclude name="*.txt"/>
         <exclude name="*.sh"/>
         <exclude name="**/*.log"/>
