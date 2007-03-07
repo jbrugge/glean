@@ -7,9 +7,6 @@
 
     <import file="${feedback.script.dir}/tools-common.xml"/>
 
-    <property name="link.prefix"        value="../java2html"/>
-    <property name="rulesets"           value="${basedir}/ruleset.xml"/>
-
     <taskdef name="pmd" classname="net.sourceforge.pmd.ant.PMDTask"
         classpathref="tool.classpath"/>
 
@@ -18,11 +15,11 @@
     <target name="pmd">
         <pmd shortFilenames="yes"
               targetjdk="${source.level}"
-              rulesetfiles="${rulesets}"
+              rulesetfiles="${pmd.rulesets}"
             >
             <formatter type="${report.format}"
                 toFile="${gen.report.dir}/${report.name}.${report.format}"
-                linkPrefix="${link.prefix}"/>
+                linkPrefix="${pmd.link.prefix}"/>
             <fileset dir="${src.dir}">
                 <include name="**/*.java"/>
             </fileset>
@@ -32,8 +29,8 @@
     <target name="transform" depends="check-stylesheet" if="stylesheet.present">
         <report-style>
             <extra.params>
-                <param name="rulesets" expression="${rulesets}" />
-                <param name="context-root" expression="${link.prefix}" />
+                <param name="rulesets" expression="${pmd.rulesets}" />
+                <param name="context-root" expression="${pmd.link.prefix}" />
             </extra.params>
         </report-style>
     </target>
