@@ -19,7 +19,7 @@
             >
             <formatter type="${report.format}"
                 toFile="${gen.report.dir}/${report.name}.${report.format}"
-                linkPrefix="${pmd.link.prefix}"/>
+                linkPrefix="${src.link.prefix}"/>
             <fileset dir="${src.dir}">
                 <include name="**/*.java"/>
             </fileset>
@@ -30,7 +30,7 @@
         <report-style>
             <extra.params>
                 <param name="rulesets" expression="${pmd.rulesets}" />
-                <param name="context-root" expression="${pmd.link.prefix}" />
+                <param name="context-root" expression="${src.link.prefix}" />
             </extra.params>
         </report-style>
     </target>

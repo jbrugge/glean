@@ -1,17 +1,11 @@
 <project name="cpd" default="report" basedir=".">
     <property name="tool.description" value="Report of copy/paste segments found in source"/>
-    
-    <property name="tool.url"       value="http://pmd.sourceforge.net/cpd.html"/>
-    <property name="tool.min.jdk"   value="1.4"/>
+    <property name="tool.url"         value="http://pmd.sourceforge.net/cpd.html"/>
+    <property name="tool.min.jdk"     value="1.4"/>
 
     <description>${tool.description}</description>
 
-    <!-- Until we have an XSL stylesheet, we will just put out text -->
-    <property name="report.format"      value="xml"/>
-
     <import file="${feedback.script.dir}/tools-common.xml"/>
-
-    <property name="link.prefix"        value="../java2html"/>
 
     <taskdef name="cpd" classname="net.sourceforge.pmd.cpd.CPDTask"
         classpathref="tool.classpath"/>
@@ -31,7 +25,7 @@
     <target name="transform" depends="check-stylesheet" if="stylesheet.present">
         <report-style>
             <extra.params>
-                <param name="context-root" expression="${link.prefix}" />
+                <param name="context-root" expression="${src.link.prefix}" />
                 <param name="source-root" expression="${src.dir}/"/>
             </extra.params>
         </report-style>
