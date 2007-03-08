@@ -25,10 +25,16 @@
         <mkdir dir="${tool.log.dir}"/>
 
         <record name="${tool.log.dir}/${src.project.name}-feedback-${DSTAMP}-${TSTAMP}.log"/>
-        <echo message="Starting to gather feedback at ${feedback.timestamp}"/>
+        <echo message="Starting to gather feedback for ${src.project.name} at ${feedback.timestamp}"/>
+        <echo message="Feedback tools being used: ${tool.pattern}"/>
 
         <mkdir dir="${gen.report.root}"/>        
         <copy file="${report.css}" todir="${gen.report.root}"/>
+
+        <!-- Check to make sure that the feedback properties file exists -->
+        <available file="${feedback.properties}" property="feedback.properties.exists"/>
+        <fail unless="feedback.properties.exists"
+            message="**** Can not find feedback properties file '${feedback.properties}' ****"/>
     </target>
 
     <target name="glean" depends="init, feedback, feedback-summary"
@@ -74,7 +80,7 @@
         </xslt>    
     </target>
     
-    <target name="dist" depends="feedback, feedback-summary"
+    <target name="dist"
         description="Bundle all of the report files into a deployable WAR">
         <mkdir dir="${report.war.dir}"/>
         <war destfile="${report.war.dir}/${report.war.file}"
