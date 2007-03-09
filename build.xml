@@ -11,20 +11,20 @@
 
     <!-- Define a property to refer to the name of the code project -->
     <basename property="src.project.name"   file="${project.root}"/>
-        
-    <!-- Report deployment properties -->
-    <property name="report.war.dir"     location="${basedir}/target"/>
-    <property name="report.war.file"    value="${src.project.name}-reports.war"/>
+
+    <!-- Log file name. We have to define it here rather than in a properties
+         file because is needs the name derived via the "basename" task -->
+    <property name="glean.log.file"     value="${src.project.name}-feedback-${DSTAMP}-${TSTAMP}.log"/>
     
     <tstamp>
         <format pattern="${tool.timestamp.format}" property="feedback.timestamp"/>
     </tstamp>
     
     <target name="init" description="Set up the environment">
-        <echo message="Creating log directory at ${tool.log.dir}"/>
-        <mkdir dir="${tool.log.dir}"/>
+        <echo message="Creating log directory at ${glean.log.dir}"/>
+        <mkdir dir="${glean.log.dir}"/>
 
-        <record name="${tool.log.dir}/${src.project.name}-feedback-${DSTAMP}-${TSTAMP}.log"/>
+        <record name="${glean.log.dir}/${glean.log.file}"/>
         <echo message="Starting to gather feedback for ${src.project.name} at ${feedback.timestamp}"/>
         <echo message="Feedback tools being used: ${tool.pattern}"/>
 

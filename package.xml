@@ -10,7 +10,6 @@
     <property name="scratch.dir"   value="glean"/>
     <property name="dist.docs"     value="target"/>
     <property name="glean.dir"     value="${basedir}"/>
-    <property name="tool.html"     value="${basedir}/tool-doc-fragment.html"/>
 
     <property name="scp.port"       value="232"/>
     <property name="scp.user"       value="jbrugge"/>
@@ -23,13 +22,13 @@
     <basename property="package.script"   file="${ant.file}"/>
 
     <patternset id="dist.script.excludes">
-        <exclude name="${ant.file}"/>
         <exclude name="${dist.dir}/"/>
         <exclude name="${doc.dir}/"/>
         <exclude name="${log.dir}/"/>
         <exclude name="${scratch.dir}/"/>
         <exclude name="${package.script}"/>
         <exclude name="util.xml"/>
+        <exclude name="xdoclet-tags.xsl"/>
         <exclude name="*.txt"/>
         <exclude name="*.sh"/>
         <exclude name="**/*.log"/>
