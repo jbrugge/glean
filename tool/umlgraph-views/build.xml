@@ -1,7 +1,7 @@
 <project name="umlgraph-views" default="report">
     <property name="tool.description" value="UML class diagrams from source code"/>
     <property name="tool.url"         value="http://www.spinellis.gr/sw/umlgraph/"/>
-    <property name="tool.min.jdk"     value="1.5"/>
+    <property name="tool.min.jdk"     value="1.4"/>
     <property name="tool.dependencies" value="&lt;a href=&quot;http://graphviz.org&quot;&gt;Graphviz&lt;/a&gt;"/>
     
     <description>${tool.description}</description>
@@ -32,7 +32,7 @@
                 outputdir="${gen.report.dir}">
             <views>
                 <fileset dir="${project.root}">
-                    <include name="report-src/views/*.java"/>
+                    <include name="${report.view.src}/*.java"/>
                 </fileset>
             </views>
         </umldoc>
