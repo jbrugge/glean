@@ -72,6 +72,16 @@
             <format pattern="${tool.timestamp.format}" property="tool.start.timestamp"/>
         </tstamp>
         <echo message="++++++++ Starting ${ant.project.name} at ${tool.start.timestamp} ++++++++"/>
+
+        <!-- Check to make sure that the tool.home directory exists -->
+        <condition property="tool.home.exists">
+            <or>
+                <length string="${tool.home}" length="0" />
+                <available file="${tool.home}" type="dir"/>
+            </or>
+        </condition>
+        <fail unless="tool.home.exists"
+            message="**** Can not find tool.home directory '${tool.home}' for ${ant.project.name} ****"/>
     </target>
 
     <target name="post-process" description="Follow-up processing after a tool is finished">
