@@ -4,6 +4,7 @@
     <property name="xdoclet.home"           value="${user.home}/tools/xdoclet-1.2.3"/>
     <property name="xdoclet.alltags.file"   value="all-tagfilter.txt"/>
     <property name="xdoclet.tagfile.base"   location="${basedir}"/>
+    <property name="tool.html"              value="${basedir}/tool-table-fragment.html"/>
     
     <target name="gen-xdoclet-tagfile"
         description="Create files of XDoclet tags for Javadoc filters">
