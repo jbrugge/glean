@@ -48,157 +48,431 @@ better, so start small and add feedback sources when you find that you can get
 some benefit from their data.
 </p>
 <table class="bodyTable">
-<th>Name</th><th>Description</th><th>JDK Level</th><th>Dependencies</th>
+<th>Name</th><th>Description</th><th>JDK Level</th><th>Dependencies</th><th>Home</th>
 
             <tr class="a">
-            <td><a href="http://opensource.atlassian.com/confluence/spring/display/BDOC/Home">beandoc</a></td>
+            <td><a href="#beandoc">beandoc</a></td>
             <td>Spring bean documentation</td>
             <td>1.4</td>
             <td><a href="http://graphviz.org">Graphviz</a></td>
+            <td><a href="http://opensource.atlassian.com/confluence/spring/display/BDOC/Home">Download</a></td>
             </tr>
         
             <tr class="a">
-            <td><a href="http://checkstyle.sourceforge.net/">checkstyle</a></td>
+            <td><a href="#checkstyle">checkstyle</a></td>
             <td>Checks code against team style and design guidelines.</td>
             <td>1.4</td>
             <td>None</td>
+            <td><a href="http://checkstyle.sourceforge.net/">Download</a></td>
             </tr>
         
             <tr class="a">
-            <td><a href="http://pmd.sourceforge.net/cpd.html">cpd</a></td>
+            <td><a href="#cpd">cpd</a></td>
             <td>Report of copy/paste segments found in source</td>
             <td>1.4</td>
             <td>None</td>
+            <td><a href="http://pmd.sourceforge.net/cpd.html">Download</a></td>
             </tr>
         
             <tr class="a">
-            <td><a href="http://java.sun.com/j2se/javadoc/doccheck/">doccheck</a></td>
+            <td><a href="#doccheck">doccheck</a></td>
             <td>Checks completion of JavaDoc comments</td>
             <td>1.4</td>
             <td>None</td>
+            <td><a href="http://java.sun.com/j2se/javadoc/doccheck/">Download</a></td>
             </tr>
         
             <tr class="a">
-            <td><a href="http://emma.sourceforge.net/">emma</a></td>
+            <td><a href="#emma">emma</a></td>
             <td>Unit test coverage report</td>
             <td>1.4</td>
             <td>Optional Ant tasks (JUnit)</td>
+            <td><a href="http://emma.sourceforge.net/">Download</a></td>
             </tr>
         
             <tr class="a">
-            <td><a href="http://findbugs.sourceforge.net/">findbugs</a></td>
+            <td><a href="#findbugs">findbugs</a></td>
             <td>Static code analysis for common programming errors</td>
             <td>1.4</td>
             <td>None</td>
+            <td><a href="http://findbugs.sourceforge.net/">Download</a></td>
             </tr>
         
             <tr class="a">
-            <td><a href="http://www.kirkk.com/main/Main/JarAnalyzer">jaranalyzer</a></td>
+            <td><a href="#jaranalyzer">jaranalyzer</a></td>
             <td>Component-level dependency analysis</td>
             <td>1.4</td>
             <td><a href="http://graphviz.org">Graphviz</a></td>
+            <td><a href="http://www.kirkk.com/main/Main/JarAnalyzer">Download</a></td>
             </tr>
         
             <tr class="a">
-            <td><a href="http://www.java2html.com">java2html14</a></td>
+            <td><a href="#java2html14">java2html14</a></td>
             <td>Java source cross-reference in HTML</td>
             <td>1.4</td>
             <td>None</td>
+            <td><a href="http://www.java2html.com">Download</a></td>
             </tr>
         
             <tr class="a">
-            <td><a href="http://www.java2html.de">java2html15</a></td>
+            <td><a href="#java2html15">java2html15</a></td>
             <td>Java source conversion to HTML</td>
             <td>1.5</td>
             <td>None</td>
+            <td><a href="http://www.java2html.de">Download</a></td>
             </tr>
         
             <tr class="a">
-            <td><a href="http://java.sun.com/j2se/javadoc/">javadoc</a></td>
+            <td><a href="#javadoc">javadoc</a></td>
             <td>Java API documentation</td>
             <td>1.4</td>
             <td>None</td>
+            <td><a href="http://java.sun.com/j2se/javadoc/">Download</a></td>
             </tr>
         
             <tr class="a">
-            <td><a href="http://www.kclee.de/clemens/java/javancss/">javancss</a></td>
+            <td><a href="#javancss">javancss</a></td>
             <td>Source code size and complexity metrics</td>
             <td>1.4</td>
             <td>None</td>
+            <td><a href="http://www.kclee.de/clemens/java/javancss/">Download</a></td>
             </tr>
         
             <tr class="a">
-            <td><a href="http://clarkware.com/software/JDepend.html">jdepend</a></td>
+            <td><a href="#jdepend">jdepend</a></td>
             <td>Report on package-level dependency metrics</td>
             <td>1.4</td>
             <td>None</td>
+            <td><a href="http://clarkware.com/software/JDepend.html">Download</a></td>
             </tr>
         
             <tr class="a">
-            <td><a href="http://ant.apache.org/manual/OptionalTasks/junitreport.html">junitreport</a></td>
+            <td><a href="#junitreport">junitreport</a></td>
             <td>Creates a browsable report of testcase results</td>
             <td>1.4</td>
             <td>Optional Ant tasks (JUnit)</td>
+            <td><a href="http://ant.apache.org/manual/OptionalTasks/junitreport.html">Download</a></td>
             </tr>
         
             <tr class="a">
-            <td><a href="http://pmd.sourceforge.net/">pmd</a></td>
+            <td><a href="#pmd">pmd</a></td>
             <td>Static analysis of source files using design and style rules</td>
             <td>1.4</td>
             <td>None</td>
+            <td><a href="http://pmd.sourceforge.net/">Download</a></td>
             </tr>
         
             <tr class="a">
-            <td><a href="http://schemaspy.sourceforge.net/">schemaspy</a></td>
+            <td><a href="#schemaspy">schemaspy</a></td>
             <td>Database schema and entity browser</td>
             <td>1.4</td>
             <td><a href="http://graphviz.org">Graphviz</a></td>
+            <td><a href="http://schemaspy.sourceforge.net/">Download</a></td>
             </tr>
         
             <tr class="a">
-            <td><a href="http://statsvn.org/">statsvn</a></td>
+            <td><a href="#statsvn">statsvn</a></td>
             <td>Statistical data from Subversion repository activity</td>
             <td>1.4</td>
             <td>Subversion command-line client</td>
+            <td><a href="http://statsvn.org/">Download</a></td>
             </tr>
         
             <tr class="a">
-            <td><a href="http://www.spinellis.gr/sw/umlgraph/">umlgraph-doc</a></td>
+            <td><a href="#umlgraph-doc">umlgraph-doc</a></td>
             <td>Javadoc with embedded UML class diagrams</td>
             <td>1.5</td>
             <td><a href="http://graphviz.org">Graphviz</a></td>
+            <td><a href="http://www.spinellis.gr/sw/umlgraph/">Download</a></td>
             </tr>
         
             <tr class="a">
-            <td><a href="http://www.spinellis.gr/sw/umlgraph/">umlgraph-views</a></td>
+            <td><a href="#umlgraph-views">umlgraph-views</a></td>
             <td>UML class diagrams from source code</td>
-            <td>1.5</td>
+            <td>1.4</td>
             <td><a href="http://graphviz.org">Graphviz</a></td>
+            <td><a href="http://www.spinellis.gr/sw/umlgraph/">Download</a></td>
             </tr>
-</table>
+        </table>
 </section>
 
-<section name="In The Works">
+<section name="Tool Descriptions">
 <p>
-Some tools have trickier dependencies or rely less on convention, and are a bit
-more work to script in a general way. Others are tools I'd like to have scripts for
-but just haven't gotten around to it. These tools are ones on my to-do list.
-If there are others that you use and would like to see included, just
-<a href="mailto:john.brugge+glean@gmail.com">let me know</a>.
+Each of the tools that Glean drives typically makes use of some of the basic
+common properties of a project, such as the source, binary and library directories.
+Many of them also have other properties that define what they do or how the produce
+their output. All of them have reasonable default values that should work for most
+people as they are, but if you want to customize any part of a tool, see the
+description below or just dive into the source Ant script.
 </p>
+<p>
+<h4><a name="beandoc">beandoc</a></h4>
+Beandoc is a tool for documenting <a href="http://www.springframework.org">Spring</a>
+bean configuration files. Most importantly, it describes and diagrams the relationships
+between beans, with the bean definitions hyperlinked together.
+</p>
+<p>
+This tool only appears to come in source form as of this writing (v0.7.1). Once
+you have it downloaded, see the README. Building should be just running "ant dist"
+from the command line.
+</p>
+<p>
 <table class="bodyTable">
-<th>Name</th><th>Description</th><th>Dependencies</th>
-<tr class="a"><td><a href="http://cobertura.sourceforge.net/">cobertura</a></td><td>Code coverage</td><td><a href="http://junit.org">JUnit</a>, test script</td></tr>
-<tr class="a"><td><a href="http://www.hackystat.org/hackyDevSite/home.do">hackystat</a></td><td>Collection and analysis of feedback metrics</td><td></td></tr>
-<tr class="a"><td><a href="http://www.hibernate.org/255.html">hbm2doc</a></td><td>Hibernate mapping documentation</td><td></td></tr>
-<tr class="a"><td><a href="http://www.softwaresecretweapons.com/jspwiki/Wiki.jsp?page=LinguineMaps">linguinemaps</a></td><td>Visualization of config files (WSDL, Ant, Hibernate, DTD)</td><td>None</td></tr>
-<tr class="a"><td><a href="http://cwiki.apache.org/S2PLUGINS/sitegraph-plugin.html">sitegraph</a></td><td>Struts 2.0 page flow visualization</td><td></td></tr>
-<tr class="a"><td><a href="http://statcvs.sourceforge.net/">statcvs</a></td><td>Source repository activity report</td><td>CVS command-line</td></tr>
-<tr class="a"><td><a href="https://taglibrarydoc.dev.java.net/">taglibrarydoc</a></td><td>Javadoc for JSP taglibs</td><td></td></tr>
-<tr class="a"><td><a href="http://xradar.sourceforge.net/">xradar</a></td><td>Graphical view of aggregate source feedback.</td><td></td></tr>
-<tr class="a"><td><a href="http://www.lumrix.de/xsbrowser.php">xsbrowser</a></td><td>Documentation and browsing of DTD or XML schema</td><td></td></tr>
-<tr class="a"><td><a href="http://xframe.sourceforge.net/xsddoc/index.html">xsddoc</a></td><td>Documentation for XML schema</td><td></td></tr>
+<th>Property</th><th>Default value</th><th>Description</th>
+  <tr>
+    <td>spring.config.pattern</td><td>**/*Context.xml</td><td>Naming style for your Spring files</td>
+  </tr>
+  <tr>
+    <td>spring.config.dir</td><td>${src.dir}</td><td>Root of search path for config files</td>
+  </tr>
 </table>
+</p>
+<p>
+<h4><a name="checkstyle">checkstyle</a></h4>
+Checkstyle is a static code analysis tool, in the same category as PMD and a few others.
+It comes with a number of rules for checking style and conventions, as well as
+some design patterns.
+</p>
+<p>
+<table class="bodyTable">
+<th>Property</th><th>Default value</th><th>Description</th>
+  <tr>
+    <td>report.stylesheet</td><td>${tool.home}/contrib/checkstyle-noframes.xsl</td><td>One of the output transformations that comes with Checkstyle. Check the distribution for others.</td>
+  </tr>
+  <tr>
+    <td>checkstyle.config</td><td>${tool.home}/sun_checks.xml</td><td>Sun's Java style rules</td>
+  </tr>
+</table>
+</p>
+
+<p>
+<h4><a name="cpd">cpd</a></h4>
+CPD is a Copy/Paste Detector that comes with the PMD package. It looks for repeated
+segments of code within the codebase and returns them. The XSL that comes with
+Glean generates links to the source lines of the duplicate code based on the property
+<code>src.link.prefix</code>. There are other XSL templates that come with CPD
+that you can use as well. You may need to alter them if you want to link to your
+HTML source.
+</p>
+<p>
+<table class="bodyTable">
+<th>Property</th><th>Default value</th><th>Description</th>
+  <tr>
+    <td>src.link.prefix</td><td>../java2html14</td><td>Set this based on the Java-to-HTML tool you chose to run.</td>
+  </tr>
+</table>
+</p>
+
+<p>
+<h4><a name="doccheck">doccheck</a></h4>
+(to be documented)
+</p>
+<p>
+<table class="bodyTable">
+<th>Property</th><th>Default value</th><th>Description</th>
+  <tr>
+    <td></td><td></td><td></td>
+  </tr>
+</table>
+</p>
+<p>
+<h4><a name="emma">emma</a></h4>
+Emma is a tool for documenting code coverage, and is usually used for test code
+coverage. Generating the output involves actually running the unit tests,
+so setting up this script for an individual project is trickier than most of the
+other scripts.
+</p>
+<p>
+Glean comes with a basic Ant script for running JUnit tests, either as a single
+suite or as a batchtest. It also allows you to define any extra classpaths, so
+for many projects this may be all that's needed. If it does not, you can either
+plug in your own test script or modify the Glean script.
+</p>
+<p>
+<table class="bodyTable">
+<th>Property</th><th>Default value</th><th>Description</th>
+  <tr>
+    <td>test.script</td><td>${feedback.script.dir}/test.xml</td><td>A general script for running JUnit test suites or batchtests.</td>
+  </tr>
+  <tr>
+    <td>project.report.filter</td><td>${test.src.dir}/emma-filters.txt</td><td>Name of the file the script will look for if you wish to define filters for the coverage report.</td>
+  </tr>
+  <tr>
+    <td>default.filter</td><td>filters.txt</td><td>A set of basic filters the script will use if there are no project-specific filters.</td>
+  </tr>
+  <tr>
+    <td>coverage.dir</td><td>${gen.report.dir}</td><td>The output directory used for EMMA work files and coverage reports</td>
+  </tr>
+  <tr>
+    <td>out.instr.dir</td><td>${gen.report.dir}/outinstr</td><td>The output directory for EMMA instrumented classes.</td>
+  </tr>
+</table>
+</p>
+<p>
+<h4><a name="findbugs">findbugs</a></h4>
+(to be documented)
+</p>
+<p>
+<table class="bodyTable">
+<th>Property</th><th>Default value</th><th>Description</th>
+  <tr>
+    <td></td><td></td><td></td>
+  </tr>
+</table>
+</p>
+<p>
+<h4><a name="jaranalyzer">jaranalyzer</a></h4>
+(to be documented)
+</p>
+<p>
+<table class="bodyTable">
+<th>Property</th><th>Default value</th><th>Description</th>
+  <tr>
+    <td></td><td></td><td></td>
+  </tr>
+</table>
+</p>
+<p>
+<h4><a name="java2html14">java2html14</a></h4>
+There are two open-source tools with the name "Java2HTML". This script drives 
+the one from <a href="http://www.java2html.com">java2html.com</a>. It creates a 
+very nice framed source browser, but it only supports syntax through JDK 1.4. 
+If you have source with JDK 1.5 syntax (e.g. generics, enums) you should use the 
+<a href="#java2html15">java2html15</a> script, which drives the other Java2html.
+</p>
+<p>
+<table class="bodyTable">
+<th>Property</th><th>Default value</th><th>Description</th>
+  <tr>
+    <td></td><td></td><td></td>
+  </tr>
+</table>
+</p>
+<p>
+<h4><a name="java2html15">java2html15</a></h4>
+This script drives the other tool with the name Java2HTML, the one from
+<a href="http://www.java2html.de">java2html.de</a>. This tool simply creates
+HTML versions of the source, without any intent for it to be easily browsable.
+If you have JDK 1.5 source, however, it is the only one to use. It still serves
+fine for creating targets for the static code analysis tools, like PMD, CPD or
+Findbugs.
+</p>
+<p>
+<table class="bodyTable">
+<th>Property</th><th>Default value</th><th>Description</th>
+  <tr>
+    <td></td><td></td><td></td>
+  </tr>
+</table>
+</p>
+<p>
+<h4><a name="javadoc">javadoc</a></h4>
+(to be documented)
+</p>
+<p>
+<table class="bodyTable">
+<th>Property</th><th>Default value</th><th>Description</th>
+  <tr>
+    <td></td><td></td><td></td>
+  </tr>
+</table>
+</p>
+<p>
+<h4><a name="javancss">javancss</a></h4>
+(to be documented)
+</p>
+<p>
+<table class="bodyTable">
+<th>Property</th><th>Default value</th><th>Description</th>
+  <tr>
+    <td></td><td></td><td></td>
+  </tr>
+</table>
+</p>
+<p>
+<h4><a name="jdepend">jdepend</a></h4>
+(to be documented)
+</p>
+<p>
+<table class="bodyTable">
+<th>Property</th><th>Default value</th><th>Description</th>
+  <tr>
+    <td></td><td></td><td></td>
+  </tr>
+</table>
+</p>
+<p>
+<h4><a name="junitreport">junitreport</a></h4>
+(to be documented)
+</p>
+<p>
+<table class="bodyTable">
+<th>Property</th><th>Default value</th><th>Description</th>
+  <tr>
+    <td></td><td></td><td></td>
+  </tr>
+</table>
+</p>
+<p>
+<h4><a name="pmd">pmd</a></h4>
+(to be documented)
+</p>
+<p>
+<table class="bodyTable">
+<th>Property</th><th>Default value</th><th>Description</th>
+  <tr>
+    <td></td><td></td><td></td>
+  </tr>
+</table>
+</p>
+<p>
+<h4><a name="schemaspy">schemaspy</a></h4>
+(to be documented)
+</p>
+<p>
+<table class="bodyTable">
+<th>Property</th><th>Default value</th><th>Description</th>
+  <tr>
+    <td></td><td></td><td></td>
+  </tr>
+</table>
+</p>
+<p>
+<h4><a name="statsvn">svatsvn</a></h4>
+(to be documented)
+</p>
+<p>
+<table class="bodyTable">
+<th>Property</th><th>Default value</th><th>Description</th>
+  <tr>
+    <td></td><td></td><td></td>
+  </tr>
+</table>
+</p>
+<p>
+<h4><a name="umlgraph-doc">umlgraph-doc</a></h4>
+(to be documented)
+</p>
+<p>
+<table class="bodyTable">
+<th>Property</th><th>Default value</th><th>Description</th>
+  <tr>
+    <td></td><td></td><td></td>
+  </tr>
+</table>
+</p>
+<p>
+<h4><a name="umlgraph-views">umlgraph-views</a></h4>
+(to be documented)
+</p>
+<p>
+<table class="bodyTable">
+<th>Property</th><th>Default value</th><th>Description</th>
+  <tr>
+    <td></td><td></td><td></td>
+  </tr>
+</table>
+</p>
 </section>
 
 </body>

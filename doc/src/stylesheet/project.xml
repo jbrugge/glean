@@ -16,7 +16,8 @@
         </menu>
     
         <menu name="Tool Scripts">
-            <item name="Included"       href="/tools.html"/>
+            <item name="Descriptions"   href="/tools.html"/>
+            <item name="In the works"   href="/future.html"/>
             <item name="Extending"      href="/adding.html"/>
         </menu>
     </body>

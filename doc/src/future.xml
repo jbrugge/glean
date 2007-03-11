@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+
+  <properties>
+    <author email="john@jbrugge.com">John Brugge</author>
+    <title>Glean : In The Works</title>
+  </properties>
+
+<body>
+<section name="In The Works">
+<p>
+Some tools have trickier dependencies or rely less on convention, and are a bit
+more work to script in a general way. Others are tools I'd like to have scripts for
+but just haven't gotten around to it. These tools are ones on my to-do list.
+If there are others that you use and would like to see included, just
+<a href="mailto:john.brugge+glean@gmail.com">let me know</a>.
+</p>
+<table class="bodyTable">
+<th>Name</th><th>Description</th><th>Dependencies</th>
+<tr class="a"><td><a href="http://cobertura.sourceforge.net/">cobertura</a></td><td>Code coverage</td><td><a href="http://junit.org">JUnit</a>, test script</td></tr>
+<tr class="a"><td><a href="http://www.hackystat.org/hackyDevSite/home.do">hackystat</a></td><td>Collection and analysis of feedback metrics</td><td></td></tr>
+<tr class="a"><td><a href="http://www.hibernate.org/255.html">hbm2doc</a></td><td>Hibernate mapping documentation</td><td></td></tr>
+<tr class="a"><td><a href="http://www.softwaresecretweapons.com/jspwiki/Wiki.jsp?page=LinguineMaps">linguinemaps</a></td><td>Visualization of config files (WSDL, Ant, Hibernate, DTD)</td><td>None</td></tr>
+<tr class="a"><td><a href="http://cwiki.apache.org/S2PLUGINS/sitegraph-plugin.html">sitegraph</a></td><td>Struts 2.0 page flow visualization</td><td></td></tr>
+<tr class="a"><td><a href="http://statcvs.sourceforge.net/">statcvs</a></td><td>Source repository activity report</td><td>CVS command-line</td></tr>
+<tr class="a"><td><a href="https://taglibrarydoc.dev.java.net/">taglibrarydoc</a></td><td>Javadoc for JSP taglibs</td><td></td></tr>
+<tr class="a"><td><a href="http://xradar.sourceforge.net/">xradar</a></td><td>Graphical view of aggregate source feedback.</td><td></td></tr>
+<tr class="a"><td><a href="http://www.lumrix.de/xsbrowser.php">xsbrowser</a></td><td>Documentation and browsing of DTD or XML schema</td><td></td></tr>
+<tr class="a"><td><a href="http://xframe.sourceforge.net/xsddoc/index.html">xsddoc</a></td><td>Documentation for XML schema</td><td></td></tr>
+</table>
+</section>
+
+</body>
+</document>
