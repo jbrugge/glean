@@ -2,11 +2,11 @@
     <description>A basic unit test script for projects</description>
     
     <patternset id="unit.test.classes">
-        <include name="**/test/*Test.class"/>
+        <include name="${unit.test.pattern}"/>
     </patternset>
     
     <patternset id="integration.test.classes">
-        <include name="**/test/integration/*Test.class"/>
+        <include name="${integration.test.pattern}"/>
     </patternset>
     
     <property name="test.patternset"       value="unit.test.classes"/>
@@ -50,7 +50,7 @@
                 <batchtest todir="${test.report.dir}"
                     unless="test.suite"
                     >
-                    <fileset dir="${test.bin.dir}">
+                    <fileset dir="@{test-class-dir}">
                         <patternset refid="${test.patternset}"/>
                     </fileset>
                 </batchtest>
