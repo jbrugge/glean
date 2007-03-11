@@ -265,7 +265,10 @@ HTML source.
 
 <p>
 <h4><a name="doccheck">doccheck</a></h4>
-(to be documented)
+This is a fairly antiquated and unsupported tool from Sun, but it does its job well:
+report on missing or incorect Javadoc. Checkstyle has some rules that can be
+configured to do similar checks, but this could be a useful tool if you are using
+a different code analysis tool that doesn't have Javadoc checks.
 </p>
 <p>
 <table class="bodyTable">
@@ -339,6 +342,13 @@ the one from <a href="http://www.java2html.com">java2html.com</a>. It creates a
 very nice framed source browser, but it only supports syntax through JDK 1.4. 
 If you have source with JDK 1.5 syntax (e.g. generics, enums) you should use the 
 <a href="#java2html15">java2html15</a> script, which drives the other Java2html.
+</p>
+<p>
+If you are running Glean under JDK 1.4 and want to use this script, you will also
+need to grab a slightly older version of Java2HTML, v1.3. The v1.4 release seems
+to have been compiled with JDK 1.5, so that it complains about an
+"Unsupported major.minor version 49.0" when you run it. The v1.3 release works
+just fine for JDK 1.4 code.
 </p>
 <p>
 <table class="bodyTable">
