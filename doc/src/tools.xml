@@ -320,15 +320,10 @@ plug in your own test script or modify the Glean script.
 </p>
 <p>
 <h4><a name="findbugs">findbugs</a></h4>
-(to be documented)
-</p>
-<p>
-<table class="bodyTable">
-<th>Property</th><th>Default value</th><th>Description</th>
-  <tr>
-    <td></td><td></td><td></td>
-  </tr>
-</table>
+Findbugs is a tool to check for common Java coding errors. It can be run as a
+Swing application, an Eclipse plugin, or an Ant task. Glean uses the Ant task,
+along with a basic XSLT to generate a static report. The resulting report is not
+that pretty, and is something I'd like to improve on in the future.
 </p>
 <p>
 <h4><a name="jaranalyzer">jaranalyzer</a></h4>
@@ -380,73 +375,139 @@ Findbugs.
 </p>
 <p>
 <h4><a name="javadoc">javadoc</a></h4>
-(to be documented)
+The venerable Javadoc is something that most build scripts probably generate already.
+I include it as an option in Glean so that you can remove it from your custom 
+build script if you want to. Like all of these other tools, the Ant script for
+Javadoc is not going to differ greatly from one project to another.
+</p>
+<p>
+That said, there are plenty of ways that you may be customizing Javadoc already.
+Glean has some properties that should hopefully let you get the same mileage out
+of it's script as you get out of yours.
+</p>
+<p>
+One set of data that Glean provides is lists of common XDoclet tags that you may
+want to ignore, if for no other reason than to keep your Javadoc log more readable.
+You can look in the <code>tool/javadoc</code> folder for the list of files of tags
+available. You can then define <code>javadoc.taglist.files</code> to be the file(s)
+to use as filters for Javadoc.
 </p>
 <p>
 <table class="bodyTable">
 <th>Property</th><th>Default value</th><th>Description</th>
   <tr>
-    <td></td><td></td><td></td>
+    <td>report.title</td><td>${src.project.name}</td><td>The value of the <code>doctitle</code> Javadoc argument.</td>
+  </tr>
+  <tr>
+    <td>report.header</td><td>${src.project.name} API</td><td>The value of the <code>header</code> Javadoc argument.</td>
+  </tr>
+  <tr>
+    <td>report.footer</td><td>Generated on ${tool.timestamp}</td><td>The value of the <code>bottom</code> Javadoc argument.</td>
+  </tr>
+  <tr>
+    <td>report.overview</td><td>${src.dir}/overview.html</td><td></td>
+  </tr>
+  <tr>
+    <td>javadoc.taglist.files</td><td>empty</td><td>A list of files to use as Javadoc tag filters. A set of files containing common XDoclet tags is in <code>tool/javadoc</code>.</td>
   </tr>
 </table>
 </p>
 <p>
 <h4><a name="javancss">javancss</a></h4>
-(to be documented)
+JavaNCSS calculates a number of different source metrics. First among them is
+Non-Commenting Source Statements (NCSS), what we might call Lines Of Code.
+It also calculates cyclomatic complexity and Javadoc comments at the method level.
 </p>
 <p>
-<table class="bodyTable">
-<th>Property</th><th>Default value</th><th>Description</th>
-  <tr>
-    <td></td><td></td><td></td>
-  </tr>
-</table>
+Glean includes one of the XSLTs that comes with JavaNCSS to generate the report.
+You can use any other XSLT you want by overriding the <code>report.stylesheet</code> property.
 </p>
 <p>
 <h4><a name="jdepend">jdepend</a></h4>
-(to be documented)
-</p>
-<p>
-<table class="bodyTable">
-<th>Property</th><th>Default value</th><th>Description</th>
-  <tr>
-    <td></td><td></td><td></td>
-  </tr>
-</table>
+JDepend calculates dependency metrics at a package level, along with some design
+metrics developed by Bob Martin. Its feedback can be useful for designers to keep
+an eye on how an application or component design is coming together.
 </p>
 <p>
 <h4><a name="junitreport">junitreport</a></h4>
-(to be documented)
+JUnitReport is an optional task in Ant that creates a browsable report of your 
+unit test results. The Glean script assumes that you have
+the optional tasks installed.
 </p>
 <p>
 <table class="bodyTable">
 <th>Property</th><th>Default value</th><th>Description</th>
   <tr>
-    <td></td><td></td><td></td>
+    <td>test.report.dir</td><td>${gen.report.dir}/tests</td><td>The directory that contains XML-formatted test results.</td>
+  </tr>
+  <tr>
+    <td>test.results.pattern</td><td>TEST-*.xml</td><td>The naming pattern for the unit test results files.</td>
   </tr>
 </table>
 </p>
 <p>
 <h4><a name="pmd">pmd</a></h4>
-(to be documented)
+PMD is a static code analysis tool. It is in the same category as Checkstyle,
+but has a slightly different set of rules it uses, and a different mechanism for
+configuring and creating new rules.
+</p>
+<p>
+Glean provides a basic ruleset definition file, but you will probably want to define
+your own to match the expectations of your group or organization.
 </p>
 <p>
 <table class="bodyTable">
 <th>Property</th><th>Default value</th><th>Description</th>
   <tr>
-    <td></td><td></td><td></td>
+    <td>pmd.rulesets</td><td>${basedir}/ruleset.xml</td><td>The ruleset definition file.</td>
   </tr>
 </table>
 </p>
 <p>
 <h4><a name="schemaspy">schemaspy</a></h4>
-(to be documented)
+SchemaSpy is a schema browser for JDBC-compliant databases. It uses the JDBC
+metadata to create browsable documentation of the tables, columns, constraints
+and relationships of a database. It supports a lot of databases, and has been
+invaluable to me for understanding the structure of a system that's new to me.
+</p>
+<p>
+It also can generate relationship diagrams if you have Graphviz installed.
+If you don't, it will still generate the table-based documentation.
+</p>
+<p>
+Configuring SchemaSpy has some dependencies on the type of database you want to
+inspect, so see the SchemaSpy documentation for specifics of the values for the
+properties.
 </p>
 <p>
 <table class="bodyTable">
 <th>Property</th><th>Default value</th><th>Description</th>
   <tr>
-    <td></td><td></td><td></td>
+    <td>schemaspy.jar</td><td>${tool.home}/schemaSpy_3.1.1.jar</td><td>Location of the SchemaSpy JAR</td>
+  </tr>
+  <tr>
+    <td>db.driver.path</td><td>${tools.base}/mysql-connector-java-5.0.4/mysql-connector-java-5.0.4-bin.jar</td><td>Location of the JDBC driver for your database.</td>
+  </tr>
+  <tr>
+    <td>db.name</td><td></td><td>Name of the database</td>
+  </tr>
+  <tr>
+    <td>db.type</td><td>mysql</td><td>Type of database</td>
+  </tr>
+  <tr>
+    <td>db.schema</td><td></td><td>Schema name</td>
+  </tr>
+  <tr>
+    <td>db.user</td><td>root</td><td>Name to use when connecting to the database</td>
+  </tr>
+  <tr>
+    <td>db.password</td><td></td><td>Password for db.user. Can be empty</td>
+  </tr>
+  <tr>
+    <td>db.host</td><td>localhost</td><td>Server name of the database</td>
+  </tr>
+  <tr>
+    <td>db.port</td><td></td><td>Port to connect to on the database server</td>
   </tr>
 </table>
 </p>
