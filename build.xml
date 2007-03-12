@@ -111,34 +111,4 @@
         <echo message="** Sorry, not implemented yet. Work in progress **"/>
     </target>
     
-    <target name="list-tools"
-        description="List all of the tools that are available">
-        <glean-subant target="tool-description" pattern="*"/>
-    </target>
-    
-    <!-- Common macrodefs -->
-    <macrodef name="glean-subant">
-        <attribute name="target"     default=""/>
-        <attribute name="pattern"    default="${tool.pattern}"/>
-        <element name="extra-properties" optional="true"/>
-        <sequential>
-            <subant
-                inheritall="no"
-                failonerror="no"
-                target="@{target}">
-                <!-- Other common properties specific to reports are available in feedback.properties -->
-                <property name="feedback.script.dir"  location="${basedir}"/>
-                <property name="project.root"         location="${project.root}"/>
-                <property name="src.project.name"     value="${src.project.name}"/>
-                <property name="feedback.timestamp"   value="${feedback.timestamp}"/>
-                <property name="feedback.properties.file"       location="${feedback.properties}"/>
-                <property name="feedback.properties.file.local" location="${feedback.properties.local}"/>
-                <extra-properties/>
-                
-                <!-- Run every report that matches our pattern-->
-                <dirset dir="tool" includes="@{pattern}"/>
-            </subant>
-        </sequential>
-    </macrodef>
-    
 </project>

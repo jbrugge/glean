@@ -271,14 +271,6 @@ configured to do similar checks, but this could be a useful tool if you are usin
 a different code analysis tool that doesn't have Javadoc checks.
 </p>
 <p>
-<table class="bodyTable">
-<th>Property</th><th>Default value</th><th>Description</th>
-  <tr>
-    <td></td><td></td><td></td>
-  </tr>
-</table>
-</p>
-<p>
 <h4><a name="emma">emma</a></h4>
 Emma is a tool for documenting code coverage, and is usually used for test code
 coverage. Generating the output involves actually running the unit tests,
@@ -295,7 +287,22 @@ plug in your own test script or modify the Glean script.
 <table class="bodyTable">
 <th>Property</th><th>Default value</th><th>Description</th>
   <tr>
-    <td>test.script</td><td>${feedback.script.dir}/test.xml</td><td>A general script for running JUnit test suites or batchtests.</td>
+    <td>unit.test.pattern</td><td>**/test/*Test.class</td><td>An Ant file pattern describing classes that represent unit tests to run. This is used to run a batchtest if no test.suite has been defined</td>
+  </tr>
+  <tr>
+    <td>test.suite</td><td>(undefined)</td><td>The fully-qualified name of a JUnit test suite.</td>
+  </tr>
+  <tr>
+    <td>test.bin.dir</td><td>${bin.dir}</td><td>The location of unit test class files. These will be instrumented by Emma (in a separate location)</td>
+  </tr>
+  <tr>
+    <td>test.src.dir</td><td>${src.dir}/test-src</td><td>The location of unit test source. Will be added to the test classpath so that any properties files will be found.</td>
+  </tr>
+  <tr>
+    <td>test.lib.dir</td><td>${lib.dir}</td><td>The location of JARs needed for the tests, primarily junit.jar</td>
+  </tr>
+  <tr>
+    <td>test.script</td><td>${feedback.script.dir}/test.xml</td><td>A general script for running JUnit test suites or batchtests. While this could be overridden, Glean expects a certain macrodef to be available in order to run the unit tests for Emma. If you find your tests need additional setup that isn't provided here, copy the <code>test.xml</code> file, modify it, and pass that in as the test.script.</td>
   </tr>
   <tr>
     <td>project.report.filter</td><td>${test.src.dir}/emma-filters.txt</td><td>Name of the file the script will look for if you wish to define filters for the coverage report.</td>
@@ -325,13 +332,25 @@ plug in your own test script or modify the Glean script.
 </p>
 <p>
 <h4><a name="jaranalyzer">jaranalyzer</a></h4>
-(to be documented)
+JarAnalyzer is a great tool for finding out or keeping track of the dependencies
+you have between components (JARs). It is like JDepend taken up one level. The
+report it produces is very similar to JDepend's, with similar metrics that you
+can track or investigate. It is also possible to produce output in DOT format that
+you can send to Graphviz and generate a graph view of the component relationships.
+I'm working on a way to specify that format through Glean because I think that's
+a very powerful way to express it.
+</p>
+<p>
+It also does not appear that JarAnalyzer 1.1 supports Java 5 syntax yet. 
 </p>
 <p>
 <table class="bodyTable">
 <th>Property</th><th>Default value</th><th>Description</th>
   <tr>
-    <td></td><td></td><td></td>
+    <td>jaranalyzer.jar.filter</td><td></td><td>Ant glob pattern of JAR files to exclude from processing</td>
+  </tr>
+  <tr>
+    <td>javanalyzer.package.filter</td><td>java.*;javax.*</td><td>Ant glob pattern of packages to exclude from processing</td>
   </tr>
 </table>
 </p>
@@ -340,7 +359,7 @@ plug in your own test script or modify the Glean script.
 There are two open-source tools with the name "Java2HTML". This script drives 
 the one from <a href="http://www.java2html.com">java2html.com</a>. It creates a 
 very nice framed source browser, but it only supports syntax through JDK 1.4. 
-If you have source with JDK 1.5 syntax (e.g. generics, enums) you should use the 
+If you have source with Java 5 syntax (e.g. generics, enums) you should use the 
 <a href="#java2html15">java2html15</a> script, which drives the other Java2html.
 </p>
 <p>
@@ -351,29 +370,13 @@ to have been compiled with JDK 1.5, so that it complains about an
 just fine for JDK 1.4 code.
 </p>
 <p>
-<table class="bodyTable">
-<th>Property</th><th>Default value</th><th>Description</th>
-  <tr>
-    <td></td><td></td><td></td>
-  </tr>
-</table>
-</p>
-<p>
 <h4><a name="java2html15">java2html15</a></h4>
 This script drives the other tool with the name Java2HTML, the one from
 <a href="http://www.java2html.de">java2html.de</a>. This tool simply creates
 HTML versions of the source, without any intent for it to be easily browsable.
-If you have JDK 1.5 source, however, it is the only one to use. It still serves
+If you have Java 5 source, however, it is the only one to use. It still serves
 fine for creating targets for the static code analysis tools, like PMD, CPD or
 Findbugs.
-</p>
-<p>
-<table class="bodyTable">
-<th>Property</th><th>Default value</th><th>Description</th>
-  <tr>
-    <td></td><td></td><td></td>
-  </tr>
-</table>
 </p>
 <p>
 <h4><a name="javadoc">javadoc</a></h4>

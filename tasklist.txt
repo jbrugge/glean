@@ -44,7 +44,7 @@ CodeFeedback Tasks
     - schemaspy         : docs
     - sequence          : docs
     - sitegraph         : docs (Struts 2.0)
-    - sorcerer (Java 6) : docs
+    - sorcerer (Java 6) : docs (https://sorcerer.dev.java.net/)
     - statcvs           : docs
     - statsvn           : docs
     - svndiff           : docs

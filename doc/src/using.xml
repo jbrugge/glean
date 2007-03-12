@@ -94,6 +94,10 @@ Glean unique to a particular local install, and that you want to apply to all pr
 </tr>
 </table>
 </section>
+
+<section name="Properties">
+</section>
+
 <section name="Selecting Tools To Use">
 <p>The <code>tool.pattern</code> property determines which tools are run.
 It's value is a <a href="http://ant.apache.org/manual/dirtasks.html#patterns">standard Ant glob pattern</a>. 
