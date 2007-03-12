@@ -16,9 +16,10 @@
         <format pattern="${tool.timestamp.format}" property="feedback.timestamp"/>
     </tstamp>
     
-    <!-- Log file name. We have to define it here rather than in a properties
-         file because is needs the name derived via the "basename" task -->
+    <!-- Some properties we have to define here rather than in a properties
+         file because they need the name derived via the "basename" task -->
     <property name="glean.log.file"     value="${src.project.name}-feedback-${DSTAMP}-${TSTAMP}.log"/>
+    <property name="report.war.file"    value="${src.project.name}-feedback.war"/>
     
     <target name="init" description="Set up the environment">
         <echo message="Creating log directory at ${glean.log.dir}"/>
