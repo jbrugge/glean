@@ -32,6 +32,7 @@
                 <!-- In order to change the default font that Graphviz
                      uses, we have to define a number of font settings here. -->
                 <param name="-nodefontname" value="${graphviz.font.name}"/>
+                <param name="-nodefontabstractname" value="${graphviz.font.name}"/>
                 <param name="-nodefontclassname" value="${graphviz.font.name}"/>
                 <param name="-nodefontclassabstractname" value="${graphviz.font.name}"/>
                 <param name="-nodefonttagname" value="${graphviz.font.name}"/>
