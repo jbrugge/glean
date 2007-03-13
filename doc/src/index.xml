@@ -13,7 +13,8 @@
 Glean is a framework of <a href="http://ant.apache.org">Ant</a> scripts for generating feedback on a team's source code.
 Glean's goal is to make it possible to add feedback to your build cycle
 with as little pain as possible.
-The scripts create HTML that you can deploy to a project website or some other common team area.
+The scripts drive a number of <a href="./tools.html">open-source tools</a> and collect 
+the resulting HTML for you to deploy to a project website or some other common team area.
 Add it at the end of a daily build cycle and it is a quick way to keep a number 
 of feedback sources up to date and in one place.
 </p><p>
@@ -43,26 +44,27 @@ And if you have a tool you use that isn't here, it's not that hard to
 <section name="Getting Started">
 <p>
 <a href="./download.html">Download</a> and unpack the distribution anywhere you would like.
-The pre-requisites for running the basic scripts are a basic Ant setup.
+The pre-requisites for running the basic scripts are a minimal Ant setup.
 <ul>
 <li>Java JDK 1.4</li>
 <li>Ant 1.6.5</li>
 </ul>
-Many of the other tools may have their own dependencies. Those scripted by Glean
-are listed on the <a href="./reports.html">tools</a> page.
+You will also need to download whichever tools you want Glean to run, along with
+any dependencies that they may have. The tools that Glean has scripts for are listed 
+on the <a href="./tools.html">tools</a> page.
 </p>
 <p>
 Running Glean involves telling it where your project is and what tools you want
-to run. The defaults will give you some of the staple feedback for a basic component
-project. To run it from the command-line, simply point it at a project properties
-file.
+to run. The default set of tools will give you some of the staple feedback for a basic component
+project. To run Glean from the command-line, here are the common steps.
 <ul>
 <li><code>cd /path/to/glean</code></li>
 <li>To let Glean know where you have feedback tools installed locally, there is a 
 <code>toolhome.properties</code> file. To override the values defined here,
 create a <code>toolhome.properties.local</code> file with the specifics of your
 environment.</li>
-<li><code>cp template/sample.feedback.properties /path/to/myproject/myproject.feedback.properties</code></li>
+<li>Create a properties file to describe you project by copying
+<code>template/sample.feedback.properties</code> to <code>/path/to/myproject/myproject.feedback.properties</code></li>
 <li>Edit this file to define where your source, bin and lib directories are, relative
 to the root of the project. If the defaults work, you don't need to change anything.</li>
 <li><code>ant -Dfeedback.properties=/path/to/myproject/myproject.feedback.properties</code></li>
@@ -70,12 +72,15 @@ to the root of the project. If the defaults work, you don't need to change anyth
 This will run all of the tools in the basic setup. The results will be simple HTML
 files, along with a summary page. From a browser, open the file
 <code>/path/to/myproject/glean/index.html</code>. The summary
-should look something like this.
+should look something like this (screen shot needed).
 </p>
 <p>
-See the <a href="./using.html">documentation</a> page for more complete
-instructions. Several types of project setups are shown on the 
-<a href="./samples.html">samples</a> page.
+See the <a href="./using.html">documentation</a>  and <a href="./tools.html">tools</a> 
+pages for more complete
+instructions and descriptions of the properties the configure the different tools. 
+Several types of project setups are shown on the 
+<a href="./samples.html">samples</a> page to give you an idea of what a project
+definition for Glean might look like.
 </p>
 </section>
 

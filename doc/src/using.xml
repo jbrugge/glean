@@ -137,7 +137,7 @@ feedback.script.dir = ${basedir}
 
 # The default name of the source project will be the last directory found in the
 # project.root path. For example, if ${project.root} = /path/to/myproject, then
-# ${src.project.name} will be 'myprojecct'.
+# ${src.project.name} will be 'myproject'.
 # If you want a more descriptive name, define it here
 #src.project.name   = MyProjectName
 
