@@ -31,5 +31,25 @@ If there are others that you use and would like to see included, just
 </table>
 </section>
 
+<section name="Features">
+<p>
+Along with new tools, there are other ways I would like to see Glean extended.
+I want to keep it simple, with as few demands on projects as possible, so the
+ideas here are mostly incremental improvements. Ant properties-based configuration
+is already complex enough. 
+<ul>
+<li>Supporting projects that have multiple source folders</li>
+<li>Providing summary metrics for each tool on the home page</li>
+<li>Better XSLTs for some of the tools (e.g. FindBugs)</li>
+<li>Other ways to publish the output so that it could be included in a project website</li>
+<li>Script for downloading the set of tools so you don't have to get them individually</li>
+<li>A way to support tools that have multiple output options. For example, JDepend
+can generate a traditional tabular report or a DOT-based graph rendered by Graphviz</li>
+<li>Provide a way to discover the appropriate Glean settings for a given project automatically.
+That is, to look for common directory layouts and build a properties file for you.</li>
+<li>Include Groovy scripting to allow more control within the scripts</li>
+</ul>
+</p>
+</section>
 </body>
 </document>

@@ -15,7 +15,8 @@ might look like for different types of source projects, these could give you a s
 </p>
 <p>
 To run any of them, you will need to download the source (links included in the
-table below).
+table below), andd in most cases build them (see the instructions for each, but
+it it usually a case of running "<code>ant</code>" from the command line).
 If you want to try running one of these, the only thing you should have to do
 is update the configuration to point to the base directory where you unpacked
 the project.
@@ -38,28 +39,31 @@ the project.
     <td>doccheck</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>
   </tr>
   <tr>
-    <td>emma</td>        <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>
+    <td>emma</td>        <td align="center"> </td>    <td align="center">x</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>
   </tr>
   <tr>
-    <td>findbugs</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>
+    <td>findbugs</td>    <td align="center"> </td>    <td align="center">x</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>
   </tr>
   <tr>
-    <td>jaranalyzer</td><td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center">x</td> 
+    <td>jaranalyzer</td><td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td> 
   </tr>
   <tr>
-    <td>java2html</td>  <td align="center">x</td>    <td align="center">x</td>    <td align="center">x</td>    <td align="center"> </td>    <td align="center"> </td> 
+    <td>java2html14</td>  <td align="center">x</td>    <td align="center">x</td>    <td align="center">x</td>    <td align="center">x</td>    <td align="center"> </td> 
   </tr>
   <tr>
-    <td>javadoc</td>    <td align="center">x</td>    <td align="center">x</td>    <td align="center">x</td>    <td align="center"> </td>    <td align="center">x</td> 
+    <td>java2html15</td>  <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center">x</td> 
   </tr>
   <tr>
-    <td>javancss</td>   <td align="center">x</td>    <td align="center">x</td>    <td align="center">x</td>    <td align="center"> </td>    <td align="center"> </td> 
+    <td>javadoc</td>    <td align="center">x</td>    <td align="center">x</td>    <td align="center"> </td>    <td align="center">x</td>    <td align="center">x</td> 
+  </tr>
+  <tr>
+    <td>javancss</td>   <td align="center">x</td>    <td align="center">x</td>    <td align="center">x</td>    <td align="center">x</td>    <td align="center"> </td> 
   </tr>
   <tr>
     <td>jdepend</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td> 
   </tr>
   <tr>
-    <td>pmd</td>        <td align="center">x</td>    <td align="center">x</td>    <td align="center">x</td>    <td align="center"> </td>    <td align="center"> </td> 
+    <td>pmd</td>        <td align="center">x</td>    <td align="center">x</td>    <td align="center">x</td>    <td align="center">x</td>    <td align="center">x</td> 
   </tr>
   <tr>
     <td>schemaspy</td>  <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td> 

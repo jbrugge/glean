@@ -198,8 +198,9 @@ some benefit from their data.
 
 <section name="Tool Descriptions">
 <p>
-Each of the tools that Glean drives typically makes use of some of the basic
-common properties of a project, such as the source, binary and library directories.
+Each of the tools that Glean drives typically makes use of some of the 
+<a href="./using.html#properties">basic common properties</a> of a project, 
+such as the source, binary and library directories.
 Many of them also have other properties that define what they do or how the produce
 their output. All of them have reasonable default values that should work for most
 people as they are, but if you want to customize any part of a tool, see the
@@ -513,37 +514,78 @@ properties.
 </p>
 <p>
 <h4><a name="statsvn">svatsvn</a></h4>
-(to be documented)
+StatSVN is a tool that slices and dices data on Subversion commit history in
+various and sundry ways. You can see who line count graphs over time, commit
+counts by developer, when the busiest commit time during the day or week was,
+or where there is the most activity in the codebase. It is derived from StatCVS,
+which does the same sort of thing with CVS activity data.
+</p>
+<p>
+By default, the Glean script will have StatSVN look at all history on the files.
+If you want to limit it, you can set a value for one of the <code>statsvn.prev.(units)</code>
+properties listed below, or you can limit the number of raw revisions with
+<code>statsvn.limit</code>.
 </p>
 <p>
 <table class="bodyTable">
 <th>Property</th><th>Default value</th><th>Description</th>
   <tr>
-    <td></td><td></td><td></td>
+    <td>svn.log.file</td><td>${gen.report.dir}/svnlog.log</td><td>Where to generate the svn log file needed as input to StatSVN</td>
+  </tr>
+  <tr>
+    <td>svn.include.pattern</td><td>**/*.java</td><td>Pattern of which files whose history you are interested in</td>
+  </tr>
+  <tr>
+    <td>statsvn.limit</td><td></td><td>The number of revisions of history to analyze</td>
+  </tr>
+  <tr>
+    <td>statsvn.prev.days</td><td></td><td>The number of days of history to analyze</td>
+  </tr>
+  <tr>
+    <td>statsvn.prev.weeks</td><td></td><td>The number of weeks of history to analyze</td>
+  </tr>
+  <tr>
+    <td>statsvn.prev.months</td><td></td><td>The number of months of history to analyze</td>
   </tr>
 </table>
 </p>
 <p>
 <h4><a name="umlgraph-doc">umlgraph-doc</a></h4>
-(to be documented)
+UMLGraph is a tool that can generate UML class diagrams from declarative descriptions.
+Since those descriptions are a subset of the Java class syntax, you can feed it
+your source files and it can generate class diagrams from them.
+</p>
+<p>
+One of the recent additions to UMLGraph is a doclet that will insert class diagrams
+into Javadoc. The <code>umlgraph-doc</code> script in Glean is what generates that
+output. It uses the same properties that the <code>javadoc</code> script does for
+title/header/footer, plus some specific to Graphviz.
 </p>
 <p>
 <table class="bodyTable">
 <th>Property</th><th>Default value</th><th>Description</th>
   <tr>
-    <td></td><td></td><td></td>
+    <td>graphviz.font.name</td><td>Arial</td><td>Name of the default font to use for the diagrams.</td>
   </tr>
 </table>
 </p>
 <p>
 <h4><a name="umlgraph-views">umlgraph-views</a></h4>
-(to be documented)
+UMLGraph can also generate class diagrams based on "view" descriptions.
+These are descriptions based on UMLGraph-specific Javadoc tags that allow you
+to specify the content, style, and color of diagram elements.
+To use this Glean script, you will need to have these description files somewhere
+in your source tree. The UMLGraph documentation describes the content of the files.
+</p>
+<p>
+The output from UMLGraph will be PNG files, located in the directory defined by
+<code>gen.report.dir</code>.
 </p>
 <p>
 <table class="bodyTable">
 <th>Property</th><th>Default value</th><th>Description</th>
   <tr>
-    <td></td><td></td><td></td>
+    <td>report.view.src</td><td>${project.root}/report-src/views</td><td>The location of view description files.</td>
   </tr>
 </table>
 </p>
