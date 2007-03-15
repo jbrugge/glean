@@ -32,10 +32,13 @@ for the location where you installed the project.
     <td>beandoc</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center">x</td>
   </tr>
   <tr>
+    <td>checkstylek</td><td align="center">x</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>
+  </tr>
+  <tr>
     <td>cpd</td>        <td align="center"> </td>    <td align="center"> </td>    <td align="center">x</td>    <td align="center"> </td>    <td align="center"> </td>
   </tr>
   <tr>
-    <td>doccheck</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>
+    <td>doccheck</td>    <td align="center">x</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>
   </tr>
   <tr>
     <td>emma</td>        <td align="center"> </td>    <td align="center">x</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>
@@ -59,7 +62,7 @@ for the location where you installed the project.
     <td>javancss</td>   <td align="center">x</td>    <td align="center">x</td>    <td align="center">x</td>    <td align="center">x</td>    <td align="center"> </td> 
   </tr>
   <tr>
-    <td>jdepend</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td> 
+    <td>jdepend</td>    <td align="center"> </td>    <td align="center">x</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center">x</td> 
   </tr>
   <tr>
     <td>pmd</td>        <td align="center">x</td>    <td align="center">x</td>    <td align="center">x</td>    <td align="center">x</td>    <td align="center">x</td> 
@@ -77,7 +80,7 @@ for the location where you installed the project.
 
 </section>
 
-<section name="Screen Shots">
+<section name="Screen Shot">
 <p>
 Glean will create a summary page of the reports that were run for a project.
 The look of the summary page is controlled by the <code>reports.css</code> stylesheet.
