@@ -104,7 +104,7 @@
              todir="${report.deploy.dir}"/>
     </target>
 
-    <target name="all" depends="clean, dist, deploy"
+    <target name="all" depends="clean, glean, dist, deploy"
         description="Runs and deploys a clean set of reports" />
 
     <target name="download-tools"

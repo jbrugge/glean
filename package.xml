@@ -6,8 +6,6 @@
     <property name="basic.dist.name" value="${min.dist.name}-with-tools"/>
     <property name="dist.dir"      value="dist"/>
     <property name="doc.dir"       value="doc"/>
-    <property name="log.dir"       value="logs"/>
-    <property name="scratch.dir"   value="glean"/>
     <property name="dist.docs"     value="target"/>
     <property name="glean.dir"     value="${basedir}"/>
 
@@ -21,18 +19,17 @@
     
     <basename property="package.script"   file="${ant.file}"/>
 
-    <patternset id="dist.script.excludes">
-        <exclude name="${dist.dir}/"/>
-        <exclude name="${doc.dir}/"/>
-        <exclude name="${log.dir}/"/>
-        <exclude name="${scratch.dir}/"/>
-        <exclude name="${package.script}"/>
-        <exclude name="util.xml"/>
-        <exclude name="xdoclet-tags.xsl"/>
-        <exclude name="*.txt"/>
-        <exclude name="*.sh"/>
-        <exclude name="**/*.log"/>
-        <exclude name="**/*.properties.local"/>                
+    <patternset id="dist.script.includes">
+        <include name="build.xml"/>
+        <include name="test.xml"/>
+        <include name="tools-common.xml"/>
+        <include name="feedback-summary.xsl"/>
+        <include name="*.css"/>
+        <include name="*.properties"/>
+        <include name="sample/"/>
+        <include name="template/"/>
+        <include name="tool/"/>
+        <include name="webapp/"/>
     </patternset>
     
     <patternset id="doc.files">
@@ -59,7 +56,7 @@
         </ant>
     </target>
     
-    <target name="package" depends="package-min, package-basic"/>
+    <target name="package" depends="package-min"/>
     
     <target name="package-min"
         depends="doc"
@@ -71,28 +68,9 @@
                 <patternset refid="doc.files"/>
             </zipfileset>
             <zipfileset dir="${glean.dir}" prefix="${min.dist.name}">
-                <patternset refid="dist.script.excludes"/>
+                <patternset refid="dist.script.includes"/>
             </zipfileset>
         </zip>
-    </target>
-    
-    <target name="package-basic"
-        depends="doc"
-    	description="Package up a distribution of the scripts and basic tools">
-        <mkdir dir="${dist.dir}"/>
-        <!--
-        <zip destfile="${dist.dir}/${basic.dist.name}.zip">
-            <zipfileset dir="${tools.base}" prefix="${basic.dist.name}/tools">
-                <patternset refid="basic.tool.files"/>
-            </zipfileset>
-            <zipfileset dir="${doc.dir}/${dist.docs}" prefix="${basic.dist.name}/docs">
-                <patternset refid="doc.files"/>
-            </zipfileset>
-            <zipfileset dir="${glean.dir}" prefix="${basic.dist.name}">
-                <patternset refid="dist.script.excludes"/>
-            </zipfileset>
-        </zip>
-        -->
     </target>
     
     <target name="release"

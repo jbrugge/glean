@@ -34,11 +34,15 @@ to each of the reports.
 <section name="Publishing The Results">
 <p>
 The results will be generated as subdirectories under the root defined above,
-one subdirectory per tool. 
-The Glean script will also package all of them up as a WAR
-that can be deployed to a simple servlet engine. You could also simply
-copy the files to a documentation area of a simple web server to be
-served up for your team.
+one subdirectory per tool. You can copy the files to a documentation area of a 
+simple web server to be served up for your team.
+</p>
+<p>
+The <code>dist</code> target will package all of them up as a WAR
+that can be deployed to a simple servlet engine. The <code>deploy</code> target
+will copy this WAR to the location defined by the <code>report.deploy.dir</code>
+property. Override this in your project's <code>myproject.feedback.properties</code>
+file to point to the deploy area of your application server or servlet engine.
 </p>
 </section>
 <section name="Configuration">
