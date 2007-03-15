@@ -32,12 +32,12 @@ The goal is to give you flexibility in a couple of different directions: to let
 you plug in different tools that analyze, document or measure your code, and 
 to let you apply those tools to any source project you have. 
 </p><p>
-Glean includes scripts for <a href="./tools.html">a set of open-source tools</a>
-that provide a wide range of code analysis, documentation and metrics. 
-When you want to expand on that, there are a number of other scripts you can 
-add for such areas as test code coverage, UML generation or database documentation.
-And if you have a tool you use that isn't here, it's not that hard to 
-<a href="./adding.html">add a new tool script to Glean</a>.
+If the <a href="./tools.html">set of tools that Glean scripts</a> doesn't include 
+one that you use, I can add it to the <a href="./future.html">list to be worked on</a>, 
+or you can try <a href="./adding.html">adding it yourself</a>.
+As the set of tools available to Java teams grows, I will be trying to keep
+up with the ones that are most valuable to people, so let me know if there are
+tools that you need.
 </p>
 </section>
 
@@ -65,8 +65,38 @@ create a <code>toolhome.properties.local</code> file with the specifics of your
 environment.</li>
 <li>Create a properties file to describe you project by copying
 <code>template/sample.feedback.properties</code> to <code>/path/to/myproject/myproject.feedback.properties</code></li>
-<li>Edit this file to define where your source, bin and lib directories are, relative
-to the root of the project. If the defaults work, you don't need to change anything.</li>
+<li>Edit this file to define where your source, bin and lib directories are. 
+If the defaults work, you don't need to change anything.
+Here is what the properties file looks like for the Jakarta Commons-Lang project.
+You can find it in the <code>sample</code> directory.
+<pre>
+#######################################################
+#
+#     Properties used for overall processing
+#
+#######################################################
+
+# Define which tools you want feedback from
+tool.pattern        = checkstyle,cpd,java2html14,javadoc,javancss,pmd
+
+# Source download available at
+# http://jakarta.apache.org/site/downloads/downloads_commons-lang.cgi
+project.root        = ${user.home}/tools/commons-lang-2.2-src
+
+# For this project, we can use the default layout
+src.dir             = ${project.root}/src/java
+bin.dir             = ${project.root}/target/classes
+# This project doesn't have any other components it uses, so we define
+# the lib directory as blank.
+lib.dir             =
+
+# The source for commons-lang 2.2 uses "enum" in its package name
+# so the Javadoc engine needs to know that it is only 1.4-level code
+source.level        = 1.4
+
+src.project.name    = Jakarta Commons-Lang 2.2
+</pre>
+</li>
 <li><code>ant -Dfeedback.properties=/path/to/myproject/myproject.feedback.properties</code></li>
 </ul>
 This will run all of the tools in the basic setup. The results will be simple HTML

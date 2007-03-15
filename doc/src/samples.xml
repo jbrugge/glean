@@ -32,7 +32,7 @@ for the location where you installed the project.
     <td>beandoc</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center">x</td>
   </tr>
   <tr>
-    <td>checkstylek</td><td align="center">x</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>
+    <td>checkstyle</td><td align="center">x</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>
   </tr>
   <tr>
     <td>cpd</td>        <td align="center"> </td>    <td align="center"> </td>    <td align="center">x</td>    <td align="center"> </td>    <td align="center"> </td>
@@ -63,6 +63,9 @@ for the location where you installed the project.
   </tr>
   <tr>
     <td>jdepend</td>    <td align="center"> </td>    <td align="center">x</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center">x</td> 
+  </tr>
+  <tr>
+    <td>junitreport</td> <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td> 
   </tr>
   <tr>
     <td>pmd</td>        <td align="center">x</td>    <td align="center">x</td>    <td align="center">x</td>    <td align="center">x</td>    <td align="center">x</td> 

@@ -38,6 +38,7 @@ one subdirectory per tool. You can copy the files to a documentation area of a
 simple web server to be served up for your team.
 </p>
 <p>
+There are a couple of targets available for handling the results as a WAR.
 The <code>dist</code> target will package all of them up as a WAR
 that can be deployed to a simple servlet engine. The <code>deploy</code> target
 will copy this WAR to the location defined by the <code>report.deploy.dir</code>
@@ -79,22 +80,37 @@ properties, define them at a place lower in the list.
 <td>For general settings for Glean unique to <code>myproject</code>.</td>
 </tr>
 <tr>
-<td><code>${glean.home}/tool/(tool dir)/tool.properties.local</code></td>
-<td>For settings specific to this tool for this installation.</td>
+<td><code>${glean.home}/tool/(tool dir)/tool.pre.properties.local</code></td>
+<td>For settings specific to this tool for this installation which should
+override default settings in <code>feedback.properties</code>.</td>
 </tr>
 <tr>
-<td><code>${glean.home}/tool/(tool dir)/tool.properties</code></td>
+<td><code>${glean.home}/tool/(tool dir)/tool.pre.properties</code></td>
 <td>For settings specific to this tool. Override them in your project properties file or in
-<code>tool.properties.local</code>.</td>
+<code>tool.pre.properties.local</code>.</td>
 </tr>
 <tr>
 <td><code>${glean.home}/feedback.properties.local</code></td>
 <td>For settings general settings for
-Glean unique to a particular local install, and that you want to apply to all projects.</td>
+Glean unique to a particular local install, and that you want to apply to all projects.
+<span id="emphasis">This is the preferred place to put settings that you want
+to apply to all of your projects. For instance, you might define
+<code>tool.pattern</code> here so that all projects run the same set of scripts.</span>
+</td>
 </tr>
 <tr>
 <td><code>${glean.home}/feedback.properties</code></td>
 <td>These are general settings for Glean that define the default behavior.</td>
+</tr>
+<tr>
+<td><code>${glean.home}/tool/(tool dir)/tool.post.properties.local</code></td>
+<td>For settings specific to this tool for this installation which need to be
+defined in terms of properties set in <code>feedback.properties</code>.</td>
+</tr>
+<tr>
+<td><code>${glean.home}/tool/(tool dir)/tool.post.properties</code></td>
+<td>For settings specific to this tool. Override them in your project properties file or in
+<code>tool.post.properties.local</code>.</td>
 </tr>
 </table>
 </section>
