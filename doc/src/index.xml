@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+
+  <properties>
+    <author email="john@jbrugge.com">John Brugge</author>
+    <title>Glean : Gathering feedback from your code</title>
+  </properties>
+
+<body>
+
+<section name="About">
+<p>
+Glean is a framework of <a href="http://ant.apache.org">Ant</a> scripts for generating feedback on a team's source code.
+Glean's goal is to make it possible to add feedback to your build cycle
+with as little pain as possible.
+The scripts drive a number of <a href="./tools.html">open-source tools</a> and collect 
+the resulting HTML for you to deploy to a project website or some other common team area.
+Add it at the end of a daily build cycle and it is a quick way to keep a number 
+of feedback sources up to date and in one place.
+</p><p>
+There are any number of feedback tools that have Ant tasks, but applying them
+individually to your project build script usually involves copying some boilerplate
+Ant target from the tool's documentation and tweaking it a little for your project.
+Of course, even that doesn't help when you move on to the
+next project, other than now having a new place to copy and paste. And as you find
+more areas where another feedback tool would help, it adds an organizing challenge to the
+build script maintainer to figure out where to put the script for this new tool.
+</p><p>
+Glean is a collection of these boilerplate Ant targets, tied together with some
+common properties that describe your source project.
+The goal is to give you flexibility in a couple of different directions: to let 
+you plug in different tools that analyze, document or measure your code, and 
+to let you apply those tools to any source project you have. 
+</p><p>
+Glean includes scripts for <a href="./tools.html">a set of open-source tools</a>
+that provide a wide range of code analysis, documentation and metrics. 
+When you want to expand on that, there are a number of other scripts you can 
+add for such areas as test code coverage, UML generation or database documentation.
+And if you have a tool you use that isn't here, it's not that hard to 
+<a href="./adding.html">add a new tool script to Glean</a>.
+</p>
+</section>
+
+<section name="Getting Started">
+<p>
+<a href="./download.html">Download</a> and unpack the distribution anywhere you would like.
+The pre-requisites for running the basic scripts are a minimal Ant setup.
+<ul>
+<li>Java JDK 1.4</li>
+<li>Ant 1.6.5</li>
+</ul>
+You will also need to download whichever tools you want Glean to run, along with
+any dependencies that they may have. The tools that Glean has scripts for are listed 
+on the <a href="./tools.html">tools</a> page.
+</p>
+<p>
+Running Glean involves telling it where your project is and what tools you want
+to run. The default set of tools will give you some of the staple feedback for a basic component
+project. To run Glean from the command-line, here are the common steps.
+<ul>
+<li><code>cd /path/to/glean</code></li>
+<li>To let Glean know where you have feedback tools installed locally, there is a 
+<code>toolhome.properties</code> file. To override the values defined here,
+create a <code>toolhome.properties.local</code> file with the specifics of your
+environment.</li>
+<li>Create a properties file to describe you project by copying
+<code>template/sample.feedback.properties</code> to <code>/path/to/myproject/myproject.feedback.properties</code></li>
+<li>Edit this file to define where your source, bin and lib directories are, relative
+to the root of the project. If the defaults work, you don't need to change anything.</li>
+<li><code>ant -Dfeedback.properties=/path/to/myproject/myproject.feedback.properties</code></li>
+</ul>
+This will run all of the tools in the basic setup. The results will be simple HTML
+files, along with a summary page. From a browser, open the file
+<code>/path/to/myproject/glean/index.html</code>. The summary
+should look something like this (screen shot needed).
+</p>
+<p>
+See the <a href="./using.html">documentation</a>  and <a href="./tools.html">tools</a> 
+pages for more complete
+instructions and descriptions of the properties the configure the different tools. 
+Several types of project setups are shown on the 
+<a href="./samples.html">samples</a> page to give you an idea of what a project
+definition for Glean might look like.
+</p>
+</section>
+
+<section name="">
+<p>
+Glean is distributed under an <a href="./license.html">MIT License</a>. 
+Use it well, share it freely.
+I plan to continue improving it, so your feedback is appreciated.
+If you have ideas or scripts to share, feel free to 
+<a href="mailto:john.brugge+glean@gmail.com">contact me</a>.
+</p>
+</section>
+</body>
+</document>
