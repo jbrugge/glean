@@ -35,6 +35,9 @@ for the location where you installed the project.
     <td>checkstyle</td><td align="center">x</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>
   </tr>
   <tr>
+    <td>cobertura</td>  <td align="center"> </td>    <td align="center">x</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>
+  </tr>
+  <tr>
     <td>cpd</td>        <td align="center"> </td>    <td align="center"> </td>    <td align="center">x</td>    <td align="center"> </td>    <td align="center"> </td>
   </tr>
   <tr>
@@ -90,6 +93,7 @@ The look of the summary page is controlled by the <code>reports.css</code> style
 This stylesheet uses a number of styles pulled from the XSL that comes with 
 the standard Ant distributions.
 </p>
+<a name="screenshot"><img src="./summary-shot.jpg" width="600" height="300" align="center"/></a>
 <p>
 The output of the individual reports is usually defined by the tool.
 Many of them produce XML output, and those stylesheets distributed with Glean

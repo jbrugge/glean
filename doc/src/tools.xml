@@ -67,6 +67,14 @@ some benefit from their data.
             </tr>
         
             <tr class="a">
+            <td><a href="#cobertura">cobertura</a></td>
+            <td>Unit test coverage report</td>
+            <td>1.4</td>
+            <td>Optional Ant tasks (JUnit)</td>
+            <td><a href="http://cobertura.sourceforge.net/">Download</a></td>
+            </tr>
+        
+            <tr class="a">
             <td><a href="#cpd">cpd</a></td>
             <td>Report of copy/paste segments found in source</td>
             <td>1.4</td>
@@ -193,7 +201,7 @@ some benefit from their data.
             <td><a href="http://graphviz.org">Graphviz</a></td>
             <td><a href="http://www.spinellis.gr/sw/umlgraph/">Download</a></td>
             </tr>
-        </table>
+    </table>
 </section>
 
 <section name="Tool Descriptions">
@@ -247,6 +255,48 @@ some design patterns.
 </p>
 
 <p>
+<h4><a name="cobertura">cobertura</a></h4>
+Cobertura is a tool for documenting code coverage in general, although it is usually 
+used for test code coverage. Generating the output involves actually running the 
+unit tests, so setting up this script for an individual project involves a few
+more proprties to consider than most of the other scripts.
+</p>
+<p>
+Glean comes with a basic Ant script for running JUnit tests, either as a single
+suite or as a batchtest. It also allows you to define any extra classpaths, so
+for many projects this may be all that's needed. If it does not, you can either
+plug in your own test script or modify the Glean script.
+</p>
+<p>
+<table class="bodyTable">
+<th>Property</th><th>Default value</th><th>Description</th>
+  <tr>
+    <td>unit.test.pattern</td><td>**/test/*Test.class</td><td>An Ant file pattern describing classes that represent unit tests to run. This is used to run a batchtest if no test.suite has been defined</td>
+  </tr>
+  <tr>
+    <td>test.suite</td><td>(undefined)</td><td>The fully-qualified name of a JUnit test suite.</td>
+  </tr>
+  <tr>
+    <td>test.bin.dir</td><td>${bin.dir}</td><td>The location of unit test class files. These will be instrumented by Emma (in a separate location)</td>
+  </tr>
+  <tr>
+    <td>test.src.dir</td><td>${src.dir}/test-src</td><td>The location of unit test source. Will be added to the test classpath so that any properties files will be found.</td>
+  </tr>
+  <tr>
+    <td>test.lib.dir</td><td>${lib.dir}</td><td>The location of JARs needed for the tests, primarily junit.jar</td>
+  </tr>
+  <tr>
+    <td>test.script</td><td>${feedback.script.dir}/test.xml</td><td>A general script for running JUnit test suites or batchtests. While this could be overridden, Glean expects a certain macrodef to be available in order to run the unit tests for Emma. If you find your tests need additional setup that isn't provided here, copy the <code>test.xml</code> file, modify it, and pass that in as the test.script.</td>
+  </tr>
+  <tr>
+    <td>coverage.dir</td><td>${gen.report.dir}</td><td>The output directory used for work files and coverage reports</td>
+  </tr>
+  <tr>
+    <td>out.instr.dir</td><td>${gen.report.dir}/outinstr</td><td>The output directory for instrumented classes.</td>
+  </tr>
+</table>
+</p>
+<p>
 <h4><a name="cpd">cpd</a></h4>
 CPD is a Copy/Paste Detector that comes with the PMD package. It looks for repeated
 segments of code within the codebase and returns them. The XSL that comes with
@@ -273,10 +323,14 @@ a different code analysis tool that doesn't have Javadoc checks.
 </p>
 <p>
 <h4><a name="emma">emma</a></h4>
-Emma is a tool for documenting code coverage, and is usually used for test code
-coverage. Generating the output involves actually running the unit tests,
-so setting up this script for an individual project is trickier than most of the
-other scripts.
+Emma, like Cobertura, is a general code coverage tool most often used for test code
+coverage. It works in a similar way to Cobertura, with the script needing to run
+the project's unit tests.
+</p>
+<p>
+One feature that Emma provides is the ability to filter the classes that you want
+to include in your report. The Emma documentation describes how to set up a file
+of filters, which you can then have Glean use when it generates the report.
 </p>
 <p>
 Glean comes with a basic Ant script for running JUnit tests, either as a single
@@ -312,10 +366,10 @@ plug in your own test script or modify the Glean script.
     <td>default.filter</td><td>filters.txt</td><td>A set of basic filters the script will use if there are no project-specific filters.</td>
   </tr>
   <tr>
-    <td>coverage.dir</td><td>${gen.report.dir}</td><td>The output directory used for EMMA work files and coverage reports</td>
+    <td>coverage.dir</td><td>${gen.report.dir}</td><td>The output directory used for work files and coverage reports</td>
   </tr>
   <tr>
-    <td>out.instr.dir</td><td>${gen.report.dir}/outinstr</td><td>The output directory for EMMA instrumented classes.</td>
+    <td>out.instr.dir</td><td>${gen.report.dir}/outinstr</td><td>The output directory for instrumented classes.</td>
   </tr>
 </table>
 </p>

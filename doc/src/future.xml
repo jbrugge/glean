@@ -17,7 +17,6 @@ If there are others that you use and would like to see included, just
 </p>
 <table class="bodyTable">
 <th>Name</th><th>Description</th><th>Dependencies</th>
-<tr class="a"><td><a href="http://cobertura.sourceforge.net/">cobertura</a></td><td>Code coverage</td><td><a href="http://junit.org">JUnit</a>, test script</td></tr>
 <tr class="a"><td><a href="http://www.hackystat.org/hackyDevSite/home.do">hackystat</a></td><td>Collection and analysis of feedback metrics</td><td></td></tr>
 <tr class="a"><td><a href="http://www.hibernate.org/255.html">hbm2doc</a></td><td>Hibernate mapping documentation</td><td></td></tr>
 <tr class="a"><td><a href="http://www.softwaresecretweapons.com/jspwiki/Wiki.jsp?page=LinguineMaps">linguinemaps</a></td><td>Visualization of config files (WSDL, Ant, Hibernate, DTD)</td><td></td></tr>

@@ -35,6 +35,7 @@
     <patternset id="doc.files">
         <include name="**/*.html"/>
         <include name="**/*.css"/>
+        <include name="**/*.jpg"/>
     </patternset>
 
     <basename property="java2html.dir" file="${java2html.home}"/>

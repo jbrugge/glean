@@ -8,6 +8,7 @@
     <property name="docs.dest"      value="target"/>
     <property name="templates.name" value="stylesheet"/>
     <property name="templates.dir"  value="${docs.src}/${templates.name}"/>
+    <property name="img.src"        value="${docs.src}/image"/>
 
     <path id="tool.classpath">
         <fileset dir="${velocity.home}">
@@ -50,13 +51,11 @@
             <fileset dir="${docs.src}">
                 <include name="**/*.css"/>
             </fileset>
-        <!-- In case we have images someday
-            <fileset dir="${docs.src}/images">
+            <fileset dir="${img.src}">
                 <include name="**/*.gif"/>
                 <include name="**/*.jpeg"/>
                 <include name="**/*.jpg"/>
             </fileset>
-        -->
         </copy>
     </target>
     
