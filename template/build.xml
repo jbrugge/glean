@@ -7,9 +7,15 @@
     <!-- CHECKME: Give the report a one-line description of what it tells you.
          This will show up on the summary page of reports, as well as provide
          documentation of the script.
+         The tool.url, tool.min.jdk and tool.dependencies are properties that
+         are read to generate part of the online documentation. In the future
+         they could be used for parts of the reports or checking the runtime environment.
     -->
     <property name="tool.description" 
              value="DESCRIBE WHAT FEEDBACK THE TOOL PROVIDES (e.g. Reports on the number of lines of code)"/>
+    <property name="tool.url"          value=""/>
+    <property name="tool.min.jdk"      value="1.4"/>
+    <property name="tool.dependencies" value="None"/>
     
     <description>${report.description}</description>
 
