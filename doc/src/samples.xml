@@ -23,10 +23,10 @@ for the location where you installed the project.
 
 <table class="bodyTable">
   <th>Tool</th>
-  <th align="center"><a href="http://jakarta.apache.org/commons/lang/">Jakarta commons-lang</a></th>
-  <th align="center"><a href="http://www.jdom.org/">JDOM</a></th>
+  <th align="center"><a href="http://jakarta.apache.org/site/downloads/downloads_commons-lang.cgi">Jakarta commons-lang</a></th>
+  <th align="center"><a href="http://www.jdom.org/">JDOM (including test source)</a></th>
   <th align="center"><a href="http://struts.apache.org/1.x/learning.html">Struts Sample Application</a></th>
-  <th align="center"><a href="http://java.sun.com/developer/releases/petstore/">Java PetStore</a></th>
+  <th align="center"><a href="http://java.sun.com/j2ee/1.4/download.html#samples">Java PetStore</a></th>
   <th align="center"><a href="http://www.springframework.org/download">Spring PetClinic</a></th>
   <tr>
     <td>beandoc</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center">x</td>
@@ -50,7 +50,7 @@ for the location where you installed the project.
     <td>findbugs</td>    <td align="center"> </td>    <td align="center">x</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>
   </tr>
   <tr>
-    <td>jaranalyzer</td><td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td> 
+    <td>jaranalyzer</td><td align="center"> </td>    <td align="center">x</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td> 
   </tr>
   <tr>
     <td>java2html14</td>  <td align="center">x</td>    <td align="center">x</td>    <td align="center">x</td>    <td align="center">x</td>    <td align="center"> </td> 
