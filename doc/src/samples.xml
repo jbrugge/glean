@@ -14,17 +14,29 @@ Glean for a number of sample projects. If you are looking for what a project con
 might look like, these can give you a start.
 </p>
 <p>
-To run any of them, you will need to download the source (links included in the
-table below), and in most cases build them. See the instructions that come with
+To run Glean using these sample configurations, you will need to download the source 
+(links included in the table below), and in most cases build them. 
+See the instructions that come with
 each of them, but it is usually a case of running "<code>ant</code>" from the command line).
 You will also likely need to update the configuration to define <code>project.root</code>
 for the location where you installed the project.
+</p>
+<p>
+Once you have the sample's source installed, you can run the script, passing to
+Glean an additional property telling it where your sample is rooted. 
+Alternatively, you can edit the sample property file and put the full path in there.
+For example, here is how you would run the <code>commons-lang</code> sample if
+you unpacked the source in <code>/path/to/samples/root</code>.
+<pre>
+ant -Dfeedback.properties=samples/commons-lang.feedback.properties \
+    -Dsamples.home=/path/to/samples/root.
+</pre>
 </p>
 
 <table class="bodyTable">
   <th>Tool</th>
   <th align="center"><a href="http://jakarta.apache.org/site/downloads/downloads_commons-lang.cgi">Jakarta commons-lang</a></th>
-  <th align="center"><a href="http://www.jdom.org/">JDOM (including test source)</a></th>
+  <th align="center"><a href="http://www.jdom.org/">JDOM</a> (need main test source packages)</th>
   <th align="center"><a href="http://struts.apache.org/1.x/learning.html">Struts Sample Application</a></th>
   <th align="center"><a href="http://java.sun.com/j2ee/1.4/download.html#samples">Java PetStore</a></th>
   <th align="center"><a href="http://www.springframework.org/download">Spring PetClinic</a></th>
