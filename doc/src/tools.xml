@@ -577,8 +577,7 @@ which does the same sort of thing with CVS activity data.
 <p>
 By default, the Glean script will have StatSVN look at all history on the files.
 If you want to limit it, you can set a value for one of the <code>statsvn.prev.(units)</code>
-properties listed below, or you can limit the number of raw revisions with
-<code>statsvn.limit</code>.
+properties listed below.
 </p>
 <p>
 <table class="bodyTable">
@@ -588,9 +587,6 @@ properties listed below, or you can limit the number of raw revisions with
   </tr>
   <tr>
     <td>svn.include.pattern</td><td>**/*.java</td><td>Pattern of which files whose history you are interested in</td>
-  </tr>
-  <tr>
-    <td>statsvn.limit</td><td></td><td>The number of revisions of history to analyze</td>
   </tr>
   <tr>
     <td>statsvn.prev.days</td><td></td><td>The number of days of history to analyze</td>

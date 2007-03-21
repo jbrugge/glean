@@ -31,7 +31,6 @@
     <!-- To specify a limit on the svn history, define one of the following
          properties. If none of these are defined, then the entire history
          will be used:
-            statsvn.limit       = number of revisions
             statsvn.prev.days   = number of days to look back
             statsvn.prev.weeks  = number of weeks to look back
             statsvn.prev.months = number of months to look back
