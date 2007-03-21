@@ -36,7 +36,7 @@ ant -Dfeedback.properties=samples/commons-lang.feedback.properties \
 <table class="bodyTable">
   <th>Tool</th>
   <th align="center"><a href="http://jakarta.apache.org/site/downloads/downloads_commons-lang.cgi">Jakarta commons-lang</a></th>
-  <th align="center"><a href="http://www.jdom.org/">JDOM</a> (need main test source packages)</th>
+  <th align="center"><a href="http://www.jdom.org/">JDOM</a> (need main and test source packages)</th>
   <th align="center"><a href="http://struts.apache.org/1.x/learning.html">Struts Sample Application</a></th>
   <th align="center"><a href="http://java.sun.com/j2ee/1.4/download.html#samples">Java PetStore</a></th>
   <th align="center"><a href="http://www.springframework.org/download">Spring PetClinic</a></th>
