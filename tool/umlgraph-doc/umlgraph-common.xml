@@ -40,9 +40,10 @@
                 <param name="-edgefontname" value="${graphviz.font.name}"/>
             </doclet>
             <packageset dir="${src.dir}"/>
-            <tag dir="${basedir}">
-                <include name="${javadoc.taglist.files}"/>
-            </tag>
+            <tag 
+                dir="${basedir}" 
+                includes="${javadoc.taglist.files}"
+                />
             <!-- Standard doclet options here -->
             <std-doclet-opts/>
             <!-- Optional view descriptions here -->

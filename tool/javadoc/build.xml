@@ -29,10 +29,10 @@
         >
             <arg value="-quiet"/>
             <packageset dir="${src.dir}"/>
-            <tag dir="${basedir}">
-                <include name="${javadoc.taglist.files}"/>
-            </tag>
-
+            <tag 
+                dir="${basedir}" 
+                includes="${javadoc.taglist.files}"
+                />
             <doctitle>${report.title}</doctitle>
             <header><![CDATA[<b>]]>${report.header}<![CDATA[</b>]]></header>
             <bottom><![CDATA[<em>]]>${report.footer}<![CDATA[</em>]]></bottom>
