@@ -57,11 +57,11 @@
         </ant>
     </target>
     
-    <target name="package" depends="package-min"/>
+    <target name="package" depends="package-zip, package-gzip"/>
     
-    <target name="package-min"
+    <target name="package-zip"
         depends="doc"
-    	description="Package up a minimum distribution of the scripts">
+    	description="Package up a distribution as a ZIP archive">
         <mkdir dir="${dist.dir}"/>
         
         <zip destfile="${dist.dir}/${min.dist.name}.zip">
@@ -72,6 +72,22 @@
                 <patternset refid="dist.script.includes"/>
             </zipfileset>
         </zip>
+    </target>
+    
+    <target name="package-gzip"
+        depends="doc"
+    	description="Package up a distribution as a gzip archive">
+        <mkdir dir="${dist.dir}"/>
+        
+        <tar destfile="${dist.dir}/${min.dist.name}.tar.gz"
+            compression="gzip">
+            <tarfileset dir="${doc.dir}/${dist.docs}" prefix="${min.dist.name}/docs">
+                <patternset refid="doc.files"/>
+            </tarfileset>
+            <tarfileset dir="${glean.dir}" prefix="${min.dist.name}">
+                <patternset refid="dist.script.includes"/>
+            </tarfileset>
+        </tar>
     </target>
     
     <target name="release"
