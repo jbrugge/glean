@@ -40,7 +40,8 @@
   <xsl:template match="file">
     <xsl:variable name="path" select="@path"/>
     <xsl:variable name="line" select="@line"/>
-    <xsl:variable name="linkpath" select="substring-after(@path, $source-root)"/>
+    <xsl:variable name="translated-path" select="translate(@path, '\', '/')"/>
+    <xsl:variable name="linkpath" select="substring-after($translated-path, $source-root)"/>
     <tr>
     <td class="file">Starting at <a href="{$context-root}/{$linkpath}.html#{$line}">line <xsl:value-of select="@line"/></a> of <xsl:value-of select="$linkpath"/></td>
     </tr>
