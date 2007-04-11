@@ -36,6 +36,7 @@
             <format property="statsvn.start" pattern="${svn.date.format}" 
                     offset="-${statsvn.prev.days}" unit="day"/>
         </tstamp>
+        <echo message="Setting StatSVN history to be ${statsvn.prev.days} days (${statsvn.start})" level="info"/>
     </target>
     
     <target name="create-start-week" if="statsvn.prev.weeks">
@@ -43,6 +44,7 @@
             <format property="statsvn.start" pattern="${svn.date.format}" 
                     offset="-${statsvn.prev.weeks}" unit="week"/>
         </tstamp>
+        <echo message="Setting StatSVN history to be ${statsvn.prev.weeks} weeks (${statsvn.start})" level="info"/>
     </target>
     
     <target name="create-start-month" if="statsvn.prev.months">
@@ -50,6 +52,7 @@
             <format property="statsvn.start" pattern="${svn.date.format}" 
                     offset="-${statsvn.prev.months}" unit="month"/>
         </tstamp>
+        <echo message="Setting StatSVN history to be ${statsvn.prev.months} months (${statsvn.start})" level="info"/>
     </target>
     
     <target name="generate-svn-log-range" 

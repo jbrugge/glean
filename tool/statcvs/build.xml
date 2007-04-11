@@ -36,6 +36,7 @@
             <format property="statcvs.start" pattern="${cvs.date.format}" 
                     offset="-${statcvs.prev.days}" unit="day"/>
         </tstamp>
+        <echo message="Setting StatCVS history to be ${statcvs.prev.days} days (${statcvs.start})" level="info"/>
     </target>
     
     <target name="create-start-week" if="statcvs.prev.weeks">
@@ -43,6 +44,7 @@
             <format property="statcvs.start" pattern="${cvs.date.format}" 
                     offset="-${statcvs.prev.weeks}" unit="week"/>
         </tstamp>
+        <echo message="Setting StatCVS history to be ${statcvs.prev.weeks} weeks (${statcvs.start})" level="info"/>
     </target>
     
     <target name="create-start-month" if="statcvs.prev.months">
@@ -50,6 +52,7 @@
             <format property="statcvs.start" pattern="${cvs.date.format}" 
                     offset="-${statcvs.prev.months}" unit="month"/>
         </tstamp>
+        <echo message="Setting StatCVS history to be ${statcvs.prev.months} months (${statcvs.start})" level="info"/>
     </target>
     
     <target name="generate-cvs-log-range" 
