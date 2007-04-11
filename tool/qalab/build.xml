@@ -1,0 +1,114 @@
+<project name="qalab" default="report" basedir=".">
+    <property name="tool.description" 
+             value="Consolidation and tracking of feedback data"/>
+    <property name="tool.url"          value="http://qalab.sourceforge.net"/>
+    <property name="tool.min.jdk"      value="1.4"/>
+    <property name="tool.dependencies" value="JFreeChart"/>
+    
+    <description>${report.description}</description>
+
+    <!-- Keep this here. All of the setup of common properties is done in this include -->
+    <import file="${feedback.script.dir}/tools-common.xml"/>
+
+    <!-- QALab needs some other libraries for its tasks -->
+    <path id="qalab.classpath">
+        <path refid="tool.classpath"/>
+        <fileset dir="${jfreechart.home}">
+            <include name="lib/*.jar"/>
+        </fileset>
+    </path>
+    
+    <taskdef name="mergestat" classname="net.objectlab.qalab.ant.BuildStatMergeTask"
+        classpathref="qalab.classpath"/>
+    <taskdef name="buildchart" classname="net.objectlab.qalab.ant.BuildStatChartTask"
+        classpathref="qalab.classpath"/>
+    <taskdef name="movers" classname="net.objectlab.qalab.ant.BuildStatMoverTask"
+        classpathref="qalab.classpath"/>
+        
+    <target name="run-report" depends="mergestat, buildchart"/>
+
+    <!-- Step 1: Merge the individual tool results into the common QALab data set -->
+    <target name="mergestat">
+        <merge-tool-stats 
+            tool-report-name="${checkstyle.report.name}"
+            tool-merge-handler="CheckstyleStatMerge" />
+        <merge-tool-stats 
+            tool-report-name="${cpd.report.name}"
+            tool-merge-handler="PMDCPDStatMerge" />
+        <merge-tool-stats 
+            tool-report-name="${pmd.report.name}"
+            tool-merge-handler="PMDStatMerge" />
+<!--         <merge-tool-stats 
+            tool-report-name="${cobertura.report.name}"
+            tool-merge-handler="CoberturaLineStatMerge" />
+        <merge-tool-stats 
+            tool-report-name="${cobertura.report.name}"
+            tool-merge-handler="CoberturaBranchStatMerge" />
+        <merge-tool-stats 
+            tool-report-name="${findbugs.report.name}"
+            tool-merge-handler="FindBugsStatMerge" />
+ -->    </target>
+    
+    <!-- Step 2: Generate graph visualizations of the information over time -->
+    <target name="buildchart">
+        <build-tool-chart tool-report-type="checkstyle"/>
+        <build-tool-chart tool-report-type="pmd"/>
+        <build-tool-chart tool-report-type="pmd-cpd"/>
+<!--         <build-tool-chart tool-report-type="cobertura-branch"/>
+        <build-tool-chart tool-report-type="cobertura-line"/>
+        <build-tool-chart tool-report-type="findbugs"/>
+ -->    </target>
+    
+    <!-- Optional: Generate a graph highlighting the most significant changes -->
+    <target name="movers">
+        <build-movers-chart tool-report-type="checkstyle"/>
+        <build-movers-chart tool-report-type="cobertura-branch"/>
+        <build-movers-chart tool-report-type="cobertura-line"/>
+        <build-movers-chart tool-report-type="findbugs"/>
+        <build-movers-chart tool-report-type="pmd"/>
+        <build-movers-chart tool-report-type="pmd-cpd"/>
+    </target>
+
+    <!-- Macrodefs to capture the general QALab task executions -->
+    <macrodef name="merge-tool-stats">
+        <attribute name="tool-report-name"/>
+        <attribute name="tool-merge-handler"/>
+        <sequential>
+            <mergestat
+                  inputFile="${gen.report.root}/@{tool-report-name}"
+                  srcdir="${src.dir}"
+                  outputfile="${qalab.data.file}"
+                  handler="net.objectlab.qalab.parser.@{tool-merge-handler}"
+                  />
+        </sequential>
+    </macrodef>
+    
+    <macrodef name="build-tool-chart">
+        <attribute name="tool-report-type"/>
+        <sequential>
+            <buildchart
+                  inputFile="${qalab.data.file}"
+                  toDir="${gen.report.dir}/style/charts"
+                  movingAverage="${qalab.moving.average}"
+                  width="${qalab.chart.width}"
+                  height="${qalab.chart.height}"
+                  summaryOnly="${qalab.summary.only}"
+                  summaryType="@{tool-report-type}"
+                  type="@{tool-report-type}"
+                  />
+        </sequential>
+    </macrodef>
+    
+    <macrodef name="build-movers-chart">
+        <attribute name="tool-report-type"/>
+        <sequential>
+            <movers
+                  inputFile="${qalab.data.file}"
+                  outputXMLfile="${gen.report.dir}/${qalab.movers.file}"
+                  types="@{tool-report-type}"
+                  weekendAdjustment="true"
+                  />
+        </sequential>
+    </macrodef>
+</project>
+
