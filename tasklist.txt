@@ -41,6 +41,7 @@ CodeFeedback Tasks
     - jaranalyzer       : analysis
     - junitreport       : docs
     - linguinemaps      : docs (hbm, ant, dtd)
+    - qalab             : analysis (trending data)
     - schemaspy         : docs
     - sequence          : docs
     - sitegraph         : docs (Struts 2.0)
