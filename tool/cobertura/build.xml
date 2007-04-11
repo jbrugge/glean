@@ -46,8 +46,18 @@
             </jvm-args>
         </glean-test>
 
-        <!-- Create the report -->
+        <!-- Create the HTML report for viewing -->
         <cobertura-report format="html" 
+            destdir="${gen.report.dir}"
+            datafile="${coverage.data.file}">
+            <fileset dir="${src.dir}">
+                <include name="**/*.java" />
+                <exclude name="**/*Stub.java" />
+            </fileset>
+        </cobertura-report>
+
+        <!-- Create an XML report for other views or analysis -->
+        <cobertura-report format="xml" 
             destdir="${gen.report.dir}"
             datafile="${coverage.data.file}">
             <fileset dir="${src.dir}">
