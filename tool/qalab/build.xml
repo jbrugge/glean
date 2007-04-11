@@ -3,7 +3,7 @@
              value="Consolidation and tracking of feedback data"/>
     <property name="tool.url"          value="http://qalab.sourceforge.net"/>
     <property name="tool.min.jdk"      value="1.4"/>
-    <property name="tool.dependencies" value="JFreeChart"/>
+    <property name="tool.dependencies" value="&lt;a href=&quot;http://jfreechart.org&quot;&gt;JFreeChart&lt;/a&gt;"/>
     
     <description>${report.description}</description>
 
@@ -28,36 +28,66 @@
     <target name="run-report" depends="mergestat, buildchart"/>
 
     <!-- Step 1: Merge the individual tool results into the common QALab data set -->
-    <target name="mergestat">
+    <target name="mergestat"
+        depends="mergestat-checkstyle, mergestat-cpd, mergestat-pmd, mergestat-cobertura, mergestat-findbugs"/>
+
+    <target name="mergestat-checkstyle" if="${checkstyle.data.file}">
         <merge-tool-stats 
-            tool-report-name="${checkstyle.report.name}"
+            tool-data-file="${checkstyle.data.file}"
             tool-merge-handler="CheckstyleStatMerge" />
+    </target>
+    
+    <target name="mergestat-cpd" if="${cpd.data.file}">
         <merge-tool-stats 
-            tool-report-name="${cpd.report.name}"
+            tool-data-file="${cpd.data.file}"
             tool-merge-handler="PMDCPDStatMerge" />
+    </target>
+    
+    <target name="mergestat-pmd" if="${pmd.data.file}">
         <merge-tool-stats 
-            tool-report-name="${pmd.report.name}"
+            tool-data-file="${pmd.data.file}"
             tool-merge-handler="PMDStatMerge" />
-<!--         <merge-tool-stats 
-            tool-report-name="${cobertura.report.name}"
+    </target>
+    
+    <target name="mergestat-cobertura" if="${cobertura.data.file}">
+         <merge-tool-stats 
+            tool-data-file="${cobertura.data.file}"
             tool-merge-handler="CoberturaLineStatMerge" />
         <merge-tool-stats 
-            tool-report-name="${cobertura.report.name}"
+            tool-data-file="${cobertura.data.file}"
             tool-merge-handler="CoberturaBranchStatMerge" />
+    </target>
+    
+    <target name="mergestat-findbugs" if="${findbugs.data.file}">
         <merge-tool-stats 
-            tool-report-name="${findbugs.report.name}"
+            tool-data-file="${findbugs.data.file}"
             tool-merge-handler="FindBugsStatMerge" />
- -->    </target>
+    </target>
     
     <!-- Step 2: Generate graph visualizations of the information over time -->
-    <target name="buildchart">
+    <target name="buildchart"
+        depends="buildchart-checkstyle, buildchart-cpd, buildchart-pmd, buildchart-cobertura, buildchart-findbugs"/>
+
+    <target name="buildchart-checkstyle" if="${checkstyle.data.file}">
         <build-tool-chart tool-report-type="checkstyle"/>
+    </target>
+
+    <target name="buildchart-pmd" if="${pmd.data.file}">
         <build-tool-chart tool-report-type="pmd"/>
+    </target>
+
+    <target name="buildchart-cpd" if="${cpd.data.file}">
         <build-tool-chart tool-report-type="pmd-cpd"/>
-<!--         <build-tool-chart tool-report-type="cobertura-branch"/>
+    </target>
+
+    <target name="buildchart-cobertura" if="${cobertura.data.file}">
+        <build-tool-chart tool-report-type="cobertura-branch"/>
         <build-tool-chart tool-report-type="cobertura-line"/>
+    </target>
+    
+    <target name="buildchart-findbugs" if="findbugs.data.file}">
         <build-tool-chart tool-report-type="findbugs"/>
- -->    </target>
+    </target>
     
     <!-- Optional: Generate a graph highlighting the most significant changes -->
     <target name="movers">
@@ -71,11 +101,11 @@
 
     <!-- Macrodefs to capture the general QALab task executions -->
     <macrodef name="merge-tool-stats">
-        <attribute name="tool-report-name"/>
+        <attribute name="tool-data-file"/>
         <attribute name="tool-merge-handler"/>
         <sequential>
             <mergestat
-                  inputFile="${gen.report.root}/@{tool-report-name}"
+                  inputFile="@{tool-data-file}"
                   srcdir="${src.dir}"
                   outputfile="${qalab.data.file}"
                   handler="net.objectlab.qalab.parser.@{tool-merge-handler}"
@@ -88,7 +118,7 @@
         <sequential>
             <buildchart
                   inputFile="${qalab.data.file}"
-                  toDir="${gen.report.dir}/style/charts"
+                  toDir="${gen.report.dir}"
                   movingAverage="${qalab.moving.average}"
                   width="${qalab.chart.width}"
                   height="${qalab.chart.height}"
