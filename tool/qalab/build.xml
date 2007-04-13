@@ -3,7 +3,7 @@
              value="Consolidation and tracking of feedback data"/>
     <property name="tool.url"          value="http://qalab.sourceforge.net"/>
     <property name="tool.min.jdk"      value="1.4"/>
-    <property name="tool.dependencies" value="&lt;a href=&quot;http://jfreechart.org&quot;&gt;JFreeChart&lt;/a&gt;"/>
+    <property name="tool.dependencies" value="&lt;a href=&quot;http://jfree.org/jfreechart&quot;&gt;JFreeChart&lt;/a&gt;"/>
     
     <description>${report.description}</description>
 
@@ -25,31 +25,40 @@
     <taskdef name="movers" classname="net.objectlab.qalab.ant.BuildStatMoverTask"
         classpathref="qalab.classpath"/>
         
-    <target name="run-report" depends="mergestat, buildchart"/>
+    <!-- The complete run of QALab follows a set of steps -->
+    <target name="run-report" depends="mergestat, buildchart, transform"/>
 
     <!-- Step 1: Merge the individual tool results into the common QALab data set -->
     <target name="mergestat"
-        depends="mergestat-checkstyle, mergestat-cpd, mergestat-pmd, mergestat-cobertura, mergestat-findbugs"/>
+        depends="check-data, mergestat-checkstyle, mergestat-cpd, mergestat-pmd, mergestat-cobertura, mergestat-findbugs"/>
 
-    <target name="mergestat-checkstyle" if="${checkstyle.data.file}">
+    <target name="check-data" description="See which tool data is available">
+        <available file="${checkstyle.data.file}" property="${checkstyle.data.available}"/>
+        <available file="${cpd.data.file}"        property="${cpd.data.available}"/>
+        <available file="${pmd.data.file}"        property="${pmd.data.available}"/>
+        <available file="${cobertura.data.file}"  property="${cobertura.data.available}"/>
+        <available file="${findbugs.data.file}"   property="${findbugs.data.available}"/>
+    </target>
+    
+    <target name="mergestat-checkstyle" if="${checkstyle.data.available}">
         <merge-tool-stats 
             tool-data-file="${checkstyle.data.file}"
             tool-merge-handler="CheckstyleStatMerge" />
     </target>
     
-    <target name="mergestat-cpd" if="${cpd.data.file}">
+    <target name="mergestat-cpd" if="${cpd.data.available}">
         <merge-tool-stats 
             tool-data-file="${cpd.data.file}"
             tool-merge-handler="PMDCPDStatMerge" />
     </target>
     
-    <target name="mergestat-pmd" if="${pmd.data.file}">
+    <target name="mergestat-pmd" if="${pmd.data.available}">
         <merge-tool-stats 
             tool-data-file="${pmd.data.file}"
             tool-merge-handler="PMDStatMerge" />
     </target>
     
-    <target name="mergestat-cobertura" if="${cobertura.data.file}">
+    <target name="mergestat-cobertura" if="${cobertura.data.available}">
          <merge-tool-stats 
             tool-data-file="${cobertura.data.file}"
             tool-merge-handler="CoberturaLineStatMerge" />
@@ -58,7 +67,7 @@
             tool-merge-handler="CoberturaBranchStatMerge" />
     </target>
     
-    <target name="mergestat-findbugs" if="${findbugs.data.file}">
+    <target name="mergestat-findbugs" if="${findbugs.data.available}">
         <merge-tool-stats 
             tool-data-file="${findbugs.data.file}"
             tool-merge-handler="FindBugsStatMerge" />
@@ -68,34 +77,55 @@
     <target name="buildchart"
         depends="buildchart-checkstyle, buildchart-cpd, buildchart-pmd, buildchart-cobertura, buildchart-findbugs"/>
 
-    <target name="buildchart-checkstyle" if="${checkstyle.data.file}">
+    <target name="buildchart-checkstyle" if="${checkstyle.data.available}">
         <build-tool-chart tool-report-type="checkstyle"/>
+        <build-tool-page tool-report-type="checkstyle"/>
     </target>
 
-    <target name="buildchart-pmd" if="${pmd.data.file}">
+    <target name="buildchart-pmd" if="${pmd.data.available}">
         <build-tool-chart tool-report-type="pmd"/>
+        <build-tool-page tool-report-type="pmd"/>
     </target>
 
-    <target name="buildchart-cpd" if="${cpd.data.file}">
+    <target name="buildchart-cpd" if="${cpd.data.available}">
         <build-tool-chart tool-report-type="pmd-cpd"/>
+        <build-tool-page tool-report-type="pmd-cpd"/>
     </target>
 
-    <target name="buildchart-cobertura" if="${cobertura.data.file}">
+    <target name="buildchart-cobertura" if="${cobertura.data.available}">
         <build-tool-chart tool-report-type="cobertura-branch"/>
         <build-tool-chart tool-report-type="cobertura-line"/>
+        <build-tool-page tool-report-type="cobertura-branch"/>
+        <build-tool-page tool-report-type="cobertura-line"/>
     </target>
     
-    <target name="buildchart-findbugs" if="findbugs.data.file}">
+    <target name="buildchart-findbugs" if="${findbugs.data.available}">
         <build-tool-chart tool-report-type="findbugs"/>
+        <build-tool-page tool-report-type="findbugs"/>
     </target>
     
     <!-- Optional: Generate a graph highlighting the most significant changes -->
-    <target name="movers">
+    <target name="movers"
+        depends="buildmovers-checkstyle, buildmovers-cobertura, buildmovers-findbugs, buildmovers-pmd, buildmovers-cpd"/>
+
+    <target name="buildmovers-checkstyle" if="${checkstyle.data.available}">
         <build-movers-chart tool-report-type="checkstyle"/>
+    </target>
+    
+    <target name="buildmovers-cobertura" if="${cobertura.data.available}">
         <build-movers-chart tool-report-type="cobertura-branch"/>
         <build-movers-chart tool-report-type="cobertura-line"/>
+    </target>
+    
+    <target name="buildmovers-findbugs" if="${findbugs.data.available}">
         <build-movers-chart tool-report-type="findbugs"/>
+    </target>
+    
+    <target name="buildmovers-pmd" if="${pmd.data.available}">
         <build-movers-chart tool-report-type="pmd"/>
+    </target>
+    
+    <target name="buildmovers-cpd" if="${cpd.data.available}">
         <build-movers-chart tool-report-type="pmd-cpd"/>
     </target>
 
@@ -116,9 +146,11 @@
     <macrodef name="build-tool-chart">
         <attribute name="tool-report-type"/>
         <sequential>
+            <mkdir dir="${gen.report.dir}/@{tool-report-type}"/>
+            
             <buildchart
                   inputFile="${qalab.data.file}"
-                  toDir="${gen.report.dir}"
+                  toDir="${gen.report.dir}/@{tool-report-type}"
                   movingAverage="${qalab.moving.average}"
                   width="${qalab.chart.width}"
                   height="${qalab.chart.height}"
@@ -126,6 +158,21 @@
                   summaryType="@{tool-report-type}"
                   type="@{tool-report-type}"
                   />
+        </sequential>
+    </macrodef>
+    
+    <macrodef name="build-tool-page">
+        <attribute name="tool-report-type"/>
+        <sequential>
+            <report-style
+                input.file="${qalab.data.file}"
+                output.file="@{tool-report-type}-hist.html"
+                stylesheet="${qalab.chart.stylesheet}">
+                <extra.params>
+                    <param name="targetdir" expression="${gen.report.dir}/@{tool-report-type}" />
+                    <param name="type" expression="@{tool-report-type}" />
+                </extra.params>
+            </report-style>
         </sequential>
     </macrodef>
     
