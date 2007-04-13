@@ -52,7 +52,7 @@
             datafile="${coverage.data.file}">
             <fileset dir="${src.dir}">
                 <include name="**/*.java" />
-                <exclude name="**/*Stub.java" />
+                <exclude name="**/*Test.java" />
             </fileset>
         </cobertura-report>
 
@@ -62,7 +62,7 @@
             datafile="${coverage.data.file}">
             <fileset dir="${src.dir}">
                 <include name="**/*.java" />
-                <exclude name="**/*Stub.java" />
+                <exclude name="**/*Test.java" />
             </fileset>
         </cobertura-report>
 
