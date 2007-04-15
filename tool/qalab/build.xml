@@ -196,7 +196,7 @@
         <sequential>
             <report-style
                 input.file="${qalab.data.file}"
-                output.file="@{tool-report-type}-hist.html"
+                output.file="${gen.report.dir}/${tool-report-type}/@{tool-report-type}-hist.html"
                 stylesheet="${qalab.chart.stylesheet}">
                 <extra.params>
                     <param name="targetdir" expression="${gen.report.dir}/@{tool-report-type}" />
