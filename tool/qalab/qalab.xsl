@@ -9,7 +9,7 @@
     <head>
     <META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css"/>
     <title>QALab Results from <xsl:value-of select="$project"/></title>
-    <link rel="stylesheet" type="text/css" href="reports.css"/>
+    <link rel="stylesheet" type="text/css" href="../reports.css"/>
     </head>
     <body>
     <h1>QALab Results from <xsl:value-of select="$project"/> source code</h1>
