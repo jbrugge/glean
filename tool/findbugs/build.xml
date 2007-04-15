@@ -8,8 +8,6 @@
 
     <import file="${feedback.script.dir}/tools-common.xml"/>
 
-    <property name="findbugs.report.level"  value="medium"/>
-    
     <taskdef name="findbugs" classname="edu.umd.cs.findbugs.anttask.FindBugsTask"
         classpathref="tool.classpath"/>
         
@@ -19,8 +17,10 @@
         <findbugs home="${tool.home}"
                 debug="${report.debug}"
                 reportLevel="${findbugs.report.level}"
-                output="${report.format}"
-                outputFile="${gen.report.dir}/${report.name}.${report.format}" >
+                output="${findbugs.report.format}"
+                outputFile="${gen.report.dir}/${report.name}.${report.format}"
+                stylesheet="${findbugs.stylesheet}"
+                timeout="${findbugs.timeout}">
             <sourcePath path="${src.dir}"/>
             <class location="${bin.dir}"/>
         </findbugs>
