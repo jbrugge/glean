@@ -26,8 +26,23 @@
         classpathref="qalab.classpath"/>
         
     <!-- The complete run of QALab follows a set of steps -->
-    <target name="run-report" depends="mergestat, buildchart, transform"/>
+    <target name="run-report" depends="init, mergestat, buildchart, finish, transform"/>
 
+    <!-- We want to create a summary of the different tool reports we create,
+         so we need to surround it all in valid XML.
+      -->
+    <target name="init" depends="tools-common.init">
+        <echo file="${qalab.report.summary}" append="no">
+        &lt;qalab time=&quot;${tool.timestamp}&quot; &gt;
+        </echo>    
+    </target>
+    
+    <target name="finish">
+        <echo file="${qalab.report.summary}" append="yes">
+        &lt;/qalab&gt;
+        </echo>    
+    </target>
+    
     <!-- Step 1: Merge the individual tool results into the common QALab data set -->
     <target name="mergestat"
         depends="check-data, mergestat-checkstyle, mergestat-cpd, mergestat-pmd, mergestat-cobertura, mergestat-findbugs"/>
@@ -80,16 +95,19 @@
     <target name="buildchart-checkstyle" if="${checkstyle.data.available}">
         <build-tool-chart tool-report-type="checkstyle"/>
         <build-tool-page tool-report-type="checkstyle"/>
+        <add-tool-links tool-report-type="checkstyle"/>
     </target>
 
     <target name="buildchart-pmd" if="${pmd.data.available}">
         <build-tool-chart tool-report-type="pmd"/>
         <build-tool-page tool-report-type="pmd"/>
+        <add-tool-links tool-report-type="pmd"/>
     </target>
 
     <target name="buildchart-cpd" if="${cpd.data.available}">
         <build-tool-chart tool-report-type="pmd-cpd"/>
         <build-tool-page tool-report-type="pmd-cpd"/>
+        <add-tool-links tool-report-type="pmd-cpd"/>
     </target>
 
     <target name="buildchart-cobertura" if="${cobertura.data.available}">
@@ -97,11 +115,13 @@
         <build-tool-chart tool-report-type="cobertura-line"/>
         <build-tool-page tool-report-type="cobertura-branch"/>
         <build-tool-page tool-report-type="cobertura-line"/>
+        <!-- TODO: How can this get combined in to one call rather than two? -->
     </target>
     
     <target name="buildchart-findbugs" if="${findbugs.data.available}">
         <build-tool-chart tool-report-type="findbugs"/>
         <build-tool-page tool-report-type="findbugs"/>
+        <add-tool-links tool-report-type="findbugs"/>
     </target>
     
     <!-- Optional: Generate a graph highlighting the most significant changes -->
@@ -173,6 +193,18 @@
                     <param name="type" expression="@{tool-report-type}" />
                 </extra.params>
             </report-style>
+        </sequential>
+    </macrodef>
+    
+    <macrodef name="add-tool-links">
+        <attribute name="tool-report-type"/>
+        <sequential>
+            <echo file="${qalab.report.summary}" append="yes">
+            &lt;tool name=&quot;@{tool-report-type}&quot; 
+                chart=&quot;./@{tool-report-type}/index.html&quot; 
+                movers=&quot;&quot; 
+            /&gt;
+            </echo>
         </sequential>
     </macrodef>
     
