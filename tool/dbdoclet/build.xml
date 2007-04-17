@@ -14,20 +14,36 @@
     <!-- Move this back in to the task?
                     overview="${report.overview}"
     -->
+    <property name="fop.home" value="${tool.home}/fop"/>
     
+    <taskdef name="fop" 
+             classname="org.apache.fop.tools.anttasks.Fop">
+      <classpath>
+        <fileset dir="${fop.home}/lib">
+          <include name="*.jar"/>
+        </fileset>
+        <fileset dir="${fop.home}/build">
+          <include name="fop.jar"/>
+          <include name="fop-hyph.jar" />
+        </fileset>
+      </classpath>
+    </taskdef>
+
     <target name="run-report" depends="dbdoclet"/>
 
-    <target name="dbdoclet">
-            <javadoc
-                classpathref="tool.classpath"
-                destdir="${gen.report.dir}"
-                use="true"
-                windowtitle="${report.title}"
-                breakiterator="true"
-                useexternalfile="true"
-                verbose="false"
-                source="${source.level}"
-                >
+    <target name="dbdoclet" depends="javadoc, fo-transform, pdf-transform"/>
+    
+    <target name="javadoc">
+        <javadoc
+            classpathref="tool.classpath"
+            destdir="${gen.report.dir}"
+            use="true"
+            windowtitle="${report.title}"
+            breakiterator="true"
+            useexternalfile="true"
+            verbose="false"
+            source="${source.level}"
+            >
             <doclet name="org.dbdoclet.doclet.docbook.DocBookDoclet"
                     pathref="tool.classpath"
                     >
@@ -45,5 +61,17 @@
         </javadoc>
     </target>
 
+    <target name="fo-transform">
+        <report-style
+            input.file="${dbdoclet.report.file}"
+            output.file="${dbdoclet.fo.file}"
+            stylesheet="${dbdoclet.fo.transform}"/>
+    </target>
+
+    <target name="pdf-transform">
+        <fop format="application/pdf" 
+            fofile="${dbdoclet.fo.file}"
+            outfile="${dbdoclet.pdf.file}" />
+    </target>
 </project>
 
