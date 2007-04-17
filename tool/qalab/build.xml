@@ -116,7 +116,8 @@
         <build-tool-chart tool-report-type="cobertura-line"/>
         <build-tool-page tool-report-type="cobertura-branch"/>
         <build-tool-page tool-report-type="cobertura-line"/>
-        <!-- TODO: How can this get combined in to one call rather than two? -->
+        <add-tool-links tool-report-type="cobertura-branch"/>
+        <add-tool-links tool-report-type="cobertura-line"/>
     </target>
     
     <target name="buildchart-findbugs" if="${findbugs.data.available}">
@@ -175,12 +176,13 @@
     
     <macrodef name="build-tool-chart">
         <attribute name="tool-report-type"/>
+        <attribute name="tool-name" default="@{tool-report-type}"/>
         <sequential>
-            <mkdir dir="${gen.report.dir}/@{tool-report-type}"/>
+            <mkdir dir="${gen.report.dir}/@{tool-name}"/>
             
             <buildchart
                   inputFile="${qalab.data.file}"
-                  toDir="${gen.report.dir}/@{tool-report-type}"
+                  toDir="${gen.report.dir}/@{tool-name}"
                   movingAverage="${qalab.moving.average}"
                   width="${qalab.chart.width}"
                   height="${qalab.chart.height}"
@@ -193,13 +195,14 @@
     
     <macrodef name="build-tool-page">
         <attribute name="tool-report-type"/>
+        <attribute name="tool-name" default="@{tool-report-type}"/>
         <sequential>
             <report-style
                 input.file="${qalab.data.file}"
-                output.file="${gen.report.dir}/${tool-report-type}/@{tool-report-type}-hist.html"
+                output.file="${gen.report.dir}/@{tool-name}/@{tool-name}-hist.html"
                 stylesheet="${qalab.chart.stylesheet}">
                 <extra.params>
-                    <param name="targetdir" expression="${gen.report.dir}/@{tool-report-type}" />
+                    <param name="targetdir" expression="${gen.report.dir}/@{tool-name}" />
                     <param name="type" expression="@{tool-report-type}" />
                 </extra.params>
             </report-style>
