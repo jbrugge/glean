@@ -41,6 +41,7 @@
             windowtitle="${report.title}"
             breakiterator="true"
             useexternalfile="true"
+            maxmemory="512m"
             verbose="false"
             source="${source.level}"
             >
@@ -65,7 +66,11 @@
         <report-style
             input.file="${dbdoclet.report.file}"
             output.file="${dbdoclet.fo.file}"
-            stylesheet="${dbdoclet.fo.transform}"/>
+            stylesheet="${dbdoclet.fo.transform}">
+            <extra.params>
+                <factory name="org.apache.xalan.processor.TransformerFactoryImpl"/>
+            </extra.params>
+        </report-style>
     </target>
 
     <target name="pdf-transform">
