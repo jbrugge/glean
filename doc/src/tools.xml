@@ -637,6 +637,11 @@ they can be backed up or committed to source control, and not in the same place
 as the normal Glean output.
 </p>
 <p>
+Lastly, the XSLTs for QALab are only included in the source distribution, so you
+can either download the binary and the source, or just the source and build the
+binaries.
+</p>
+<p>
 <table class="bodyTable">
 <th>Property</th><th>Default value</th><th>Description</th>
   <tr>

@@ -13,7 +13,7 @@
     <th>Description</th>
   <tr>
     <td><a href="http://jbrugge.com/glean/glean-1.1b.zip">glean-1.1b.zip (~100k)</a></td>
-    <td>Added dbdoclet and statcvs scripts, and qalab for creating trend data.</td>
+    <td>Added DocBook Doclet and StatCVS scripts, plus QALab for creating trend data.</td>
   </tr>
   <tr>
     <td><a href="http://jbrugge.com/glean/glean-1.1b.tar.gz">glean-1.1b.tar.gz (~65k)</a></td>
