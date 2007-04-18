@@ -114,8 +114,10 @@
     <target name="buildchart-cobertura" if="${cobertura.data.available}">
         <build-tool-chart tool-report-type="cobertura-branch"/>
         <build-tool-chart tool-report-type="cobertura-line"/>
+
         <build-tool-page tool-report-type="cobertura-branch"/>
         <build-tool-page tool-report-type="cobertura-line"/>
+
         <add-tool-links tool-report-type="cobertura-branch"/>
         <add-tool-links tool-report-type="cobertura-line"/>
     </target>
