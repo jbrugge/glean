@@ -83,6 +83,14 @@ some benefit from their data.
             </tr>
         
             <tr class="a">
+            <td><a href="#dbdoclet">dbdoclet</a></td>
+            <td>Generates DocBook documentation from source code</td>
+            <td>1.4</td>
+            <td><a href="http://jfree.org/jfreechart">JFreeChart</a></td>
+            <td><a href="http://www.michael-a-fuchs.de/projects/dbdoclet/en/index.html">Download</a></td>
+            </tr>
+        
+            <tr class="a">
             <td><a href="#doccheck">doccheck</a></td>
             <td>Checks completion of JavaDoc comments</td>
             <td>1.4</td>
@@ -171,11 +179,27 @@ some benefit from their data.
             </tr>
         
             <tr class="a">
+            <td><a href="#qalab">qalab</a></td>
+            <td>Consolidation and tracking of feedback data</td>
+            <td>1.4</td>
+            <td><a href="http://jfree.org/jfreechart">JFreeChart</a></td>
+            <td><a href="http://qalab.sourceforge.net">Download</a></td>
+            </tr>
+        
+            <tr class="a">
             <td><a href="#schemaspy">schemaspy</a></td>
             <td>Database schema and entity browser</td>
             <td>1.4</td>
             <td><a href="http://graphviz.org">Graphviz</a></td>
             <td><a href="http://schemaspy.sourceforge.net/">Download</a></td>
+            </tr>
+        
+            <tr class="a">
+            <td><a href="#statcvs">statcvs</a></td>
+            <td>Statistical data from CVS repository activity</td>
+            <td>1.4</td>
+            <td>CVS command-line client</td>
+            <td><a href="http://statcvs.sourceforge.net/">Download</a></td>
             </tr>
         
             <tr class="a">
@@ -313,7 +337,50 @@ HTML source.
   </tr>
 </table>
 </p>
-
+<p>
+<h4><a name="dbdoclet">dbdoclet</a></h4>
+DocBook Doclet is a Javadoc doclet that generates DocBook code rather than HTML.
+It is great if you want to generate a nicely formatted API document for your system
+or component. The basic Glean script will generate a PDF document of your API
+with a basic layout. 
+</p>
+<p>
+There process takes place in three steps, so you can alter settings for each stage.
+The Javadoc step uses the same basic properties as the <a href="#javadoc">Javadoc</a>
+script so you can set any of those to affect the content of the documentation.
+The transformation from DocBook to FO format files involves an XSL transformation,
+so you can choose from the stylesheets that come with DocBook Doclet or supply your own.
+The final step of creating a PDF from an FO file is handled by Apache FOP, and
+there are currently no setting choices for that in the Glean script other than
+the eventual file name. If there are other options that would be worth including,
+please let me know.
+</p>
+<p>
+If you are running Java 5 the XSL transformation task in Ant will, by default,
+use the XSLTC engine, which will want to compile the XSL stylesheet. There is a
+known issue with the DocBook stylesheets that can cause compiler errors, so the
+Glean script has the XSLT task use the Xalan processor instead. 
+</p>
+<p>
+<table class="bodyTable">
+<th>Property</th><th>Default value</th><th>Description</th>
+  <tr>
+    <td>dbdoclet.report.file</td><td>${gen.report.dir}/Reference.xml</td><td>DocBook output file from the doclet</td>
+  </tr>
+  <tr>
+    <td>dbdoclet.fo.file</td><td>${gen.report.dir}/dbdoclet.fo</td><td>Intermediate FO file</td>
+  </tr>
+  <tr>
+    <td>dbdoclet.pdf.file</td><td>${gen.report.dir}/${src.project.name}-API.pdf</td><td>Final PDF document</td>
+  </tr>
+  <tr>
+    <td>dbdoclet.fo.transform</td><td>${tool.home}/xslt/fo/Modern.xsl</td><td>The FO transform. There are several others in the DocBook Doclet distribution you can choose from.</td>
+  </tr>
+  <tr>
+    <td>dbdoclet.maxmemory</td><td>512m</td><td>JVM size for the Javadoc task. The doclet can require a significant amount of memory to render the DocBook output.</td>
+  </tr>
+</table>
+</p>
 <p>
 <h4><a name="doccheck">doccheck</a></h4>
 This is a fairly antiquated and unsupported tool from Sun, but it does its job well:
@@ -391,7 +458,7 @@ I'm working on a way to specify that format through Glean because I think that's
 a very powerful way to express it.
 </p>
 <p>
-It also does not appear that JarAnalyzer 1.1 supports Java 5 syntax yet. 
+JarAnalyzer 1.1, however, does not support Java 5 syntax yet. 
 </p>
 <p>
 <table class="bodyTable">
@@ -519,6 +586,104 @@ your own to match the expectations of your group or organization.
 </table>
 </p>
 <p>
+<h4><a name="qalab">qalab</a></h4>
+QALab is a tool that consolidates data from a number of analysis tools and then
+creates graphs that allow you to see the change in metrics over time. It is a great
+tool for helping to keep an eye on key quality metrics during an ongoing development
+effort. The tools it tracks are (almost) all ones that Glean also supports, so
+Glean can discover which ones you are running and automatically include them in
+the QALab report. That means that to start using QALab, all you need to do is add
+its name to the <code>tool.pattern</code> setting for your project and let it go.
+</p>
+<p>
+QALab parses the XML output of the different tools, so in order to make sure that
+the data is ready, you will need to place it after the other tools in the
+<code>tool.pattern</code> list. QALab currently supports these tools:
+<ul>
+<li>Checkstyle</li>
+<li>Cobertura (line and branch metrics tracked separately)</li>
+<li>Findbugs</li>
+<li>PMD</li>
+<li>CPD</li>
+<li>Simian</li>
+</ul>
+The Glean script supports all of these except for Simian, since Simian is not an
+open-source tool and I have not had the chance to work with it. CPD is in the same
+category of tool, so if you are looking for a copy/paste detection tool, start with
+CPD.
+</p>
+<p>
+There is also currently a bit of a conundrum with Findbugs. The format the QALab
+is most easily able to parse the "xdoc" format, which is what Findbugs can emit
+for Maven reporting. However, the Glean script for Findbugs needs the XML output
+so that it can apply an XSL to generate a readable report. Findbugs only allows
+you to specify a single output format, so the options for using Findbugs within 
+Glean are currently these:
+<ol>
+<li>Configure your Findbugs output to be XML (<code>findbugs.report.format</code>)
+and make use of the HTML report that is generated to get feedback for a single
+point in time. QALab can be run, but it will not analyze Findbugs data.</li>
+<li>Configure your Findbugs output to be "xdocs" so that QALab can gather trend
+data, but forego having any individual Findbugs HTML report.</li>
+<li>Run Findbugs in two separate Glean invocations, one with XML output in order
+to get a report of specifics, and one with "xdocs" output in order to track the
+number of Findbugs violations in your code over time.</li>
+</ol>
+</p>
+<p>
+Another important note is that the QALab data files contain historical data, with
+each run of QALab adding more data on your project. Therefore they should live somewhere where
+they can be backed up or committed to source control, and not in the same place
+as the normal Glean output.
+</p>
+<p>
+<table class="bodyTable">
+<th>Property</th><th>Default value</th><th>Description</th>
+  <tr>
+    <td>qalab.data.file</td><td>${user.home}/${src.project.name}-qalab.xml</td><td>The main datafile. The rate that it grows will depend on your project size, but you should probably keep an eye on it to make sure your location will have space for it.</td>
+  </tr>
+  <tr>
+    <td>qalab.movers.file</td><td>${user.home}/${src.project.name}-qalab-movers.xml</td><td>The datafile for "movers", or classes whose metrics are changing most in a given period. Like the main file, this will continue to grow.</td>
+  </tr>
+  <tr>
+    <td>qalab.chart.width</td><td>500</td><td>The default width of the data charts.</td>
+  </tr>
+  <tr>
+    <td>qalab.chart.height</td><td>333</td><td>The default height of the data charts.</td>
+  </tr>
+  <tr>
+    <td>qalab.summary.only</td><td>false</td><td>Whether or not to have individual class charts or only a project summary chart. This will be used for the charts of all tools.</td>
+  </tr>
+  <tr>
+    <td>qalab.moving.average</td><td>10</td><td>The number of days to use as a moving average to smooth out the graphs.</td>
+  </tr>
+  <tr>
+    <td>qalab.chart.stylesheet</td><td>${qalab.home}/qalab/src/xslt/qalab-chart-html.xsl</td><td>The XSL for generating charts.</td>
+  </tr>
+  <tr>
+    <td>qalab.movers.stylesheet</td><td>${qalab.home}/qalab/src/xslt/qalab-movers-html.xsl</td><td>The XSL for generating the movers reports.</td>
+  </tr>
+  <tr>
+    <td>jfreechart.home</td><td>${tools.base}/jfreechart-1.0.5</td><td>The location of your JFreechart installation.</td>
+  </tr>
+  <tr>
+    <td>checkstyle.data.file</td><td>${gen.report.root}/checkstyle/${src.project.name}-checkstyle-feedback.xml</td><td>The location of the Checkstyle XML output.</td>
+  </tr>
+  <tr>
+    <td>cobertura.data.file</td><td>${gen.report.root}/cobertura/coverage.xml</td><td>The location of the Cobertura XML output.</td>
+  </tr>
+  <tr>
+    <td>cpd.data.file</td><td>${gen.report.root}/cpd/${src.project.name}-cpd-feedback.xml</td><td>The location of the CPD XML output.</td>
+  </tr>
+  <tr>
+    <td>pmd.data.file</td><td>${gen.report.root}/pmd/${src.project.name}-pmd-feedback.xml</td><td>The location of the PMD XML output.</td>
+  </tr>
+  <tr>
+    <td>findbugs.data.file</td><td>${gen.report.root}/findbugs/${src.project.name}-findbugs-feedback.xdoc</td><td>The location of the Findbugs XML output.</td>
+  </tr>
+</table>
+</p>
+<p>
 <h4><a name="schemaspy">schemaspy</a></h4>
 SchemaSpy is a schema browser for JDBC-compliant databases. It uses the JDBC
 metadata to create browsable documentation of the tables, columns, constraints
@@ -563,6 +728,39 @@ properties.
   </tr>
   <tr>
     <td>db.port</td><td></td><td>Port to connect to on the database server</td>
+  </tr>
+</table>
+</p>
+<p>
+<h4><a name="statcvs">svatcvs</a></h4>
+StatCVS is a tool that analyzes the commit history from a CVS repository.
+You can see who line count graphs over time, commit
+counts by developer, when the busiest commit time during the day or week was,
+or where there is the most activity in the codebase. It is the basis for StatSVN,
+which does the same thing (with a few more features) for a Subversion repository.
+</p>
+<p>
+By default, the Glean script will have StatCVS look at all history on the files.
+If you want to limit it, you can set a value for one of the <code>statcvs.prev.(units)</code>
+properties listed below.
+</p>
+<p>
+<table class="bodyTable">
+<th>Property</th><th>Default value</th><th>Description</th>
+  <tr>
+    <td>cvs.log.file</td><td>${gen.report.dir}/cvslog.log</td><td>Where to generate the cvs log file needed as input to StatCVS</td>
+  </tr>
+  <tr>
+    <td>cvs.include.pattern</td><td>**/*.java</td><td>Pattern of which files whose history you are interested in</td>
+  </tr>
+  <tr>
+    <td>statcvs.prev.days</td><td></td><td>The number of days of history to analyze</td>
+  </tr>
+  <tr>
+    <td>statcvs.prev.weeks</td><td></td><td>The number of weeks of history to analyze</td>
+  </tr>
+  <tr>
+    <td>statcvs.prev.months</td><td></td><td>The number of months of history to analyze</td>
   </tr>
 </table>
 </p>
