@@ -9,25 +9,11 @@
 
     <import file="${feedback.script.dir}/tools-common.xml"/>
 
-    <!-- TODO: move this to the tool.properties file -->
-    <property name="report.overview" value=""/>
-    <!-- Move this back in to the task?
-                    overview="${report.overview}"
-    -->
     <property name="fop.home" value="${tool.home}/fop"/>
-    
-    <taskdef name="fop" 
-             classname="org.apache.fop.tools.anttasks.Fop">
-      <classpath>
-        <fileset dir="${fop.home}/lib">
-          <include name="*.jar"/>
-        </fileset>
-        <fileset dir="${fop.home}/build">
-          <include name="fop.jar"/>
-          <include name="fop-hyph.jar" />
-        </fileset>
-      </classpath>
-    </taskdef>
+
+    <!-- DocBook Doclet comes with Apache FOP packaged with it. -->    
+    <taskdef name="fop" classname="org.apache.fop.tools.anttasks.Fop"
+             classpathref="tool.classpath"/>
 
     <target name="run-report" depends="dbdoclet"/>
 
@@ -41,7 +27,7 @@
             windowtitle="${report.title}"
             breakiterator="true"
             useexternalfile="true"
-            maxmemory="512m"
+            maxmemory="${dbdoclet.maxmemory}"
             verbose="false"
             source="${source.level}"
             >
@@ -62,18 +48,20 @@
         </javadoc>
     </target>
 
-    <target name="fo-transform">
+    <target name="fo-transform" description="Turn DocBook ouput into an FO file">
         <report-style
             input.file="${dbdoclet.report.file}"
             output.file="${dbdoclet.fo.file}"
             stylesheet="${dbdoclet.fo.transform}">
             <extra.params>
+                <!-- Java 5 XSLTC seems to have a problem with the DocBook XSLs
+                     so we need to have it use the Xalan processor instead. -->
                 <factory name="org.apache.xalan.processor.TransformerFactoryImpl"/>
             </extra.params>
         </report-style>
     </target>
 
-    <target name="pdf-transform">
+    <target name="pdf-transform" description="Turn an FO file into a PDF">
         <fop format="application/pdf" 
             fofile="${dbdoclet.fo.file}"
             outfile="${dbdoclet.pdf.file}" />
