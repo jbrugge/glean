@@ -3,11 +3,10 @@
     
     <property name="version"       value="1.1b"/>
     <property name="min.dist.name" value="glean-${version}"/>
-    <property name="basic.dist.name" value="${min.dist.name}-with-tools"/>
     <property name="dist.dir"      value="dist"/>
     <property name="doc.dir"       value="doc"/>
     <property name="dist.docs"     value="target"/>
-    <property name="glean.dir"     value="${basedir}"/>
+    <property name="glean.dir"     value="src"/>
 
     <property name="scp.port"       value="232"/>
     <property name="scp.user"       value="jbrugge"/>
@@ -19,37 +18,12 @@
     
     <basename property="package.script"   file="${ant.file}"/>
 
-    <patternset id="dist.script.includes">
-        <include name="build.xml"/>
-        <include name="test.xml"/>
-        <include name="tools-common.xml"/>
-        <include name="feedback-summary.xsl"/>
-        <include name="*.css"/>
-        <include name="*.properties"/>
-        <include name="sample/"/>
-        <include name="template/"/>
-        <include name="tool/"/>
-        <include name="webapp/"/>
-    </patternset>
-    
     <patternset id="doc.files">
         <include name="**/*.html"/>
         <include name="**/*.css"/>
         <include name="**/*.jpg"/>
     </patternset>
 
-    <basename property="java2html.dir" file="${java2html.home}"/>
-    <basename property="javancss.dir"  file="${javancss.home}"/>
-    <basename property="jdepend.dir"   file="${jdepend.home}"/>
-    <basename property="pmd.dir"       file="${pmd.home}"/>
-    
-    <patternset id="basic.tool.files">
-        <include name="${java2html.dir}/**"/>
-        <include name="${javancss.dir}/**"/>
-        <include name="${jdepend.dir}/**"/>
-        <include name="${pmd.dir}/**"/>
-    </patternset>
-    
     <target name="doc" 
 	    description="Build the tool documentation">
         <ant dir="${doc.dir}" target="docs">
@@ -68,9 +42,7 @@
             <zipfileset dir="${doc.dir}/${dist.docs}" prefix="${min.dist.name}/docs">
                 <patternset refid="doc.files"/>
             </zipfileset>
-            <zipfileset dir="${glean.dir}" prefix="${min.dist.name}">
-                <patternset refid="dist.script.includes"/>
-            </zipfileset>
+            <zipfileset dir="${glean.dir}" prefix="${min.dist.name}"/>
         </zip>
     </target>
     
@@ -84,9 +56,7 @@
             <tarfileset dir="${doc.dir}/${dist.docs}" prefix="${min.dist.name}/docs">
                 <patternset refid="doc.files"/>
             </tarfileset>
-            <tarfileset dir="${glean.dir}" prefix="${min.dist.name}">
-                <patternset refid="dist.script.includes"/>
-            </tarfileset>
+            <tarfileset dir="${glean.dir}" prefix="${min.dist.name}"/>
         </tar>
     </target>
     
