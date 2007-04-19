@@ -46,13 +46,14 @@
     
     <!-- Step 1: Merge the individual tool results into the common QALab data set -->
     <target name="mergestat"
-        depends="mergestat-checkstyle, mergestat-cpd, mergestat-pmd, mergestat-cobertura, mergestat-findbugs"/>
+        depends="mergestat-checkstyle, mergestat-cpd, mergestat-pmd, mergestat-cobertura, mergestat-findbugs, mergestat-emma"/>
 
     <target name="check-data" description="See which tool data is available">
         <available file="${checkstyle.data.file}" property="${checkstyle.data.available}"/>
         <available file="${cpd.data.file}"        property="${cpd.data.available}"/>
         <available file="${pmd.data.file}"        property="${pmd.data.available}"/>
         <available file="${cobertura.data.file}"  property="${cobertura.data.available}"/>
+        <available file="${emma.data.file}"       property="${emmas.data.available}"/>
         <available file="${findbugs.data.file}"   property="${findbugs.data.available}"/>
     </target>
     
@@ -83,6 +84,15 @@
             tool-merge-handler="CoberturaBranchStatMerge" />
     </target>
     
+    <target name="mergestat-emma" if="${emma.data.available}">
+         <merge-tool-stats 
+            tool-data-file="${emma.data.file}"
+            tool-merge-handler="EmmaClassStatMerge" />
+        <merge-tool-stats 
+            tool-data-file="${emma.data.file}"
+            tool-merge-handler="EmmaMethodStatMerge" />
+    </target>
+    
     <target name="mergestat-findbugs" if="${findbugs.data.available}">
         <merge-tool-stats 
             tool-data-file="${findbugs.data.file}"
@@ -91,7 +101,7 @@
     
     <!-- Step 2: Generate graph visualizations of the information over time -->
     <target name="buildchart"
-        depends="buildchart-checkstyle, buildchart-cpd, buildchart-pmd, buildchart-cobertura, buildchart-findbugs"/>
+        depends="buildchart-checkstyle, buildchart-cpd, buildchart-pmd, buildchart-cobertura, buildchart-findbugs, buildchart-emma"/>
 
     <target name="buildchart-checkstyle" if="${checkstyle.data.available}">
         <build-tool-chart tool-report-type="checkstyle"/>
@@ -122,6 +132,17 @@
         <add-tool-links tool-report-type="cobertura-line"/>
     </target>
     
+    <target name="buildchart-emma" if="${emma.data.available}">
+        <build-tool-chart tool-report-type="emma-class"/>
+        <build-tool-chart tool-report-type="emma-method"/>
+
+        <build-tool-page tool-report-type="emma-class"/>
+        <build-tool-page tool-report-type="emma-method"/>
+
+        <add-tool-links tool-report-type="emma-class"/>
+        <add-tool-links tool-report-type="emma-method"/>
+    </target>
+    
     <target name="buildchart-findbugs" if="${findbugs.data.available}">
         <build-tool-chart tool-report-type="findbugs"/>
         <build-tool-page tool-report-type="findbugs"/>
@@ -130,7 +151,7 @@
     
     <!-- Optional: Generate a graph highlighting the most significant changes -->
     <target name="movers"
-        depends="buildmovers-checkstyle, buildmovers-cobertura, buildmovers-findbugs, buildmovers-pmd, buildmovers-cpd"/>
+        depends="buildmovers-checkstyle, buildmovers-cobertura, buildmovers-findbugs, buildmovers-pmd, buildmovers-cpd, buildmovers-emma"/>
 
     <target name="buildmovers-checkstyle" if="${checkstyle.data.available}">
         <build-movers-chart tool-report-type="checkstyle"/>
@@ -140,8 +161,17 @@
     <target name="buildmovers-cobertura" if="${cobertura.data.available}">
         <build-movers-chart tool-report-type="cobertura-branch"/>
         <build-movers-chart tool-report-type="cobertura-line"/>
+        <build-movers-page tool-report-type="cobertura-branch"/>
+        <build-movers-page tool-report-type="cobertura-line"/>
     </target>
-    
+
+    <target name="buildmovers-emma" if="${emma.data.available}">
+        <build-movers-chart tool-report-type="emma-class"/>
+        <build-movers-chart tool-report-type="emma-method"/>
+        <build-movers-page tool-report-type="emma-class"/>
+        <build-movers-page tool-report-type="emma-method"/>
+    </target>
+        
     <target name="buildmovers-findbugs" if="${findbugs.data.available}">
         <build-movers-chart tool-report-type="findbugs"/>
         <build-movers-page tool-report-type="findbugs"/>
