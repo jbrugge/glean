@@ -60,6 +60,7 @@
                 </fileset>
 
                 <txt outfile="${coverage.dir}/coverage.txt" />
+                <xml outfile="${coverage.dir}/coverage.xml" />
                 <html outfile="${coverage.dir}/index.html" />
            </report>
         </emma>
