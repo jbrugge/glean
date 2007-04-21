@@ -29,10 +29,9 @@
             datafile="${coverage.data.file}"
             todir="${out.instr.dir}">
             <ignore regex="org.apache.log4j.*" />
-            <fileset dir="${bin.dir}">
-                <include name="**/*.class" />
-                <exclude name="**/*Test.class" />
-            </fileset>
+            <fileset dir="${bin.dir}"
+                includesfile="${cobertura.includes.file}" 
+                excludesfile="${cobertura.excludes.file}" />
         </cobertura-instrument>
 
         <!-- Run the tests -->
@@ -60,10 +59,9 @@
         <cobertura-report format="xml" 
             destdir="${gen.report.dir}"
             datafile="${coverage.data.file}">
-            <fileset dir="${src.dir}">
-                <include name="**/*.java" />
-                <exclude name="**/*Test.java" />
-            </fileset>
+            <fileset dir="${src.dir}"
+                includesfile="${cobertura.includes.file}" 
+                excludesfile="${cobertura.excludes.file}" />
         </cobertura-report>
 
     </target>
