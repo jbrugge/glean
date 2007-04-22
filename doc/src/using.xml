@@ -80,14 +80,14 @@ properties, define them at a place lower in the list.
 <td>For general settings for Glean unique to <code>myproject</code>.</td>
 </tr>
 <tr>
-<td><code>${glean.home}/tool/(tool dir)/tool.pre.properties.local</code></td>
+<td><code>${glean.home}/tool/(tool dir)/tool.override.properties.local</code></td>
 <td>For settings specific to this tool for this installation which should
 override default settings in <code>feedback.properties</code>.</td>
 </tr>
 <tr>
-<td><code>${glean.home}/tool/(tool dir)/tool.pre.properties</code></td>
+<td><code>${glean.home}/tool/(tool dir)/tool.override.properties</code></td>
 <td>For settings specific to this tool. Override them in your project properties file or in
-<code>tool.pre.properties.local</code>.</td>
+<code>tool.override.properties.local</code>.</td>
 </tr>
 <tr>
 <td><code>${glean.home}/feedback.properties.local</code></td>
@@ -103,14 +103,14 @@ to apply to all of your projects. For instance, you might define
 <td>These are general settings for Glean that define the default behavior.</td>
 </tr>
 <tr>
-<td><code>${glean.home}/tool/(tool dir)/tool.post.properties.local</code></td>
+<td><code>${glean.home}/tool/(tool dir)/tool.extend.properties.local</code></td>
 <td>For settings specific to this tool for this installation which need to be
 defined in terms of properties set in <code>feedback.properties</code>.</td>
 </tr>
 <tr>
-<td><code>${glean.home}/tool/(tool dir)/tool.post.properties</code></td>
+<td><code>${glean.home}/tool/(tool dir)/tool.extend.properties</code></td>
 <td>For settings specific to this tool. Override them in your project properties file or in
-<code>tool.post.properties.local</code>.</td>
+<code>tool.extend.properties.local</code>.</td>
 </tr>
 </table>
 </section>

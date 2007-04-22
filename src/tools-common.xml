@@ -27,14 +27,14 @@
     <property file="${project.root}/feedback.properties.local"/>
     <property file="${project.root}/feedback.properties"/>
 
-    <property file="${basedir}/tool.pre.properties.local"/>    
-    <property file="${basedir}/tool.pre.properties"/>
+    <property file="${basedir}/tool.override.properties.local"/>    
+    <property file="${basedir}/tool.override.properties"/>
     
     <property file="${feedback.script.dir}/feedback.properties.local"/>
     <property file="${feedback.script.dir}/feedback.properties"/>
 
-    <property file="${basedir}/tool.post.properties.local"/>    
-    <property file="${basedir}/tool.post.properties"/>    
+    <property file="${basedir}/tool.extend.properties.local"/>    
+    <property file="${basedir}/tool.extend.properties"/>    
     
     <!-- Classpath for source code dependencies -->
     <path id="build.classpath">

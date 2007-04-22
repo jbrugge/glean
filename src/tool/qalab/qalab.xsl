@@ -17,9 +17,9 @@
     <hr size="2" />
     <table class="details" align="center">
         <tr>
-        <th>Tool</th>
-        <th>Chart</th>
-        <th>Movers</th>
+        <th>Measure</th>
+        <th>Trends</th>
+        <th>Recent Changes</th>
         </tr>
         <xsl:apply-templates/>
     </table>

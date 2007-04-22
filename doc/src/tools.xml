@@ -292,6 +292,14 @@ for many projects this may be all that's needed. If it does not, you can either
 plug in your own test script or modify the Glean script.
 </p>
 <p>
+If you want to restrict the classes that show up in the coverage report, for example
+excluding simple beans that have little value in testing, you can supply a filter
+file. You can supply a set of inclusion filters as well as a set of exclusion 
+filters. They are written as simple 
+<a href="http://ant.apache.org/manual/dirtasks.html#patterns">Ant-style patterns</a>
+in a file that you specify, one pattern per line.
+</p>
+<p>
 <table class="bodyTable">
 <th>Property</th><th>Default value</th><th>Description</th>
   <tr>
@@ -311,6 +319,12 @@ plug in your own test script or modify the Glean script.
   </tr>
   <tr>
     <td>test.script</td><td>${feedback.script.dir}/test.xml</td><td>A general script for running JUnit test suites or batchtests. While this could be overridden, Glean expects a certain macrodef to be available in order to run the unit tests for Emma. If you find your tests need additional setup that isn't provided here, copy the <code>test.xml</code> file, modify it, and pass that in as the test.script.</td>
+  </tr>
+  <tr>
+    <td>cobertura.exclude.filter</td><td>${test.src.dir}/cobertura.filter.excludes</td><td>Name of the file that holds exclusion filters for the coverage report. Filters are Ant-style path syntax, one filter per line.</td>
+  </tr>
+  <tr>
+    <td>cobertura.include.filter</td><td>${test.src.dir}/cobertura.filter.includes</td><td>Name of the file that holds inclusion filters for the coverage report. Filters are Ant-style path syntax, one filter per line.</td>
   </tr>
   <tr>
     <td>coverage.dir</td><td>${gen.report.dir}</td><td>The output directory used for work files and coverage reports</td>
@@ -406,6 +420,13 @@ for many projects this may be all that's needed. If it does not, you can either
 plug in your own test script or modify the Glean script.
 </p>
 <p>
+If you want to restrict the classes that show up in the coverage report, for example
+excluding simple beans that have little value in testing, you can supply a filter
+file. 
+The <a href="http://emma.sourceforge.net/reference/ch02s06s02.html">Emma documentation</a> 
+descibes the format of its coverage filters.
+</p>
+<p>
 <table class="bodyTable">
 <th>Property</th><th>Default value</th><th>Description</th>
   <tr>
@@ -444,8 +465,8 @@ plug in your own test script or modify the Glean script.
 <h4><a name="findbugs">findbugs</a></h4>
 Findbugs is a tool to check for common Java coding errors. It can be run as a
 Swing application, an Eclipse plugin, or an Ant task. Glean uses the Ant task,
-along with a basic XSLT to generate a static report. The resulting report is not
-that pretty, and is something I'd like to improve on in the future.
+along with a basic XSLT to generate a static report. The XML output can also be
+used by the <a href=#qalab>QALab</a> script.
 </p>
 <p>
 <h4><a name="jaranalyzer">jaranalyzer</a></h4>
