@@ -10,6 +10,7 @@ fi
 
 ANT_OPTS=-Xmx256M
 
+cd src
 for sample in $SAMPLES
 do
     echo "============ Running Glean over $sample code ==============="

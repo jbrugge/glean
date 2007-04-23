@@ -53,6 +53,9 @@ ant -Dfeedback.properties=samples/commons-lang.feedback.properties \
     <td>cpd</td>        <td align="center"> </td>    <td align="center"> </td>    <td align="center">x</td>    <td align="center"> </td>    <td align="center"> </td>
   </tr>
   <tr>
+    <td>dbdoclet</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center">x</td> 
+  </tr>
+  <tr>
     <td>doccheck</td>    <td align="center">x</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>
   </tr>
   <tr>
@@ -86,10 +89,16 @@ ant -Dfeedback.properties=samples/commons-lang.feedback.properties \
     <td>pmd</td>        <td align="center">x</td>    <td align="center">x</td>    <td align="center">x</td>    <td align="center">x</td>    <td align="center">x</td> 
   </tr>
   <tr>
+    <td>qalab</td>    <td align="center">x</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td> 
+  </tr>
+  <tr>
     <td>schemaspy</td>  <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td> 
   </tr>
   <tr>
-    <td>statsvn</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td> 
+    <td>statcvs</td>    <td align="center"> </td>    <td align="center">x</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td> 
+  </tr>
+  <tr>
+    <td>statsvn</td>    <td align="center">x</td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td>    <td align="center"> </td> 
   </tr>
   <tr>
     <td>umlgraph-doc</td><td align="center"> </td>    <td align="center"> </td>    <td align="center">x</td>    <td align="center"> </td>    <td align="center"> </td>

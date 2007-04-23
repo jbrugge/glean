@@ -15,6 +15,10 @@
     <taskdef name="fop" classname="org.apache.fop.tools.anttasks.Fop"
              classpathref="tool.classpath"/>
 
+    <!-- This has to be set here rather than in a property file so that it
+         can pick up the timestamp setting. -->
+    <property name="report.footer"    value="Generated on ${tool.timestamp}"/>
+
     <target name="run-report" depends="dbdoclet"/>
 
     <target name="dbdoclet" depends="javadoc, fo-transform, pdf-transform"/>
