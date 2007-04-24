@@ -23,6 +23,11 @@
         <include name="**/*.css"/>
         <include name="**/*.jpg"/>
     </patternset>
+    
+    <patternset id="src.files">
+        <exclude name="logs/"/>
+        <exclude name="tmp/"/>
+    </patternset>
 
     <target name="doc" 
 	    description="Build the tool documentation">
@@ -42,7 +47,9 @@
             <zipfileset dir="${doc.dir}/${dist.docs}" prefix="${min.dist.name}/docs">
                 <patternset refid="doc.files"/>
             </zipfileset>
-            <zipfileset dir="${glean.dir}" prefix="${min.dist.name}"/>
+            <zipfileset dir="${glean.dir}" prefix="${min.dist.name}">
+                <patternset refid="src.files"/>
+            </zipfileset>
         </zip>
     </target>
     
@@ -56,7 +63,9 @@
             <tarfileset dir="${doc.dir}/${dist.docs}" prefix="${min.dist.name}/docs">
                 <patternset refid="doc.files"/>
             </tarfileset>
-            <tarfileset dir="${glean.dir}" prefix="${min.dist.name}"/>
+            <tarfileset dir="${glean.dir}" prefix="${min.dist.name}">
+                <patternset refid="src.files"/>
+            </tarfileset>
         </tar>
     </target>
     

@@ -466,7 +466,7 @@ descibes the format of its coverage filters.
 Findbugs is a tool to check for common Java coding errors. It can be run as a
 Swing application, an Eclipse plugin, or an Ant task. Glean uses the Ant task,
 along with a basic XSLT to generate a static report. The XML output can also be
-used by the <a href=#qalab>QALab</a> script.
+used by the <a href="#qalab">QALab</a> script.
 </p>
 <p>
 <h4><a name="jaranalyzer">jaranalyzer</a></h4>

@@ -53,7 +53,7 @@
         <available file="${cpd.data.file}"        property="${cpd.data.available}"/>
         <available file="${pmd.data.file}"        property="${pmd.data.available}"/>
         <available file="${cobertura.data.file}"  property="${cobertura.data.available}"/>
-        <available file="${emma.data.file}"       property="${emmas.data.available}"/>
+        <available file="${emma.data.file}"       property="${emma.data.available}"/>
         <available file="${findbugs.data.file}"   property="${findbugs.data.available}"/>
     </target>
     
