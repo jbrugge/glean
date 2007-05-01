@@ -292,10 +292,10 @@ for many projects this may be all that's needed. If it does not, you can either
 plug in your own test script or modify the Glean script.
 </p>
 <p>
-If you want to restrict the classes that show up in the coverage report, for example
-excluding simple beans that have little value in testing, you can supply a filter
-file. You can supply a set of inclusion filters as well as a set of exclusion 
-filters. They are written as simple 
+If you want to restrict the classes that show up in the coverage report, for example 
+excluding simple beans that have little value in testing, you can specify filters. 
+You can supply a set of inclusion filters as well as a set of exclusion filters. 
+They are written as simple 
 <a href="http://ant.apache.org/manual/dirtasks.html#patterns">Ant-style patterns</a>
 in a file that you specify, one pattern per line.
 </p>
@@ -360,14 +360,15 @@ with a basic layout.
 </p>
 <p>
 There process takes place in three steps, so you can alter settings for each stage.
-The Javadoc step uses the same basic properties as the <a href="#javadoc">Javadoc</a>
-script so you can set any of those to affect the content of the documentation.
-The transformation from DocBook to FO format files involves an XSL transformation,
-so you can choose from the stylesheets that come with DocBook Doclet or supply your own.
-The final step of creating a PDF from an FO file is handled by Apache FOP, and
+<ul>
+<li>The Javadoc step uses the same basic properties as the <a href="#javadoc">Javadoc</a>
+script so you can set any of those to affect the content of the documentation.</li>
+<li>The transformation from DocBook to FO format files involves an XSL transformation,
+so you can choose from the stylesheets that come with DocBook Doclet or supply your own.</li>
+<li>The final step of creating a PDF from an FO file is handled by Apache FOP, and
 there are currently no setting choices for that in the Glean script other than
 the eventual file name. If there are other options that would be worth including,
-please let me know.
+please let me know.</li>
 </p>
 <p>
 If you are running Java 5 the XSL transformation task in Ant will, by default,
@@ -407,11 +408,6 @@ a different code analysis tool that doesn't have Javadoc checks.
 Emma, like Cobertura, is a general code coverage tool most often used for test code
 coverage. It works in a similar way to Cobertura, with the script needing to run
 the project's unit tests.
-</p>
-<p>
-One feature that Emma provides is the ability to filter the classes that you want
-to include in your report. The Emma documentation describes how to set up a file
-of filters, which you can then have Glean use when it generates the report.
 </p>
 <p>
 Glean comes with a basic Ant script for running JUnit tests, either as a single
@@ -469,6 +465,26 @@ along with a basic XSLT to generate a static report. The XML output can also be
 used by the <a href="#qalab">QALab</a> script.
 </p>
 <p>
+<table class="bodyTable">
+<th>Property</th><th>Default value</th><th>Description</th>
+  <tr>
+    <td>report.stylesheet</td><td>${tool.home}/src/xsl/default.xsl</td><td>One of the output transformations that comes with Findbugs. Check the distribution for others.</td>
+  </tr>
+  <tr>
+    <td>findbugs.report.level</td><td>medium</td><td>The priority level threshold for bugs that are reported</td>
+  </tr>
+  <tr>
+    <td>findbugs.timeout</td><td>600000</td><td>Amount of time in milliseconds before the Findbugs task will be assumed to be hung and will be ended.</td>
+  </tr>
+  <tr>
+    <td>findbugs.stylesheet</td><td>default.xsl</td><td>This stylesheet is only used if the <code>findbugs.report.format</code> is set to <code>html</code>. Otherwise, the report.stylesheet will be used.</td>
+  </tr>
+  <tr>
+    <td>findbugs.report.format</td><td>xml:withMessages</td><td>The 'withMessages' format for the XML provides more readable results, and having it in XML format allows the data to be read by QALab as well.</td>
+  </tr>
+</table>
+</p>
+<p>
 <h4><a name="jaranalyzer">jaranalyzer</a></h4>
 JarAnalyzer is a great tool for finding out or keeping track of the dependencies
 you have between components (JARs). It is like JDepend taken up one level. The
@@ -479,7 +495,7 @@ I'm working on a way to specify that format through Glean because I think that's
 a very powerful way to express it.
 </p>
 <p>
-JarAnalyzer 1.1, however, does not support Java 5 syntax yet. 
+JarAnalyzer 1.1 uses BCEL which, unfortunately, does not support Java 5 syntax.
 </p>
 <p>
 <table class="bodyTable">
@@ -634,22 +650,12 @@ category of tool, so if you are looking for a copy/paste detection tool, start w
 CPD.
 </p>
 <p>
-There is also currently a bit of a conundrum with Findbugs. The format the QALab
-is most easily able to parse the "xdoc" format, which is what Findbugs can emit
-for Maven reporting. However, the Glean script for Findbugs needs the XML output
-so that it can apply an XSL to generate a readable report. Findbugs only allows
-you to specify a single output format, so the options for using Findbugs within 
-Glean are currently these:
-<ol>
-<li>Configure your Findbugs output to be XML (<code>findbugs.report.format</code>)
-and make use of the HTML report that is generated to get feedback for a single
-point in time. QALab can be run, but it will not analyze Findbugs data.</li>
-<li>Configure your Findbugs output to be "xdocs" so that QALab can gather trend
-data, but forego having any individual Findbugs HTML report.</li>
-<li>Run Findbugs in two separate Glean invocations, one with XML output in order
-to get a report of specifics, and one with "xdocs" output in order to track the
-number of Findbugs violations in your code over time.</li>
-</ol>
+There is also currently a bit of a conundrum with Findbugs in the QALab 1.0 release. 
+The Findbugs format that QALab parses is the "xdoc" format, which is what Findbugs 
+can emit for Maven reporting. And unfortunately, Findbugs does not allow you to 
+specify multiple output formats. The good news is that QALab 1.1 should have 
+support for the XML format from Findbugs. Until then, you will have to choose 
+between getting a Findbugs report and getting QALab analysis of Findbugs data.
 </p>
 <p>
 Another important note is that the QALab data files contain historical data, with
@@ -666,10 +672,10 @@ binaries.
 <table class="bodyTable">
 <th>Property</th><th>Default value</th><th>Description</th>
   <tr>
-    <td>qalab.data.file</td><td>${user.home}/${src.project.name}-qalab.xml</td><td>The main datafile. The rate that it grows will depend on your project size, but you should probably keep an eye on it to make sure your location will have space for it.</td>
+    <td>qalab.data.file</td><td>${user.home}/${src.project.name}-qalab.xml</td><td>The main datafile.</td>
   </tr>
   <tr>
-    <td>qalab.movers.file</td><td>${user.home}/${src.project.name}-qalab-movers.xml</td><td>The datafile for "movers", or classes whose metrics are changing most in a given period. Like the main file, this will continue to grow.</td>
+    <td>qalab.movers.file</td><td>${user.home}/${src.project.name}-qalab-movers.xml</td><td>The datafile for "movers", or classes whose metrics are changing most in a given period.</td>
   </tr>
   <tr>
     <td>qalab.chart.width</td><td>500</td><td>The default width of the data charts.</td>
@@ -678,7 +684,7 @@ binaries.
     <td>qalab.chart.height</td><td>333</td><td>The default height of the data charts.</td>
   </tr>
   <tr>
-    <td>qalab.summary.only</td><td>false</td><td>Whether or not to have individual class charts or only a project summary chart. This will be used for the charts of all tools.</td>
+    <td>qalab.summary.only</td><td>false</td><td>Whether or not to have individual class charts or only a project summary chart.</td>
   </tr>
   <tr>
     <td>qalab.moving.average</td><td>10</td><td>The number of days to use as a moving average to smooth out the graphs.</td>
@@ -833,7 +839,7 @@ your source files and it can generate class diagrams from them.
 One of the recent additions to UMLGraph is a doclet that will insert class diagrams
 into Javadoc. The <code>umlgraph-doc</code> script in Glean is what generates that
 output. It uses the same properties that the <code>javadoc</code> script does for
-title/header/footer, plus some specific to Graphviz.
+title/header/footer.
 </p>
 <p>
 <table class="bodyTable">

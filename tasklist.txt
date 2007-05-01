@@ -108,8 +108,13 @@ CodeFeedback Tasks
     - options:
         http://code.google.com/hosting/
         http://sourceforge.net/
-        http://www.ibiblio.org/fosphost/exhost.htm
+        http://www.ibiblio.org/fosphost (Evaluation of hosting sites)
         http://jbrugge.com
+        http://java.net (Sun)
+        http://javaforge.com (Javalobby/JRoller folks)
+        http://codeplex.com (Microsoft)
+        http://berlios.de
+        http://freepository.com (only lite version is free)
         
 - licensing
     http://www.opensource.org/licenses/index.php

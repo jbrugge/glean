@@ -353,6 +353,28 @@ ant -Dfeedback.properties=samples/commons-lang.feedback.properties \
 </table>
 </section>
 
+<section name="Notes on the sample projects">
+<h4>JDOM</h4>
+<p>
+In order for StatCVS to work, it needs to have a checked out working copy of
+the code. So rather than download a source bundle, you should get the source
+using the <a href="http://jdom.org/downloads/source.html">instructions</a> 
+for anonymous CVS access to the JDOM repository.
+</p>
+<p>
+The JDOM source does not come with the unit tests, so in order to get the Emma
+or Cobertura reports, you will also need to download the 
+<a href="http://jdom.org/dist/binary/">test bundle</a> as well.
+</p>
+
+<h4>Commons-lang</h4>
+<p>
+Like with StatCVS, in order for StatSVN to work, it needs a checked out working copy
+of the code. To run the Commons-lang sample, then, grab the source through their
+<a href="http://jakarta.apache.org/commons/lang/cvs-usage.html">anonymous Subversion access</a>.
+</p>
+</section>
+
 <section name="Screen Shot">
 <p>
 Glean will create a summary page of the reports that were run for a project.
