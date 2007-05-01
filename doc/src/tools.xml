@@ -369,12 +369,15 @@ so you can choose from the stylesheets that come with DocBook Doclet or supply y
 there are currently no setting choices for that in the Glean script other than
 the eventual file name. If there are other options that would be worth including,
 please let me know.</li>
+</ul>
 </p>
 <p>
 If you are running Java 5 the XSL transformation task in Ant will, by default,
 use the XSLTC engine, which will want to compile the XSL stylesheet. There is a
 known issue with the DocBook stylesheets that can cause compiler errors, so the
-Glean script has the XSLT task use the Xalan processor instead. 
+Glean script has the XSLT task use the Xalan processor instead. If Ant complains
+that it can't find the Xalan classes, you may need to put a copy of them in your
+<code>${user.home}/.ant/lib</code> folder.
 </p>
 <p>
 <table class="bodyTable">
@@ -645,7 +648,7 @@ the data is ready, you will need to place it after the other tools in the
 <li>Simian</li>
 </ul>
 The Glean script supports all of these except for Simian, since Simian is not an
-open-source tool and I have not had the chance to work with it. CPD is in the same
+open-source tool and I have not had a chance to work with it. CPD is in the same
 category of tool, so if you are looking for a copy/paste detection tool, start with
 CPD.
 </p>
