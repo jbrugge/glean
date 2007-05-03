@@ -240,9 +240,8 @@ tool.url            =
 
 <section name="Selecting Tools To Use">
 <p>The <code>tool.pattern</code> property determines which tools are run.
-It's value is a <a href="http://ant.apache.org/manual/dirtasks.html#patterns">standard Ant glob pattern</a>. 
-You can either use "*" to mean all tools, or
-you can list them individually, separated by commas. 
+It's value is a <a href="http://ant.apache.org/manual/dirtasks.html#patterns">standard Ant glob patterns</a>. 
+You can list as many patterns as you want, separated by commas.
 The default pattern is to run a small subset of the tools available.
 </p>
 <p>

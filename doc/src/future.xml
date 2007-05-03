@@ -36,6 +36,7 @@ I want to keep it simple, with as few demands on projects as possible, so the
 ideas here are mostly incremental improvements. Ant properties-based configuration
 is already complex enough. 
 <ul>
+<li>Integrating with continuous integration servers (CruiseControl, Hudson)</li>
 <li>Supporting projects that have multiple source folders</li>
 <li>Providing summary metrics for each tool on the home page</li>
 <li>Better XSLTs for some of the tools (e.g. FindBugs)</li>

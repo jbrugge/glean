@@ -373,6 +373,30 @@ Like with StatCVS, in order for StatSVN to work, it needs a checked out working 
 of the code. To run the Commons-lang sample, then, grab the source through their
 <a href="http://jakarta.apache.org/commons/lang/cvs-usage.html">anonymous Subversion access</a>.
 </p>
+
+<h4>Java Petstore</h4>
+<p>
+Sun's Petstore application is large and multi-faceted. Gathering feedback from this
+code is an example of how you might set Glean up for a project with multiple components.
+In this case, the single application is broken up into multiple feedback builds,
+one for each component source tree.
+</p>
+
+<h4>Struts Sample Application</h4>
+<p>
+The Struts Cookbook sample application is a standard MVC application, and therefore
+likely to be recognizable for many groups. However, Struts has moved to Maven as
+its build platform, so the source distribution may not be buildable by everyone.
+For Glean, that simply means that only tools that rely just on source code can
+be used; others that rely on class files (for example, JDepend) or executable
+unit tests (Emma and Cobertura) can't be used.
+</p>
+<p>
+If you have Maven, though, and are able to build the sample application, you can
+update the <code>struts-cookbook.feedback.properties</code> file to run whichever
+tools you like against it.
+</p>
+
 </section>
 
 <section name="Screen Shot">

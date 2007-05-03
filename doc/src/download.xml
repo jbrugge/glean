@@ -12,11 +12,11 @@
     <th>File</th>
     <th>Description</th>
   <tr>
-    <td><a href="http://jbrugge.com/glean/glean-1.1b.zip">glean-1.1b.zip (~100k)</a></td>
-    <td>Added DocBook Doclet and StatCVS scripts, plus QALab for creating trend data.</td>
+    <td><a href="http://jbrugge.com/glean/glean-1.1.zip">glean-1.1.zip (~100k)</a></td>
+    <td>New tools added: DocBook Doclet, StatCVS, and QALab for creating trend data.</td>
   </tr>
   <tr>
-    <td><a href="http://jbrugge.com/glean/glean-1.1b.tar.gz">glean-1.1b.tar.gz (~65k)</a></td>
+    <td><a href="http://jbrugge.com/glean/glean-1.1.tar.gz">glean-1.1.tar.gz (~65k)</a></td>
     <td></td>
   </tr>
   <tr>
