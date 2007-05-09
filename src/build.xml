@@ -103,6 +103,17 @@
         <copy file="${report.war.dir}/${report.war.file}"
              todir="${report.deploy.dir}"/>
     </target>
+    
+    <target name="publish"
+        description="Publish the report files to a web server">
+        <mkdir dir="${report.publish.dir}"/>
+        <copy todir="${report.publish.dir}">
+            <fileset dir="${gen.report.root}"/>
+            <fileset dir="webapp">
+                <include name="**/*.css"/>
+            </fileset>
+        </copy>
+    </target>
 
     <target name="all" depends="clean, glean, dist, deploy"
         description="Runs and deploys a clean set of reports" />
