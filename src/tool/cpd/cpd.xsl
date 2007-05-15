@@ -16,8 +16,15 @@
     <body>
     <h1>Copy/Paste Detector (CPD) Analysis of <xsl:value-of select="$project"/> source code</h1>
     <p align="right">Run with <a href="http://pmd.sourceforge.net">CPD</a> on <xsl:value-of select="$today"/></p>
+    <table class="summary">
+        <tr>
+            <th>Duplications Found</th>
+        </tr>
+        <tr>
+            <td><xsl:value-of select="count(//duplication)" /></td>
+        </tr>
+    </table>
     <hr size="2" />
-    <!-- Add in a summary section here -->
     <xsl:apply-templates/>
 
     </body>
