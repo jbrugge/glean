@@ -24,5 +24,13 @@
         </checkstyle>
     </target>
 
+    <target name="transform" depends="check-stylesheet" if="stylesheet.present">
+        <report-style>
+            <extra.params>
+                <param name="context-root" expression="${src.link.prefix}" />
+                <param name="source-root" expression="${src.dir}/"/>
+            </extra.params>
+        </report-style>
+    </target>
 </project>
 
