@@ -5,7 +5,7 @@
     <property name="tool.url"       value="http://checkstyle.sourceforge.net/"/>
     <property name="tool.min.jdk"   value="1.4"/>
     
-    <description>${report.description}</description>
+    <description>${tool.description}</description>
 
     <import file="${feedback.script.dir}/tools-common.xml"/>
 

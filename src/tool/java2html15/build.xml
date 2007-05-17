@@ -6,7 +6,7 @@
     <!-- This tool doesn't create a browser, so there is no root page -->
     <property name="index.page"       value=""/>
     
-    <description>${report.description}</description>
+    <description>${tool.description}</description>
 
     <import file="${feedback.script.dir}/tools-common.xml"/>
 
