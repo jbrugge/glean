@@ -17,12 +17,16 @@
         <findbugs home="${tool.home}"
                 debug="${report.debug}"
                 reportLevel="${findbugs.report.level}"
+                jvmargs="${findbugs.jvm.args}"
                 output="${findbugs.report.format}"
                 outputFile="${gen.report.dir}/${report.name}.${report.format}"
                 stylesheet="${findbugs.stylesheet}"
                 timeout="${findbugs.timeout}">
             <sourcePath path="${src.dir}"/>
             <class location="${bin.dir}"/>
+            <auxClasspath>
+                <path refid="build.classpath"/>
+            </auxClasspath>
         </findbugs>
     </target>
 
