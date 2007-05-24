@@ -19,8 +19,10 @@ way to override properties for a project is usually to put them in a properties 
 To tell Glean about your project, copy the <code>template/sample.feedback.properties</code>
 file to any place you like and edit it.
 </p>
+<h3>Running from the command line</h3>
 <p>
-You run Glean by pointing it at that file
+You run Glean from the command line by running Ant from within the Glean directory
+and telling it where the properties file is.
 <pre>
 cd /path/to/glean
 ant -Dfeedback.properties=/path/to/myfeedback.properties
@@ -29,6 +31,29 @@ The output will be, by default, in your project's folder, under a <code>glean</c
 That location is one of the values you can override in your properties file.
 Browse to the <code>index.html</code> and you should see a summary page with links
 to each of the reports.
+</p>
+<h3>Running from another Ant build file</h3>
+<p>
+If you want to run Glean from your project build file, simply call it with an
+<code>&lt;ant&gt;</code> task, such as this.
+<pre>
+    <property name="glean.home"  value="${user.home}/tools/glean"/>
+    <property name="project.feedback.properties" 
+                                 value="/path/to/my.feedback.properties"/>
+    
+    <target name="call-glean">
+        <ant 
+            antfile="${glean.home}/build.xml"
+            inheritall="false"
+            dir="${glean.home}">
+            <property name="feedback.properties" 
+                     value="${project.feedback.properties}"/>
+        </ant>
+    </target>
+</pre>
+You can pass in any additional properties as subelements as well. This can be
+a useful way to share common settings, such as log or distribution directories,
+between your project build and Glean.
 </p>
 </section>
 <section name="Publishing The Results">
