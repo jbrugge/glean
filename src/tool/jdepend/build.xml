@@ -19,15 +19,6 @@
         </dirset>
     </path>
 
-    <target name="check-bin">
-        <available property="class.files.available" 
-                   file="${bin.dir}" type="dir"/>
-    </target>
-    
-    <target name="bin-notice" depends="check-bin" unless="class.files.available">
-        <echo message="** Skipping jdepend analysis because no class files found in ${bin.dir}"/>
-    </target>
-    
     <target name="jdepend" depends="bin-notice" if="class.files.available">
         <jdepend
               fork="true"
@@ -41,6 +32,15 @@
         </jdepend>
     </target>
 
+    <target name="check-bin">
+        <available property="class.files.available" 
+                   file="${bin.dir}" type="dir"/>
+    </target>
+    
+    <target name="bin-notice" depends="check-bin" unless="class.files.available">
+        <echo message="** Skipping jdepend analysis because no class files found in ${bin.dir}"/>
+    </target>
+    
     <target name="check-graphviz-present">
         <available property="graphviz.present"
                    file="dot"/>
