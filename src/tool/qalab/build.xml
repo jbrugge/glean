@@ -202,6 +202,7 @@
                   srcdir="${src.dir}"
                   outputfile="${qalab.data.file}"
                   handler="net.objectlab.qalab.parser.@{tool-merge-handler}"
+                  quiet="${qalab.quiet}"
                   />
         </sequential>
     </macrodef>
@@ -221,6 +222,7 @@
                   summaryOnly="${qalab.summary.only}"
                   summaryType="@{tool-report-type}"
                   type="@{tool-report-type}"
+                  quiet="${qalab.quiet}"
                   />
         </sequential>
     </macrodef>
@@ -262,7 +264,7 @@
                   types="@{tool-report-type}"
                   weekendAdjustment="${qalab.movers.weekendAdjustment}"
                   startTimeHoursOffset="${qalab.movers.startTimeHoursOffset}"
-                  quiet="false"
+                  quiet="${qalab.quiet}"
                   />
         </sequential>
     </macrodef>
