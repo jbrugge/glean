@@ -1,0 +1,54 @@
+<project name="dashboard" default="report" basedir=".">
+    <property name="tool.description" 
+             value="Summary view of feedback metrics"/>
+    <property name="tool.url"         value=""/>
+    <property name="tool.min.jdk"     value="1.4"/>
+    <property name="tool.dependencies" value="Groovy"/>
+    
+    <description>${tool.description}</description>
+
+    <import file="${feedback.script.dir}/tools-common.xml"/>
+
+    <taskdef name="groovy"
+         classname="org.codehaus.groovy.ant.Groovy"
+         classpathref="tool.classpath"/>
+         
+    <path id="dashboard.classpath">
+        <pathelement location="${basedir}"/>
+        <path refid="tool.classpath"/>
+    </path>
+
+    <target name="run-report" depends="dashboard"/>
+
+    <target name="dashboard">
+        <groovy classpathref="dashboard.classpath">
+            import com.jbrugge.glean.Dashboard
+            
+            def dashboard = new Dashboard(projectName: "${properties['src.project.name']}",
+                                        buildTime: "${properties['feedback.timestamp']}",
+                                        buildLabel: "")
+
+            // Load the tool results
+            println "Loading the tool results..."
+            dashboard.setResults("pmd", "${properties['pmd.data.file']}")
+            dashboard.setResults("cpd", "${properties['cpd.data.file']}")
+            dashboard.setResults("checkstyle", "${properties['checkstyle.data.file']}")
+            dashboard.setResults("findbugs", "${properties['findbugs.data.file']}")
+            dashboard.setResults("emma", "${properties['emma.data.file']}")
+            dashboard.setResults("cobertura", "${properties['cobertura.data.file']}")
+            dashboard.setResults("junitreport", "${properties['junitreport.data.file']}")
+            dashboard.setResults("javancss", "${properties['javancss.data.file']}")
+            dashboard.setResults("jdepend", "${properties['jdepend.data.file']}")
+            
+            // Create the XML file
+            def reportPath = "${properties['gen.report.dir']}/${properties['report.name']}.xml"
+            
+            println "Creating the dashboard XML to ${reportPath}"
+            new File(reportPath).write(dashboard.toXml())
+        </groovy>
+        
+        <copy file="dashboard.css" todir="${gen.report.dir}"/>
+    </target>
+
+</project>
+
