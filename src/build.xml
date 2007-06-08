@@ -47,26 +47,26 @@
         <!-- Create opening element of a report summary -->
         <echo message="&lt;project-report name=&quot;${src.project.name}&quot; time=&quot;${feedback.timestamp}&quot;&gt;" 
             file="${project.report.summary}" append="no"/>
-            
-        <subant
-            inheritall="no"
-            failonerror="no">
-            <!-- Other common properties specific to reports are available in feedback.properties -->
-            <property name="feedback.script.dir"  location="${basedir}"/>
-            <property name="project.root"         location="${project.root}"/>
-            <property name="src.project.name"     value="${src.project.name}"/>
-            <property name="feedback.timestamp"   value="${feedback.timestamp}"/>
-            <property name="feedback.properties.file"       location="${feedback.properties}"/>
-            <property name="feedback.properties.file.local" location="${feedback.properties.local}"/>
 
-            <!-- Run every report that matches our pattern-->
-            <dirset dir="tool" includes="${tool.pattern}"/>
-        </subant>
-
+        <glean-subant pattern="${tool.pattern}" excludes="dashboard"/>
+        
+        <antcall target="dashboard"/>
+        
         <!-- Create closing element of a report summary -->
         <echo message="&lt;/project-report&gt;" 
             file="${project.report.summary}" append="yes"/>
             
+    </target>
+    
+    <target name="dashboard" depends="check-dashboard" if="dashboard.selected">
+        <glean-subant pattern="dashboard"/>
+    </target>
+    
+    <target name="check-dashboard">
+        <condition property="dashboard.selected">
+            <istrue value="${create.dashboard}"/>
+        </condition>
+        <echo message="dashboard.selected = ${dashboard.selected}"/>
     </target>
 
     <target name="clean" description="Clean out generated report files">
@@ -123,4 +123,29 @@
         <echo message="** Sorry, not implemented yet. Work in progress **"/>
     </target>
     
+    <!-- Common macrodefs -->
+    <macrodef name="glean-subant">
+        <attribute name="target"     default=""/>
+        <attribute name="pattern"    default="${tool.pattern}"/>
+        <attribute name="excludes"   default=""/>
+        <element name="extra-properties" optional="true"/>
+        <sequential>
+            <subant
+                inheritall="no"
+                failonerror="no"
+                target="@{target}">
+                <!-- Other common properties specific to reports are available in feedback.properties -->
+                <property name="feedback.script.dir"  location="${basedir}"/>
+                <property name="project.root"         location="${project.root}"/>
+                <property name="src.project.name"     value="${src.project.name}"/>
+                <property name="feedback.timestamp"   value="${feedback.timestamp}"/>
+                <property name="feedback.properties.file"       location="${feedback.properties}"/>
+                <property name="feedback.properties.file.local" location="${feedback.properties.local}"/>
+                <extra-properties/>
+                
+                <!-- Run every report that matches our pattern-->
+                <dirset dir="tool" includes="@{pattern}" excludes="@{excludes}"/>
+            </subant>
+        </sequential>
+    </macrodef>
 </project>
