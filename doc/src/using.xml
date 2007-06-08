@@ -55,6 +55,41 @@ You can pass in any additional properties as subelements as well. This can be
 a useful way to share common settings, such as log or distribution directories,
 between your project build and Glean.
 </p>
+<h3>Running from CruiseControl</h3>
+<p>
+One way to incorporate project feedback into your development cycle is to have
+it generated automatically by a continuous integration server such as
+<a href="http://cruisecontrol.sourceforge.net">CruiseControl</a>. Once you have
+it set up, you can have it publish to a common area and know that your metrics
+and documentation are always up to date.
+</p>
+<p>
+A CruiseControl project configuration to run Glean could contain a couple of
+elements like this.
+<pre>
+    <project name="my-project-feedback">
+        ...        
+        <ant
+            buildfile="build.xml"
+            antWorkingDir="${glean.home}"
+            target="clean glean dist deploy"
+            time="2300">
+            <property name="feedback.properties"
+                      value="/path/to/myproject.feedback.properties"/>
+            <property name="glean.log.dir"   value="${log.dir}"/>
+            <property name="glean.log.file"  value="${project.name}-feedback.log"/>
+        </ant>
+        
+        <publishers>
+            <artifactspublisher 
+                file="${log.dir}/${project.name}-feedback.log"
+                dest="build_artifacts/${project.name}"/>
+        </publishers>
+        ...
+    </project>
+</pre>
+With plugin preconfiguration and 
+</p>
 </section>
 <section name="Publishing The Results">
 <p>
