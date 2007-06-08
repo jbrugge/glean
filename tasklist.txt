@@ -39,6 +39,7 @@ CodeFeedback Tasks
     - hbm2doc           : docs
     - ivy:report        : docs
     - jaranalyzer       : analysis
+    - jester            : analysis
     - junitreport       : docs
     - linguinemaps      : docs (hbm, ant, dtd)
     - qalab             : analysis (trending data)
