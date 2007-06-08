@@ -25,41 +25,27 @@
 </xsl:template>
 
 <xsl:template match="//feedback">
-    <table class="summary" align="left">
-        <caption><xsl:value-of select="@description"/></caption>
-    <tr><th>Source</th>
-        <xsl:for-each select="result">
-            <td><a><xsl:attribute name="href"><xsl:value-of select="@source"/>/<xsl:value-of select="@indexpage"/></xsl:attribute><xsl:value-of select="@source"/></a></td>
-        </xsl:for-each>
-    </tr>
-    <tr><th>Metric</th>
-        <xsl:for-each select="result">
-            <td><xsl:value-of select="@metric"/></td>
-        </xsl:for-each>
-    </tr>
-    <tr><th>Measure</th>
-        <xsl:for-each select="result">
-            <td class="measure"><xsl:value-of select="@measurement"/></td>
-        </xsl:for-each>
-    </tr>
-    <!--
-        <tr>
-        <th>Source</th>
-        <th>Metric</th>
-        <th>Measure</th>
+    <xsl:if test="count(result) > 0">
+        <table class="summary" align="left">
+            <caption><xsl:value-of select="@description"/></caption>
+        <tr><th>Source</th>
+            <xsl:for-each select="result">
+                <td><a><xsl:attribute name="href">../<xsl:value-of select="@source"/>/<xsl:value-of select="@indexpage"/></xsl:attribute><xsl:value-of select="@source"/></a></td>
+            </xsl:for-each>
         </tr>
-        <xsl:apply-templates/>
-    -->
-    </table>
-    <br clear="left"/>
-</xsl:template>
-
-<xsl:template match="result">
-    <tr>
-    <td><a><xsl:attribute name="href"><xsl:value-of select="@source"/>/<xsl:value-of select="@indexpage"/></xsl:attribute><xsl:value-of select="@source"/></a></td>
-    <td><xsl:value-of select="@metric"/></td>
-    <td class="measure"><xsl:value-of select="@measurement"/></td>
-    </tr>
+        <tr><th>Metric</th>
+            <xsl:for-each select="result">
+                <td><xsl:value-of select="@metric"/></td>
+            </xsl:for-each>
+        </tr>
+        <tr><th>Measure</th>
+            <xsl:for-each select="result">
+                <td class="measure"><xsl:value-of select="@measurement"/></td>
+            </xsl:for-each>
+        </tr>
+        </table>
+        <br clear="left"/>
+    </xsl:if>
 </xsl:template>
 
 <xsl:template match="//documentation">
@@ -76,7 +62,7 @@
 <xsl:template match="//doc">
     <tr>
     <td><xsl:value-of select="@description"/></td>
-    <td><a><xsl:attribute name="href"><xsl:value-of select="@source"/>/<xsl:value-of select="@indexpage"/></xsl:attribute><xsl:value-of select="@source"/></a></td>
+    <td><a><xsl:attribute name="href">../<xsl:value-of select="@source"/>/<xsl:value-of select="@indexpage"/></xsl:attribute><xsl:value-of select="@source"/></a></td>
     </tr>
 </xsl:template>
 

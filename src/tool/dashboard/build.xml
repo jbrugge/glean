@@ -26,7 +26,8 @@
             
             def dashboard = new Dashboard(projectName: "${properties['src.project.name']}",
                                         buildTime: "${properties['feedback.timestamp']}",
-                                        buildLabel: "")
+                                        buildLabel: "",
+                                        docRoot: "${properties['gen.report.root']}")
 
             // Load the tool results
             println "Loading the tool results..."
