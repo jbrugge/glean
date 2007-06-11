@@ -11,7 +11,7 @@
   }
   
   table.summary tr th{
-    font-weight: bold;
+    font-weight: normal;
     text-align:left;
     background:#d6caf0;
   }
@@ -24,6 +24,7 @@
   }
   
   td.measure {
+    font-weight: bold;
     text-align: center;
   }
   
@@ -54,8 +55,10 @@
   
   div#metrics {
     text-align: left;
-    margin-left : 250px;
+    margin-left : 230px;
     clear: right;
+    padding-left : 25px;
+    border-left : thin solid;
   }
   div#docbar {
     float : left;

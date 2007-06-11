@@ -7,12 +7,12 @@
     <html>
     <head>
     <META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css"/>
-    <title>Dashboard for <xsl:value-of select="@name"/> feedback</title>
+    <title><xsl:value-of select="@name"/> feedback dashboard</title>
     <link rel="stylesheet" type="text/css" href="dashboard.css"/>
     </head>
     <body>
-    <h1>Dashboard for <xsl:value-of select="@name"/> feedback</h1>
-    <p align="right">Run with <a href="http://jbrugge.com/glean">Glean</a> and <a href="http://ant.apache.org">Ant</a> on <xsl:value-of select="build/@time"/></p>
+    <h1><xsl:value-of select="@name"/> feedback dashboard</h1>
+    <p align="right">Run with <a href="http://jbrugge.com/glean">Glean</a> and <a href="http://groovy.codehaus.org">Groovy</a> on <xsl:value-of select="build/@time"/></p>
     <hr size="2" />
     <div id="docbar">
         <xsl:apply-templates select="//documentation"/>
