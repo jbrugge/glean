@@ -9,12 +9,18 @@
 
     <import file="${feedback.script.dir}/tools-common.xml"/>
 
+    <property environment="env"/>
+    
+    <path id="groovy.classpath">
+        <fileset dir="${env.GROOVY_HOME}/embeddable" includes="*.jar"/>
+    </path>
+    
     <taskdef name="groovy"
          classname="org.codehaus.groovy.ant.Groovy"
-         classpathref="tool.classpath"/>
+         classpathref="groovy.classpath"/>
          
     <path id="dashboard.classpath">
-        <pathelement location="${basedir}"/>
+        <path refid="groovy.classpath"/>
         <path refid="tool.classpath"/>
     </path>
 
