@@ -54,11 +54,11 @@
   }
   
   div#metrics {
+    border-left: thin solid gray;
+    padding-left: 20px;
     text-align: left;
-    margin-left : 230px;
+    margin-left : 250px;
     clear: right;
-    padding-left : 25px;
-    border-left : thin solid;
   }
   div#docbar {
     float : left;
