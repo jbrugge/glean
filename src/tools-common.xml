@@ -19,6 +19,9 @@
     <property file="${feedback.script.dir}/toolhome.properties"/>
     <propprop source="${ant.project.name}.home" dest="tool.home"/>
 
+    <!-- Make sure environment variables are available -->
+    <property environment="env"/>
+    
     <!-- Properties can be overridden at the code project or individual report level -->
     
     <property file="${feedback.properties.file.local}"/>
