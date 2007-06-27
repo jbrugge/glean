@@ -56,7 +56,8 @@ CodeFeedback Tasks
     - xref (Maven)      : docs
     - xradar            : analysis
     - http://www.lumrix.de/xsbrowser.php
-    - http://xframe.sourceforge.net/xsddoc/index.html
+    - http://xframe.sourceforge.net/xsddoc/index.html : no longer active development
+    - DocFlex/XML (Kit) : http://www.filigris.com/products/docflex_xml/xsddoc/about.php
     - (function points?)
     
 - report categories
