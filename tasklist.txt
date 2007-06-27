@@ -36,13 +36,16 @@ CodeFeedback Tasks
     - emma              : analysis
     - findbugs          : analysis
     - hackystat         : analysis
+    - hammerapi         : analysis (like PMD)
     - hbm2doc           : docs
     - ivy:report        : docs
     - jaranalyzer       : analysis
     - jester            : analysis
     - junitreport       : docs
     - linguinemaps      : docs (hbm, ant, dtd)
+    - macker            : analysis (design rules)
     - qalab             : analysis (trending data)
+    - relief            : ??
     - schemaspy         : docs
     - sequence          : docs
     - sitegraph         : docs (Struts 2.0)
