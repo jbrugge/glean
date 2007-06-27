@@ -13,7 +13,7 @@ The basic setup of Glean is meant to give you feedback that is easy to generate,
 immediately useful to almost any project, and with the least reliance on other tools.
 Start with this set to get a feel for Glean and for how you can incorporate the
 feedback into your project team. If you find you want to add other feedback sources,
-you can either use one of the scripts from Glean for any of the tools listed below
+there are scripts from Glean for any of the tools listed below
 (simply list it in the <code>tool.pattern</code> property in your project configuration file),
 or you can <a href="./adding.html">add support for another tool.</a>
 </p>
@@ -233,7 +233,7 @@ some benefit from their data.
 Each of the tools that Glean drives typically makes use of some of the 
 <a href="./using.html#properties">basic common properties</a> of a project, 
 such as the source, binary and library directories.
-Many of them also have other properties that define what they do or how the produce
+Many of them also have other properties that define what they do or how they produce
 their output. All of them have reasonable default values that should work for most
 people as they are, but if you want to customize any part of a tool, see the
 description below or just dive into the source Ant script.
@@ -303,7 +303,7 @@ in a file that you specify, one pattern per line.
 <table class="bodyTable">
 <th>Property</th><th>Default value</th><th>Description</th>
   <tr>
-    <td>unit.test.pattern</td><td>**/test/*Test.class</td><td>An Ant file pattern describing classes that represent unit tests to run. This is used to run a batchtest if no test.suite has been defined</td>
+    <td>unit.test.pattern</td><td>**/*Test.class</td><td>An Ant file pattern describing classes that represent unit tests to run. This is used to run a batchtest if no test.suite has been defined</td>
   </tr>
   <tr>
     <td>test.suite</td><td>(undefined)</td><td>The fully-qualified name of a JUnit test suite.</td>
@@ -337,7 +337,7 @@ in a file that you specify, one pattern per line.
 <p>
 <h4><a name="cpd">cpd</a></h4>
 CPD is a Copy/Paste Detector that comes with the PMD package. It looks for repeated
-segments of code within the codebase and returns them. The XSL that comes with
+segments of code within the codebase. The XSL that comes with
 Glean generates links to the source lines of the duplicate code based on the property
 <code>src.link.prefix</code>. There are other XSL templates that come with CPD
 that you can use as well. You may need to alter them if you want to link to your
@@ -352,6 +352,40 @@ HTML source.
 </table>
 </p>
 <p>
+<h4><a name="dashboard">dashboard</a></h4>
+The Glean dashboard is a custom Groovy script that gathers together a summary of
+the results of the other analysis tools for a point-in-time view of your feedback.
+The sample screenshot gives you an idea of what you will see.
+</p>
+<p>
+Unlike the other tools, enabling the dashboard is done via a separate property,
+<code>create.dashboard</code>, which should have an Ant "true" value (yes/true/on).
+It is done this way rather than on the <code>tool.pattern</code> property to make
+sure that it run after all other tools have run and generated their output.
+</p>
+<p>
+The Groovy code that runs this needs to be downloaded separately. It is packaged
+as a JAR, but the source is there too if you want to see how it works or improve
+on it. (I am new to Groovy, so I make no claims to it being a model of Groovy code.)
+The <code>toolhome.properties.local</code> file should also be updated to point
+to the place where the dashboard JAR and Groovy are each installed.
+</p>
+<p>
+The dashboard was inspired by 
+<a href="http://thediscoblog.com/2007/01/27/groovys-the-elixir-for-report-overload-syndrome/">
+Andy Glover's description of a summary page</a> for
+feedback metrics, and his pointing out how easy it is to gather this stuff together
+with Groovy.
+</p>
+<p>
+<table class="bodyTable">
+<th>Property</th><th>Default value</th><th>Description</th>
+  <tr>
+    <td></td><td></td><td></td>
+  </tr>
+</table>
+</p>
+<p>
 <h4><a name="dbdoclet">dbdoclet</a></h4>
 DocBook Doclet is a Javadoc doclet that generates DocBook code rather than HTML.
 It is great if you want to generate a nicely formatted API document for your system
@@ -359,10 +393,11 @@ or component. The basic Glean script will generate a PDF document of your API
 with a basic layout. 
 </p>
 <p>
-There process takes place in three steps, so you can alter settings for each stage.
+Their process takes place in three steps, each of which has settings you can alter.
 <ul>
 <li>The Javadoc step uses the same basic properties as the <a href="#javadoc">Javadoc</a>
-script so you can set any of those to affect the content of the documentation.</li>
+script so you can set any of those to affect the content of the documentation. 
+The output of this step is a DocBook formatted file</li>
 <li>The transformation from DocBook to FO format files involves an XSL transformation,
 so you can choose from the stylesheets that come with DocBook Doclet or supply your own.</li>
 <li>The final step of creating a PDF from an FO file is handled by Apache FOP, and
@@ -372,7 +407,7 @@ please let me know.</li>
 </ul>
 </p>
 <p>
-If you are running Java 5 the XSL transformation task in Ant will, by default,
+Note: If you are running Java 5 the XSL transformation task in Ant will, by default,
 use the XSLTC engine, which will want to compile the XSL stylesheet. There is a
 known issue with the DocBook stylesheets that can cause compiler errors, so the
 Glean script has the XSLT task use the Xalan processor instead. If Ant complains
@@ -462,10 +497,9 @@ descibes the format of its coverage filters.
 </p>
 <p>
 <h4><a name="findbugs">findbugs</a></h4>
-Findbugs is a tool to check for common Java coding errors. It can be run as a
-Swing application, an Eclipse plugin, or an Ant task. Glean uses the Ant task,
-along with a basic XSLT to generate a static report. The XML output can also be
-used by the <a href="#qalab">QALab</a> script.
+Findbugs is a tool to check for common Java coding errors. Glean runs its Ant task,
+along with a basic XSLT to generate a static HTML report. 
+It also produces XML output can also be used by the <a href="#qalab">QALab</a> script.
 </p>
 <p>
 <table class="bodyTable">
@@ -489,7 +523,7 @@ used by the <a href="#qalab">QALab</a> script.
 </p>
 <p>
 <h4><a name="jaranalyzer">jaranalyzer</a></h4>
-JarAnalyzer is a great tool for finding out or keeping track of the dependencies
+JarAnalyzer is a great tool for discovering or keeping track of the dependencies
 you have between components (JARs). It is like JDepend taken up one level. The
 report it produces is very similar to JDepend's, with similar metrics that you
 can track or investigate. It is also possible to produce output in DOT format that
@@ -498,7 +532,8 @@ I'm working on a way to specify that format through Glean because I think that's
 a very powerful way to express it.
 </p>
 <p>
-JarAnalyzer 1.1 uses BCEL which, unfortunately, does not support Java 5 syntax.
+JarAnalyzer 1.1 uses BCEL which, unfortunately, does not support Java 5 syntax,
+so if your project is using Java 5 then this tool won't work.
 </p>
 <p>
 <table class="bodyTable">
@@ -586,15 +621,16 @@ You can use any other XSLT you want by overriding the <code>report.stylesheet</c
 </p>
 <p>
 <h4><a name="jdepend">jdepend</a></h4>
-JDepend calculates dependency metrics at a package level, along with some design
-metrics developed by Bob Martin. Its feedback can be useful for designers to keep
+JDepend calculates dependency metrics at a package level, along with some 
+<a href="http://www.objectmentor.com/resources/articles/oodmetrc.pdf">design
+metrics</a> developed by Bob Martin. Its feedback can be useful for designers to keep
 an eye on how an application or component design is coming together.
 </p>
 <p>
 <h4><a name="junitreport">junitreport</a></h4>
 JUnitReport is an optional task in Ant that creates a browsable report of your 
 unit test results. The Glean script assumes that you have
-the optional tasks installed.
+the Ant optional tasks installed.
 </p>
 <p>
 <table class="bodyTable">
@@ -731,8 +767,8 @@ If you don't, it will still generate the table-based documentation.
 </p>
 <p>
 Configuring SchemaSpy has some dependencies on the type of database you want to
-inspect, so see the SchemaSpy documentation for specifics of the values for the
-properties.
+inspect, so see the <a href="http://schemaspy.sourceforge.net/">SchemaSpy documentation</a> 
+for specifics of the values for the properties.
 </p>
 <p>
 <table class="bodyTable">
@@ -769,7 +805,7 @@ properties.
 <p>
 <h4><a name="statcvs">svatcvs</a></h4>
 StatCVS is a tool that analyzes the commit history from a CVS repository.
-You can see who line count graphs over time, commit
+You can see line count graphs over time, commit
 counts by developer, when the busiest commit time during the day or week was,
 or where there is the most activity in the codebase. It is the basis for StatSVN,
 which does the same thing (with a few more features) for a Subversion repository.
@@ -802,7 +838,7 @@ properties listed below.
 <p>
 <h4><a name="statsvn">svatsvn</a></h4>
 StatSVN is a tool that slices and dices data on Subversion commit history in
-various and sundry ways. You can see who line count graphs over time, commit
+various and sundry ways. You can see line count graphs over time, commit
 counts by developer, when the busiest commit time during the day or week was,
 or where there is the most activity in the codebase. It is derived from StatCVS,
 which does the same sort of thing with CVS activity data.
@@ -836,12 +872,12 @@ properties listed below.
 <h4><a name="umlgraph-doc">umlgraph-doc</a></h4>
 UMLGraph is a tool that can generate UML class diagrams from declarative descriptions.
 Since those descriptions are a subset of the Java class syntax, you can feed it
-your source files and it can generate class diagrams from them.
+your source files and it will generate class diagrams from them.
 </p>
 <p>
 One of the recent additions to UMLGraph is a doclet that will insert class diagrams
-into Javadoc. The <code>umlgraph-doc</code> script in Glean is what generates that
-output. It uses the same properties that the <code>javadoc</code> script does for
+into Javadoc. The <code>umlgraph-doc</code> script in Glean runs this doclet. 
+It uses the same properties that the <code>javadoc</code> script does for
 title/header/footer.
 </p>
 <p>
