@@ -37,19 +37,19 @@ to each of the reports.
 If you want to run Glean from your project build file, simply call it with an
 <code>&lt;ant&gt;</code> task, such as this.
 <pre>
-    <property name="glean.home"  value="${user.home}/tools/glean"/>
-    <property name="project.feedback.properties" 
-                                 value="/path/to/my.feedback.properties"/>
+    &lt;property name="glean.home"  value="${user.home}/tools/glean"/&gt;
+    &lt;property name="project.feedback.properties" 
+                                 value="/path/to/my.feedback.properties"/&gt;
     
-    <target name="call-glean">
-        <ant 
+    &lt;target name="call-glean"&gt;
+        &lt;ant 
             antfile="${glean.home}/build.xml"
             inheritall="false"
-            dir="${glean.home}">
-            <property name="feedback.properties" 
-                     value="${project.feedback.properties}"/>
-        </ant>
-    </target>
+            dir="${glean.home}"&gt;
+            &lt;property name="feedback.properties" 
+                     value="${project.feedback.properties}"/&gt;
+        &lt;/ant&gt;
+    &lt;/target&gt;
 </pre>
 You can pass in any additional properties as subelements as well. This can be
 a useful way to share common settings, such as log or distribution directories,
@@ -67,28 +67,30 @@ and documentation are always up to date.
 A CruiseControl project configuration to run Glean could contain a couple of
 elements like this.
 <pre>
-    <project name="my-project-feedback">
+    &lt;project name="my-project-feedback"&gt;
         ...        
-        <ant
+        &lt;ant
             buildfile="build.xml"
             antWorkingDir="${glean.home}"
             target="clean glean dist deploy"
-            time="2300">
-            <property name="feedback.properties"
-                      value="/path/to/myproject.feedback.properties"/>
-            <property name="glean.log.dir"   value="${log.dir}"/>
-            <property name="glean.log.file"  value="${project.name}-feedback.log"/>
-        </ant>
+            time="2300"&gt;
+            &lt;property name="feedback.properties"
+                      value="/path/to/myproject.feedback.properties"/&gt;
+            &lt;property name="glean.log.dir"   value="${log.dir}"/&gt;
+            &lt;property name="glean.log.file"  value="${project.name}-feedback.log"/&gt;
+        &lt;/ant&gt;
         
-        <publishers>
-            <artifactspublisher 
+        &lt;publishers&gt;
+            &lt;artifactspublisher 
                 file="${log.dir}/${project.name}-feedback.log"
-                dest="build_artifacts/${project.name}"/>
-        </publishers>
+                dest="build_artifacts/${project.name}"/&gt;
+        &lt;/publishers&gt;
         ...
-    </project>
+    &lt;/project&gt;
 </pre>
-With plugin preconfiguration and 
+With <a href="http://www.developertesting.com/archives/month200602/20060216-SharingPreconfiguration.html">
+plugin preconfiguration and template projects</a>, you can create a quick template
+that allows you to add new Glean projects with just a few lines.
 </p>
 </section>
 <section name="Publishing The Results">

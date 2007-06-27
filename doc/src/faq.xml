@@ -116,6 +116,22 @@ vanilla Ant scripts.
 </div>
 </div>
 
+<div class="faq">
+<div class="question">
+<p>
+My reports for Emma/Cobertura/JDepend/JUnitReport didn't run. What's wrong?
+</p>
+</div>
+
+<div class="answer">
+<p>
+Some of the tools that Glean runs work against artifacts of a build, such as
+.class files or test output. If the project directory that Glean is pointed to
+doesn't have these artifacts, the tools skip over them.
+</p>
+</div>
+</div>
+
 </section>
 </body>
 </document>

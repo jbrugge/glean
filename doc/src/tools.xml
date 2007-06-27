@@ -352,40 +352,6 @@ HTML source.
 </table>
 </p>
 <p>
-<h4><a name="dashboard">dashboard</a></h4>
-The Glean dashboard is a custom Groovy script that gathers together a summary of
-the results of the other analysis tools for a point-in-time view of your feedback.
-The sample screenshot gives you an idea of what you will see.
-</p>
-<p>
-Unlike the other tools, enabling the dashboard is done via a separate property,
-<code>create.dashboard</code>, which should have an Ant "true" value (yes/true/on).
-It is done this way rather than on the <code>tool.pattern</code> property to make
-sure that it run after all other tools have run and generated their output.
-</p>
-<p>
-The Groovy code that runs this needs to be downloaded separately. It is packaged
-as a JAR, but the source is there too if you want to see how it works or improve
-on it. (I am new to Groovy, so I make no claims to it being a model of Groovy code.)
-The <code>toolhome.properties.local</code> file should also be updated to point
-to the place where the dashboard JAR and Groovy are each installed.
-</p>
-<p>
-The dashboard was inspired by 
-<a href="http://thediscoblog.com/2007/01/27/groovys-the-elixir-for-report-overload-syndrome/">
-Andy Glover's description of a summary page</a> for
-feedback metrics, and his pointing out how easy it is to gather this stuff together
-with Groovy.
-</p>
-<p>
-<table class="bodyTable">
-<th>Property</th><th>Default value</th><th>Description</th>
-  <tr>
-    <td></td><td></td><td></td>
-  </tr>
-</table>
-</p>
-<p>
 <h4><a name="dbdoclet">dbdoclet</a></h4>
 DocBook Doclet is a Javadoc doclet that generates DocBook code rather than HTML.
 It is great if you want to generate a nicely formatted API document for your system
