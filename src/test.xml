@@ -5,10 +5,6 @@
         <include name="${unit.test.pattern}"/>
     </patternset>
     
-    <patternset id="integration.test.classes">
-        <include name="${integration.test.pattern}"/>
-    </patternset>
-    
     <property name="test.patternset"       value="unit.test.classes"/>
     
     <path id="test.classpath">
@@ -18,6 +14,7 @@
         <fileset dir="${test.lib.dir}">
             <include name="**/*.jar"/>
         </fileset>
+        <pathelement location="${extra.test.path}"/>
     </path>
     
     <target name="clean-test-results">
