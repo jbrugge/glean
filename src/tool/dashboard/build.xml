@@ -56,6 +56,8 @@
     </target>
 
     <target name="strip-dtds"
+        depends="check-cobertura-data"
+        if="cobertura.data.exists"
         description="Remove DTD entities from data files that refer to external URLs">
 
         <echo message="Removing '${cobertura.dtd.spec}' from ${cobertura.data.file}"/>
@@ -63,6 +65,10 @@
             value="" 
             token="${cobertura.dtd.spec}"
             summary="true" />
+    </target>
+    
+    <target name="check-cobertura-data" description="Check if there is a data file from Cobertura">
+        <available file="${cobertura.data.file}" property="cobertura.data.exists"/>
     </target>
 </project>
 
