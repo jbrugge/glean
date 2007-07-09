@@ -16,7 +16,16 @@
     <!-- Path for unit tests -->
     <path id="test.coverage.classpath">
         <pathelement location="${out.instr.dir}"/>
-        <path refid="tool.classpath"/>
+        <!-- We need to make sure ASM is kept off of the classpath used when
+             running the tests since Cobertura packages one that may conflict
+             with other components, Hibernate in particular.
+             See http://cobertura.sourceforge.net/faq.html -->
+        <fileset dir="${tool.home}">
+            <include name="**/*.jar"/>
+            <exclude name="**/asm*.jar"/>
+        </fileset>
+        <pathelement location="${tool.home}"/>
+        <path refid="build.classpath"/>
     </path>
     
     <target name="run-report" depends="cobertura"/>
