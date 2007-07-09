@@ -210,6 +210,9 @@ is specified.
 # The default set of tools is just a starting point for basic feedback.
 tool.pattern        = java2html14,javadoc,javancss,pmd
 
+# Turn on/off Dashboard generation (requires Groovy)
+create.dashboard    = false
+
 # The base of the target project should be defined as an absolute path
 project.root        = ${basedir}
 
