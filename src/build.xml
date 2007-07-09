@@ -66,7 +66,6 @@
         <condition property="dashboard.selected">
             <istrue value="${create.dashboard}"/>
         </condition>
-        <echo message="dashboard.selected = ${dashboard.selected}"/>
     </target>
 
     <target name="clean" description="Clean out generated report files">
