@@ -1,7 +1,7 @@
 <project name="dashboard" default="report" basedir=".">
     <property name="tool.description" 
              value="Summary view of feedback metrics"/>
-    <property name="tool.url"         value=""/>
+    <property name="tool.url"         value="http://jbrugge.com/glean/dashboard.jar"/>
     <property name="tool.min.jdk"     value="1.4"/>
     <property name="tool.dependencies" value="Groovy"/>
     
