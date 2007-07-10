@@ -40,7 +40,7 @@
                 failonerror="no"
                 target="@{target}">
                 <!-- Other common properties specific to reports are available in feedback.properties -->
-                <property name="feedback.script.dir"  location="${basedir}"/>
+                <property name="feedback.script.dir"  location="${basedir}/src"/>
                 <property name="project.root"         location="${project.root}"/>
                 <property name="src.project.name"     value="${src.project.name}"/>
                 <property name="feedback.timestamp"   value="${feedback.timestamp}"/>
@@ -49,7 +49,7 @@
                 <extra-properties/>
                 
                 <!-- Run every report that matches our pattern-->
-                <dirset dir="tool" includes="@{pattern}"/>
+                <dirset dir="src/tool" includes="@{pattern}"/>
             </subant>
         </sequential>
     </macrodef>
