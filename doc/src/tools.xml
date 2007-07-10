@@ -50,6 +50,7 @@ some benefit from their data.
 <table class="bodyTable">
 <th>Name</th><th>Description</th><th>JDK Level</th><th>Dependencies</th><th>Home</th>
 
+
             <tr class="a">
             <td><a href="#beandoc">beandoc</a></td>
             <td>Spring bean documentation</td>
@@ -80,6 +81,14 @@ some benefit from their data.
             <td>1.4</td>
             <td>None</td>
             <td><a href="http://pmd.sourceforge.net/cpd.html">Download</a></td>
+            </tr>
+        
+            <tr class="a">
+            <td><a href="#dashboard">dashboard</a></td>
+            <td>Summary view of feedback metrics</td>
+            <td>1.4</td>
+            <td>Groovy</td>
+            <td><a href="http://jbrugge.com/glean/dashboard.jar">Download</a></td>
             </tr>
         
             <tr class="a">

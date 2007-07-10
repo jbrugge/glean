@@ -41,12 +41,6 @@ ant -Dfeedback.properties=samples/commons-lang.feedback.properties \
     <a href='http://jakarta.apache.org/site/downloads/downloads_commons-lang.cgi'>Jakarta Commons-Lang 2.3</a>
   </th>
   <th align='center'>
-    <a href='http://java.sun.com/j2ee/1.4/download.html#samples'>Petstore Admin</a>
-  </th>
-  <th align='center'>
-    <a href='http://java.sun.com/j2ee/1.4/download.html#samples'>Petstore OPC</a>
-  </th>
-  <th align='center'>
     <a href='http://java.sun.com/j2ee/1.4/download.html#samples'>Petstore Main</a>
   </th>
   <th align='center'>
@@ -72,28 +66,22 @@ ant -Dfeedback.properties=samples/commons-lang.feedback.properties \
     <td align='center' />
     <td align='center' />
     <td align='center' />
-    <td align='center' />
-    <td align='center' />
     <td align='center'>x</td>
     <td align='center' />
   </tr>
   <tr>
     <td>checkstyle</td>
     <td align='center' />
+    <td align='center' />
+    <td align='center' />
+    <td align='center' />
+    <td align='center' />
+    <td align='center' />
+    <td align='center' />
     <td align='center'>x</td>
-    <td align='center' />
-    <td align='center' />
-    <td align='center' />
-    <td align='center' />
-    <td align='center' />
-    <td align='center' />
-    <td align='center' />
-    <td align='center' />
   </tr>
   <tr>
     <td>cobertura</td>
-    <td align='center' />
-    <td align='center' />
     <td align='center' />
     <td align='center' />
     <td align='center' />
@@ -112,14 +100,21 @@ ant -Dfeedback.properties=samples/commons-lang.feedback.properties \
     <td align='center' />
     <td align='center' />
     <td align='center' />
+    <td align='center'>x</td>
+  </tr>
+  <tr>
+    <td>dashboard</td>
     <td align='center' />
+    <td align='center' />
+    <td align='center' />
+    <td align='center' />
+    <td align='center' />
+    <td align='center'>x</td>
     <td align='center' />
     <td align='center'>x</td>
   </tr>
   <tr>
     <td>dbdoclet</td>
-    <td align='center' />
-    <td align='center' />
     <td align='center' />
     <td align='center' />
     <td align='center' />
@@ -139,13 +134,9 @@ ant -Dfeedback.properties=samples/commons-lang.feedback.properties \
     <td align='center' />
     <td align='center' />
     <td align='center' />
-    <td align='center' />
-    <td align='center' />
   </tr>
   <tr>
     <td>emma</td>
-    <td align='center' />
-    <td align='center' />
     <td align='center' />
     <td align='center' />
     <td align='center' />
@@ -158,9 +149,7 @@ ant -Dfeedback.properties=samples/commons-lang.feedback.properties \
   <tr>
     <td>findbugs</td>
     <td align='center' />
-    <td align='center' />
-    <td align='center' />
-    <td align='center' />
+    <td align='center'>x</td>
     <td align='center' />
     <td align='center' />
     <td align='center' />
@@ -170,9 +159,7 @@ ant -Dfeedback.properties=samples/commons-lang.feedback.properties \
   </tr>
   <tr>
     <td>jaranalyzer</td>
-    <td align='center' />
-    <td align='center' />
-    <td align='center' />
+    <td align='center'>x</td>
     <td align='center' />
     <td align='center' />
     <td align='center' />
@@ -189,15 +176,11 @@ ant -Dfeedback.properties=samples/commons-lang.feedback.properties \
     <td align='center'>x</td>
     <td align='center'>x</td>
     <td align='center'>x</td>
-    <td align='center'>x</td>
-    <td align='center'>x</td>
     <td align='center' />
     <td align='center'>x</td>
   </tr>
   <tr>
     <td>java2html15</td>
-    <td align='center' />
-    <td align='center' />
     <td align='center' />
     <td align='center' />
     <td align='center' />
@@ -215,15 +198,11 @@ ant -Dfeedback.properties=samples/commons-lang.feedback.properties \
     <td align='center'>x</td>
     <td align='center'>x</td>
     <td align='center'>x</td>
-    <td align='center'>x</td>
-    <td align='center'>x</td>
     <td align='center' />
     <td align='center' />
   </tr>
   <tr>
     <td>javancss</td>
-    <td align='center'>x</td>
-    <td align='center'>x</td>
     <td align='center'>x</td>
     <td align='center'>x</td>
     <td align='center'>x</td>
@@ -240,8 +219,6 @@ ant -Dfeedback.properties=samples/commons-lang.feedback.properties \
     <td align='center' />
     <td align='center' />
     <td align='center' />
-    <td align='center' />
-    <td align='center' />
     <td align='center'>x</td>
     <td align='center'>x</td>
     <td align='center' />
@@ -253,17 +230,13 @@ ant -Dfeedback.properties=samples/commons-lang.feedback.properties \
     <td align='center' />
     <td align='center' />
     <td align='center' />
-    <td align='center' />
-    <td align='center' />
-    <td align='center' />
+    <td align='center'>x</td>
     <td align='center' />
     <td align='center' />
   </tr>
   <tr>
     <td>pmd</td>
     <td align='center' />
-    <td align='center'>x</td>
-    <td align='center'>x</td>
     <td align='center'>x</td>
     <td align='center'>x</td>
     <td align='center'>x</td>
@@ -282,8 +255,6 @@ ant -Dfeedback.properties=samples/commons-lang.feedback.properties \
     <td align='center' />
     <td align='center' />
     <td align='center' />
-    <td align='center' />
-    <td align='center' />
   </tr>
   <tr>
     <td>schemaspy</td>
@@ -295,13 +266,9 @@ ant -Dfeedback.properties=samples/commons-lang.feedback.properties \
     <td align='center' />
     <td align='center' />
     <td align='center' />
-    <td align='center' />
-    <td align='center' />
   </tr>
   <tr>
     <td>statcvs</td>
-    <td align='center' />
-    <td align='center' />
     <td align='center' />
     <td align='center' />
     <td align='center' />
@@ -321,13 +288,9 @@ ant -Dfeedback.properties=samples/commons-lang.feedback.properties \
     <td align='center' />
     <td align='center' />
     <td align='center' />
-    <td align='center' />
-    <td align='center' />
   </tr>
   <tr>
     <td>umlgraph-doc</td>
-    <td align='center' />
-    <td align='center' />
     <td align='center' />
     <td align='center' />
     <td align='center' />
@@ -339,8 +302,6 @@ ant -Dfeedback.properties=samples/commons-lang.feedback.properties \
   </tr>
   <tr>
     <td>umlgraph-views</td>
-    <td align='center' />
-    <td align='center' />
     <td align='center' />
     <td align='center' />
     <td align='center' />

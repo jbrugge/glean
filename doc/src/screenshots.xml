@@ -17,7 +17,6 @@ This stylesheet uses a number of styles pulled from the XSL that comes with
 the standard Ant distributions.
 </p>
     <a href="./jdom-summary.jpg"><img src="./jdom-summary-thumb.jpg" width="600" height="300" align="center"/></a>
-</a>
 <p>
 The output of the individual reports is usually defined by the tool.
 Many of them produce XML output, and those stylesheets distributed with Glean
