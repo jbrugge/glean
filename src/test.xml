@@ -33,7 +33,7 @@
             <mkdir dir="${test.report.dir}"/>
             
             <junit fork="true"
-                printsummary="true"
+                printsummary="false"
                 showoutput="true">
                 
                 <classpath>
@@ -58,7 +58,7 @@
                     name="${test.suite}"/>
                 
                 <formatter type="xml"/>
-                <formatter type="plain"/>
+                <formatter type="brief"/>
             </junit>
         </sequential>
     </macrodef>
