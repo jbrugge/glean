@@ -102,7 +102,7 @@ src.project.name    = Jakarta Commons-Lang 2.2
 This will run all of the tools in the basic setup. The results will be simple HTML
 files, along with a summary page. From a browser, open the file
 <code>/path/to/myproject/glean/index.html</code>. The summary
-should look <a href="./samples.html#screenshot">something like this</a>.
+should look <a href="./screenshots.html#screenshot">something like this</a>.
 </p>
 <p>
 See the <a href="./using.html">documentation</a>  and <a href="./tools.html">tools</a> 

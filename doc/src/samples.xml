@@ -398,20 +398,5 @@ tools you like against it.
 </p>
 
 </section>
-
-<section name="Screen Shot">
-<p>
-Glean will create a summary page of the reports that were run for a project.
-The look of the summary page is controlled by the <code>reports.css</code> stylesheet.
-This stylesheet uses a number of styles pulled from the XSL that comes with 
-the standard Ant distributions.
-</p>
-<a name="screenshot"><img src="./summary-shot.jpg" width="600" height="300" align="center"/></a>
-<p>
-The output of the individual reports is usually defined by the tool.
-Many of them produce XML output, and those stylesheets distributed with Glean
-use the same <code>reports.css</code> stylesheet to produce a relatively consistent look.
-</p>
-</section>
 </body>
 </document>

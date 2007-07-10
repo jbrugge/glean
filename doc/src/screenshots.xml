@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+
+  <properties>
+    <author email="john@jbrugge.com">John Brugge</author>
+    <title>Glean : Screenshots</title>
+  </properties>
+
+<body>
+<section name="Summary Page">
+<a name="screenshot"/>
+<p>
+Glean will create a summary page of the reports that were run for a project.
+It is a simple table of links, the look of which is controlled by the 
+<code>reports.css</code> stylesheet.
+This stylesheet uses a number of styles pulled from the XSL that comes with 
+the standard Ant distributions.
+</p>
+    <a href="./jdom-summary.jpg"><img src="./jdom-summary-thumb.jpg" width="600" height="300" align="center"/></a>
+</a>
+<p>
+The output of the individual reports is usually defined by the tool.
+Many of them produce XML output, and those stylesheets distributed with Glean
+use the same <code>reports.css</code> stylesheet to produce a relatively consistent look.
+</p>
+</section>
+
+<section name="Dashboard">
+<a name="dashboard"/>
+<p>
+The dashboard gives a summary view of the different metrics reports. It requires
+Groovy to run, so it is not turned on by default. 
+See <a href="./using.html#dashboard">the notes on setting up the dashboard</a> 
+for more on configuring it.
+<a href="./jdom-dashboard.jpg"><img src="./jdom-dashboard-thumb.jpg" width="600" height="300" align="center"/></a>
+</p>
+</section>
+</body>
+</document>

@@ -8,6 +8,7 @@
         <menu name="Overview">
             <item name="About"          href="/index.html"/>
             <item name="Download"       href="/download.html"/>
+            <item name="Screenshots"    href="/screenshots.html"/>
             <item name="Using Glean"    href="/using.html"/>
             <item name="Samples"        href="/samples.html"/>
             <!-- Add this in when there really are questions
