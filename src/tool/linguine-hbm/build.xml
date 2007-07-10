@@ -1,0 +1,32 @@
+<project name="linguine-hbm" default="report" basedir=".">
+    <property name="tool.description"  value="Graph of Hibernate relationships"/>
+    
+    <property name="tool.url"          value="hhttp://www.softwaresecretweapons.com/jspwiki/Wiki.jsp?page=LinguineMaps"/>
+    <property name="tool.min.jdk"      value="1.4"/>
+    <property name="tool.dependencies" value="&lt;a href=&quot;http://graphviz.org&quot;&gt;Graphviz&lt;/a&gt;"/>
+    
+    <description>${tool.description}</description>
+
+    <import file="${feedback.script.dir}/tools-common.xml"/>
+
+    <property name="dot.exe" location="/usr/bin/dot" />
+
+    <taskdef name="hbm2gif" classname="com.oy.shared.lm.ant.HBMtoGIFTask"
+        classpathref="tool.classpath"/>
+
+    <target name="run-report" depends="hbm2gif"/>
+
+    <target name="hbm2gif" >
+        <hbm2gif
+            caption="Hibernate relationships from ${src.project.name}"
+            rotated="true"
+            colors="cyan, black, black"
+            dotFile="${gen.report.dir}/${report.name}.dot"
+            outFile="${gen.report.dir}/${report.name}.gif"
+            exeFile="${dot.exe}">
+            <fileset dir="${src.dir}">
+                <include name="**/*.hbm.xml"/>
+            </fileset>
+        </hbm2gif>
+    </target>
+</project>
