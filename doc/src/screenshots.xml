@@ -31,7 +31,7 @@ The dashboard gives a summary view of the different metrics reports. It requires
 Groovy to run, so it is not turned on by default. 
 See <a href="./using.html#dashboard">the notes on setting up the dashboard</a> 
 for more on configuring it.
-<a href="./jdom-dashboard.jpg"><img src="./jdom-dashboard-thumb.jpg" width="600" height="300" align="center"/></a>
+<a href="./jdom-dashboard.jpg"><img src="./jdom-dashboard-thumb.jpg" width="600" height="349" align="center"/></a>
 </p>
 </section>
 </body>

@@ -56,7 +56,7 @@ some benefit from their data.
             <td>Spring bean documentation</td>
             <td>1.4</td>
             <td><a href="http://graphviz.org">Graphviz</a></td>
-            <td><a href="http://opensource.atlassian.com/confluence/spring/display/BDOC/Home">Download</a></td>
+            <td><a href="http://springframework.sourceforge.net/beandoc/">Download</a></td>
             </tr>
         
             <tr class="a">
@@ -87,8 +87,8 @@ some benefit from their data.
             <td><a href="#dashboard">dashboard</a></td>
             <td>Summary view of feedback metrics</td>
             <td>1.4</td>
-            <td>Groovy</td>
-            <td><a href="http://jbrugge.com/glean/dashboard.jar">Download</a></td>
+            <td><a href="http://groovy.codehaus.org/">Groovy</a></td>
+            <td><a href="http://jbrugge.com/glean/dashboard-1.0.jar">Download</a></td>
             </tr>
         
             <tr class="a">
@@ -259,6 +259,10 @@ you have it downloaded, see the README. Building should be just running "ant dis
 from the command line.
 </p>
 <p>
+It also is limited to Spring 1.x style configuration files. Support for Spring 2.x
+namespaces is not there, so until the tool is updated its use is limited.
+</p>
+<p>
 <table class="bodyTable">
 <th>Property</th><th>Default value</th><th>Description</th>
   <tr>
@@ -364,13 +368,14 @@ HTML source.
 <h4><a name="dashboard">dashboard</a></h4>
 The Glean dashboard is a custom Groovy script that gathers together a summary of
 the results of the other analysis tools for a point-in-time view of your feedback.
-The sample screenshot gives you an idea of what you will see.
+The sample <a href="./screenshots.html#dashboard">screenshot</a> gives you an 
+idea of what you will see.
 </p>
 <p>
 Unlike the other tools, enabling the dashboard is done via a separate property,
 <code>create.dashboard</code>, which should have an Ant "true" value (yes/true/on).
 It is done this way rather than on the <code>tool.pattern</code> property to make
-sure that it run after all other tools have run and generated their output.
+sure that it run after all other tools have run so that it can work with their output..
 </p>
 <p>
 The Groovy code that runs this needs to be downloaded separately. It is packaged
@@ -387,10 +392,59 @@ feedback metrics, and his pointing out how easy it is to gather this stuff toget
 with Groovy.
 </p>
 <p>
-<table class="bodyTable">
-<th>Property</th><th>Default value</th><th>Description</th>
+Glean will look in the standard places for data files from the different tools.
+You should only need to change any of the properties below if you have had to
+alter the name or location of the output for these tools.
+</p>
+<p>
+<table class='bodyTable'>
+  <th>Property</th>
+  <th>Default Value</th>
+  <th>Description</th>
   <tr>
-    <td></td><td></td><td></td>
+    <td>jdepend.data.file</td>
+    <td>${gen.report.root}/jdepend/${src.project.name}-jdepend-feedback.xml</td>
+    <td>Data from JDepend</td>
+  </tr>
+  <tr>
+    <td>checkstyle.data.file</td>
+    <td>${gen.report.root}/checkstyle/${src.project.name}-checkstyle-feedback.xml</td>
+    <td>Data from Checkstyle</td>
+  </tr>
+  <tr>
+    <td>cobertura.data.file</td>
+    <td>${gen.report.root}/cobertura/coverage.xml</td>
+    <td>Data from Cobertura</td>
+  </tr>
+  <tr>
+    <td>javancss.data.file</td>
+    <td>${gen.report.root}/javancss/${src.project.name}-javancss-feedback.xml</td>
+    <td>Data from Javancss</td>
+  </tr>
+  <tr>
+    <td>junitreport.data.file</td>
+    <td>${gen.report.root}/junitreport/TESTS-TestSuites.xml</td>
+    <td>Data from JUnitReport</td>
+  </tr>
+  <tr>
+    <td>findbugs.data.file</td>
+    <td>${gen.report.root}/findbugs/${src.project.name}-findbugs-feedback.xml</td>
+    <td>Data from Findbugs</td>
+  </tr>
+  <tr>
+    <td>cpd.data.file</td>
+    <td>${gen.report.root}/cpd/${src.project.name}-cpd-feedback.xml</td>
+    <td>Data from CPD</td>
+  </tr>
+  <tr>
+    <td>pmd.data.file</td>
+    <td>${gen.report.root}/pmd/${src.project.name}-pmd-feedback.xml</td>
+    <td>Data from PMD</td>
+  </tr>
+  <tr>
+    <td>emma.data.file</td>
+    <td>${gen.report.root}/emma/coverage.xml</td>
+    <td>Data from Emma</td>
   </tr>
 </table>
 </p>

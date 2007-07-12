@@ -1,9 +1,9 @@
 <project name="dashboard" default="report" basedir=".">
     <property name="tool.description" 
              value="Summary view of feedback metrics"/>
-    <property name="tool.url"         value="http://jbrugge.com/glean/dashboard.jar"/>
+    <property name="tool.url"         value="http://jbrugge.com/glean/dashboard-1.0.jar"/>
     <property name="tool.min.jdk"     value="1.4"/>
-    <property name="tool.dependencies" value="Groovy"/>
+    <property name="tool.dependencies" value="&lt;a href=&quot;http://groovy.codehaus.org/&quot;&gt;Groovy&lt;/a&gt;"/>
     
     <description>${tool.description}</description>
 

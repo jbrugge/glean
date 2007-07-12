@@ -27,6 +27,9 @@
     <patternset id="src.files">
         <exclude name="logs/"/>
         <exclude name="tmp/"/>
+        <!-- TEMP: hack to keep out tools not ready for prime time yet -->
+        <exclude name="tool/linguine-ant/"/>
+        <exclude name="tool/linguine-hbm/"/>
     </patternset>
 
     <target name="doc" 
