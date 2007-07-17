@@ -2,7 +2,7 @@
 
 if [ $# -eq 0 ]
 then
-    JPS="javapetstore.admin javapetstore.opc javapetstore.supplier javapetstore.waf"
+    JPS="javapetstore.petstore javapetstore.supplier javapetstore.waf"
     SAMPLES="apache-ant commons-lang jdom spring struts-cookbook $JPS"
 else
     SAMPLES=$1

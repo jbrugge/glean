@@ -378,11 +378,15 @@ It is done this way rather than on the <code>tool.pattern</code> property to mak
 sure that it run after all other tools have run so that it can work with their output..
 </p>
 <p>
-The Groovy code that runs this needs to be downloaded separately. It is packaged
+The Groovy code that runs this needs to be <a href="./download.html">downloaded separately</a>. 
+It is packaged
 as a JAR, but the source is there too if you want to see how it works or improve
 on it. (I am new to Groovy, so I make no claims to it being a model of Groovy code.)
-The <code>toolhome.properties.local</code> file should also be updated to point
-to the place where the dashboard JAR and Groovy are each installed.
+It is covered under the same style MIT License as Glean.
+</p>
+<p>
+The Ant script assumes that the <code>GROOVY_HOME</code> environment variable has
+been set to point to your Groovy installation root.
 </p>
 <p>
 The dashboard was inspired by 
@@ -401,6 +405,11 @@ alter the name or location of the output for these tools.
   <th>Property</th>
   <th>Default Value</th>
   <th>Description</th>
+  <tr>
+    <td>create.dashboard</td>
+    <td>false</td>
+    <td>Dashboard switch. Any Ant boolean values are valid (yes/true/on).</td>
+  </tr>
   <tr>
     <td>jdepend.data.file</td>
     <td>${gen.report.root}/jdepend/${src.project.name}-jdepend-feedback.xml</td>
