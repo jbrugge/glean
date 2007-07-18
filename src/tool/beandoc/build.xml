@@ -17,7 +17,9 @@
 
     <target name="beandoc">
         <beandoc
+              beanDocProps="${beandoc.props.file}"
               outputDir="${gen.report.dir}"
+              title="Spring Contexts in ${src.project.name}"
               >
             <fileset dir="${spring.config.dir}">
                 <include name="${spring.config.pattern}"/>
