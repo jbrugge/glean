@@ -2,7 +2,7 @@
     <description>Create a distribution of Glean</description>
     
     <property name="version"       value="1.2"/>
-    <property name="min.dist.name" value="glean-${version}"/>
+    <property name="dist.name"     value="glean-${version}"/>
     <property name="dist.dir"      value="dist"/>
     <property name="doc.dir"       value="doc"/>
     <property name="dist.docs"     value="target"/>
@@ -46,11 +46,11 @@
     	description="Package up a distribution as a ZIP archive">
         <mkdir dir="${dist.dir}"/>
         
-        <zip destfile="${dist.dir}/${min.dist.name}.zip">
-            <zipfileset dir="${doc.dir}/${dist.docs}" prefix="${min.dist.name}/docs">
+        <zip destfile="${dist.dir}/${dist.name}.zip">
+            <zipfileset dir="${doc.dir}/${dist.docs}" prefix="${dist.name}/docs">
                 <patternset refid="doc.files"/>
             </zipfileset>
-            <zipfileset dir="${glean.dir}" prefix="${min.dist.name}">
+            <zipfileset dir="${glean.dir}" prefix="${dist.name}">
                 <patternset refid="src.files"/>
             </zipfileset>
         </zip>
@@ -61,12 +61,12 @@
     	description="Package up a distribution as a gzip archive">
         <mkdir dir="${dist.dir}"/>
         
-        <tar destfile="${dist.dir}/${min.dist.name}.tar.gz"
+        <tar destfile="${dist.dir}/${dist.name}.tar.gz"
             compression="gzip">
-            <tarfileset dir="${doc.dir}/${dist.docs}" prefix="${min.dist.name}/docs">
+            <tarfileset dir="${doc.dir}/${dist.docs}" prefix="${dist.name}/docs">
                 <patternset refid="doc.files"/>
             </tarfileset>
-            <tarfileset dir="${glean.dir}" prefix="${min.dist.name}">
+            <tarfileset dir="${glean.dir}" prefix="${dist.name}">
                 <patternset refid="src.files"/>
             </tarfileset>
         </tar>
@@ -75,10 +75,10 @@
     <target name="release"
         depends="package"
     	description="Copy a distribution out to the server">
-        <echo message="Copying ${dist.dir}/${min.dist.name}.zip to ${release.host}:${release.dist.path}"/>
+        <echo message="Copying ${dist.dir}/${dist.name}.zip to ${release.host}:${release.dist.path}"/>
         <exec executable="scp" dir="${basedir}">
             <arg line="-P ${scp.port}"/>
-            <arg line="${dist.dir}/${min.dist.name}.zip ${scp.user}@${release.host}:${release.dist.path}"/>
+            <arg line="${dist.dir}/${dist.name}.zip ${scp.user}@${release.host}:${release.dist.path}"/>
         </exec>
     </target>
     
