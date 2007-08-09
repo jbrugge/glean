@@ -21,7 +21,6 @@
     <target name="run-report" depends="jaranalyzer"/>
 
     <target name="jaranalyzer">
-        <echoproperties prefix="report."/>
         <jaranalyzer srcdir="${lib.dir}" 
                 destfile="${gen.report.dir}/${report.name}.xml" 
                 summaryclass="com.kirkk.analyzer.textui.XMLUISummary"

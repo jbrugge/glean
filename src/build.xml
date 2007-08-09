@@ -121,6 +121,11 @@
         description="Download the set of tools with scripts for Glean">
         <echo message="** Sorry, not implemented yet. Work in progress **"/>
     </target>
+
+    <target name="diag"
+        description="Print out property values for diagnostics">
+        <echoproperties />
+    </target>
     
     <!-- Common macrodefs -->
     <macrodef name="glean-subant">
