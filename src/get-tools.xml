@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<project name="get-glean-tools" default="all" basedir="."
+    xmlns:artifact="antlib:org.apache.maven.artifact.ant">
+    <description>
+    Downloads as many of the tools that Glean uses that are available
+    from public Maven repositories.
+    </description>
+    
+    <property name="tools.base"      value="${user.home}/temp/tools"/>
+    
+    <macrodef name="fetch">
+      <attribute name="group" />
+      <attribute name="artifact" default="@{group}"/>
+      <attribute name="version" />
+      <attribute name="toolname" default="@{group}"/>
+      <sequential>
+        <artifact:dependencies pathID="@{artifact}.path">
+          <dependency groupID="@{group}"
+            artifactID="@{artifact}"
+            version="@{version}"/>
+        </artifact:dependencies>
+        <!-- Copy the tool and its dependencies to it's place -->
+        <copy todir="${tools.base}/@{toolname}-@{version}">
+          <path refId="@{artifact}.path"/>
+          <flattenmapper/>
+        </copy>
+      </sequential>
+    </macrodef>
+  </target>
+  
+  <target name="jdepend">
+    <fetch group="jdepend" artifact="jdepend" version="2.9.1"/>
+  </target>
+  
+  <target name="emma">
+    <fetch group="emma" artifact="emma" version="2.0.5321"/>
+  </target>
+  
+  <target name="checkstyle">
+    <fetch group="checkstyle" artifact="checkstyle" version="4.3"/>
+  </target>
+  
+  <target name="all"
+    depends="checkstyle,jdepend">
+  </target>
+</project>
