@@ -14,6 +14,7 @@
             <!-- Add this in when there really are questions
             <item name="FAQ"            href="/faq.html"/>
             -->
+            <item name="Mailing Lists"  href="/mailinglists.html"/>
         </menu>
     
         <menu name="Tool Scripts">
