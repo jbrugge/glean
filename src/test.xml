@@ -14,7 +14,7 @@
         <fileset dir="${test.lib.dir}">
             <include name="**/*.jar"/>
         </fileset>
-        <pathelement location="${extra.test.path}"/>
+        <pathelement path="${extra.test.path}"/>
     </path>
     
     <target name="clean-test-results">
