@@ -2,23 +2,36 @@
 <project name="get-glean-tools" default="all" basedir="."
     xmlns:artifact="antlib:org.apache.maven.artifact.ant">
     <description>
-    Downloads as many of the tools that Glean uses that are available
+    Downloads as many of the tools that Glean uses as are available
     from public Maven repositories.
     </description>
     
+    <!-- This is where each tool will get a subdirectory -->
     <property name="tools.base"      value="${user.home}/temp/tools"/>
     
+    <!-- Repositories holding the tools -->
+    <artifact:remoteRepository 
+        id="repo1.repository" 
+        url="http://repo1.maven.org/maven2" />
+    <artifact:remoteRepository 
+        id="statsvn.repository" 
+        url="http://objectlabkit.sf.net/m1-repo"
+        layout="legacy" />
+    
+    <!-- Simple macrodef for downloading a tool -->
     <macrodef name="fetch">
       <attribute name="group" />
       <attribute name="artifact" default="@{group}"/>
       <attribute name="version" />
       <attribute name="toolname" default="@{group}"/>
+      <attribute name="repo" default="repo1.repository"/>
       <sequential>
         <!-- Download the tool and its dependencies to our local M2 repo -->
         <artifact:dependencies pathID="@{artifact}.path">
           <dependency groupID="@{group}"
             artifactID="@{artifact}"
             version="@{version}"/>
+          <remoteRepository refid="@{repo}" />
         </artifact:dependencies>
         <!-- Copy the tool and its dependencies to a central place for Glean to use -->
         <copy todir="${tools.base}/@{artifact}-@{version}">
@@ -81,8 +94,9 @@
   </target>
   
   <target name="statsvn">
-    <fetch group="net.sf.statsvn" artifact="statsvn" version="0.2.0"
-        toolname="statsvn"/>
+    <fetch group="net.sf.statsvn" artifact="statsvn" version="0.3.1"
+        toolname="statsvn"
+        repo="statsvn.repository"/>
   </target>
   
   <target name="all"
