@@ -8,6 +8,7 @@
     
     <!-- This is where each tool will get a subdirectory -->
     <property name="tools.base"      value="${user.home}/temp/tools"/>
+    <property name="toolhome.props"  value="${user.home}/temp/toolhome.properties.local"/>
     
     <!-- Repositories holding the tools -->
     <artifact:remoteRepository 
@@ -17,6 +18,10 @@
         id="statsvn.repository" 
         url="http://objectlabkit.sf.net/m1-repo"
         layout="legacy" />
+    <artifact:remoteRepository 
+        id="statcvs.repository" 
+        url="http://stat-scm.sourceforge.net/maven2"
+        />
     
     <!-- Simple macrodef for downloading a tool -->
     <macrodef name="fetch">
@@ -33,11 +38,19 @@
             version="@{version}"/>
           <remoteRepository refid="@{repo}" />
         </artifact:dependencies>
+        
         <!-- Copy the tool and its dependencies to a central place for Glean to use -->
         <copy todir="${tools.base}/@{artifact}-@{version}">
           <path refId="@{artifact}.path"/>
           <flattenmapper/>
         </copy>
+        
+        <!-- Note the location in our local properties settings -->
+        <echo message="Writing toolhome location"/>
+        <echo file="${toolhome.props}" 
+            append="true"
+            message="@{toolname}.home = $${tools.base}/@{artifact}-@{version}${line.separator}"/>
+            
       </sequential>
     </macrodef>
   
@@ -90,7 +103,9 @@
   </target>
   
   <target name="statcvs">
-    <fetch group="statcvs" artifact="statcvs" version="0.1.3"/>
+    <fetch group="net.sf" artifact="stat-cvs" version="0.3"
+        toolname="statcvs"
+        repo="statcvs.repository"/>
   </target>
   
   <target name="statsvn">
@@ -99,7 +114,22 @@
         repo="statsvn.repository"/>
   </target>
   
+  <target name="init">
+    <!-- Initialize the properties file that will point to the install location
+         of the tools -->
+    <echo file="${toolhome.props}"
+          message="# Generated file of home directories for Glean-driven tools.${line.separator}"
+          />
+    <echo file="${toolhome.props}"
+          message="$${tools.base} = ${tools.base}${line.separator}"
+          append="true"
+          />
+    <echo file="${toolhome.props}" 
+          message="${line.separator}" 
+          append="true"/>
+  </target>
+  
   <target name="all"
-    depends="beandoc,checkstyle,cobertura,emma,findbugs,java2html14,java2html15,javancss,jdepend,pmd,qalab,statcvs,statsvn">
+    depends="init,beandoc,checkstyle,cobertura,emma,findbugs,java2html14,java2html15,javancss,jdepend,pmd,qalab,statcvs,statsvn">
   </target>
 </project>
