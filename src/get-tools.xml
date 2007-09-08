@@ -23,6 +23,21 @@
         url="http://stat-scm.sourceforge.net/maven2"
         />
     
+    <macrodef name="get-tool">
+      <attribute name="group" />
+      <attribute name="artifact" default="@{group}"/>
+      <attribute name="version" />
+      <attribute name="toolname" default="@{group}"/>
+      <attribute name="repo" default="repo1.repository"/>
+      <sequential>
+        <fetch group="@{group}" artifact="@{artifact}" version="@{version}" 
+            toolname="@{toolname}" 
+                repo="@{repo}"/>
+                
+        <write-home artifact="@{artifact}" version="@{version}" toolname="@{toolname}"/>
+      </sequential>
+    </macrodef>
+      
     <!-- Simple macrodef for downloading a tool -->
     <macrodef name="fetch">
       <attribute name="group" />
@@ -44,8 +59,15 @@
           <path refId="@{artifact}.path"/>
           <flattenmapper/>
         </copy>
-        
-        <!-- Note the location in our local properties settings -->
+      </sequential>
+    </macrodef>
+    
+    <!-- Note the location in our local properties settings -->
+    <macrodef name="write-home">
+      <attribute name="artifact" default="@{group}"/>
+      <attribute name="version" />
+      <attribute name="toolname" default="@{group}"/>
+      <sequential>
         <echo message="Writing toolhome location"/>
         <echo file="${toolhome.props}" 
             append="true"
@@ -55,61 +77,61 @@
     </macrodef>
   
   <target name="beandoc">
-    <fetch group="org.springframework" artifact="spring-beandoc" version="0.7.1"
+    <get-tool group="org.springframework" artifact="spring-beandoc" version="0.7.1"
         toolname="breandoc"/>
   </target>
   
   <target name="checkstyle">
-    <fetch group="checkstyle" artifact="checkstyle" version="4.3"/>
+    <get-tool group="checkstyle" artifact="checkstyle" version="4.3"/>
   </target>
   
   <target name="cobertura">
-    <fetch group="cobertura" artifact="cobertura" version="1.8"/>
+    <get-tool group="cobertura" artifact="cobertura" version="1.8"/>
   </target>
   
   <target name="emma">
-    <fetch group="emma" artifact="emma" version="2.0.5312"/>
+    <get-tool group="emma" artifact="emma" version="2.0.5312"/>
   </target>
   
   <target name="findbugs">
-    <fetch group="findbugs" artifact="findbugs" version="1.0.0"/>
+    <get-tool group="findbugs" artifact="findbugs" version="1.0.0"/>
   </target>
   
   <target name="java2html14">
-    <fetch group="java2html" artifact="j2h" version="1.3.1"
+    <get-tool group="java2html" artifact="j2h" version="1.3.1"
         toolname="java2html14"/>
   </target>
   
   <target name="java2html15">
-    <fetch group="de.java2html" artifact="java2html" version="5.0"
+    <get-tool group="de.java2html" artifact="java2html" version="5.0"
         toolname="java2html15"/>
   </target>
   
   <target name="javancss">
-    <fetch group="javancss" artifact="javancss" version="28.49"/>
+    <get-tool group="javancss" artifact="javancss" version="28.49"/>
   </target>
   
   <target name="jdepend">
-    <fetch group="jdepend" artifact="jdepend" version="2.9.1"/>
+    <get-tool group="jdepend" artifact="jdepend" version="2.9.1"/>
   </target>
   
   <target name="pmd">
-    <fetch group="pmd" artifact="pmd" version="3.9"/>
+    <get-tool group="pmd" artifact="pmd" version="3.9"/>
   </target>
   
   <target name="qalab">
-    <fetch group="net.objectlab" artifact="qalab" version="1.0"
+    <get-tool group="net.objectlab" artifact="qalab" version="1.0"
         toolname="qalab"/>
   </target>
   
   <target name="statcvs">
-    <fetch group="net.sf" artifact="stat-cvs" version="0.3"
+    <get-tool group="net.sf" artifact="stat-cvs" version="0.3"
         toolname="statcvs"
         repo="statcvs.repository"/>
   </target>
   
   <target name="statsvn">
-    <fetch group="net.sf.statsvn" artifact="statsvn" version="0.3.1"
+    <get-tool group="net.sf.statsvn" artifact="statsvn" version="0.3.1"
         toolname="statsvn"
         repo="statsvn.repository"/>
   </target>
