@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+
+  <properties>
+    <author email="john@jbrugge.com">John Brugge</author>
+    <title>Glean : Mailing lists</title>
+  </properties>
+
+<body>
+<section name="Mailing Lists">
+<p>
+There are a couple of mailing lists set up to share information about the project.
+You can also <a href="mailto:john.brugge+glean@gmail.com">email me</a> with
+questions or comments if you like.
+</p>
+<table class="bodyTable">
+    <th>List</th>
+    <th>Description</th>
+  <tr>
+    <td><a href="http://groups.google.com/group/glean-code-announce">glean-code-announcements</a></td>
+    <td>News and announcements about the project.</td>
+  </tr>
+  <tr>
+    <td><a href="http://groups.google.com/group/glean-code-users">glean-code-users</a></td>
+    <td>Discussion, questions and suggestions about Glean</td>
+  </tr>
+</table>
+
+</section>
+</body>
+</document>

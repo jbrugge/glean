@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+
+  <properties>
+    <author email="john@jbrugge.com">John Brugge</author>
+    <title>Glean : Tool Installation</title>
+  </properties>
+
+<body>
+<section name="Getting The Tools">
+<p>
+If you don't have the tools installed already that Glean uses, you can get them
+a couple of different ways. The <a href="tools.html">tools</a> page has a list of
+download links that get you to that tool's site, and you can follow their instructions
+for download and setup. 
+</p>
+<p>
+There is also an Ant script in the Glean installation
+that is able to download about a dozen of the tools from public Maven repositories.
+It requires the Maven Ant tasks be installed, which is just one manual download,
+compared with a dozen. The script will also generate a properties file for Glean
+telling it where each of these tools is installed.
+<ul>
+<li>Download the <a href="http://maven.apache.org/ant-tasks.html">Maven Ant tasks</a>
+and install them where Ant knows about them (instructions are on the Maven Ant tasks
+page)</li>
+<li>Run the Glean Ant script. By default, the tools will go to area under
+<code>${user.home}/temp</code>, and a <code>toolhome.properties.local</code>
+file will be created in the same place.
+<pre>
+ant -f get-tools.xml
+</pre>
+</li>
+<li>You can specify the root of the tools area as well as the location of the
+generated properties file with properties on the command line.
+<pre>
+ant -f get-tools.xml -Dtools.base=/path/to/tool/base/dir -Dtoolhome.props=/path/to/toolhome.properties.local
+</pre>
+</li>
+</ul>
+</p>
+</section>
+
+<section name="Defining Tool Homes">
+<p>
+Glean uses a pair of properties files to tell it where each of the tools it uses
+can be found. The file <code>toolhome.properties</code> comes with Glean, and
+defines some defaults that may or may not correspond to your particular installation.
+The file <code>toolhome.properties.local</code>, if it exists, is read before the
+default file and is meant to let you define where your particular tools are if
+they differ from the default locations.
+</p>
+<p>
+These files are simple properties files, with the convention that the property
+name is
+<pre>
+(Glean tool name)home.properties
+</pre>
+Glean uses this convention to set up the tasks and paths needed for that tool to run.
+</p>
+</section>
+</body>
+</document>
+
