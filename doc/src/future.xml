@@ -40,7 +40,6 @@ is already complex enough.
 <li>Supporting projects that have multiple source folders</li>
 <li>Better XSLTs for some of the tools (e.g. FindBugs)</li>
 <li>Other ways to publish the output so that it could be included in a project website</li>
-<li>Script for downloading the set of tools so you don't have to get them individually</li>
 <li>A way to support tools that have multiple output options. For example, JDepend
 can generate a traditional tabular report or a DOT-based graph rendered by Graphviz</li>
 <li>Provide a way to discover the appropriate Glean settings for a given project automatically.

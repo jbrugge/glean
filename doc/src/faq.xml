@@ -18,13 +18,45 @@ the point of using Glean?
 
 <div class="answer">
 <p>
-The goal of Glean is to help you in two ways: 
+The goal of Glean is to help you along two dimensions: 
 <ul>
-    <li>to help you avoid writing what is essentially boilerplate Ant scripts for many of these tools, and to then copy that around from project to project,</li>
-    <li>to let you add or remove feedback tools easily</li>
+    <li>to let you add or remove feedback tools easily for a given project</li>
+    <li>to let you run these tools against any project you have</li>
 </ul>
+The first point means that you can easily try out different tools, change you mind,
+and experiment with what particular feedback is most valuable for your project.
+For many of the tools, it's as simple as adding the tool's name to a property value.
+We do it by providing a boilerplate Ant script for each tool 
+that most anyone would need to write if they were going to use that tool. The 
+boilerplates have property values that you can override with standard Ant property
+overrides.
+</p>
+<p>
+The second point means that you can have a consistent feedback process across
+any number of projects.
+We do this by providing a set of properties that define your project
+source and depdendencies layout, such that with a few settings you can have a full
+feedback system running for a project in short order.
+</p>
+<p>
 If you already have that flexibility in your build scripts, then you are ahead
-of the game, and may not want this.
+of the game, and may not need Glean. Then again, if you want to simplify your
+build scripts, you can let Glean take over the feedback responsibility.
+</p>
+</div>
+</div>
+
+<div class="faq">
+<div class="question">
+<p>
+Doesn't Maven do this kind of thing for me?
+</p>
+</div>
+
+<div class="answer">
+<p>
+If you are using Maven, then you already have a flexible, extensible system for
+plugins. Glean is aimed at giving something of that flavor to folks who use Ant.
 </p>
 </div>
 </div>
@@ -33,7 +65,7 @@ of the game, and may not want this.
 <div class="question">
 <p>
 We already use a lot of these tools in Eclipse, and the feedback is much more
-immediate. Doesn't this make the feedback loop larger rather than smaller?</p>
+immediate. Doesn't this make the feedback loop longer rather than shorter?</p>
 </div>
 
 <div class="answer">
@@ -42,7 +74,7 @@ Yes it does make the feedback loop potentially longer. The more immediate the
 feedback you can get the better. However, it's going to be hard to get consistent 
 feedback from your IDE for everyone on the team, nor do some people want to put
 more of a burden on their IDE than it already has. By all means, use IDE plugins
-to get feedback, but I think there is a lot of value to the project as a whole
+to get feedback, but there is a lot of value to the project as a whole
 to have a more independent set of feedback that everyone can look at.
 </p>
 </div>
@@ -96,22 +128,6 @@ were many component parts to the application, and generating feedback for the
 entire codebase was an important part of the daily build.
 That feedback process, however, was very much tuned for that application.
 For Glean, I wanted to generalize the ideas, start simple and grow.
-</p>
-</div>
-</div>
-
-<div class="faq">
-<div class="question">
-<p>
-Doesn't Maven do this kind of thing for me?
-</p>
-</div>
-
-<div class="answer">
-<p>
-If you are using Maven, then you already have a flexible, extensible system for
-plugins. Glean is aimed at giving something of that flavor to folks who use
-vanilla Ant scripts.
 </p>
 </div>
 </div>

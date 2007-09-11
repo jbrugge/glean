@@ -11,13 +11,12 @@
             <item name="Screenshots"    href="/screenshots.html"/>
             <item name="Using Glean"    href="/using.html"/>
             <item name="Samples"        href="/samples.html"/>
-            <!-- Add this in when there really are questions
             <item name="FAQ"            href="/faq.html"/>
-            -->
             <item name="Mailing Lists"  href="/mailinglists.html"/>
         </menu>
     
         <menu name="Tool Scripts">
+            <item name="Getting Tools"  href="/toolinstall.html"/>
             <item name="Descriptions"   href="/tools.html"/>
             <item name="In the works"   href="/future.html"/>
             <item name="Extending"      href="/adding.html"/>

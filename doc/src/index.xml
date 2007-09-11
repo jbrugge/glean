@@ -51,7 +51,9 @@ The pre-requisites for running the basic scripts are a minimal Ant setup.
 </ul>
 You will also need to download whichever tools you want Glean to run, along with
 any dependencies that they may have. The tools that Glean has scripts for are listed 
-on the <a href="./tools.html">tools</a> page.
+on the <a href="./tools.html">tools</a> page. You can get them individually, or
+use <a href="./toolinstall.html">an Ant script</a> that comes with Glean that 
+will download a number of them for you.
 </p>
 <p>
 Running Glean involves telling it where your project is and what tools you want
@@ -120,7 +122,8 @@ Glean is distributed under an <a href="./license.html">MIT License</a>.
 Use it well, share it freely.
 I plan to continue improving it, so your feedback is appreciated.
 If you have ideas or scripts to share, feel free to 
-<a href="mailto:john.brugge+glean@gmail.com">contact me</a>.
+post a note on the <a href="mailto:glean-code-users@googlegroups.com">glean-code-users</a> list,
+or <a href="mailto:john.brugge+glean@gmail.com">contact me</a>.
 </p>
 </section>
 </body>

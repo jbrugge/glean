@@ -19,7 +19,9 @@ or you can <a href="./adding.html">add support for another tool.</a>
 </p>
 <p>
 These tools come with all of their dependent JARs packaged together. You can download
-them using the links in the table, and then tell Glean about their install location
+them using the links in the table, or with 
+<a href="./toolinstall.html">the tool download script</a> that comes with Glean, 
+and then tell Glean about their install location
 in the <code>toolhome.properties.local</code> file. 
 </p>
 <table class="bodyTable">
