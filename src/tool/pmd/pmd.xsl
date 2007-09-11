@@ -59,8 +59,15 @@
     <xsl:for-each select="violation">
         <tr>
         <td style="padding: 3px" align="right"><div><xsl:attribute name="class"><xsl:call-template name="priorityDiv"/></xsl:attribute><xsl:value-of disable-output-escaping="yes" select="@priority"/></div></td>
-        <xsl:variable name="lineNum" select="@line"/>
-        <td><a href="{$context-root}/{$filename}.html#{$lineNum}">Line <xsl:value-of select="@line"/></a></td>
+        <!-- PMD 3.x uses the 'line' attribute, but 4.0 uses 'beginline' and 'endline' -->
+        <xsl:if test="@line">
+            <xsl:variable name="lineNum" select="@line"/>
+            <td><a href="{$context-root}/{$filename}.html#{$lineNum}">Line <xsl:value-of select="@line"/></a></td>
+        </xsl:if>
+        <xsl:if test="@beginline">
+            <xsl:variable name="lineNum" select="@beginline"/>
+            <td><a href="{$context-root}/{$filename}.html#{$lineNum}">Line <xsl:value-of select="@beginline"/></a></td>
+        </xsl:if>
         <td><xsl:value-of select="."/></td>
         <td><xsl:if test="@externalInfoUrl">
                 <a><xsl:attribute name="href"><xsl:value-of select="@externalInfoUrl"/></xsl:attribute><xsl:value-of select="@rule"/></a>
