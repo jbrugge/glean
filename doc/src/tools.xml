@@ -606,10 +606,6 @@ I'm working on a way to specify that format through Glean because I think that's
 a very powerful way to express it.
 </p>
 <p>
-JarAnalyzer 1.1 uses BCEL which, unfortunately, does not support Java 5 syntax,
-so if your project is using Java 5 then this tool won't work.
-</p>
-<p>
 <table class="bodyTable">
 <th>Property</th><th>Default value</th><th>Description</th>
   <tr>

@@ -142,7 +142,7 @@
             &lt;td&gt;${tool.description}&lt;/td&gt;
             &lt;td&gt;${tool.min.jdk}&lt;/td&gt;
             &lt;td&gt;${tool.dependencies}&lt;/td&gt;
-            &lt;td&gt;&lt;a href="${tool.url}"&gt;Download&lt;/a&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;a href="${tool.url}"&gt;Site&lt;/a&gt;&lt;/td&gt;
             &lt;/tr&gt;
         </echo>
     </target>
