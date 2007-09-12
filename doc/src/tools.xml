@@ -58,7 +58,7 @@ some benefit from their data.
             <td>Spring bean documentation</td>
             <td>1.4</td>
             <td><a href="http://graphviz.org">Graphviz</a></td>
-            <td><a href="http://springframework.sourceforge.net/beandoc/">Download</a></td>
+            <td><a href="http://springframework.sourceforge.net/beandoc/">Site</a></td>
             </tr>
         
             <tr class="a">
@@ -66,7 +66,7 @@ some benefit from their data.
             <td>Checks code against team style and design guidelines.</td>
             <td>1.4</td>
             <td>None</td>
-            <td><a href="http://checkstyle.sourceforge.net/">Download</a></td>
+            <td><a href="http://checkstyle.sourceforge.net/">Site</a></td>
             </tr>
         
             <tr class="a">
@@ -74,7 +74,7 @@ some benefit from their data.
             <td>Unit test coverage report</td>
             <td>1.4</td>
             <td>Optional Ant tasks (JUnit)</td>
-            <td><a href="http://cobertura.sourceforge.net/">Download</a></td>
+            <td><a href="http://cobertura.sourceforge.net/">Site</a></td>
             </tr>
         
             <tr class="a">
@@ -82,7 +82,7 @@ some benefit from their data.
             <td>Report of copy/paste segments found in source</td>
             <td>1.4</td>
             <td>None</td>
-            <td><a href="http://pmd.sourceforge.net/cpd.html">Download</a></td>
+            <td><a href="http://pmd.sourceforge.net/cpd.html">Site</a></td>
             </tr>
         
             <tr class="a">
@@ -90,7 +90,7 @@ some benefit from their data.
             <td>Summary view of feedback metrics</td>
             <td>1.4</td>
             <td><a href="http://groovy.codehaus.org/">Groovy</a></td>
-            <td><a href="http://jbrugge.com/glean/dashboard-1.0.jar">Download</a></td>
+            <td><a href="http://jbrugge.com/glean/dashboard-1.0.jar">Site</a></td>
             </tr>
         
             <tr class="a">
@@ -98,7 +98,7 @@ some benefit from their data.
             <td>Generates DocBook documentation from source code</td>
             <td>1.4</td>
             <td><a href="http://graphviz.org">Graphviz</a></td>
-            <td><a href="http://www.michael-a-fuchs.de/projects/dbdoclet/en/index.html">Download</a></td>
+            <td><a href="http://www.michael-a-fuchs.de/projects/dbdoclet/en/index.html">Site</a></td>
             </tr>
         
             <tr class="a">
@@ -106,7 +106,7 @@ some benefit from their data.
             <td>Checks completion of JavaDoc comments</td>
             <td>1.4</td>
             <td>None</td>
-            <td><a href="http://java.sun.com/j2se/javadoc/doccheck/">Download</a></td>
+            <td><a href="http://java.sun.com/j2se/javadoc/doccheck/">Site</a></td>
             </tr>
         
             <tr class="a">
@@ -114,7 +114,7 @@ some benefit from their data.
             <td>Unit test coverage report</td>
             <td>1.4</td>
             <td>Optional Ant tasks (JUnit)</td>
-            <td><a href="http://emma.sourceforge.net/">Download</a></td>
+            <td><a href="http://emma.sourceforge.net/">Site</a></td>
             </tr>
         
             <tr class="a">
@@ -122,7 +122,7 @@ some benefit from their data.
             <td>Static code analysis for common programming errors</td>
             <td>1.4</td>
             <td>None</td>
-            <td><a href="http://findbugs.sourceforge.net/">Download</a></td>
+            <td><a href="http://findbugs.sourceforge.net/">Site</a></td>
             </tr>
         
             <tr class="a">
@@ -130,7 +130,7 @@ some benefit from their data.
             <td>Component-level dependency analysis</td>
             <td>1.4</td>
             <td><a href="http://graphviz.org">Graphviz</a></td>
-            <td><a href="http://www.kirkk.com/main/Main/JarAnalyzer">Download</a></td>
+            <td><a href="http://www.kirkk.com/main/Main/JarAnalyzer">Site</a></td>
             </tr>
         
             <tr class="a">
@@ -138,7 +138,7 @@ some benefit from their data.
             <td>Java source cross-reference in HTML</td>
             <td>1.4</td>
             <td>None</td>
-            <td><a href="http://www.java2html.com">Download</a></td>
+            <td><a href="http://www.java2html.com">Site</a></td>
             </tr>
         
             <tr class="a">
@@ -146,7 +146,7 @@ some benefit from their data.
             <td>Java source conversion to HTML</td>
             <td>1.5</td>
             <td>None</td>
-            <td><a href="http://www.java2html.de">Download</a></td>
+            <td><a href="http://www.java2html.de">Site</a></td>
             </tr>
         
             <tr class="a">
@@ -154,7 +154,7 @@ some benefit from their data.
             <td>Java API documentation</td>
             <td>1.4</td>
             <td>None</td>
-            <td><a href="http://java.sun.com/j2se/javadoc/">Download</a></td>
+            <td><a href="http://java.sun.com/j2se/javadoc/">Site</a></td>
             </tr>
         
             <tr class="a">
@@ -162,7 +162,7 @@ some benefit from their data.
             <td>Source code size and complexity metrics</td>
             <td>1.4</td>
             <td>None</td>
-            <td><a href="http://www.kclee.de/clemens/java/javancss/">Download</a></td>
+            <td><a href="http://www.kclee.de/clemens/java/javancss/">Site</a></td>
             </tr>
         
             <tr class="a">
@@ -170,15 +170,15 @@ some benefit from their data.
             <td>Report on package-level dependency metrics</td>
             <td>1.4</td>
             <td>None</td>
-            <td><a href="http://clarkware.com/software/JDepend.html">Download</a></td>
+            <td><a href="http://clarkware.com/software/JDepend.html">Site</a></td>
             </tr>
         
             <tr class="a">
             <td><a href="#junitreport">junitreport</a></td>
-            <td>Creates a browsable report of testcase results</td>
+            <td>Browsable report of testcase results</td>
             <td>1.4</td>
             <td>Optional Ant tasks (JUnit)</td>
-            <td><a href="http://ant.apache.org/manual/OptionalTasks/junitreport.html">Download</a></td>
+            <td><a href="http://ant.apache.org/manual/OptionalTasks/junitreport.html">Site</a></td>
             </tr>
         
             <tr class="a">
@@ -186,7 +186,7 @@ some benefit from their data.
             <td>Static analysis of source files using design and style rules</td>
             <td>1.4</td>
             <td>None</td>
-            <td><a href="http://pmd.sourceforge.net/">Download</a></td>
+            <td><a href="http://pmd.sourceforge.net/">Site</a></td>
             </tr>
         
             <tr class="a">
@@ -194,7 +194,7 @@ some benefit from their data.
             <td>Consolidation and tracking of feedback data</td>
             <td>1.4</td>
             <td><a href="http://jfree.org/jfreechart">JFreeChart</a></td>
-            <td><a href="http://qalab.sourceforge.net">Download</a></td>
+            <td><a href="http://qalab.sourceforge.net">Site</a></td>
             </tr>
         
             <tr class="a">
@@ -202,7 +202,7 @@ some benefit from their data.
             <td>Database schema and entity browser</td>
             <td>1.4</td>
             <td><a href="http://graphviz.org">Graphviz</a></td>
-            <td><a href="http://schemaspy.sourceforge.net/">Download</a></td>
+            <td><a href="http://schemaspy.sourceforge.net/">Site</a></td>
             </tr>
         
             <tr class="a">
@@ -210,7 +210,7 @@ some benefit from their data.
             <td>Statistical data from CVS repository activity</td>
             <td>1.4</td>
             <td>CVS command-line client</td>
-            <td><a href="http://statcvs.sourceforge.net/">Download</a></td>
+            <td><a href="http://statcvs.sourceforge.net/">Site</a></td>
             </tr>
         
             <tr class="a">
@@ -218,7 +218,7 @@ some benefit from their data.
             <td>Statistical data from Subversion repository activity</td>
             <td>1.4</td>
             <td>Subversion command-line client</td>
-            <td><a href="http://statsvn.org/">Download</a></td>
+            <td><a href="http://statsvn.org/">Site</a></td>
             </tr>
         
             <tr class="a">
@@ -226,7 +226,7 @@ some benefit from their data.
             <td>Javadoc with embedded UML class diagrams</td>
             <td>1.5</td>
             <td><a href="http://graphviz.org">Graphviz</a></td>
-            <td><a href="http://www.spinellis.gr/sw/umlgraph/">Download</a></td>
+            <td><a href="http://www.spinellis.gr/sw/umlgraph/">Site</a></td>
             </tr>
         
             <tr class="a">
@@ -234,7 +234,7 @@ some benefit from their data.
             <td>UML class diagrams from source code</td>
             <td>1.4</td>
             <td><a href="http://graphviz.org">Graphviz</a></td>
-            <td><a href="http://www.spinellis.gr/sw/umlgraph/">Download</a></td>
+            <td><a href="http://www.spinellis.gr/sw/umlgraph/">Site</a></td>
             </tr>
     </table>
 </section>
