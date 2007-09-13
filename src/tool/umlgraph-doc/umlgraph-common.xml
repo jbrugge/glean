@@ -26,8 +26,8 @@
                 <param name="-postfixpackage"/>
                 <param name="-useimports"/>
                 <param name="-collpackages" value="java.util.*"/>
-                <param name="-hide" value="java.lang.String"/>
-                <param name="-link" value="http://java.sun.com/j2se/1.5/docs/api"/>
+                <param name="-hide" value="${umlgraph.hide.classes}"/>
+                <param name="-link" value="${jdk.javadoc.link}"/>
                 <param name="-views"/>
                 <!-- In order to change the default font that Graphviz
                      uses, we have to define a number of font settings here. -->
