@@ -23,20 +23,24 @@ The goal of Glean is to help you along two dimensions:
     <li>to let you add or remove feedback tools easily for a given project</li>
     <li>to let you run these tools against any project you have</li>
 </ul>
+</p>
+<p>
 The first point means that you can easily try out different tools, change you mind,
 and experiment with what particular feedback is most valuable for your project.
-For many of the tools, it's as simple as adding the tool's name to a property value.
-We do it by providing a boilerplate Ant script for each tool 
-that most anyone would need to write if they were going to use that tool. The 
-boilerplates have property values that you can override with standard Ant property
-overrides.
+For many of the tools, it's as simple as adding the tool's name to the 
+<code>tool.pattern</code> property.
+The Glean tool scripts are the boilerplate Ant script for each tool 
+that most anyone would need to write if they were going to use that tool. 
+And if the standard boilerplate values aren't just what you want, there are
+property values that you can override with standard Ant property overrides.
 </p>
 <p>
 The second point means that you can have a consistent feedback process across
 any number of projects.
-We do this by providing a set of properties that define your project
-source and depdendencies layout, such that with a few settings you can have a full
-feedback system running for a project in short order.
+You define your project layout with some properties, and then these are used
+by each of the tools. And since Glean can sit outside of your project build,
+gathering feedback from a set of projects is simply a matter of pointing Glean
+at each of their properties settings.
 </p>
 <p>
 If you already have that flexibility in your build scripts, then you are ahead
@@ -121,8 +125,9 @@ For now, you have a couple of choices:
     <li>create multiple project property files for Glean, and run each one separately</li>
     <li>modify your build script to create a pseudo-project area, with all of the
     source files copied in to one tree. You can then point Glean at that area.</li>
-    <li></li>
 </ul>
+</p>
+<p>
 The ideas behind Glean developed from working on a project like that, where there
 were many component parts to the application, and generating feedback for the
 entire codebase was an important part of the daily build.

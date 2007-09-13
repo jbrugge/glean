@@ -63,6 +63,7 @@ div.faq {
 div.faq div.question {
 	font-style: italic;
 	font-weight: bold;
+    margin-bottom: 5px;
 }
 
 div.faq div.question p {
@@ -73,7 +74,8 @@ div.faq div.answer {
 }
 
 div.faq div.answer p {
-	margin-top: 3px;
+	margin-top: 15px;
+    margin-left: 25px;
 }
 
 div#footer {
