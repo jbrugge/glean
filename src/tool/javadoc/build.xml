@@ -36,7 +36,7 @@
             <doctitle>${report.title}</doctitle>
             <header><![CDATA[<b>]]>${report.header}<![CDATA[</b>]]></header>
             <bottom><![CDATA[<em>]]>${report.footer}<![CDATA[</em>]]></bottom>
-            <link href="${jdk5.javadoc.link}"/>
+            <link href="${jdk.javadoc.link}"/>
         </javadoc>
     </target>
 
