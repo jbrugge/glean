@@ -118,8 +118,15 @@ How would we use Glean to get some aggregate feedback from all of the code?
 
 <div class="answer">
 <p>
-With the current release of Glean you cannot specify multiple source folders,
-but that is a feature that I really want to add.
+With the current release of Glean you cannot specify multiple source folders.
+A big part of the reason for this is that most of the tools that Glean drives
+have you specify the source or class files as a 
+<a href="http://ant.apache.org/manual/CoreTypes/fileset.html"><code>fileset</code></a>, 
+and a <code>fileset</code> only lets you specify a single directory.
+Without bringing in other libraries or scripting languages for iteration, there
+isn't much to do within the confines of the Ant language.
+</p>
+<p>
 For now, you have a couple of choices:
 <ul>
     <li>create multiple project property files for Glean, and run each one separately</li>
@@ -128,11 +135,15 @@ For now, you have a couple of choices:
 </ul>
 </p>
 <p>
-The ideas behind Glean developed from working on a project like that, where there
+The ideas behind Glean developed from working on a project where there
 were many component parts to the application, and generating feedback for the
 entire codebase was an important part of the daily build.
-That feedback process, however, was very much tuned for that application.
-For Glean, I wanted to generalize the ideas, start simple and grow.
+That feedback process, however, was very much tuned for that application, but
+even there the feedback was not truly aggregated.
+For Glean, I wanted to generalize some of the ideas, start simple and grow.
+Part of that meant focusing on the single-source tree case first. I know others
+would like to see the a solution to the multiple-source scenario, including
+myself, it just may take some time.
 </p>
 </div>
 </div>
