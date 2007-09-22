@@ -28,13 +28,13 @@ page)</li>
 <code>${user.home}/temp</code>, and a <code>toolhome.properties.local</code>
 file will be created in the same place.
 <pre>
-ant -f get-tools.xml
+ant download-tools
 </pre>
 </li>
 <li>You can specify the root of the tools area as well as the location of the
 generated properties file with properties on the command line.
 <pre>
-ant -f get-tools.xml \
+ant download-tools \
     -Dtools.base=/path/to/tool/base/dir \
     -Dtoolhome.props=/path/to/toolhome.properties.local
 </pre>

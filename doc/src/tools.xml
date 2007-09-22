@@ -347,6 +347,9 @@ in a file that you specify, one pattern per line.
   <tr>
     <td>out.instr.dir</td><td>${gen.report.dir}/outinstr</td><td>The output directory for instrumented classes.</td>
   </tr>
+  <tr>
+    <td>extra.test.path</td><td></td><td>Comma-seperated paths to add to the classpath when running unit tests.</td>
+  </tr>
 </table>
 </p>
 <p>
@@ -567,6 +570,9 @@ descibes the format of its coverage filters.
   <tr>
     <td>out.instr.dir</td><td>${gen.report.dir}/outinstr</td><td>The output directory for instrumented classes.</td>
   </tr>
+  <tr>
+    <td>extra.test.path</td><td></td><td>Comma-seperated paths to add to the classpath when running unit tests.</td>
+  </tr>
 </table>
 </p>
 <p>
@@ -612,7 +618,10 @@ a very powerful way to express it.
     <td>jaranalyzer.jar.filter</td><td></td><td>Ant glob pattern of JAR files to exclude from processing</td>
   </tr>
   <tr>
-    <td>javanalyzer.package.filter</td><td>java.*;javax.*</td><td>Ant glob pattern of packages to exclude from processing</td>
+    <td>jaranalyzer.package.filter</td><td>java.*;javax.*</td><td>Ant glob pattern of packages to exclude from processing</td>
+  </tr>
+  <tr>
+    <td>jaranalyzer.lib.dir</td><td>${lib.dir}</td><td>Location of JAR files to analyze.</td>
   </tr>
 </table>
 </p>
@@ -710,6 +719,9 @@ the Ant optional tasks installed.
   </tr>
   <tr>
     <td>test.results.pattern</td><td>TEST-*.xml</td><td>The naming pattern for the unit test results files.</td>
+  </tr>
+  <tr>
+    <td>junitreport.format</td><td>frames</td><td>Valid choices for format are 'frames' and 'noframes'</td>
   </tr>
 </table>
 </p>
@@ -955,6 +967,9 @@ title/header/footer.
 <th>Property</th><th>Default value</th><th>Description</th>
   <tr>
     <td>graphviz.font.name</td><td>Arial</td><td>Name of the default font to use for the diagrams.</td>
+  </tr>
+  <tr>
+    <td>umlgraph.hide.classes</td><td>(java.io.*|java.lang.*|java.math.*|java.net.*|java.nio.*|java.sql.*|java.text.*)</td><td>Regular expression describing classes to hide from the diagrams.</td>
   </tr>
 </table>
 </p>
