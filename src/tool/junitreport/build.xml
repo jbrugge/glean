@@ -16,7 +16,7 @@
             <fileset dir="${test.report.dir}">
                 <include name="${test.results.pattern}"/>
             </fileset>
-            <report format="frames" todir="${gen.report.dir}"/>
+            <report format="${junitreport.format}" todir="${gen.report.dir}"/>
         </junitreport>
     </target>
 
