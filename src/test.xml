@@ -13,6 +13,9 @@
         <pathelement location="${test.src.dir}"/>
         <fileset dir="${test.lib.dir}">
             <include name="**/*.jar"/>
+            <!-- Exclude any Ant JARs that could mess up JUnit -->
+            <exclude name="**/ant.jar"/>
+            <exclude name="**/optional.jar"/>
         </fileset>
         <pathelement path="${extra.test.path}"/>
     </path>

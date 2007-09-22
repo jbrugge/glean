@@ -43,6 +43,9 @@
     <path id="build.classpath">
         <fileset dir="${lib.dir}">
             <include name="**/*.jar"/>
+            <!-- Exclude any Ant JARs that could mess up other tools -->
+            <exclude name="**/ant.jar"/>
+            <exclude name="**/optional.jar"/>
         </fileset>
         <pathelement location="${bin.dir}"/>
     </path>
