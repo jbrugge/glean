@@ -119,7 +119,7 @@
 
     <target name="download-tools"
         description="Download the set of tools with scripts for Glean">
-        <echo message="** Sorry, not implemented yet. Work in progress **"/>
+        <ant antfile="get-tools.xml" target="all"/>
     </target>
 
     <target name="diag"
