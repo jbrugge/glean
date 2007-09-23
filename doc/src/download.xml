@@ -13,7 +13,8 @@
     <th>Description</th>
   <tr>
     <td><a href="http://jbrugge.com/glean/glean-1.2.1.zip">glean-1.2.1.zip (~120k)</a></td>
-    <td>Added tool download script for ease of setup, and updated the XSL use for PMD results to work with PMD 4.0.</td>
+    <td>Added tool download script for ease of setup, fix to XSL to support PMD 4.0 line number references, 
+    and minor updates to other tool scripts.</td>
   </tr>
   <tr>
     <td><a href="http://jbrugge.com/glean/glean-1.2.1.tar.gz">glean-1.2.1.tar.gz (~80k)</a></td>

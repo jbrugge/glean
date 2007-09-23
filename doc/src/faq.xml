@@ -18,19 +18,21 @@ the point of using Glean?
 
 <div class="answer">
 <p>
-The goal of Glean is to help you along two dimensions: 
+The goal of Glean is to make code feedback easy in a couple of different ways: 
 <ul>
     <li>to let you add or remove feedback tools easily for a given project</li>
     <li>to let you run these tools against any project you have</li>
 </ul>
 </p>
 <p>
-The first point means that you can easily try out different tools, change you mind,
+The first point means that you can easily try out different tools, change your mind,
 and experiment with what particular feedback is most valuable for your project.
 For many of the tools, it's as simple as adding the tool's name to the 
 <code>tool.pattern</code> property.
-The Glean tool scripts are the boilerplate Ant script for each tool 
+The Glean tool scripts are boilerplate Ant script for each tool, often just the one 
 that most anyone would need to write if they were going to use that tool. 
+For most people, this is a good starting point, and with Glean the time needed
+to try out a tool is minimal.
 And if the standard boilerplate values aren't just what you want, there are
 property values that you can override with standard Ant property overrides.
 </p>
@@ -38,7 +40,7 @@ property values that you can override with standard Ant property overrides.
 The second point means that you can have a consistent feedback process across
 any number of projects.
 You define your project layout with some properties, and then these are used
-by each of the tools. And since Glean can sit outside of your project build,
+by each of the tools. Since Glean can sit outside of your project build,
 gathering feedback from a set of projects is simply a matter of pointing Glean
 at each of their properties settings.
 </p>
@@ -74,8 +76,9 @@ immediate. Doesn't this make the feedback loop longer rather than shorter?</p>
 
 <div class="answer">
 <p>
-Yes it does make the feedback loop potentially longer. The more immediate the
-feedback you can get the better. However, it's going to be hard to get consistent 
+For the individual developer, it does make the feedback loop potentially longer. 
+The more immediate feedback you can get the better. 
+However, it's going to be hard to get consistent 
 feedback from your IDE for everyone on the team, nor do some people want to put
 more of a burden on their IDE than it already has. By all means, use IDE plugins
 to get feedback, but there is a lot of value to the project as a whole

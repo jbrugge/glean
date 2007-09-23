@@ -367,9 +367,6 @@ HTML source.
   <tr>
     <td>src.link.prefix</td><td>../java2html14</td><td>Set this based on the Java-to-HTML tool you chose to run.</td>
   </tr>
-  <tr>
-    <td>cpd.file.encoding</td><td>${file.encoding}</td><td>XML file encoding to use</td>
-  </tr>
 </table>
 </p>
 <p>
@@ -665,7 +662,7 @@ Glean has some properties that should hopefully let you get the same mileage out
 of it's script as you get out of yours.
 </p>
 <p>
-One set of data that Glean provides is lists of common XDoclet tags that you may
+If you use XDoclet, Glean provides lists of common XDoclet tags that you may
 want to ignore, if for no other reason than to keep your Javadoc log more readable.
 You can look in the <code>tool/javadoc</code> folder for the list of files of tags
 available. You can then define <code>javadoc.taglist.files</code> to be the file(s)
