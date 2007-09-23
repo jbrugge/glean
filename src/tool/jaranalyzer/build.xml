@@ -21,7 +21,7 @@
     <target name="run-report" depends="jaranalyzer"/>
 
     <target name="jaranalyzer">
-        <jaranalyzer srcdir="${jaranlyzer.lib.dir}" 
+        <jaranalyzer srcdir="${jaranalyzer.lib.dir}" 
                 destfile="${gen.report.dir}/${report.name}.xml" 
                 summaryclass="com.kirkk.analyzer.textui.XMLUISummary"
                 jarFilter="${jaranalyzer.jar.filter}"

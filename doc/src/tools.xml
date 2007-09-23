@@ -367,6 +367,9 @@ HTML source.
   <tr>
     <td>src.link.prefix</td><td>../java2html14</td><td>Set this based on the Java-to-HTML tool you chose to run.</td>
   </tr>
+  <tr>
+    <td>cpd.file.encoding</td><td>${file.encoding}</td><td>XML file encoding to use</td>
+  </tr>
 </table>
 </p>
 <p>
