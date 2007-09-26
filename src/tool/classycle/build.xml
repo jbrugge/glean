@@ -12,13 +12,22 @@
     <taskdef name="classycleReport" classname="classycle.ant.ReportTask"
         classpathref="tool.classpath"/>
         
-    <target name="run-report" depends="classcycleReport"/>
+    <target name="run-report" depends="init,classycle-report"/>
 
+    <target name="init">
+        <copy todir="${gen.report.dir}/images">
+            <fileset dir="${tool.home}/images"/>
+        </copy>
+    </target>
+    
     <target name="classycle-report">
         <classycleReport
               reportfile="${gen.report.dir}/${report.name}.${report.format}"
+              title="${src.project.name}"
               >
-            <fileset dir="${bin.dir}"/>
+            <fileset dir="${bin.dir}">
+                <include name="**/*.class"/>
+            </fileset>
         </classycleReport>
     </target>
 </project>

@@ -23,6 +23,7 @@
             <fileset dir="${src.dir}">
                 <include name="**/*.java"/>
             </fileset>
+        </jcsc>
     </target>
 </project>
 
