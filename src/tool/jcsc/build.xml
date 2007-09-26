@@ -1,0 +1,28 @@
+<project name="jcsc" default="report" basedir=".">
+    <property name="tool.description" 
+             value="Checks code against naming and style standards."/>
+    <property name="tool.url"          value="http://jcsc.sourceforge.net/"/>
+    <property name="tool.min.jdk"      value="1.4"/>
+    <property name="tool.dependencies" value="None"/>
+    
+    <description>${report.description}</description>
+
+    <import file="${feedback.script.dir}/tools-common.xml"/>
+
+    <taskdef name="jcsc" classname="rj.tools.jcsc.ant.JCSCTask"
+        classpathref="tool.classpath"/>
+        
+    <target name="run-report" depends="jcsc"/>
+
+    <target name="jcsc">
+        <jcsc
+              destdir="${gen.report.dir}"
+              copyassociatedfiles="true"
+              jcschome="${tool.home}"
+              >
+            <fileset dir="${src.dir}">
+                <include name="**/*.java"/>
+            </fileset>
+    </target>
+</project>
+

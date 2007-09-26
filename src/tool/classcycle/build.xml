@@ -1,0 +1,25 @@
+<project name="classcycle" default="report" basedir=".">
+    <property name="tool.description" 
+             value="Analyzes class and package dependencies."/>
+    <property name="tool.url"          value="http://classycle.sourceforge.net/"/>
+    <property name="tool.min.jdk"      value="1.4"/>
+    <property name="tool.dependencies" value="None"/>
+    
+    <description>${report.description}</description>
+
+    <import file="${feedback.script.dir}/tools-common.xml"/>
+
+    <taskdef name="classcycleReport" classname="classycle.ant.ReportTask"
+        classpathref="tool.classpath"/>
+        
+    <target name="run-report" depends="classcycleReport"/>
+
+    <target name="classcycle-report">
+        <classcycleReport
+              reportfile="${gen.report.dir}/${report.name}.${report.format}"
+              >
+            <fileset dir="${bin.dir}"/>
+        </classcycleReport>
+    </target>
+</project>
+
