@@ -48,10 +48,10 @@
     <!-- CHECKME: If the tool has properties available to customize it, or if it
          overrides the values of Glean properties, place them in one of two
          properties files, in the same folder as this build script:
-         - tool.pre.properties : if the properties need to override Glean properties
+         - tool.override.properties : if the properties need to override Glean properties
                                  This file will be processed before the default
                                  Glean properties
-         - tool.post.properties : if the properties make use of Glean properties
+         - tool.extend.properties : if the properties make use of Glean properties
                                  that need to be defined first.
                                  This file will be processed after the default
                                  Glean properties.
