@@ -1,0 +1,29 @@
+<project name="depfind" default="report" basedir=".">
+    <property name="tool.description" 
+             value="Dependency analysis of packages, classes and features."/>
+    <property name="tool.url"          value="http://depfind.sourceforge.net"/>
+    <property name="tool.min.jdk"      value="1.4"/>
+    <property name="tool.dependencies" value="None"/>
+    
+    <description>${report.description}</description>
+
+    <import file="${feedback.script.dir}/tools-common.xml"/>
+
+    <taskdef resource="dependencyfindertasks.properties">
+        <classpath refid="tool.classpath"/>
+    </taskdef>
+
+    <target name="run-report" depends="depfind"/>
+
+    <target name="depfind">
+        <dependencyextractor 
+            destfile="${gen.report.dir}/${report.name}.xml" 
+            xml="yes"
+            minimize="yes">
+            <path>
+                <pathelement location="${bin.dir}"/>
+            </path>
+        </dependencyextractor>
+    </target>
+</project>
+
