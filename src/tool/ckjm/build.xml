@@ -23,7 +23,7 @@
               >
             <include name="**/*.class" />
             <exclude name="**/*Test.class" />
-            <extdirs path="${lib.dir}" />
+            <extdirs path="${lib.dir}/lib" />
         </ckjm>
     </target>
 
