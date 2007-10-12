@@ -1,6 +1,6 @@
 <project name="xradar" default="report" basedir=".">
     <property name="tool.description" 
-             value="DESCRIBE WHAT FEEDBACK THE TOOL PROVIDES (e.g. Reports on the number of lines of code)"/>
+             value="Gathers feedback data from multiple sources to provide view of system state."/>
     <property name="tool.url"          value="http://xradar.sourceforge.net"/>
     <property name="tool.min.jdk"      value="1.5"/>
     <property name="tool.dependencies" value="None"/>
@@ -13,7 +13,10 @@
     <target name="run-report" depends="xradar"/>
 
     <target name="xradar">
-        <ant antfile="${xradar.home}/project_targets.xml" target="statics"/>
+        <ant antfile="${xradar.home}/project_targets.xml" target="statics">
+            <!-- We have already run the tools, we just want the report -->
+            <property name="skip.analysis" value="true"/>
+        </ant>
     </target>
 </project>
 
