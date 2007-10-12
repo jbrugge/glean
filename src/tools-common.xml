@@ -22,6 +22,12 @@
     <!-- Make sure environment variables are available -->
     <property environment="env"/>
     
+    <!-- Define the location of the tool script so that we can find properties
+         files or other resources there. Normally that would just be ${basedir}
+         but when this is run from another Ant script, we can't trust that property
+      -->
+    <property name="tool.basedir" value="${feedback.script.dir}/tool/${ant.project.name}"/>
+    
     <!-- Properties can be overridden at the code project or individual report level -->
     
     <property file="${feedback.properties.file.local}"/>
@@ -30,14 +36,14 @@
     <property file="${project.root}/feedback.properties.local"/>
     <property file="${project.root}/feedback.properties"/>
 
-    <property file="${basedir}/tool.override.properties.local"/>    
-    <property file="${basedir}/tool.override.properties"/>
+    <property file="${tool.basedir}/tool.override.properties.local"/>    
+    <property file="${tool.basedir}/tool.override.properties"/>
     
     <property file="${feedback.script.dir}/feedback.properties.local"/>
     <property file="${feedback.script.dir}/feedback.properties"/>
 
-    <property file="${basedir}/tool.extend.properties.local"/>    
-    <property file="${basedir}/tool.extend.properties"/>    
+    <property file="${tool.basedir}/tool.extend.properties.local"/>    
+    <property file="${tool.basedir}/tool.extend.properties"/>    
     
     <!-- Classpath for source code dependencies -->
     <path id="build.classpath">
@@ -157,7 +163,7 @@
         <attribute name="stylesheet" default="${report.stylesheet}"/>
         <element name="extra.params" optional="true"/>
         <sequential>
-            <xslt basedir="." destdir="."
+            <xslt basedir="${tool.basedir}" destdir="."
                 in="@{input.file}" 
                 out="@{output.file}"
                 style="@{stylesheet}">

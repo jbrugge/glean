@@ -30,7 +30,7 @@
             <arg value="-quiet"/>
             <packageset dir="${src.dir}"/>
             <tag 
-                dir="${basedir}" 
+                dir="${tool.basedir}" 
                 includes="${javadoc.taglist.files}"
                 />
             <doctitle>${report.title}</doctitle>
