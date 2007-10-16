@@ -12,6 +12,14 @@
     <th>File</th>
     <th>Description</th>
   <tr>
+    <td><a href="http://jbrugge.com/glean/glean-1.2.2.zip">glean-1.2.2.zip (~120k)</a></td>
+    <td>Fixed issue with basedir when running Glean from an Ant task in another build file.</td>
+  </tr>
+  <tr>
+    <td><a href="http://jbrugge.com/glean/glean-1.2.2.tar.gz">glean-1.2.2.tar.gz (~80k)</a></td>
+    <td></td>
+  </tr>
+  <tr>
     <td><a href="http://jbrugge.com/glean/glean-1.2.1.zip">glean-1.2.1.zip (~120k)</a></td>
     <td>Added tool download script for ease of setup, fix to XSL to support PMD 4.0 line number references, 
     and minor updates to other tool scripts.</td>
