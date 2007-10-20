@@ -16,6 +16,9 @@
         <ant antfile="${xradar.home}/project_targets.xml" target="statics">
             <!-- We have already run the tools, we just want the report -->
             <property name="skip.analysis" value="true"/>
+            <!-- Pass along other properties that XRadar needs -->
+            <property file="tool.extend.properties"/>
+            <property file="tool.extend.properties.local"/>
         </ant>
     </target>
 </project>
