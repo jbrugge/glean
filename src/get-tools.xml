@@ -20,9 +20,11 @@
         layout="legacy" />
     <artifact:remoteRepository 
         id="statcvs.repository" 
-        url="http://stat-scm.sourceforge.net/maven2"
-        />
-    
+        url="http://stat-scm.sourceforge.net/maven2" />
+    <artifact:remoteRepository 
+        id="ibiblio.repository" 
+        url="http://www.ibiblio.org/maven2" />
+        
     <macrodef name="get-tool">
       <attribute name="group" />
       <attribute name="artifact" default="@{group}"/>
@@ -117,6 +119,9 @@
   
   <target name="pmd">
     <get-tool group="pmd" artifact="pmd" version="3.9"/>
+    
+    <!-- CPD is part of this toolset as well -->
+    <write-home artifact="pmd" version="3.9" toolname="cpd"/>
   </target>
   
   <target name="qalab">
@@ -136,9 +141,20 @@
         repo="statsvn.repository"/>
   </target>
   
+  <target name="umlgraph">
+    <get-tool group="gr.spinellis" artifact="UmlGraph" version="4.6"
+        toolname="umlgraph-doc" repo="ibiblio.repository"/>
+        
+    <!-- The script for umlgraph-views uses the same tool -->
+    <write-home artifact="UmlGraph" version="4.6" toolname="umlgraph-views"/>
+  </target>
+
   <target name="init">
     <!-- Initialize the properties file that will point to the install location
          of the tools -->
+    <echo message="**** Writing tool home properties to ${toolhome.props}"/>
+    <echo message="**** Copy this file to the Glean home directory when finished."/>
+    
     <echo file="${toolhome.props}"
           message="# Generated file of home directories for Glean-driven tools.${line.separator}"
           />
@@ -152,6 +168,6 @@
   </target>
   
   <target name="all"
-    depends="init,beandoc,checkstyle,cobertura,emma,findbugs,java2html14,java2html15,javancss,jdepend,pmd,qalab,statcvs,statsvn">
+    depends="init,beandoc,checkstyle,cobertura,emma,findbugs,java2html14,java2html15,javancss,jdepend,pmd,qalab,statcvs,statsvn,umlgraph">
   </target>
 </project>
