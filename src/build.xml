@@ -28,6 +28,7 @@
         <record name="${glean.log.dir}/${glean.log.file}"/>
         <echo message="Starting to gather feedback for ${src.project.name} at ${feedback.timestamp}"/>
         <echo message="Feedback tools being used: ${tool.pattern}"/>
+        <echo message="Collector tools being used: ${collector.pattern}"/>
 
         <mkdir dir="${gen.report.root}"/>        
         <copy file="${report.css}" todir="${gen.report.root}"/>
@@ -48,9 +49,9 @@
         <echo message="&lt;project-report name=&quot;${src.project.name}&quot; time=&quot;${feedback.timestamp}&quot;&gt;" 
             file="${project.report.summary}" append="no"/>
 
-        <glean-subant pattern="${tool.pattern}" excludes="dashboard"/>
+        <glean-subant pattern="${tool.pattern}" excludes="${collector.pattern}"/>
         
-        <antcall target="dashboard"/>
+        <glean-subant pattern="${collector.pattern}" excludes="${tool.pattern}"/>
         
         <!-- Create closing element of a report summary -->
         <echo message="&lt;/project-report&gt;" 
@@ -58,16 +59,6 @@
             
     </target>
     
-    <target name="dashboard" depends="check-dashboard" if="dashboard.selected">
-        <glean-subant pattern="dashboard"/>
-    </target>
-    
-    <target name="check-dashboard">
-        <condition property="dashboard.selected">
-            <istrue value="${create.dashboard}"/>
-        </condition>
-    </target>
-
     <target name="clean" description="Clean out generated report files">
         <delete dir="${gen.report.root}"/>
     </target>
