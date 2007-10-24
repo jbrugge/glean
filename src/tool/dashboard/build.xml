@@ -52,7 +52,7 @@
             new File(reportPath).write(dashboard.toXml())
         </groovy>
         
-        <copy file="dashboard.css" todir="${gen.report.dir}"/>
+        <copy file="${tool.basedir}/dashboard.css" todir="${gen.report.dir}"/>
     </target>
 
     <target name="strip-dtds"
