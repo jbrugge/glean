@@ -20,11 +20,11 @@
         <hbm2gif
             caption="Hibernate relationships from ${src.project.name}"
             rotated="true"
-            colors="cyan, black, black"
+            colors="${linguine.colors}"
             dotFile="${gen.report.dir}/${report.name}.dot"
             outFile="${gen.report.dir}/${report.name}.gif"
             exeFile="${dot.exe}">
-            <fileset dir="${src.dir}">
+            <fileset dir="${linguine.hbm.dir}">
                 <include name="**/*.hbm.xml"/>
             </fileset>
         </hbm2gif>
