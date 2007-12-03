@@ -9,7 +9,7 @@ else
     shift
 fi
 
-ANT_OPTS="-Xmx512M -Dfile.encoding=UTF-8 -Dcom.sun.management.jmxremote"
+export ANT_OPTS="-Xmx512M -Dfile.encoding=UTF-8 -Dcom.sun.management.jmxremote"
 
 cd src
 for sample in $SAMPLES
