@@ -52,7 +52,6 @@ some benefit from their data.
 <table class="bodyTable">
 <th>Name</th><th>Description</th><th>JDK Level</th><th>Dependencies</th><th>Home</th>
 
-
             <tr class="a">
             <td><a href="#beandoc">beandoc</a></td>
             <td>Spring bean documentation</td>
@@ -67,6 +66,22 @@ some benefit from their data.
             <td>1.4</td>
             <td>None</td>
             <td><a href="http://checkstyle.sourceforge.net/">Site</a></td>
+            </tr>
+        
+            <tr class="a">
+            <td><a href="#ckjm">ckjm</a></td>
+            <td>Calculates Chidamber and Kemerer Java Metrics</td>
+            <td>1.4</td>
+            <td>None</td>
+            <td><a href="http://www.spinellis.gr/sw/ckjm/">Site</a></td>
+            </tr>
+        
+            <tr class="a">
+            <td><a href="#classycle">classycle</a></td>
+            <td>Analyzes class and package dependencies.</td>
+            <td>1.4</td>
+            <td>None</td>
+            <td><a href="http://classycle.sourceforge.net/">Site</a></td>
             </tr>
         
             <tr class="a">
@@ -99,6 +114,14 @@ some benefit from their data.
             <td>1.4</td>
             <td><a href="http://graphviz.org">Graphviz</a></td>
             <td><a href="http://www.michael-a-fuchs.de/projects/dbdoclet/en/index.html">Site</a></td>
+            </tr>
+        
+            <tr class="a">
+            <td><a href="#depfind">depfind</a></td>
+            <td>Dependency analysis of packages, classes and features.</td>
+            <td>1.4</td>
+            <td>None</td>
+            <td><a href="http://depfind.sourceforge.net">Site</a></td>
             </tr>
         
             <tr class="a">
@@ -166,6 +189,14 @@ some benefit from their data.
             </tr>
         
             <tr class="a">
+            <td><a href="#jcsc">jcsc</a></td>
+            <td>Checks code against naming and style standards.</td>
+            <td>1.4</td>
+            <td>None</td>
+            <td><a href="http://jcsc.sourceforge.net/">Site</a></td>
+            </tr>
+        
+            <tr class="a">
             <td><a href="#jdepend">jdepend</a></td>
             <td>Report on package-level dependency metrics</td>
             <td>1.4</td>
@@ -174,11 +205,35 @@ some benefit from their data.
             </tr>
         
             <tr class="a">
+            <td><a href="#junitpdfreport">junitpdfreport</a></td>
+            <td>Generates a PDF version of JUnit test results.</td>
+            <td>1.4</td>
+            <td>None</td>
+            <td><a href="http://junitpdfreport.sourceforge.net/managedcontent/">Site</a></td>
+            </tr>
+        
+            <tr class="a">
             <td><a href="#junitreport">junitreport</a></td>
             <td>Browsable report of testcase results</td>
             <td>1.4</td>
             <td>Optional Ant tasks (JUnit)</td>
             <td><a href="http://ant.apache.org/manual/OptionalTasks/junitreport.html">Site</a></td>
+            </tr>
+        
+            <tr class="a">
+            <td><a href="#linguine-ant">linguine-ant</a></td>
+            <td>Graph of Ant build file</td>
+            <td>1.4</td>
+            <td><a href="http://graphviz.org">Graphviz</a></td>
+            <td><a href="http://www.softwaresecretweapons.com/jspwiki/Wiki.jsp?page=LinguineMaps">Site</a></td>
+            </tr>
+        
+            <tr class="a">
+            <td><a href="#linguine-hbm">linguine-hbm</a></td>
+            <td>Graph of Hibernate relationships</td>
+            <td>1.4</td>
+            <td><a href="http://graphviz.org">Graphviz</a></td>
+            <td><a href="http://www.softwaresecretweapons.com/jspwiki/Wiki.jsp?page=LinguineMaps">Site</a></td>
             </tr>
         
             <tr class="a">
@@ -236,6 +291,14 @@ some benefit from their data.
             <td><a href="http://graphviz.org">Graphviz</a></td>
             <td><a href="http://www.spinellis.gr/sw/umlgraph/">Site</a></td>
             </tr>
+        
+            <tr class="a">
+            <td><a href="#xradar">xradar</a></td>
+            <td>Gathers feedback data from multiple sources to provide view of system state.</td>
+            <td>1.5</td>
+            <td>None</td>
+            <td><a href="http://xradar.sourceforge.net">Site</a></td>
+            </tr>
     </table>
 </section>
 
@@ -254,15 +317,6 @@ description below or just dive into the source Ant script.
 Beandoc is a tool for documenting <a href="http://www.springframework.org">Spring</a>
 bean configuration files. Most importantly, it describes and diagrams the relationships
 between beans, with the bean definitions hyperlinked together.
-</p>
-<p>
-This tool only appears to come in source form as of this writing (v0.7.1). Once
-you have it downloaded, see the README. Building should be just running "ant dist"
-from the command line.
-</p>
-<p>
-It also is limited to Spring 1.x style configuration files. Support for Spring 2.x
-namespaces is not there, so until the tool is updated its use is limited.
 </p>
 <p>
 <table class="bodyTable">
@@ -289,6 +343,39 @@ some design patterns.
   </tr>
   <tr>
     <td>checkstyle.config</td><td>${tool.home}/sun_checks.xml</td><td>Sun's Java style rules</td>
+  </tr>
+</table>
+</p>
+<p>
+<h4><a name="ckjm">ckjm</a></h4>
+This is a tool for computing the <a href="http://doi.ieeecomputersociety.org/10.1109/32.295895">Chidamber and Kemerer metrics</a>
+for Java code.
+These are similar to metrics that JDepend computes, but this particular data is
+used to feed XRadar, so if you are using XRadar you will need to include this tool.
+</p>
+<p>
+<table class="bodyTable">
+<th>Property</th><th>Default value</th><th>Description</th>
+  <tr>
+    <td>report.stylesheet</td><td>${tool.home}/xsl/ckjm.xsl</td><td>The default stylesheet that comes with the tool.</td>
+  </tr>
+</table>
+</p>
+<p>
+<h4><a name="classycle">classycle</a></h4>
+Classycle is a dependency analyzer, looking at both class and package dependencies.
+Being able to analyze class dependencies means it can provide lower level dependency
+information than JDepend.
+</p>
+<p>
+The Classycle download actually provides two tools, Analyser and Dependency Checker.
+The Glean script only runs the Analyser tool.
+</p>
+<p>
+<table class="bodyTable">
+<th>Property</th><th>Default value</th><th>Description</th>
+  <tr>
+    <td>report.stylesheet</td><td>${tool.home}/reportXMLtoHTML.xsl</td><td>The default stylesheet that comes with the tool.</td>
   </tr>
 </table>
 </p>
@@ -512,6 +599,23 @@ that it can't find the Xalan classes, you may need to put a copy of them in your
 </table>
 </p>
 <p>
+<h4><a name="depfind">depfind</a></h4>
+Depfind is another dependency analyzer, like JDepend or Classycle, which can also
+computer some metrics, like JavaNCSS or ckjm does. The standard report that the
+Glean script produces is raw dependency information, which can be rather large.
+The main use of this tool in Glean is as input to XRadar. If you are
+using XRadar, you will need to run this tool.
+</p>
+<p>
+<table class="bodyTable">
+<th>Property</th><th>Default value</th><th>Description</th>
+  <tr>
+    <td>report.stylesheet</td><td>${tool.home}/etc/DependencyGraphToHTML.xsl</td><td>The default stylesheet that comes with the tool.</td>
+  </tr>
+</table>
+</p>
+
+<p>
 <h4><a name="doccheck">doccheck</a></h4>
 This is a fairly antiquated and unsupported tool from Sun, but it does its job well:
 report on missing or incorect Javadoc. Checkstyle has some rules that can be
@@ -699,12 +803,43 @@ Glean includes one of the XSLTs that comes with JavaNCSS to generate the report.
 You can use any other XSLT you want by overriding the <code>report.stylesheet</code> property.
 </p>
 <p>
+<h4><a name="jcsc">jcsc</a></h4>
+<em>TODO: describe </em>
+</p>
+<p>
+<table class="bodyTable">
+<th>Property</th><th>Default value</th><th>Description</th>
+  <tr>
+    <td></td><td></td><td></td>
+  </tr>
+</table>
+</p>
+
+<p>
 <h4><a name="jdepend">jdepend</a></h4>
 JDepend calculates dependency metrics at a package level, along with some 
 <a href="http://www.objectmentor.com/resources/articles/oodmetrc.pdf">design
 metrics</a> developed by Bob Martin. Its feedback can be useful for designers to keep
 an eye on how an application or component design is coming together.
 </p>
+<p>
+<h4><a name="junitpdfreport">junitpdfreport</a></h4>
+JUnitPDFReport does just what it says: it produces a PDF version of a JUnit report.
+It comes with a handful of "themes" to give you a choice of the look for the report,
+from the simple to the complex.
+</p>
+<p>
+<table class="bodyTable">
+<th>Property</th><th>Default value</th><th>Description</th>
+  <tr>
+    <td>fop.dir</td><td>${tool.home}/lib</td><td>The location of the FOP JARs to use.</td>
+  </tr>
+  <tr>
+    <td>junitpdfreport.style</td><td>default</td><td>The theme to use for the report.</td>
+  </tr>
+</table>
+</p>
+
 <p>
 <h4><a name="junitreport">junitreport</a></h4>
 JUnitReport is an optional task in Ant that creates a browsable report of your 
@@ -725,6 +860,39 @@ the Ant optional tasks installed.
   </tr>
 </table>
 </p>
+<p>
+<h4><a name="linguine-ant">linguine-ant</a></h4>
+The Linguine Maps tool creates diagrams of various artifacts from your project.
+This script will create a diagram showing the relationship of targets in an Ant file.
+</p>
+<p>
+<table class="bodyTable">
+<th>Property</th><th>Default value</th><th>Description</th>
+  <tr>
+    <td>linguine.colors</td><td>cyan, black, black</td><td>Defines the look of the resulting graph</td>
+  </tr>
+  <tr>
+    <td>linguine.ant.file</td><td>${project.root}/build.xml</td><td>The build file to diagram.</td>
+  </tr>
+</table>
+</p>
+<p>
+<h4><a name="linguine-hbm">linguine-hbm</a></h4>
+This is another use of the Linguine Maps tool, this time to generate a diagram of
+the relationships defined in a set of Hibernate mapping files.
+</p>
+<p>
+<table class="bodyTable">
+<th>Property</th><th>Default value</th><th>Description</th>
+  <tr>
+    <td>linguine.hbm.dir</td><td>${resources.dir}</td><td>The root of the directory that contains .hbm files</td>
+  </tr>
+  <tr>
+    <td>linguine.colors</td><td>cyan, black, black</td><td>Defines the look of the resulting graph</td>
+  </tr>
+</table>
+</p>
+
 <p>
 <h4><a name="pmd">pmd</a></h4>
 PMD is a static code analysis tool. It is in the same category as Checkstyle,
@@ -993,6 +1161,51 @@ The output from UMLGraph will be PNG files, located in the directory defined by
   </tr>
 </table>
 </p>
+<p>
+<h4><a name="xradar">xradar</a></h4>
+XRadar is a meta-tool that provides a rich set of reports and visualizations of
+the state of your software, based on the data generated by a number of other tools.
+Because of the number of data sources that XRadar uses, and the number of other
+customizations that XRadar allows, the potential configuration setup could be large.
+Since Glean already has the ability to run all of the tools it needs, and it knows
+about the structure of your project, to get a basic report you should not have to
+define anything special.
+</p>
+<p>
+You will, however, need to make sure that you are running the set of tools that
+XRadar uses. As of XRadar v0.99.2, these are the tools it uses:
+<ul>
+<li>checkstyle</li>
+<li>ckjm</li>
+<li>cpd</li>
+<li>depfind</li>
+<li>java2html15</li>
+<li>javancss</li>
+<li>jdepend</li>
+<li>pmd</li>
+</ul>
+Additionally, if you have unit tests and want to include their data, you should
+include these tools:
+<ul>
+<li>cobertura</li>
+<li>junitreport</li>
+</ul>
+</p>
+<p>
+There are actually two types of reports that XRadar can produce, a "statics" report
+and a "dynamics" report. The "dynamics" report requires a history of tool data
+available, which Glean can't assume exists, so for now the Glean script just runs
+a "statics" report.
+</p>
+<p>
+<table class="bodyTable">
+<th>Property</th><th>Default value</th><th>Description</th>
+  <tr>
+    <td></td><td></td><td></td>
+  </tr>
+</table>
+</p>
+
 </section>
 
 </body>
