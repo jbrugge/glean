@@ -2,7 +2,7 @@
     <property name="tool.description" 
              value="Spring bean documentation"/>
     
-    <property name="tool.url"       value="http://springframework.sourceforge.net/beandoc/"/>
+    <property name="tool.url"       value="http://spring-beandoc.sourceforge.net/"/>
     <property name="tool.min.jdk"   value="1.4"/>
     <property name="tool.dependencies" value="&lt;a href=&quot;http://graphviz.org&quot;&gt;Graphviz&lt;/a&gt;"/>
 
