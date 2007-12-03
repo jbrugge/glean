@@ -1,7 +1,7 @@
 <project name="linguine-ant" default="report" basedir=".">
     <property name="tool.description"  value="Graph of Ant build file"/>
     
-    <property name="tool.url"          value="hhttp://www.softwaresecretweapons.com/jspwiki/Wiki.jsp?page=LinguineMaps"/>
+    <property name="tool.url"          value="http://www.softwaresecretweapons.com/jspwiki/Wiki.jsp?page=LinguineMaps"/>
     <property name="tool.min.jdk"      value="1.4"/>
     <property name="tool.dependencies" value="&lt;a href=&quot;http://graphviz.org&quot;&gt;Graphviz&lt;/a&gt;"/>
     
@@ -20,7 +20,7 @@
         <ant2gif
             caption="Build file for ${src.project.name}"
             rotated="true"
-            inFile="${project.root}/build.xml"
+            inFile="${linguine.ant.file}"
             dotFile="${gen.report.dir}/${report.name}.dot"
             outFile="${gen.report.dir}/${report.name}.gif"
             exeFile="${dot.exe}">
