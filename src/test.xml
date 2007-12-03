@@ -10,11 +10,12 @@
     <path id="test.classpath">
         <path refid="build.classpath"/>
         <pathelement location="${test.bin.dir}"/>
-        <pathelement location="${test.src.dir}"/>
+        <pathelement location="${test.resources.dir}"/>
         <fileset dir="${test.lib.dir}">
             <include name="**/*.jar"/>
             <!-- Exclude any Ant JARs that could mess up JUnit -->
             <exclude name="**/ant.jar"/>
+            <exclude name="**/ant-*.jar"/>
             <exclude name="**/optional.jar"/>
         </fileset>
         <pathelement path="${extra.test.path}"/>

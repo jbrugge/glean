@@ -51,9 +51,11 @@
             <include name="**/*.jar"/>
             <!-- Exclude any Ant JARs that could mess up other tools -->
             <exclude name="**/ant.jar"/>
+            <exclude name="**/ant-*.jar"/>
             <exclude name="**/optional.jar"/>
         </fileset>
         <pathelement location="${bin.dir}"/>
+        <pathelement location="${resources.dir}"/>
     </path>
 
     <!-- Classpath for tool dependencies -->
