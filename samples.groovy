@@ -83,7 +83,7 @@ class SampleDataTable {
     
     def getTableHtml() {
         def writer = new StringWriter()
-        def builder = new MarkupBuilder()
+        def builder = new MarkupBuilder(writer)
         
         def sortedSamples = getColumnHeaders().sort()
         
@@ -108,21 +108,20 @@ class SampleDataTable {
                 }
             })
         }
+        return writer.toString()
     }
 }
 
 gleanHome = "/Users/john/work/glean/src"
+outFileName = gleanHome + "/../doc/src/stylesheet/samples-table.html"
+
 sampleTable = new SampleDataTable()
 sampleTable.propertyDirName = gleanHome + "/sample"
 sampleTable.toolDirName = gleanHome + "/tool"
 sampleTable.defaultPropsFile = gleanHome + "/feedback.properties"
 sampleTable.processFiles()
 
-//headers = sampleTable.getColumnHeaders()
-//println "Column headers: " + headers
-//rows = sampleTable.getRows()
-//println "Rows: " + rows
-
 rowsHtml = sampleTable.getTableHtml()
-//println "Rows as HTML:"
-println rowsHtml
+
+outFile = new File(outFileName)
+outFile << rowsHtml << "\n"
