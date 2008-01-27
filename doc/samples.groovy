@@ -60,6 +60,12 @@ class SampleDataTable {
             } else {
                 sampleToolMap[fileShortName] = tools.tokenize(",")
             }
+            
+            // Also look for the collector tools
+            tools = projectProps.getProperty("collector.pattern")
+            if (tools != null) {
+                sampleToolMap[fileShortName] += tools.tokenize(",")
+            }
 
             def url = projectProps.getProperty("project.url")
             if (url == null) {
@@ -112,6 +118,7 @@ class SampleDataTable {
     }
 }
 
+// TODO: Turn these two selections in to command-line options
 gleanHome = "/Users/john/work/glean/src"
 outFileName = gleanHome + "/../doc/src/stylesheet/samples-table.html"
 
@@ -124,4 +131,4 @@ sampleTable.processFiles()
 rowsHtml = sampleTable.getTableHtml()
 
 outFile = new File(outFileName)
-outFile << rowsHtml << "\n"
+outFile.write(rowsHtml)
