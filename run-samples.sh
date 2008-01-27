@@ -16,5 +16,6 @@ for sample in $SAMPLES
 do
     echo "============ Running Glean over $sample code ==============="
     ant -Dfeedback.properties=sample/$sample.feedback.properties \
+        -Dglean.log.dir=logs/`date +%G%m%d` \
         -Dgen.report.root=$HOME/Sites/$sample $* clean glean
 done

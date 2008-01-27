@@ -46,6 +46,7 @@ CodeFeedback Tasks
     - macker            : analysis (design rules)
     - qalab             : analysis (trending data)
     - relief            : ??
+    - reposita          : metrics (http://meaxure.reposita.org/)
     - schemaspy         : docs
     - sequence          : docs
     - sitegraph         : docs (Struts 2.0)
