@@ -5,17 +5,32 @@
     <property name="velocity.home"  value="${user.home}/tools/velocity-1.5-beta2"/>
     <property name="project.name"   value="site"/>
     <property name="docs.src"       value="src"/>
+    <property name="glean.src"      value="../src"/>
     <property name="docs.dest"      value="target"/>
+    <property name="class.dest"     value="target/classes"/>
     <property name="templates.name" value="stylesheet"/>
     <property name="templates.dir"  value="${docs.src}/${templates.name}"/>
     <property name="img.src"        value="${docs.src}/image"/>
-
+    <property environment="env"/>
+    
     <path id="tool.classpath">
         <fileset dir="${velocity.home}">
             <include name="**/*.jar"/>
         </fileset>
     </path>
+    
+    <path id="groovy.compile.path"
+        location="${class.dest}">        
+    </path>
 
+    <path id="groovy.classpath">
+        <fileset dir="${env.GROOVY_HOME}/embeddable" includes="*.jar"/>
+    </path>
+    
+    <taskdef name="groovyc"
+         classname="org.codehaus.groovy.ant.Groovyc"
+         classpathref="groovy.classpath"/>
+         
     <taskdef name="anakia"
             classname="org.apache.velocity.anakia.AnakiaTask">
        <classpath refid = "tool.classpath"/>
@@ -32,7 +47,7 @@
         <echo message="AnakiaTask can not be found in velocity.jar at ${velocity.home}"/>
     </target>
 
-    <target name="docs" depends="anakia-notice" if="anakia.task.present">
+    <target name="docs" depends="anakia-notice, build-includes" if="anakia.task.present">
         <mkdir dir="${docs.dest}"/>
         
         <anakia basedir="${docs.src}" 
@@ -62,6 +77,39 @@
     <target name="clean"
         description="Delete generated files">
         <delete dir="${docs.dest}"/>
+    </target>
+    
+    <target name="build-includes" depends="build-properties-include, build-sample-include, build-tool-include">
+    </target>
+    
+    <target name="build-properties-include"
+        description="Create a pre-formatted section of HTML from the default properties file">
+        <loadfile property="glean.properties" srcfile="${glean.src}/feedback.properties"/>
+        <echo message="&lt;pre&gt;" file="${templates.dir}/feedback.properties"/>
+        <echo message="${glean.properties}" file="${templates.dir}/feedback.properties" append="true"/>
+        <echo message="&lt;/pre&gt;" file="${templates.dir}/feedback.properties" append="true"/>
+    </target>
+    
+    <target name="build-sample-include" depends="groovy-compile" 
+        description="Create table of tools used by the sample projects">
+        <java classname="samples">
+            <classpath refid="groovy.classpath"/>
+            <classpath refid="groovy.compile.path"/>
+        </java>
+    </target>
+    
+    <target name="build-tool-include"
+        description="Create table of tools and their descriptions">
+    </target>
+    
+    <target name="groovy-compile"
+        description="Compile the Groovy scripts used by the doc process">
+        <mkdir dir="${class.dest}"/>
+        <groovyc destdir="${class.dest}"
+            srcdir="."
+            includes="samples.groovy"
+            classpathref="groovy.classpath"
+            />
     </target>
     
 </project>

@@ -77,6 +77,8 @@
             #foreach ( $item in $section.getChildren() )                
                 #if ($item.getName().equals("img"))
                     #image ($item)
+                #elseif ($item.getName().equals("include"))
+                    #include ($item.getAttributeValue("file"))
                 #else
                     $xmlout.outputString($item)
                 #end
@@ -85,7 +87,7 @@
 </div>
 
 <div id="footer">
-Copyright &#169; 2007, John A. Brugge. Last modified: $date
+Copyright &#169; 2008, John A. Brugge. Last modified: $date
 </div>
 
 <script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
