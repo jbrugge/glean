@@ -36,8 +36,8 @@
         <sequential>
             <mkdir dir="${test.report.dir}"/>
             
-            <junit fork="true"
-                printsummary="false"
+            <junit fork="${test.fork.mode}"
+                printsummary="true"
                 showoutput="true">
                 
                 <classpath>
