@@ -50,8 +50,13 @@
             file="${project.report.summary}" append="no"/>
 
         <glean-subant pattern="${tool.pattern}" excludes="${collector.pattern}"/>
+
+        <echo message="Finished gathering feedback. Running collector tools"/>
         
         <glean-subant pattern="${collector.pattern}" excludes="${tool.pattern}"/>
+        
+        <!-- Check if anyone is using the old style of dashboard setting -->
+        <antcall target="dashboard"/>
         
         <!-- Create closing element of a report summary -->
         <echo message="&lt;/project-report&gt;" 
@@ -143,4 +148,17 @@
             </subant>
         </sequential>
     </macrodef>
+    
+    <!-- Check for old usage -->
+    <target name="dashboard" depends="check-old-dashboard-setting" if="dashboard.selected">
+        <echo message="**** NOTE: To run the dashboard, add it to the new collector.pattern property in your configuration file. ****"/>
+        <echo message="**** See feedback.properties for a description of the property."/>
+    </target>
+    
+    <target name="check-old-dashboard-setting">
+        <condition property="dashboard.selected">
+            <istrue value="${create.dashboard}"/>
+        </condition>
+    </target>
+
 </project>
