@@ -16,6 +16,7 @@
 
     <target name="jcsc">
         <jcsc
+              rules="${jcsc.rules}"
               destdir="${gen.report.dir}"
               copyassociatedfiles="true"
               jcschome="${tool.home}"
