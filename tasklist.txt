@@ -41,7 +41,9 @@ CodeFeedback Tasks
     - ivy:report        : docs
     - jaranalyzer       : analysis
     - jester            : analysis
+    - jsdoctoolkit      : docs
     - junitreport       : docs
+    - junitpdfreport    : docs
     - linguinemaps      : docs (hbm, ant, dtd)
     - macker            : analysis (design rules)
     - qalab             : analysis (trending data)
