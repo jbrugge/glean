@@ -1,7 +1,7 @@
 <project name="package-glean" default="package" basedir=".">
     <description>Create a distribution of Glean</description>
     
-    <property name="version"       value="1.3-LATEST"/>
+    <property name="version"       value="1.3"/>
     <property name="dist.name"     value="glean-${version}"/>
     <property name="dist.dir"      value="dist"/>
     <property name="doc.dir"       value="doc"/>
@@ -27,9 +27,6 @@
     <patternset id="src.files">
         <exclude name="logs/"/>
         <exclude name="tmp/"/>
-        <!-- TEMP: hack to keep out tools not ready for prime time yet -->
-        <exclude name="tool/linguine-ant/"/>
-        <exclude name="tool/linguine-hbm/"/>
     </patternset>
 
     <target name="doc" 
