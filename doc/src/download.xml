@@ -9,16 +9,17 @@
 <body>
 <section name="Downloading">
 <table class="bodyTable">
-    <td>Date</td>
+    <th>Date</th>
     <th>File</th>
     <th>Description</th>
   <tr>
     <td>2/18/2008</td>
-    <td><a href="http://jbrugge.com/glean/glean-1.3.zip">glean-1.2.2.zip (~295k)</a></td>
+    <td><a href="http://jbrugge.com/glean/glean-1.3.zip">glean-1.3.zip (~295k)</a></td>
     <td>New tools added: ckjm, Classycle, depfind, JCSC, Linguine Maps, XRadar.</td>
   </tr>
   <tr>
-    <td><a href="http://jbrugge.com/glean/glean-1.3.tar.gz">glean-1.2.2.tar.gz (~245k)</a></td>
+    <td/>
+    <td><a href="http://jbrugge.com/glean/glean-1.3.tar.gz">glean-1.3.tar.gz (~245k)</a></td>
     <td></td>
   </tr>
   <tr>
@@ -27,6 +28,7 @@
     <td>Fixed issue with basedir when running Glean from an Ant task in another build file.</td>
   </tr>
   <tr>
+    <td/>
     <td><a href="http://jbrugge.com/glean/glean-1.2.2.tar.gz">glean-1.2.2.tar.gz (~80k)</a></td>
     <td></td>
   </tr>
@@ -37,6 +39,7 @@
     and minor updates to other tool scripts.</td>
   </tr>
   <tr>
+    <td/>
     <td><a href="http://jbrugge.com/glean/glean-1.2.1.tar.gz">glean-1.2.1.tar.gz (~80k)</a></td>
     <td></td>
   </tr>
@@ -46,6 +49,7 @@
     <td>New tools added: dashboard.</td>
   </tr>
   <tr>
+    <td/>
     <td><a href="http://jbrugge.com/glean/glean-1.2.tar.gz">glean-1.2.tar.gz (~80k)</a></td>
     <td></td>
   </tr>
@@ -55,6 +59,7 @@
     <td>Source and JAR for Groovy-based feedback dashboard</td>
   </tr>
   <tr>
+    <td/>
     <td><a href="http://jbrugge.com/glean/dashboard-1.0.tar.gz">dashboard-1.0.tar.gz (~65k)</a></td>
     <td></td>
   </tr>
@@ -64,6 +69,7 @@
     <td>New tools added: DocBook Doclet, StatCVS, and QALab.</td>
   </tr>
   <tr>
+    <td/>
     <td><a href="http://jbrugge.com/glean/glean-1.1.tar.gz">glean-1.1.tar.gz (~65k)</a></td>
     <td></td>
   </tr>
@@ -73,6 +79,7 @@
     <td>Initial release of Glean scripts and docs</td>
   </tr>
   <tr>
+    <td/>
     <td><a href="http://jbrugge.com/glean/glean-1.0.tar.gz">glean-1.0.tar.gz (~65k)</a></td>
     <td></td>
   </tr>
