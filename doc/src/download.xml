@@ -9,9 +9,20 @@
 <body>
 <section name="Downloading">
 <table class="bodyTable">
+    <td>Date</td>
     <th>File</th>
     <th>Description</th>
   <tr>
+    <td>2/18/2008</td>
+    <td><a href="http://jbrugge.com/glean/glean-1.3.zip">glean-1.2.2.zip (~295k)</a></td>
+    <td>New tools added: ckjm, Classycle, depfind, JCSC, Linguine Maps, XRadar.</td>
+  </tr>
+  <tr>
+    <td><a href="http://jbrugge.com/glean/glean-1.3.tar.gz">glean-1.2.2.tar.gz (~245k)</a></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>10/15/2007</td>
     <td><a href="http://jbrugge.com/glean/glean-1.2.2.zip">glean-1.2.2.zip (~120k)</a></td>
     <td>Fixed issue with basedir when running Glean from an Ant task in another build file.</td>
   </tr>
@@ -20,6 +31,7 @@
     <td></td>
   </tr>
   <tr>
+    <td>9/22/2007</td>
     <td><a href="http://jbrugge.com/glean/glean-1.2.1.zip">glean-1.2.1.zip (~120k)</a></td>
     <td>Added tool download script for ease of setup, fix to XSL to support PMD 4.0 line number references, 
     and minor updates to other tool scripts.</td>
@@ -29,6 +41,7 @@
     <td></td>
   </tr>
   <tr>
+    <td>7/19/2007</td>
     <td><a href="http://jbrugge.com/glean/glean-1.2.zip">glean-1.2.zip (~120k)</a></td>
     <td>New tools added: dashboard.</td>
   </tr>
@@ -37,6 +50,7 @@
     <td></td>
   </tr>
   <tr>
+    <td>7/17/2007</td>
     <td><a href="http://jbrugge.com/glean/dashboard-1.0.zip">dashboard-1.0.zip (~65k)</a></td>
     <td>Source and JAR for Groovy-based feedback dashboard</td>
   </tr>
@@ -45,6 +59,7 @@
     <td></td>
   </tr>
   <tr>
+    <td>6/5/2007</td>
     <td><a href="http://jbrugge.com/glean/glean-1.1.zip">glean-1.1.zip (~100k)</a></td>
     <td>New tools added: DocBook Doclet, StatCVS, and QALab.</td>
   </tr>
@@ -53,6 +68,7 @@
     <td></td>
   </tr>
   <tr>
+    <td>3/21/2007</td>
     <td><a href="http://jbrugge.com/glean/glean-1.0.zip">glean-1.0.zip (~100k)</a></td>
     <td>Initial release of Glean scripts and docs</td>
   </tr>

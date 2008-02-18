@@ -99,7 +99,8 @@ source.level        = 1.4
 src.project.name    = Jakarta Commons-Lang 2.2
 </pre>
 </li>
-<li><code>ant -Dfeedback.properties=/path/to/myproject/myproject.feedback.properties</code></li>
+<li>Run Glean: 
+<code>ant -Dfeedback.properties=/path/to/myproject/myproject.feedback.properties</code></li>
 </ul>
 This will run all of the tools in the basic setup. The results will be simple HTML
 files, along with a summary page. From a browser, open the file

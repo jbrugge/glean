@@ -1,5 +1,9 @@
 import groovy.xml.*
 
+/**
+ * Simple script to generate the table of Glean sample projects with the tools
+ * that they demonstrate.
+ */
 class SampleDataTable {
     def sampleToolMap = [:]
     def sampleNameMap = [:]
@@ -118,8 +122,7 @@ class SampleDataTable {
     }
 }
 
-// TODO: Turn these two selections in to command-line options
-gleanHome = "/Users/john/work/glean/src"
+gleanHome = System.properties.'glean.home'
 outFileName = gleanHome + "/../doc/src/stylesheet/samples-table.html"
 
 sampleTable = new SampleDataTable()

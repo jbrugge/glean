@@ -95,6 +95,7 @@
         <java classname="samples">
             <classpath refid="groovy.classpath"/>
             <classpath refid="groovy.compile.path"/>
+            <sysproperty key="glean.home" file="${glean.src}"/>
         </java>
     </target>
     
