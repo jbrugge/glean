@@ -1,7 +1,7 @@
 <project name="package-glean" default="package" basedir=".">
     <description>Create a distribution of Glean</description>
     
-    <property name="version"       value="1.3"/>
+    <property name="version"       value="1.3.1"/>
     <property name="dist.name"     value="glean-${version}"/>
     <property name="dist.dir"      value="dist"/>
     <property name="doc.dir"       value="doc"/>

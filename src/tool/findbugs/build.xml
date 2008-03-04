@@ -21,6 +21,7 @@
                 output="${findbugs.report.format}"
                 outputFile="${gen.report.dir}/${report.name}.${report.format}"
                 excludeFilter="${findbugs.excludes.file}"
+                projectName="${src.project.name}"
                 stylesheet="${findbugs.stylesheet}"
                 timeout="${findbugs.timeout}">
             <sourcePath path="${src.dir}"/>
