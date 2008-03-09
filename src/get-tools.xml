@@ -49,7 +49,7 @@
       <attribute name="repo" default="repo1.repository"/>
       <sequential>
         <!-- Download the tool and its dependencies to our local M2 repo -->
-        <artifact:dependencies pathID="@{artifact}.path">
+        <artifact:dependencies filesetId="@{artifact}.path">
           <dependency groupID="@{group}"
             artifactID="@{artifact}"
             version="@{version}"/>
@@ -58,7 +58,7 @@
         
         <!-- Copy the tool and its dependencies to a central place for Glean to use -->
         <copy todir="${tools.base}/@{artifact}-@{version}">
-          <path refId="@{artifact}.path"/>
+          <fileset refId="@{artifact}.path"/>
           <flattenmapper/>
         </copy>
       </sequential>
