@@ -16,6 +16,7 @@
             classpathref="tool.classpath"
             destdir="${gen.report.dir}"
             verbose="false"
+            encoding="${file.encoding}"
                 >
             <doclet name="com.sun.tools.doclets.doccheck.DocCheck"
                     path="${tool.home}/doccheck.jar"

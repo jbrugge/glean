@@ -41,7 +41,9 @@
 <xsl:template match="//file[error]">
     <xsl:variable name="filename" select="@name"/>
     <xsl:variable name="translated-path" select="translate(@name, '\', '/')"/>
-    <xsl:variable name="linkpath" select="substring-after($translated-path, $source-root)"/>
+    <xsl:variable name="translated-source-root" select="translate($source-root, '\', '/')"/>
+    <xsl:variable name="linkpath" select="substring-after($translated-path, $translated-source-root)"/>
+    <xsl:variable name="class-name" select="translate($linkpath, '/', '.')"/>
     <table class="details">
     <tr>
     <th colspan="4">

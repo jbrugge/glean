@@ -30,7 +30,6 @@
         <report-style>
             <extra.params>
                 <param name="rulesets" expression="${pmd.rulesets}" />
-                <param name="context-root" expression="${src.link.prefix}" />
             </extra.params>
         </report-style>
     </target>

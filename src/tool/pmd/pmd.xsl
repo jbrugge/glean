@@ -8,7 +8,7 @@
 <xsl:template match="/pmd">
     <html>
     <head>
-    <META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css"/>
+    <meta http-equiv="Content-Style-Type" content="text/css"/>
     <title>PMD Results for <xsl:value-of select="$project"/></title>
     <link rel="stylesheet" type="text/css" href="../reports.css"/>
     </head>

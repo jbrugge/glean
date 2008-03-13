@@ -26,6 +26,7 @@
             useexternalfile="true"
             verbose="false"
             source="${source.level}"
+            encoding="${file.encoding}"
         >
             <arg value="-quiet"/>
             <packageset dir="${src.dir}"/>

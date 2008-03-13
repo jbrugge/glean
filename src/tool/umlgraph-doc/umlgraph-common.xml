@@ -10,6 +10,7 @@
             <javadoc
                 classpathref="tool.classpath"
                 verbose="false"
+                encoding="${file.encoding}"
                 >
             <doclet name="@{doclet}"
                     pathref="tool.classpath"

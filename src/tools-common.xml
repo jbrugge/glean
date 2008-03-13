@@ -171,6 +171,8 @@
                 style="@{stylesheet}">
               <param name="project" expression="${src.project.name}" />
               <param name="today" expression="${tool.timestamp}" />
+              <param name="context-root" expression="${src.link.prefix}" />
+              <param name="source-root" expression="${src.dir}/"/>
               <extra.params/>
             </xslt>
         </sequential>
