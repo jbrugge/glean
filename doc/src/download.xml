@@ -103,7 +103,7 @@
 <table class="bodyTable">
     <th>Date</th>
     <th>Version</th>
-    <th>Format</th>
+    <th colspan="2">Format</th>
     <th>Description</th>
   <tr>
     <td>7/17/2007</td>
