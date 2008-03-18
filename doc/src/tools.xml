@@ -689,7 +689,7 @@ It also produces XML output can also be used by the <a href="#qalab">QALab</a> s
 <table class="bodyTable">
 <th>Property</th><th>Default value</th><th>Description</th>
   <tr>
-    <td>report.stylesheet</td><td>${tool.home}/src/xsl/default.xsl</td><td>One of the output transformations that comes with Findbugs. Check the distribution for others.</td>
+    <td>report.stylesheet</td><td>${tool.basedir}/findbugs.xsl</td><td>Analysis report with links to source xref. Other stylesheets are available with the Findbugs distribution.</td>
   </tr>
   <tr>
     <td>findbugs.report.level</td><td>medium</td><td>The priority level threshold for bugs that are reported</td>

@@ -24,6 +24,7 @@ table.bodyTable tr th{
 }
 table.bodyTable tr td{
     background : #eeeee0;
+    vertical-align : top;
 }
  
 span#highlight {
