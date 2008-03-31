@@ -159,7 +159,7 @@
           message="# Generated file of home directories for Glean-driven tools.${line.separator}"
           />
     <echo file="${toolhome.props}"
-          message="$${tools.base} = ${tools.base}${line.separator}"
+          message="tools.base = ${tools.base}${line.separator}"
           append="true"
           />
     <echo file="${toolhome.props}" 
